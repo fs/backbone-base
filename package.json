@@ -1,0 +1,18 @@
+{
+  "name": "backbone-base",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-connect": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-coffeelint": "~1.0.3",
+    "grunt-slim": "~0.1.0"
+    "mocha": "~1.13.0"
+  }
+}
