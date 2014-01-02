@@ -1,6 +1,9 @@
 {
   "name": "backbone-base",
   "version": "0.0.1",
+  "authors": [
+    "Marat Fakhreev <marat.fakhreev@flatstack.com>"
+  ],
   "dependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-requirejs": "~0.4.1",
@@ -9,10 +12,9 @@
     "grunt-contrib-compass": "~0.7.0",
     "grunt-contrib-connect": "~0.5.0"
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-coffeelint": "~1.0.3",
-    "grunt-slim": "~0.1.0"
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-coffeelint": "~0.0.8",
+    "grunt-slim": "~0.1.0",
     "mocha": "~1.13.0"
   }
 }
