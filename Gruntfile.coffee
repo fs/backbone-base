@@ -1,14 +1,15 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
-    buildDir: 'public'
-    appDir: 'app/assets'
+    appDir: 'app'
+    devDir: 'develop'
+    publicDir: 'public'
 
-    #coffeelint
+    #coffeelin
     coffeelint:
-      prod:
+      pub:
         files:
-          src: ['<%= appDir %>/**/*.coffee', '!<%= srcDir %>/libs/**/*.coffee']
+          src: ['<%= appDir %>coffee/**/*.coffee', '!<%= devDir %>/libs/**/*.coffee']
 
     #coffee
     coffee:
@@ -17,9 +18,9 @@ module.exports = (grunt) ->
       dev:
         files: [
           expand: true
-          cwd: "<%= appDir %>/coffee"
-          src: ["**/*.coffee", "!libs/**/*.coffee"]
-          dest: "<%= buildDir %>/js"
+          cwd: "<%= appDir %>/coffee/"
+          src: ["**/*.coffee"]
+          dest: "<%= devDir %>/js/"
           ext: ".js"
         ]
 
@@ -28,19 +29,14 @@ module.exports = (grunt) ->
       dev:
         options:
           sassDir: '<%= appDir %>/sass'
-          cssDir: '<%= buildDir %>/css'
-
-    #slim
-    slim:
-      dev:
-        files:
-          '<%= buildDir %>/index.html': '<%= appDir %>/index.slim'
+          cssDir: '<%= devDir %>/css'
+          imagesDir: '<%= devDir %>/images'
 
     #requirejs(concat + uglify)
     requirejs:
-      prod:
+      pub:
         options:
-          name: "application"
+          name: "app"
           preserveLicenseComments: false
           findNestedDependencies: true
           optimize: "uglify2"
@@ -50,52 +46,78 @@ module.exports = (grunt) ->
             compress:
               global_defs:
                 DEBUG: false
-          baseUrl: "<%= buildDir %>/js"
-          out: "<%= buildDir %>/js/application.min.js"
-          mainConfigFile: "<%= buildDir %>/js/application.js"
+          baseUrl: "<%= devDir %>/js"
+          out: "<%= devDir %>/js/app.min.js"
+          mainConfigFile: "<%= devDir %>/js/app.js"
           removeCombined: false
 
     #clean
     clean:
-      prod: ['<%= buildDir %>']
+      pub: ['<%= devDir %>']
+
+    #removing console.log
+    removelogging:
+      pub:
+        src: "<%= devDir %>/js/**/*.js"
+
+    #The following *-min tasks pubuce minified files in the dist folder
+    imagemin:
+      pub:
+        files: [
+          expand: true,
+          cwd: '<%= devDir %>/images'
+          src: '**/*.gif,jpeg,jpg,png'
+          dest: '<%= devDir %>/images'
+        ]
 
     #web-server
     connect:
-      test:
+      options:
+        port: 8000
+        livereload: 35729
+        hostname: 'localhost'
+      livereload:
         options:
-          port: 8000
-          base: "."
+          open: true
+          base: '.'
 
     #watch
     watch:
       options:
         livereload: true
+        spawn: false
       dev:
-        files: ['<%= buildDir %>']
+        files: [
+          '<%= appDir %>/coffee/**/*.coffee' 
+          '<%= appDir %>/scss/**/*.scss'
+          '<%= appDir %>/sass/**/*.sass' 
+        ]
         tasks: [
-          'slim:dev'
           'compass:dev'
           'coffee:dev'
         ]
 
     #install npm packages
-    require('matchdep').forEach () -> 
-      grunt.loadNpmTasks
+    require("load-grunt-tasks")(grunt)
 
-    #tasks 
-    grunt.registerTask 'development', [
-      'slim:dev'
+    #global tasks
+    grunt.registerTask 'initialize', [
       'compass:dev'
       'coffee:dev'
+      'coffeelint:pub'
+      'connect:livereload'
     ]
 
-    grunt.registerTask 'build', [
-      'clean:prod'
-      'development'
-      'coffeelint:prod'
-      'require:prod'
+    grunt.registerTask 'public', [
+      'clean:pub'
+      'initialize'
+      'removelogging:pub'
+      'imagemin:pub'
+      'coffeelint:pub'
+      'require:pub'
     ]
 
     grunt.registerTask 'default', [
-      'watch'
+      'initialize'
+      'watch:dev'
     ]

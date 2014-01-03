@@ -1,3 +1,5 @@
 node_modules
 public
 bower_components
+.sass-cache
+develop/js/libs
