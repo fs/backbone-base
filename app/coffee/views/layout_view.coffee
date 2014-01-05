@@ -1,6 +1,7 @@
 define ['Marionette'], (Marionette) ->
 
   class AppLayout extends Backbone.Marionette.Layout
+    el: "body"
     template: JST['app/templates/layout_template.html']
 
     regions:

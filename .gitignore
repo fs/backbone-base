@@ -1,5 +1,8 @@
-node_modules
-public
-bower_components
+.DS_Store
 .sass-cache
-develop/js/libs
+
+node_modules
+bower_components
+
+develop
+public

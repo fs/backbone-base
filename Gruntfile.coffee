@@ -8,7 +8,7 @@ module.exports = (grunt) ->
     #coffeelint
     coffeelint:
       files:
-        src: ['<%= appDir %>coffee/**/*.coffee', '!<%= devDir %>/libs/**/*.coffee']
+        src: ['<%= appDir %>coffee/**/*']
       options:
         'no_trailing_whitespace':
           'level': 'error'

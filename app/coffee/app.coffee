@@ -6,12 +6,12 @@ requirejs.config
     'jQuery': 'libs/jquery/jquery'
     'Marionette': 'libs/marionette/lib/backbone.marionette'
     'Backbone.Relational': 'libs/backbone-relational/backbone-relational'
-    'Bootstrap': 'libs/sass-bootstrap/dist/js/bootstrap.js'
+    'Bootstrap': 'libs/sass-bootstrap/dist/js/bootstrap'
     'Views': 'views'
-    'Models': 'models'
-    'Routes': 'routes'
-    'Collections': 'collections'
     'Controllers': 'controllers'
+    'Routes': 'routes'
+    'Models': 'models'
+    'Collections': 'collections'
     'Templates': 'templates'
   shim:
     'Backbone':
@@ -20,7 +20,7 @@ requirejs.config
     'Backbone.Relational':
       deps: ['Backbone']
     'Marionette':
-      deps: ['Backbone', 'Templates']
+      deps: ['Backbone', 'Templates', 'Bootstrap']
     'Underscore':
       exports: '_'
     'jQuery':
@@ -28,17 +28,13 @@ requirejs.config
     'Bootstrap':
       deps: ['jQuery']
   
-requirejs ['Marionette', 'Views/layout_view'], (Marionette, LayoutView) ->
+requirejs ['Marionette', 'Routes/main_router'], (Marionette, Router) ->
   App = new Backbone.Marionette.Application()
 
   App.mainRoute = "main"
-  
-  App.addRegions
-    regionMain: "body"
 
   App.addInitializer ->
-    layout = new LayoutView()
-    App.regionMain.show(layout);
+    App.Router = new Router()
 
   App.on 'initialize:after', () ->
     Backbone.history.start
