@@ -4,7 +4,7 @@
   "authors": [
     "Marat Fakhreev <marat.fakhreev@flatstack.com>"
   ],
-  "dependencies": {
+  "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
@@ -19,8 +19,5 @@
     "grunt-coffeelint": "~0.0.8",
     "mocha": "~1.13.0",
     "load-grunt-tasks": "~0.2.0"
-  },
-  "devDependencies": {
-    "grunt-contrib-watch": "~0.5.3"
   }
 }

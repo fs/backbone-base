@@ -24,9 +24,9 @@ module.exports = (grunt) ->
       dev:
         files: [
           expand: true
-          cwd: "<%= appDir %>/coffee/"
+          cwd: "<%= appDir %>/coffee"
           src: ["*.coffee", "**/*.coffee"]
-          dest: "<%= devDir %>/js/"
+          dest: "<%= devDir %>/js"
           ext: ".js"
         ]
 
@@ -41,19 +41,16 @@ module.exports = (grunt) ->
     #underscore templates to jst converter
     jst:
       dev:
-        options:
-          templateSettings:
-            interpolate: /\{\{(.+?)\}\}/g
         files:
           "<%= devDir %>/js/templates.js": ["<%= appDir %>/templates/**/*.html"]
 
     #сopy
     copy:
-      beforeStart: 
+      dev: 
         expand: true
-        cwd: '<%= srcDir %>/application/libs'
+        cwd: '<%= appDir %>/templates'
         src: '**/*'
-        dest: '<%= buildDir %>/javascripts/libs'
+        dest: '<%= devDir %>/templates'
 
     #clean
     clean:
@@ -106,7 +103,7 @@ module.exports = (grunt) ->
         hostname: 'localhost'
       livereload:
         options:
-          open: true
+          #open: true
           base: '.'
 
     #watch
