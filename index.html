@@ -13,20 +13,54 @@
     <link rel="stylesheet" href="develop/js/libs/sass-bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="develop/css/style.css">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <script type="text/javascript" src="develop/js/templates.js"></script>
     <script type="text/javascript" data-main="develop/js/app" src="develop/js/libs/requirejs/require.js"></script>
   </head>
   <body>
-    <p>Backbone Base</p>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Backbone-base</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Example page header <small>Subtext for header</small></h1>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Backbone-base</h1>
+        <br/>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
   </body>
 </html>

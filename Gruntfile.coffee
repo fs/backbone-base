@@ -5,11 +5,17 @@ module.exports = (grunt) ->
     devDir: 'develop'
     publicDir: 'public'
 
-    #coffeelin
+    #coffeelint
     coffeelint:
-      pub:
-        files:
-          src: ['<%= appDir %>coffee/**/*.coffee', '!<%= devDir %>/libs/**/*.coffee']
+      files:
+        src: ['<%= appDir %>coffee/**/*.coffee', '!<%= devDir %>/libs/**/*.coffee']
+      options:
+        'no_trailing_whitespace':
+          'level': 'error'
+        'camel_case_classes':
+          'level': 'error'
+        'newlines_after_classes':
+          'level': 'warning'
 
     #coffee
     coffee:
@@ -19,7 +25,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: "<%= appDir %>/coffee/"
-          src: ["**/*.coffee"]
+          src: ["*.coffee", "**/*.coffee"]
           dest: "<%= devDir %>/js/"
           ext: ".js"
         ]
@@ -31,6 +37,34 @@ module.exports = (grunt) ->
           sassDir: '<%= appDir %>/sass'
           cssDir: '<%= devDir %>/css'
           imagesDir: '<%= devDir %>/images'
+
+    #underscore templates to jst converter
+    jst:
+      dev:
+        options:
+          templateSettings:
+            interpolate: /\{\{(.+?)\}\}/g
+        files:
+          "<%= devDir %>/js/templates.js": ["<%= appDir %>/templates/**/*.html"]
+
+    #сopy
+    copy:
+      beforeStart: 
+        expand: true
+        cwd: '<%= srcDir %>/application/libs'
+        src: '**/*'
+        dest: '<%= buildDir %>/javascripts/libs'
+
+    #clean
+    clean:
+      dev: [
+        '<%= devDir %>/**/*'
+        '<%= devDir %>/js/**/*'
+        '!<%= devDir %>/js'
+        '!<%= devDir %>/js/libs'
+        '!<%= devDir %>/js/libs/**/*'
+      ]
+      pub: ['<%= pubDir %>']
 
     #requirejs(concat + uglify)
     requirejs:
@@ -51,24 +85,18 @@ module.exports = (grunt) ->
           mainConfigFile: "<%= devDir %>/js/app.js"
           removeCombined: false
 
-    #clean
-    clean:
-      pub: ['<%= devDir %>']
-
     #removing console.log
     removelogging:
-      pub:
-        src: "<%= devDir %>/js/**/*.js"
+      src: "<%= devDir %>/js/**/*.js"
 
     #The following *-min tasks pubuce minified files in the dist folder
     imagemin:
-      pub:
-        files: [
-          expand: true,
-          cwd: '<%= devDir %>/images'
-          src: '**/*.gif,jpeg,jpg,png'
-          dest: '<%= devDir %>/images'
-        ]
+      files: [
+        expand: true,
+        cwd: '<%= devDir %>/images'
+        src: '**/*.gif,jpeg,jpg,png'
+        dest: '<%= pubDir %>/images'
+      ]
 
     #web-server
     connect:
@@ -88,13 +116,16 @@ module.exports = (grunt) ->
         spawn: false
       dev:
         files: [
-          '<%= appDir %>/coffee/**/*.coffee' 
-          '<%= appDir %>/scss/**/*.scss'
-          '<%= appDir %>/sass/**/*.sass' 
+          '<%= appDir %>/coffee/**/*' 
+          '<%= appDir %>/scss/**/*'
+          '<%= appDir %>/sass/**/*' 
+          '<%= appDir %>/templates/**/*'
         ]
         tasks: [
           'compass:dev'
           'coffee:dev'
+          'jst:dev'
+          'coffeelint'
         ]
 
     #install npm packages
@@ -102,18 +133,19 @@ module.exports = (grunt) ->
 
     #global tasks
     grunt.registerTask 'initialize', [
+      'clean:dev'
       'compass:dev'
+      'jst:dev'
       'coffee:dev'
-      'coffeelint:pub'
+      'coffeelint'
       'connect:livereload'
     ]
 
     grunt.registerTask 'public', [
       'clean:pub'
       'initialize'
-      'removelogging:pub'
-      'imagemin:pub'
-      'coffeelint:pub'
+      'removelogging'
+      'imagemin'
       'require:pub'
     ]
 
