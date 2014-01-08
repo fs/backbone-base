@@ -6,13 +6,17 @@ define [
   'Views/footer_region_view/footer_view'
 ], (Marionette, LayoutView, HeaderView, MainView, FooterView) ->
   #not good i think
-  layout = new LayoutView()
-  layout.render()
 
-  indexPage: ->
-    console.log 'main page loaded'
-    layout.headerRegion.show(new HeaderView())
-    layout.mainRegion.show(new MainView())
-    layout.footerRegion.show(new FooterView())
-    @
-    
+  class MainController extends Backbone.Marionette.Controller
+    initialize: ->
+      @layout = new LayoutView()
+      @layout.render()
+
+    indexPage: ->
+      console.log 'main page loaded'
+      @layout.headerRegion.show(new HeaderView())
+      @layout.mainRegion.show(new MainView())
+      @layout.footerRegion.show(new FooterView())
+      
+    somePage: ->
+      alert 'show some page'

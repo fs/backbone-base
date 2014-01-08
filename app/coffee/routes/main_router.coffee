@@ -4,6 +4,7 @@ define [
 ], (Marionette, Controller) ->
 
   class MainRouter extends Backbone.Marionette.AppRouter
-    controller: Controller
+    controller: new Controller()
     appRoutes:
       '': 'indexPage'
+      'page': 'somePage'

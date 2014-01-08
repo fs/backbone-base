@@ -39,6 +39,7 @@ requirejs ['Marionette', 'Routes/main_router'], (Marionette, Router) ->
   App.on 'initialize:after', () ->
     Backbone.history.start
       pushState: true
+      root: '/'
     console.log 'app started'
 
   App.start()

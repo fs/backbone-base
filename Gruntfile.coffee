@@ -8,14 +8,14 @@ module.exports = (grunt) ->
     #coffeelint
     coffeelint:
       files:
-        src: ['<%= appDir %>coffee/**/*']
+        src: ['<%= appDir %>/coffee/**/*.coffee']
       options:
         'no_trailing_whitespace':
           'level': 'error'
         'camel_case_classes':
           'level': 'error'
         'newlines_after_classes':
-          'level': 'warning'
+          'level': 'error'
 
     #coffee
     coffee:
