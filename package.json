@@ -1,6 +1,6 @@
 {
   "name": "backbone-base",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "Marat Fakhreev <marat.fakhreev@flatstack.com>"
   ],
@@ -17,6 +17,10 @@
     "grunt-contrib-jst": "~0.5.1",
     "grunt-remove-logging": "~0.2.0",
     "grunt-coffeelint": "~0.0.8",
+    "grunt-shell": "~0.6.1",
+    "grunt-stubby": "~0.1.4",
+    "grunt-connect-pushstate": "~0.2.0",
+    "grunt-connect-proxy": "~0.1.7",
     "mocha": "~1.13.0",
     "load-grunt-tasks": "~0.2.0"
   }

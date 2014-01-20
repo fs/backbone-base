@@ -1,6 +1,6 @@
 # Skeleton for Backbone.Marionette based application
 
-This simple application includes Backbone.js/Marionette.js freamworks and grunt/bower . 
+This simple application includes Backbone.js/Marionette.js frameworks and grunt/bower technologies. 
 
 ## NPM Moules:
     grunt: 0.4.2
@@ -15,6 +15,7 @@ This simple application includes Backbone.js/Marionette.js freamworks and grunt/
     grunt-contrib-jst: 0.5.1
     grunt-remove-logging: 0.2.0
     grunt-coffeelint: 0.0.8
+    grunt-shell: 0.6.1
     mocha: 1.13.0
     load-grunt-tasks: 0.2.0
 
@@ -25,6 +26,20 @@ This simple application includes Backbone.js/Marionette.js freamworks and grunt/
     backbone: 1.1.0
     backbone-relational: 0.8.6
     sass-bootstrap: 3.0.0
+
+## Install
+
+Install Nodejs
+    
+    brew install node
+
+Install Grunt CLI
+
+    npm install -g grunt-cli
+
+Install Bower
+
+    npm install -g bower
 
 ## Quick start
 
@@ -41,8 +56,11 @@ Make sure master branch is tracking origin repo.
 Run bootstrap scripts
 
     npm install
-    bower install
 
 Run app
 
     grunt
+
+Start to use application on browser:
+
+    localhost:8000

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "title": "Backbone",
+    "comment": "comment from Marat about Backbone"
+  },
+  {
+    "id": "2",
+    "title": "Marionette",
+    "comment": "comment from Marat about Marionette"
+  }
+]

@@ -1,5 +1,5 @@
 define [
-  'Marionette' 
+  'Marionette'
   'Controllers/main_controller'
 ], (Marionette, Controller) ->
 
