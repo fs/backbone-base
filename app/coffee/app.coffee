@@ -11,7 +11,7 @@ define [
     App.Router = new Router()
 
   App.navigate = (route, options) ->
-    options || (options = {})
+    options or (options = {})
     Backbone.history.navigate(route, options)
 
   App.on 'initialize:after', () ->

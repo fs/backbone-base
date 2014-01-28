@@ -4,4 +4,4 @@ define [
 ], (Marionette, UserSession) ->
 
   class LoginModel extends Backbone.Model
-    url: "mocks/users.json"
+    url: "/users"

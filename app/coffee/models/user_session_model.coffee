@@ -6,18 +6,41 @@ define [
     instance = null
 
     class PrivateClass extends Backbone.Model
-      url: "mocks/sign_in.json"
-      saveToken: (token) ->
-        localStorage.setItem('sessionToken', token)
-      getToken: ->
-        localStorage.getItem('sessionToken')
-      removeToken: ->
-        localStorage.removeItem('sessionToken')
-      login: ->
-        unless @getToken()?
+      url: 'api/sign_in.json'
+
+      initialize: ->
+        @storage = localStorage
+      
+      saveInStorage: (token) ->
+        @storage.setItem('userSession', token)
+
+      isLogged: ->
+        console.log 'isLogged'
+        @login({}).then =>
+          if @storage.getItem('userSession')?
+            @set(JSON.parse(@storage.getItem('userSession')))
+            console.log @attributes
+            return true
+          else
+            return false
+      
+      logout: ->
+        @storage.removeItem('userSession')
+        @clear()
+        @trigger 'change' 
+      
+      login: (data) ->
+        if @storage.getItem('userSession') is null
           @fetch
+            data: data
             success: =>
-              @saveToken(@get('sessionToken'))
+              @saveInStorage(JSON.stringify(@attributes))
+            error: ->
+              console.log 'login error'
+        else
+          console.log 'deffered'
+          deffered = $.Deferred()
+          deffered.promise()
 
     @getInstance: ->
       instance or= new PrivateClass()

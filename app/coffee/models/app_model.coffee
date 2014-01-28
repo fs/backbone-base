@@ -6,7 +6,7 @@ define [
   class AppModel extends Backbone.Model
     sync: (method, model, options) ->
       session = UserSession.getInstance()
-      console.log session
+      # console.log session
 
       if session.getToken()?
         if _.contains(['create', 'update', 'patch'], method)

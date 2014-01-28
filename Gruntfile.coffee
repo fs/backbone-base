@@ -13,13 +13,15 @@ module.exports = (grunt) ->
         src: ['<%= appDir %>/coffee/**/*.coffee']
       options:
         'no_trailing_whitespace':
-          'level': 'warn'
+          level: 'warn'
         'camel_case_classes':
-          'level': 'warn'
+          level: 'warn'
         'newlines_after_classes':
-          'level': 'warn'
+          level: 'warn'
         'arrow_spacing':
-          'level': 'warn'
+          level: 'warn'
+        'max_line_length':
+          level: 'ignore'
 
     #coffee
     coffee:
@@ -52,15 +54,15 @@ module.exports = (grunt) ->
     copy:
       dev: 
         expand: true
-        cwd: '<%= appDir %>/templates'
-        src: '**/*'
-        dest: '<%= devDir %>/templates'
+        cwd: '<%= appDir %>/index.html'
+        src: '.'
+        dest: '<%= devDir %>/index.html'
 
     #clean
     clean:
       dev: [
+        '<%= devDir %>/index.html'
         '<%= devDir %>/**/*'
-        '<%= devDir %>/js/**/*'
         '!<%= devDir %>/js'
         '!<%= devDir %>/js/libs'
         '!<%= devDir %>/js/libs/**/*'
@@ -85,56 +87,37 @@ module.exports = (grunt) ->
           out: '<%= devDir %>/js/app.min.js'
           mainConfigFile: '<%= devDir %>/js/app.js'
           removeCombined: false
-
-    #removing console.log
-    removelogging:
-      src: '<%= devDir %>/js/**/*.js'
-
-    #The following *-min tasks pubuce minified files in the dist folder
-    imagemin:
-      files: [
-        expand: true,
-        cwd: '<%= devDir %>/images'
-        src: '**/*.gif,jpeg,jpg,png'
-        dest: '<%= pubDir %>/images'
-      ]
-
+          
     #web-server
     connect:
       options:
         port: 8000
         livereload: 35729
         hostname: 'localhost'
+        middleware: (connect, options) ->
+          proxy = require('grunt-connect-proxy/lib/utils').proxyRequest
+          [
+            proxy
+            pushState()
+            connect.static(options.base)
+            connect.directory(options.base)
+          ]
       livereload:
         options:
           #open: true
-          base: '.'
-          middleware: (connect, options) ->
-            return [
-              pushState()
-              # Serve static files
-              connect.static(options.base)
-            ]
-        proxies: [
-          context: '/api'
-          host: 'localhost'
-          port: 3333
-          https: false
-          changeOrigin: false
-          xforward: false
-          # rewrite:
-          #   '^/api/token.json': '/mocks/token.json'
-        ]
+          base: '<%= devDir %>'
+      proxies: [
+        context: '/api'
+        host: 'localhost'
+        port: 8080
+      ]
 
-    stubby:
-      mockServer:
+    #mocks
+    easymock:
+      api:
         options:
-          stubs: 8000
-          tls: 8443
-          admin: 8001
-        files: [
-          src: ['mocks/*.{json,yaml,js}']
-        ]
+          port: 8080
+          path: 'mocks'
 
     #watch
     watch:
@@ -163,25 +146,25 @@ module.exports = (grunt) ->
         command: 
           '[ "$(ls <%= devDir %>/js/libs)" ] && echo "<%= devDir%>/js/libs is not Empty. Libraries are already installed" || bower install'
 
-    #install npm packages
+    #loading grunt tasks
     require('load-grunt-tasks')(grunt)
 
     #global tasks
     grunt.registerTask 'initialize', [
       'clean:dev'
+      'copy:dev'
       'compass:dev'
       'jst:dev'
       'coffee:dev'
       'coffeelint'
-      'stubby'
       'connect:livereload'
+      'easymock'
+      'configureProxies:server'
     ]
 
     grunt.registerTask 'public', [
       'clean:pub'
       'initialize'
-      'removelogging'
-      'imagemin'
       'require:pub'
     ]
 

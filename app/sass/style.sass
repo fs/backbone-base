@@ -1,3 +1,28 @@
+@import "compass"
+
+html,
 body
   margin: 0
   padding: 0
+  height: 100%
+
+  .login-form
+    +box-sizing(border-box)
+    padding: 8px 15px
+
+  #wrapper
+    min-height: 100%
+
+    .container
+      overflow: auto
+      padding-bottom: 70px
+
+  .footer
+    position: relative
+    margin-top: -70px
+    height: 70px
+    clear: both
+    background-color: #f8f8f8
+    border-top: 1px solid #e7e7e7
+    +box-sizing(border-box)
+    padding: 8px 15px

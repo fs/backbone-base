@@ -1,5 +1,5 @@
 require.config
-  baseUrl: 'develop/js'
+  baseUrl: 'js'
   deps: ['app']
   paths:
     #libs
@@ -7,7 +7,6 @@ require.config
     'Underscore': 'libs/underscore/underscore'
     'jQuery': 'libs/jquery/jquery'
     'Marionette': 'libs/marionette/lib/backbone.marionette'
-    'Backbone.Relational': 'libs/backbone-relational/backbone-relational'
     'Bootstrap': 'libs/sass-bootstrap/dist/js/bootstrap'
     #application
     'Views': 'views'
@@ -20,8 +19,6 @@ require.config
     'Backbone':
       deps: ['jQuery', 'Underscore']
       exports: 'Backbone'
-    'Backbone.Relational':
-      deps: ['Backbone']
     'Marionette':
       deps: ['Backbone', 'Templates', 'Bootstrap']
     'Underscore':
