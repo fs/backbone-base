@@ -16,9 +16,9 @@ define [
 
       isLogged: ->
         console.log 'isLogged'
-        @login({}).then =>
+        $.when(@login).then =>
           if @storage.getItem('userSession')?
-            @set(JSON.parse(@storage.getItem('userSession')))
+            # @set(JSON.parse(@storage.getItem('userSession')))
             console.log @attributes
             return true
           else
@@ -34,12 +34,13 @@ define [
           @fetch
             data: data
             success: =>
+              console.log 'success'
               @saveInStorage(JSON.stringify(@attributes))
             error: ->
               console.log 'login error'
         else
           console.log 'deffered'
-          deffered = $.Deferred()
+          deffered = new $.Deferred()
           deffered.promise()
 
     @getInstance: ->

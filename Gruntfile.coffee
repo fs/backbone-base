@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
     appDir: 'app'
-    devDir: 'develop'
+    developmentDir: 'develop'
     publicDir: 'public'
 
     #coffeelint
@@ -27,53 +27,75 @@ module.exports = (grunt) ->
     coffee:
       options:
         bare: true
-      dev:
+      development:
         files: [
           expand: true
           cwd: '<%= appDir %>/coffee'
           src: ['*.coffee', '**/*.coffee']
-          dest: '<%= devDir %>/js'
+          dest: '<%= developmentDir %>/js'
           ext: '.js'
         ]
 
     #compass
     compass:
-      dev:
+      development:
         options:
           sassDir: '<%= appDir %>/sass'
-          cssDir: '<%= devDir %>/css'
-          imagesDir: '<%= devDir %>/images'
+          cssDir: '<%= developmentDir %>/css'
+          imagesDir: '<%= developmentDir %>/images'
+
+    #jade tamplates to html converter
+    jade:
+      options:
+        client: false
+        pretty: true
+      development:
+        files: [
+          expand: true
+          cwd: '<%= appDir %>'
+          src: '**/*.jade'
+          dest: '<%= developmentDir %>',
+          ext: '.html'
+        ]
 
     #underscore templates to jst converter
     jst:
-      dev:
+      options:
+        processName: (filename) ->
+          filename.slice(filename.indexOf("templates"), filename.length - 5)
+      development:
         files:
-          '<%= devDir %>/js/templates.js': ['<%= appDir %>/templates/**/*.html']
+          '<%= developmentDir %>/js/templates.js': ['<%= developmentDir %>/templates/**/*.html']
 
     #сopy
     copy:
-      dev: 
+      publicCopyStyles: 
         expand: true
-        cwd: '<%= appDir %>/index.html'
         src: '.'
-        dest: '<%= devDir %>/index.html'
+        cwd: '<%= developmentDir %>/css/style.css'
+        dest: '<%= publicDir %>/css/style.css'
+      publicCopyIndex:
+        expand: true
+        src: '.'
+        cwd: '<%= developmentDir %>/index.html'
+        dest: '<%= publicDir %>/index.html'
 
     #clean
     clean:
-      dev: [
-        '<%= devDir %>/index.html'
-        '<%= devDir %>/**/*'
-        '!<%= devDir %>/js'
-        '!<%= devDir %>/js/libs'
-        '!<%= devDir %>/js/libs/**/*'
+      development: [
+        '<%= developmentDir %>/**/*'
+        '!<%= developmentDir %>/bower_components'
+        '!<%= developmentDir %>/bower_components/**/*'
+        '!<%= developmentDir %>/vendor'
+        '!<%= developmentDir %>/vendor/**/*'
       ]
-      pub: ['<%= pubDir %>']
+      public: ['<%= publicDir %>']
 
     #requirejs(concat + uglify)
     requirejs:
-      pub:
+      public:
         options:
-          name: 'app'
+          name: 'js/config'
           preserveLicenseComments: false
           findNestedDependencies: true
           optimize: 'uglify2'
@@ -83,9 +105,9 @@ module.exports = (grunt) ->
             compress:
               global_defs:
                 DEBUG: false
-          baseUrl: '<%= devDir %>/js'
-          out: '<%= devDir %>/js/app.min.js'
-          mainConfigFile: '<%= devDir %>/js/app.js'
+          baseUrl: '<%= developmentDir %>'
+          mainConfigFile: '<%= developmentDir %>/js/config.js'
+          out: '<%= publicDir %>/js/app.min.js'
           removeCombined: false
           
     #web-server
@@ -105,7 +127,7 @@ module.exports = (grunt) ->
       livereload:
         options:
           #open: true
-          base: '<%= devDir %>'
+          base: '<%= developmentDir %>'
       proxies: [
         context: '/api'
         host: 'localhost'
@@ -124,19 +146,19 @@ module.exports = (grunt) ->
       options:
         livereload: true
         spawn: false
-      dev:
-        files: [
-          '<%= appDir %>/coffee/**/*' 
-          '<%= appDir %>/scss/**/*'
-          '<%= appDir %>/sass/**/*' 
-          '<%= appDir %>/templates/**/*'
-        ]
-        tasks: [
-          'compass:dev'
-          'coffee:dev'
-          'jst:dev'
-          'coffeelint'
-        ]
+      files: [
+        '<%= appDir %>/templates/**/*'
+        '<%= appDir %>/scss/**/*'
+        '<%= appDir %>/sass/**/*' 
+        '<%= appDir %>/coffee/**/*' 
+        '<%= appDir %>/*'
+      ]
+      tasks: [
+        'templates'
+        'compass:development'
+        'coffee:development'
+        'coffeelint'
+      ]
 
     #shell scripts
     shell:
@@ -144,18 +166,25 @@ module.exports = (grunt) ->
         options:
           stdout: true
         command: 
-          '[ "$(ls <%= devDir %>/js/libs)" ] && echo "<%= devDir%>/js/libs is not Empty. Libraries are already installed" || bower install'
+          '[ "$(ls <%= developmentDir %>/bower_components)" ] 
+            && echo "<%= developmentDir%>/bower_components is not Empty. 
+            Libraries are already installed" || bower install'
 
     #loading grunt tasks
     require('load-grunt-tasks')(grunt)
 
+    #templates compiler
+    grunt.registerTask 'templates', [
+      'jade:development'
+      'jst:development'
+    ]
+
     #global tasks
     grunt.registerTask 'initialize', [
-      'clean:dev'
-      'copy:dev'
-      'compass:dev'
-      'jst:dev'
-      'coffee:dev'
+      'clean:development'
+      'templates'
+      'compass:development'
+      'coffee:development'
       'coffeelint'
       'connect:livereload'
       'easymock'
@@ -163,13 +192,14 @@ module.exports = (grunt) ->
     ]
 
     grunt.registerTask 'public', [
-      'clean:pub'
+      'clean:public'
       'initialize'
-      'require:pub'
+      'requirejs:public'
+      'copy:publicCopyStyles'
     ]
 
     grunt.registerTask 'default', [
       'shell:bowerInstall'
       'initialize'
-      'watch:dev'
+      'watch'
     ]

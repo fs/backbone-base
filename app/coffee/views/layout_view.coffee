@@ -5,7 +5,7 @@ define [
 
   class MainLayoutView extends Backbone.Marionette.Layout
     el: "#wrapper"
-    template: JST['app/templates/layout_template.html']
+    template: JST['templates/layout_template']
 
     regions:
       headerRegion : "#header_region"

@@ -5,7 +5,7 @@ define [
 ], (Marionette, HeaderNavigationView, HeaderLoginFormView) ->
 
   class HeaderLayoutView extends Backbone.Marionette.Layout
-    template: JST["app/templates/header/header_template.html"]
+    template: JST["templates/header/header_template"]
 
     regions:
       navigationRegion: "#navigation_region"
