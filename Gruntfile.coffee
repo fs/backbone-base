@@ -6,11 +6,12 @@ module.exports = (grunt) ->
     appDir: 'app'
     developmentDir: 'develop'
     publicDir: 'public'
+    testDir: 'tests'
 
     #coffeelint
     coffeelint:
       files:
-        src: ['<%= appDir %>/coffee/**/*.coffee']
+        src: ['<%= appDir %>/scripts/**/*.coffee']
       options:
         'no_trailing_whitespace':
           level: 'warn'
@@ -30,9 +31,17 @@ module.exports = (grunt) ->
       development:
         files: [
           expand: true
-          cwd: '<%= appDir %>/coffee'
+          cwd: '<%= appDir %>/scripts'
           src: ['*.coffee', '**/*.coffee']
-          dest: '<%= developmentDir %>/js'
+          dest: '<%= developmentDir %>/scripts'
+          ext: '.js'
+        ]
+      tests:
+        files: [
+          expand: true
+          cwd: '<%= testDir %>/scripts'
+          src: ['*.coffee', '**/*.coffee']
+          dest: '<%= testDir %>/scripts'
           ext: '.js'
         ]
 
@@ -40,8 +49,8 @@ module.exports = (grunt) ->
     compass:
       development:
         options:
-          sassDir: '<%= appDir %>/sass'
-          cssDir: '<%= developmentDir %>/css'
+          sassDir: '<%= appDir %>/stylesheets'
+          cssDir: '<%= developmentDir %>/stylesheets'
           imagesDir: '<%= developmentDir %>/images'
 
     #jade tamplates to html converter
@@ -61,19 +70,21 @@ module.exports = (grunt) ->
     #underscore templates to jst converter
     jst:
       options:
+        templateSettings:
+          interpolate : /\{\{(.+?)\}\}/g
         processName: (filename) ->
           filename.slice(filename.indexOf("templates"), filename.length - 5)
       development:
         files:
-          '<%= developmentDir %>/js/templates.js': ['<%= developmentDir %>/templates/**/*.html']
+          '<%= developmentDir %>/scripts/templates.js': ['<%= developmentDir %>/templates/**/*.html']
 
     #сopy
     copy:
       publicCopyStyles: 
         expand: true
         src: '.'
-        cwd: '<%= developmentDir %>/css/style.css'
-        dest: '<%= publicDir %>/css/style.css'
+        cwd: '<%= developmentDir %>/stylesheets/style.css'
+        dest: '<%= publicDir %>/stylesheets/style.css'
       publicCopyIndex:
         expand: true
         src: '.'
@@ -106,8 +117,8 @@ module.exports = (grunt) ->
               global_defs:
                 DEBUG: false
           baseUrl: '<%= developmentDir %>'
-          mainConfigFile: '<%= developmentDir %>/js/config.js'
-          out: '<%= publicDir %>/js/app.min.js'
+          mainConfigFile: '<%= developmentDir %>/scripts/config.js'
+          out: '<%= publicDir %>/scripts/app.min.js'
           removeCombined: false
           
     #web-server
@@ -141,6 +152,12 @@ module.exports = (grunt) ->
           port: 8080
           path: 'mocks'
 
+    #tests mocha+chai
+    mocha:
+      options:
+        reporter: 'Nyan'
+        run: true
+
     #watch
     watch:
       options:
@@ -148,9 +165,8 @@ module.exports = (grunt) ->
         spawn: false
       files: [
         '<%= appDir %>/templates/**/*'
-        '<%= appDir %>/scss/**/*'
-        '<%= appDir %>/sass/**/*' 
-        '<%= appDir %>/coffee/**/*' 
+        '<%= appDir %>/stylesheets/**/*' 
+        '<%= appDir %>/scripts/**/*' 
         '<%= appDir %>/*'
       ]
       tasks: [
@@ -173,11 +189,17 @@ module.exports = (grunt) ->
     #loading grunt tasks
     require('load-grunt-tasks')(grunt)
 
-    #templates compiler
+    #templates compiler tasks
     grunt.registerTask 'templates', [
       'jade:development'
       'jst:development'
     ]
+
+    #test tasks
+    grunt.registerTask 'test', '', () ->
+      grunt.task.run('coffee:tests')
+      grunt.config.set('mocha.browser', ['<%= testDir %>/**/*.html'])
+      grunt.task.run('mocha')
 
     #global tasks
     grunt.registerTask 'initialize', [

@@ -17,7 +17,6 @@ define [
       @layout = new LayoutView()
 
     indexPage: ->
-      console.log 'main page loaded'
       @layout.mainRegion.show(new MainView())
 
     somePage: ->

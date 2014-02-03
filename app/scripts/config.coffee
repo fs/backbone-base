@@ -1,20 +1,22 @@
 require.config
   baseUrl: '.'
-  deps: ['js/app']
+  deps: ['scripts/app']
   paths:
-    #libs
+    #bower_component
     'Backbone': 'bower_components/backbone/backbone'
     'Underscore': 'bower_components/underscore/underscore'
     'jQuery': 'bower_components/jquery/jquery'
     'Marionette': 'bower_components/marionette/lib/backbone.marionette'
     'Bootstrap': 'bower_components/sass-bootstrap/dist/js/bootstrap'
     #application
-    'Views': 'js/views'
-    'Controllers': 'js/controllers'
-    'Routes': 'js/routes'
-    'Models': 'js/models'
-    'Collections': 'js/collections'
-    'Templates': 'js/templates'
+    'Views': 'scripts/views'
+    'Controllers': 'scripts/controllers'
+    'Routes': 'scripts/routes'
+    'Models': 'scripts/models'
+    'Collections': 'scripts/collections'
+    'Templates': 'scripts/templates'
+    #tests
+    'add-one': 'scripts/add-one'
   shim:
     'Backbone':
       deps: ['jQuery', 'Underscore']

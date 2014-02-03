@@ -13,23 +13,24 @@ define [
     events:
       "submit #login_form": "onFormSubmit"
       "click #logout button": "onExit"
-    
-    modelEvents:
-      'change': 'render'
 
     onFormSubmit: (event) ->
       event.preventDefault()
-      @model.login(@_getFormData(@$form))
+      @model.login(@_getFormData(@$form)).then =>
+        console.log @model.attributes
+        @$el.html(@templateGreeting(@model.attributes))
 
     onExit: (event) ->
       @model.logout()
+      @$el.html(@templateForm)
 
     render: ->
       if @model.isLogged() then @$el.html(@templateGreeting)
       else @$el.html(@templateForm)
       @$form = @$('#login_form')
+      console.log @model.attributes
 
     _getFormData: (form) ->
-      obj =
-        user: form.find('#user_email').val()
-        pass: form.find('#user_password').val()
+      @model.set 
+        user_email: form.find('#user_email').val()
+        user_password: form.find('#user_password').val()

@@ -3,6 +3,7 @@
 
 node_modules
 bower_components
+access_logs.db
 
 develop
 public
