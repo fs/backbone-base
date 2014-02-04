@@ -1,7 +1,7 @@
 define [
   'Marionette'
   'Views/layout_view'
-  'Views/main/main_view'
+  'Views/main/main_layout_view'
   'Models/app_model'
 ], (Marionette, LayoutView, MainView, AppModel) ->
 

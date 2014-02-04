@@ -3,7 +3,7 @@ pushState = require('grunt-connect-pushstate/lib/utils').pushState
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
-    appDir: 'app'
+    applicationDir: 'app'
     developmentDir: 'develop'
     publicDir: 'public'
     testDir: 'tests'
@@ -11,7 +11,7 @@ module.exports = (grunt) ->
     #coffeelint
     coffeelint:
       files:
-        src: ['<%= appDir %>/scripts/**/*.coffee']
+        src: ['<%= applicationDir %>/scripts/**/*.coffee']
       options:
         'no_trailing_whitespace':
           level: 'warn'
@@ -31,7 +31,7 @@ module.exports = (grunt) ->
       development:
         files: [
           expand: true
-          cwd: '<%= appDir %>/scripts'
+          cwd: '<%= applicationDir %>/scripts'
           src: ['*.coffee', '**/*.coffee']
           dest: '<%= developmentDir %>/scripts'
           ext: '.js'
@@ -49,34 +49,29 @@ module.exports = (grunt) ->
     compass:
       development:
         options:
-          sassDir: '<%= appDir %>/stylesheets'
+          sassDir: '<%= applicationDir %>/stylesheets'
           cssDir: '<%= developmentDir %>/stylesheets'
           imagesDir: '<%= developmentDir %>/images'
 
-    #jade tamplates to html converter
+    #jade to JST compiler
     jade:
-      options:
-        client: false
-        pretty: true
-      development:
+      index:
+        options:
+          pretty: true
+          client: false
         files: [
-          expand: true
-          cwd: '<%= appDir %>'
-          src: '**/*.jade'
-          dest: '<%= developmentDir %>',
-          ext: '.html'
+          "<%= developmentDir %>/index.html": ["<%= applicationDir %>/index.jade"]
         ]
-
-    #underscore templates to jst converter
-    jst:
-      options:
-        templateSettings:
-          interpolate : /\{\{(.+?)\}\}/g
-        processName: (filename) ->
-          filename.slice(filename.indexOf("templates"), filename.length - 5)
       development:
-        files:
-          '<%= developmentDir %>/scripts/templates.js': ['<%= developmentDir %>/templates/**/*.html']
+        options:
+          pretty: false
+          client: true
+          amd: true
+          processName: (filename) ->
+            filename.slice(filename.indexOf("templates"), filename.length - 5)
+        files: [
+          "<%= developmentDir %>/scripts/templates.js": ["<%= applicationDir %>/templates/**/*.jade"]
+        ]
 
     #сopy
     copy:
@@ -163,12 +158,7 @@ module.exports = (grunt) ->
       options:
         livereload: true
         spawn: false
-      files: [
-        '<%= appDir %>/templates/**/*'
-        '<%= appDir %>/stylesheets/**/*' 
-        '<%= appDir %>/scripts/**/*' 
-        '<%= appDir %>/*'
-      ]
+      files: ['<%= applicationDir %>/**/*']
       tasks: [
         'templates'
         'compass:development'
@@ -191,8 +181,8 @@ module.exports = (grunt) ->
 
     #templates compiler tasks
     grunt.registerTask 'templates', [
+      'jade:index'
       'jade:development'
-      'jst:development'
     ]
 
     #test tasks

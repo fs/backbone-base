@@ -25,7 +25,7 @@ define [
       @$el.html(@templateForm)
 
     render: ->
-      if @model.isLogged() then @$el.html(@templateGreeting)
+      if @model.isLogged() then @$el.html(@templateGreeting(@model.attributes))
       else @$el.html(@templateForm)
       @$form = @$('#login_form')
       console.log @model.attributes
