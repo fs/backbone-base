@@ -1,4 +1,4 @@
-require.config
+requirejs.config
   baseUrl: '.'
   deps: ['scripts/app']
   paths:
@@ -16,14 +16,14 @@ require.config
     'Routes': 'scripts/routes'
     'Models': 'scripts/models'
     'Collections': 'scripts/collections'
-    'Helpers': 'scripts/helpers'
     'Templates': 'scripts/templates'
+    'Storage': 'scripts/facades/storage'
   shim:
     'Marionette':
-      deps: ['Backbone', 'Templates', 'Bootstrap']
+      deps: ['Backbone', 'Templates', 'Bootstrap', 'Storage']
     'Backbone':
-      deps: ['jQuery', 'Underscore']
       exports: 'Backbone'
+      deps: ['jQuery', 'Underscore']
     'Bootstrap':
       deps: ['jQuery']
     'Templates':

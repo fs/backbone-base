@@ -101,7 +101,7 @@ module.exports = (grunt) ->
     requirejs:
       public:
         options:
-          name: 'js/config'
+          name: 'scripts/config'
           preserveLicenseComments: false
           findNestedDependencies: true
           optimize: 'uglify2'
