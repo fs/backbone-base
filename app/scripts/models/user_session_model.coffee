@@ -1,7 +1,7 @@
 define [
-  'Marionette'
-  'Models/user_model'
-], (Marionette, UserModel) ->
+  'backbone'
+  'models/user_model'
+], (Backbone, UserModel) ->
 
   class UserSessionModel
     instance = null
@@ -14,11 +14,11 @@ define [
 
       initialize: ->
         @storage = localStorage
-        
+
         unless @storageIsEmpty()
           attributes = JSON.parse(@storage.getItem('userSession'))
           @set(attributes)
-      
+
       saveInStorage: (data) ->
         @storage.setItem('userSession', data)
 
@@ -31,7 +31,7 @@ define [
       logout: ->
         @storage.removeItem('userSession')
         @clear()
-      
+
       login: ->
         $.Deferred((def) =>
           if @storageIsEmpty()

@@ -1,23 +1,17 @@
 define [
-  'Marionette'
-  'Views/layout_view'
-  'Views/main/main_layout_view'
-  'Models/app_model'
+  'marionette'
+  'views/layout_view'
+  'views/main/main_layout_view'
+  'models/app_model'
 ], (Marionette, LayoutView, MainView, AppModel) ->
 
-  class MainController extends Backbone.Marionette.Controller
+  class MainController extends Marionette.Controller
     initialize: ->
-      #create a pub sub
-      @mediator = new Backbone.Wreqr.EventAggregator()
-      #create a req/res
-      @reqres = new Backbone.Wreqr.RequestResponse()
-      #create commands
-      @command = new Backbone.Wreqr.Commands()
-      #render layout
-      @layout = new LayoutView()
+      @layout = new LayoutView
+      @layout.render()
 
     indexPage: ->
-      @layout.mainRegion.show(new MainView())
+      @layout.mainRegion.show(new MainView)
 
     somePage: ->
       alert 'show some page'

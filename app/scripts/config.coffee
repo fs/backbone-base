@@ -1,34 +1,32 @@
 require.config
   baseUrl: '.'
-  deps: ['scripts/app']
+  deps: ['scripts/application']
   paths:
-    #bower_component
-    'Backbone': 'bower_components/backbone/backbone'
-    'Underscore': 'bower_components/underscore/underscore'
-    'jQuery': 'bower_components/jquery/jquery'
-    'Marionette': 'bower_components/marionette/lib/backbone.marionette'
-    'Bootstrap': 'bower_components/sass-bootstrap/dist/js/bootstrap'
-    #libs
-    'jade': 'vendor/scripts/runtime'
-    #application
-    'Views': 'scripts/views'
-    'Controllers': 'scripts/controllers'
-    'Routes': 'scripts/routes'
-    'Models': 'scripts/models'
-    'Collections': 'scripts/collections'
-    'Helpers': 'scripts/helpers'
-    'Templates': 'scripts/templates'
+    'backbone': '../vendor/bower_components/backbone/backbone'
+    'underscore': '../vendor/bower_components/underscore/underscore'
+    'jquery': '../vendor/bower_components/jquery/jquery'
+    'marionette': '../vendor/bower_components/marionette/lib/backbone.marionette'
+    'bootstrap': '../vendor/bower_components/sass-bootstrap/dist/js/bootstrap'
+    'jade': '../vendor/scripts/runtime'
+    'views': 'scripts/views'
+    'controllers': 'scripts/controllers'
+    'routes': 'scripts/routes'
+    'models': 'scripts/models'
+    'collections': 'scripts/collections'
+    'helpers': 'scripts/helpers'
+    'templates': 'scripts/templates'
   shim:
-    'Marionette':
-      deps: ['Backbone', 'Templates', 'Bootstrap']
-    'Backbone':
-      deps: ['jQuery', 'Underscore']
+    'marionette':
+      deps: ['backbone', 'templates', 'bootstrap']
+      exports: 'Marionette'
+    'backbone':
+      deps: ['jquery', 'underscore']
       exports: 'Backbone'
-    'Bootstrap':
-      deps: ['jQuery']
-    'Templates':
+    'bootstrap':
+      deps: ['jquery']
+    'templates':
       deps: ['jade']
-    'Underscore':
+    'underscore':
       exports: '_'
-    'jQuery':
+    'jquery':
       exports: '$'

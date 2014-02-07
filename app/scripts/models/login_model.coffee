@@ -1,7 +1,7 @@
 define [
-  'Marionette'
-  'Models/user_session_model'
-], (Marionette, UserSession) ->
+  'backbone'
+  'models/user_session_model'
+], (Backbone, UserSession) ->
 
   class LoginModel extends Backbone.Model
     url: "/users"

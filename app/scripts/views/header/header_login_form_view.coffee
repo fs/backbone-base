@@ -1,13 +1,13 @@
 define [
-  'Marionette'
-  'Models/user_session_model'
+  'marionette'
+  'models/user_session_model'
 ], (Marionette, UserSession) ->
 
-  class HeaderLoginFormView extends Backbone.Marionette.ItemView
+  class HeaderLoginFormView extends Marionette.ItemView
     tagName: 'div'
     className: 'nav navbar-nav navbar-right'
-    templateForm: JST["templates/header/header_login_form_template"]
-    templateGreeting: JST["templates/header/header_user_greeting_template"]
+    templateForm: 'templates/header/header_login_form_template'
+    templateGreeting: 'templates/header/header_user_greeting_template'
     model: UserSession.getInstance()
 
     events:
@@ -31,6 +31,6 @@ define [
       console.log @model.attributes
 
     _getFormData: (form) ->
-      @model.set 
+      @model.set
         user_email: form.find('#user_email').val()
         user_password: form.find('#user_password').val()
