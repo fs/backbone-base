@@ -1,13 +1,13 @@
 define [
   'marionette'
-  'models/user_session_model'
+  'models/user_session'
 ], (Marionette, UserSession) ->
 
   class HeaderLoginFormView extends Marionette.ItemView
     tagName: 'div'
     className: 'nav navbar-nav navbar-right'
-    templateForm: JST['templates/header/header_login_form_template']
-    templateGreeting: JST['templates/header/header_user_greeting_template']
+    templateForm: JST['templates/header/header_login_form']
+    templateGreeting: JST['templates/header/header_user_greeting']
     model: UserSession.getInstance()
 
     events:

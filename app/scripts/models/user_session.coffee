@@ -1,6 +1,6 @@
 define [
   'backbone'
-  'models/user_model'
+  'models/user'
   'storage'
 ], (Backbone, UserModel, Storage) ->
 
@@ -11,7 +11,7 @@ define [
       instance or= new PrivateClass()
 
     class PrivateClass extends UserModel
-      url: 'api/sign_in'
+      url: 'api/sign_in.json'
 
       initialize: ->
         unless @storageIsEmpty()

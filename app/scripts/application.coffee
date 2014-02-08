@@ -1,6 +1,6 @@
 requirejs [
   'marionette'
-  'routes/main_router'
+  'routes/main'
 ], (Marionette, Router) ->
 
   #doesn't work yet O_o 

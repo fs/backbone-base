@@ -1,9 +1,8 @@
 define [
   'marionette'
-  'views/layout_view'
-  'views/main/main_layout_view'
-  'models/app_model'
-], (Marionette, LayoutView, MainView, AppModel) ->
+  'views/layout'
+  'views/content/content_main'
+], (Marionette, LayoutView, MainView) ->
 
   class MainController extends Marionette.Controller
     initialize: ->

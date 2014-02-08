@@ -1,11 +1,11 @@
 define [
   'marionette'
-  'views/header/header_layout_view'
+  'views/header/header_layout'
 ], (Marionette, HeaderView) ->
 
   class MainLayoutView extends Marionette.Layout
     el: '#wrapper'
-    template: JST['templates/layout_template']
+    template: JST['templates/layout']
 
     regions:
       headerRegion: '#header_region'

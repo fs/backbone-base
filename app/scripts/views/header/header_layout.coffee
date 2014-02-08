@@ -1,11 +1,12 @@
 define [
   'marionette'
-  'views/header/header_navigation_view'
-  'views/header/header_login_form_view'
+  'views/header/header_navigation'
+  'views/header/header_login_form'
 ], (Marionette, HeaderNavigationView, HeaderLoginFormView) ->
 
   class HeaderLayoutView extends Marionette.Layout
-    template: JST['templates/header/header_template']
+    className: 'container-fluid'
+    template: JST['templates/header/header_layout']
 
     regions:
       navigationRegion: '#navigation_region'
