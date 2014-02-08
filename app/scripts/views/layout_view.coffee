@@ -5,7 +5,7 @@ define [
 
   class MainLayoutView extends Marionette.Layout
     el: '#wrapper'
-    template: 'templates/layout_template'
+    template: JST['templates/layout_template']
 
     regions:
       headerRegion: '#header_region'

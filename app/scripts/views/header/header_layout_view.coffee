@@ -5,7 +5,7 @@ define [
 ], (Marionette, HeaderNavigationView, HeaderLoginFormView) ->
 
   class HeaderLayoutView extends Marionette.Layout
-    template: 'templates/header/header_template'
+    template: JST['templates/header/header_template']
 
     regions:
       navigationRegion: '#navigation_region'

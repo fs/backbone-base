@@ -1,12 +1,13 @@
-define [
+requirejs [
   'marionette'
   'routes/main_router'
 ], (Marionette, Router) ->
 
-  Marionette.Renderer.render = (template, data) ->
-    return unless template
-    throw new Error("Template #{template} not found!") unless JST[template]
-    return JST[template](data)
+  #doesn't work yet O_o 
+  # Marionette.Renderer.render = (template, data) ->
+  #   return unless template
+  #   throw new Error("Template #{template} not found!") unless JST[template]
+  #   return JST[template](data)
 
   App = new Marionette.Application()
 

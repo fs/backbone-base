@@ -2,22 +2,25 @@ requirejs.config
   baseUrl: '.'
   deps: ['scripts/application']
   paths:
-    'backbone': '../vendor/bower_components/backbone/backbone'
-    'underscore': '../vendor/bower_components/underscore/underscore'
-    'jquery': '../vendor/bower_components/jquery/jquery'
-    'marionette': '../vendor/bower_components/marionette/lib/backbone.marionette'
-    'bootstrap': '../vendor/bower_components/sass-bootstrap/dist/js/bootstrap'
-    'jade': '../vendor/scripts/runtime'
+    #bower components
+    'backbone': 'bower_components/backbone/backbone'
+    'underscore': 'bower_components/underscore/underscore'
+    'jquery': 'bower_components/jquery/jquery'
+    'marionette': 'bower_components/marionette/lib/backbone.marionette'
+    'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap'
+    #vendor
+    'jade': 'vendor/scripts/runtime'
+    #application
     'views': 'scripts/views'
     'controllers': 'scripts/controllers'
     'routes': 'scripts/routes'
     'models': 'scripts/models'
     'collections': 'scripts/collections'
-    'helpers': 'scripts/helpers'
     'templates': 'scripts/templates'
+    'storage': 'scripts/facades/storage'
   shim:
     'marionette':
-      deps: ['backbone', 'templates', 'bootstrap']
+      deps: ['backbone', 'templates', 'bootstrap', 'storage']
       exports: 'Marionette'
     'backbone':
       deps: ['jquery', 'underscore']

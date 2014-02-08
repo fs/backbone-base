@@ -1,7 +1,8 @@
 define [
   'backbone'
   'models/user_model'
-], (Backbone, UserModel) ->
+  'storage'
+], (Backbone, UserModel, Storage) ->
 
   class UserSessionModel
     instance = null
@@ -10,26 +11,24 @@ define [
       instance or= new PrivateClass()
 
     class PrivateClass extends UserModel
-      url: 'api/sign_in.json'
+      url: 'api/sign_in'
 
       initialize: ->
-        @storage = localStorage
-
         unless @storageIsEmpty()
-          attributes = JSON.parse(@storage.getItem('userSession'))
+          attributes = JSON.parse(Storage.getItem('userSession'))
           @set(attributes)
 
       saveInStorage: (data) ->
-        @storage.setItem('userSession', data)
+        Storage.setItem('userSession', data)
 
       storageIsEmpty: ->
-        @storage.getItem('userSession') is null
+        Storage.getItem('userSession') is null
 
       isLogged: ->
         not @storageIsEmpty()
 
       logout: ->
-        @storage.removeItem('userSession')
+        Storage.removeItem('userSession')
         @clear()
 
       login: ->

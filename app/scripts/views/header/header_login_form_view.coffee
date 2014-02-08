@@ -6,8 +6,8 @@ define [
   class HeaderLoginFormView extends Marionette.ItemView
     tagName: 'div'
     className: 'nav navbar-nav navbar-right'
-    templateForm: 'templates/header/header_login_form_template'
-    templateGreeting: 'templates/header/header_user_greeting_template'
+    templateForm: JST['templates/header/header_login_form_template']
+    templateGreeting: JST['templates/header/header_user_greeting_template']
     model: UserSession.getInstance()
 
     events:
@@ -17,7 +17,6 @@ define [
     onFormSubmit: (event) ->
       event.preventDefault()
       @model.login(@_getFormData(@$form)).then =>
-        console.log @model.attributes
         @$el.html(@templateGreeting(@model.attributes))
 
     onExit: (event) ->

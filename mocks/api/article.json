@@ -1,0 +1,5 @@
+{
+  "id": "1",
+  "user_name": "M@rik",
+  "text": "Backbone.Marionette is a composite application library for Backbone.js that aims to simplify the construction of large scale JavaScript applications. It is a collection of common design and implementation patterns found in the applications that I (Derick Bailey) have been building with Backbone, and includes various pieces inspired by composite application architectures, such as Microsoft's \"Prism\" framework."
+}

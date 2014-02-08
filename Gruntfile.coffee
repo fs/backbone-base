@@ -10,8 +10,8 @@ module.exports = (grunt) ->
     copy:
       main:
         expand: true
-        src: 'vendor/**/*'
-        dest: '<%= publicDir %>/vendor'
+        src: ['vendor/**/*', 'bower_components/**/*']
+        dest: '<%= publicDir %>'
 
     coffeelint:
       files:
@@ -48,12 +48,15 @@ module.exports = (grunt) ->
           ext: '.js'
         ]
 
-    compass:
+    stylus:
       development:
         options:
-          sassDir: '<%= appDir %>/stylesheets'
-          cssDir: '<%= publicDir %>/stylesheets'
-          imagesDir: '<%= publicDir %>/images'
+          linenos: true
+          compress: false
+          urlfunc: 'embedurl'
+          paths: ['bower_components', 'vendor']
+        files:
+          "<%= publicDir %>/stylesheets/style.css": "<%= appDir %>/stylesheets/application.styl"
 
     jade:
       index:
@@ -96,11 +99,11 @@ module.exports = (grunt) ->
             compress:
               global_defs:
                 DEBUG: false
-          baseUrl: '<%= developmentDir %>'
-          mainConfigFile: '<%= developmentDir %>/scripts/config.js'
+          baseUrl: '<%= publicDir %>'
+          mainConfigFile: '<%= publicDir %>/scripts/config.js'
           out: '<%= publicDir %>/scripts/app.min.js'
           removeCombined: false
-          
+
     connect:
       options:
         port: 8000
@@ -123,6 +126,18 @@ module.exports = (grunt) ->
         port: 8080
       ]
 
+    watch:
+      options:
+        livereload: true
+        spawn: false
+      files: ['<%= appDir %>/**/*']
+      tasks: [
+        'templates'
+        'stylus:development'
+        'coffee:development'
+        'coffeelint'
+      ]
+
     easymock:
       api:
         options:
@@ -133,18 +148,6 @@ module.exports = (grunt) ->
       options:
         reporter: 'Nyan'
         run: true
-
-    watch:
-      options:
-        livereload: true
-        spawn: false
-      files: ['<%= appDir %>/**/*']
-      tasks: [
-        'templates'
-        'compass:development'
-        'coffee:development'
-        'coffeelint'
-      ]
 
     shell:
       bower:
@@ -169,7 +172,7 @@ module.exports = (grunt) ->
       'clean:development'
       'copy:main'
       'templates'
-      'compass:development'
+      'stylus:development'
       'coffee:development'
       'coffeelint'
       'connect:livereload'
@@ -185,7 +188,7 @@ module.exports = (grunt) ->
     ]
 
     grunt.registerTask 'default', [
-      # 'shell:bower'
+      'shell:bower'
       'initialize'
       'watch'
     ]

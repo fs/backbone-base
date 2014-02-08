@@ -1,12 +1,32 @@
 [
   {
     "id": "1",
-    "title": "Backbone",
-    "comment": "comment from Marat about Backbone"
+    "articleId": "1",
+    "user": "Sector",
+    "comment": "Sector wins"
   },
   {
     "id": "2",
-    "title": "Marionette",
-    "comment": "comment from Marat about Marionette"
+    "articleId": "1",
+    "user": "Johnny Cage",
+    "comment": "Johnny Cage Wins"
+  },
+  {
+    "id": "3",
+    "articleId": "1",
+    "user": "Raiden",
+    "comment": "Raiden Wins"
+  },
+  {
+    "id": "4",
+    "articleId": "1",
+    "user": "Jade",
+    "comment": "Jade Wins"
+  },
+  {
+    "id": "5",
+    "articleId": "1",
+    "user": "Kitana",
+    "comment": "Kitana Wins"
   }
 ]

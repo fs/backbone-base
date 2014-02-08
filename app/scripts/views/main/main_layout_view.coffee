@@ -1,4 +1,4 @@
 define ['marionette'], (Marionette) ->
 
   class MainView extends Marionette.ItemView
-    template: 'templates/main/main_template'
+    template: JST['templates/main/main_template']
