@@ -1,9 +1,9 @@
 define [
-  'Marionette'
-], (Marionette) ->
+  'backbone'
+], (Backbone) ->
 
   class UserModel extends Backbone.Model
-    defaults: 
+    defaults:
       'user_email': 'example@email.com',
       'user_name': 'user',
       'user_avatar': ''

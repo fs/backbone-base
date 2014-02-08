@@ -1,9 +1,9 @@
 define [
-  'Marionette'
-  'Controllers/main_controller'
+  'marionette'
+  'controllers/main_controller'
 ], (Marionette, Controller) ->
 
-  class MainRouter extends Backbone.Marionette.AppRouter
+  class MainRouter extends Marionette.AppRouter
     controller: new Controller()
     appRoutes:
       '': 'indexPage'

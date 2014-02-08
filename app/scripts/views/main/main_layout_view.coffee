@@ -1,4 +1,4 @@
-define ['Marionette'], (Marionette) ->
+define ['marionette'], (Marionette) ->
 
-  class MainView extends Backbone.Marionette.ItemView
-    template: JST["templates/main/main_template"]
+  class MainView extends Marionette.ItemView
+    template: 'templates/main/main_template'

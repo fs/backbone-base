@@ -1,6 +1,6 @@
 define [
-  'Marionette'
-  'Models/user_session_model'
+  'marionette'
+  'models/user_session_model'
 ], (Marionette) ->
 
   class AppCollection extends Backbone.Collection
