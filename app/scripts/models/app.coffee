@@ -1,14 +1,14 @@
 define [
   'backbone'
-  'models/user_session_model'
+  'models/user_session'
 ], (Backbone, UserSession) ->
 
   class AppModel extends Backbone.Model
     sync: (method, model, options) ->
       session = UserSession.getInstance()
-      # console.log session
 
-      if session.getToken()?
+      if session.isLogged()
+        console.log session
         if _.contains(['create', 'update', 'patch'], method)
           data = _.extend(model.toJSON(), session.getToken())
           options.data = JSON.stringify(data)

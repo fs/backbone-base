@@ -1,4 +1,5 @@
-define ['backbone'], (Backbone) ->
+define [
+  'models/app'
+], (AppModel) ->
 
-  class ArticleModel extends Backbone.Model
-    url: 'api/article.json'
+  class ArticleModel extends AppModel

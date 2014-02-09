@@ -1,9 +1,9 @@
 define [
   'marionette'
   'views/content/content_landing'
-  'views/content/content_article'
+  'views/content/content_articles_collection'
   'models/user_session'
-], (Marionette, ContentLandingView, ContentArticleView, UserSession) ->
+], (Marionette, ContentLandingView, ContentArticlesView, UserSession) ->
 
   class ContentLayoutView extends Marionette.Layout
     template: JST['templates/content/content_layout']
@@ -17,5 +17,5 @@ define [
 
     onRender: ->
       console.log 'model changed'
-      if @model.isLogged() then @contentRegion.show(new ContentArticleView)
+      if @model.isLogged() then @contentRegion.show(new ContentArticlesView)
       else @contentRegion.show(new ContentLandingView)

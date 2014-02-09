@@ -1,8 +1,8 @@
 define [
-  'backbone'
-], (Backbone) ->
+  'models/app'
+], (AppModel) ->
 
-  class CommentModel extends Backbone.Model
+  class CommentModel extends AppModel
     defaults:
       'id': '',
       'articleId': '',

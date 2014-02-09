@@ -1,8 +1,8 @@
 define [
-  'backbone'
+  'collections/app'
   'models/comment'
-], (Backbone, CommentModel) ->
+], (AppCollection, CommentModel) ->
 
-  class CommentsCollection extends Backbone.Collection
+  class CommentsCollection extends AppCollection
     url: 'api/comments.json'
     model: CommentModel

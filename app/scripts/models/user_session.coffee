@@ -18,6 +18,9 @@ define [
           attributes = JSON.parse(Storage.getItem('userSession'))
           @set(attributes)
 
+      getToken: ->
+        @get('session_token')
+
       saveInStorage: (data) ->
         Storage.setItem('userSession', data)
 
