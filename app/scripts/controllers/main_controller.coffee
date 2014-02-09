@@ -1,7 +1,7 @@
 define [
   'marionette'
   'views/layout'
-  'views/content/content_main'
+  'views/content/content_layout'
 ], (Marionette, LayoutView, MainView) ->
 
   class MainController extends Marionette.Controller

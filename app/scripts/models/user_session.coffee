@@ -25,7 +25,8 @@ define [
         Storage.getItem('userSession') is null
 
       isLogged: ->
-        not @storageIsEmpty()
+        # not @storageIsEmpty()
+        not _.isEmpty(@attributes.session_token)
 
       logout: ->
         Storage.removeItem('userSession')

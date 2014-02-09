@@ -3,13 +3,15 @@
     "id": "1",
     "articleId": "1",
     "user": "Sector",
-    "comment": "Sector wins"
+    "comment": "Sector wins",
+    "avatar": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRufWGNp-3ekuDLx5gUirEpwsOalBhEn4ZMuyM4LC5hUAKoK7JcPQ"
   },
   {
     "id": "2",
     "articleId": "1",
     "user": "Johnny Cage",
-    "comment": "Johnny Cage Wins"
+    "comment": "Johnny Cage Wins",
+    "avatar": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRufWGNp-3ekuDLx5gUirEpwsOalBhEn4ZMuyM4LC5hUAKoK7JcPQ"
   },
   {
     "id": "3",
@@ -25,8 +27,9 @@
   },
   {
     "id": "5",
-    "articleId": "1",
+    "articleId": "2",
     "user": "Kitana",
-    "comment": "Kitana Wins"
+    "comment": "Kitana Wins",
+    "avatar": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRufWGNp-3ekuDLx5gUirEpwsOalBhEn4ZMuyM4LC5hUAKoK7JcPQ"
   }
 ]

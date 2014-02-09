@@ -13,6 +13,5 @@ define [
       formRegion: '#login_form_region'
 
     onRender: ->
-      @navigationRegion.show(new HeaderNavigationView())
-      @formRegion.show(new HeaderLoginFormView())
-
+      @navigationRegion.show(new HeaderNavigationView)
+      @formRegion.show(new HeaderLoginFormView)

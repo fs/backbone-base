@@ -27,7 +27,6 @@ define [
       if @model.isLogged() then @$el.html(@templateGreeting(@model.attributes))
       else @$el.html(@templateForm)
       @$form = @$('#login_form')
-      console.log @model.attributes
 
     _getFormData: (form) ->
       @model.set
