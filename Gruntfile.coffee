@@ -1,5 +1,3 @@
-pushState = require('grunt-connect-pushstate/lib/utils').pushState
-
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -8,10 +6,16 @@ module.exports = (grunt) ->
     testDir: 'tests'
 
     copy:
-      main:
+      bower:
         expand: true
-        src: ['vendor/**/*', 'bower_components/**/*']
-        dest: '<%= publicDir %>'
+        cwd: 'bower_components'
+        src: ['**']
+        dest: 'public/bower_components'
+      vendor:
+        expand: true
+        cwd: 'vendor'
+        src: ['**']
+        dest: 'public/vendor'
 
     coffeelint:
       files:
@@ -111,6 +115,7 @@ module.exports = (grunt) ->
         hostname: 'localhost'
         middleware: (connect, options) ->
           proxy = require('grunt-connect-proxy/lib/utils').proxyRequest
+          pushState = require('grunt-connect-pushstate/lib/utils').pushState
           [
             proxy
             pushState()
@@ -170,7 +175,8 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'initialize', [
       'clean:development'
-      'copy:main'
+      'copy:bower'
+      'copy:vendor'
       'templates'
       'stylus:development'
       'coffee:development'
