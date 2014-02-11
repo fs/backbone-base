@@ -17,5 +17,7 @@ define [
 
     onRender: ->
       console.log 'model changed'
-      if @model.isLogged() then @contentRegion.show(new ContentArticlesView)
-      else @contentRegion.show(new ContentLandingView)
+      if @model.isLogged()
+        @contentRegion.show(new ContentArticlesView)
+      else
+        @contentRegion.show(new ContentLandingView)

@@ -10,7 +10,5 @@ define [
 
     initialize: ->
       @collection = new ArticleCollection()
-      @collection.fetch data:
-        user_name: 'M@rik'
-
+      @collection.fetch()
       console.log @collection

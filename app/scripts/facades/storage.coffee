@@ -1,4 +1,4 @@
-define [], () ->
+define ->
 
   class Storage
     storage = localStorage

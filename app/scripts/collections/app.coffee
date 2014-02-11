@@ -5,9 +5,7 @@ define [
 
   class AppCollection extends Backbone.Collection
     sync: (method, model, options) ->
-      session = UserSession.getInstance()
+      if UserSession.isLogged()
+        options.data = _.extend({}, options.data, UserSession.getToken())
 
-      if session.isLogged()
-        options.data = _.extend({}, options.data, session.getToken())
-      
       super

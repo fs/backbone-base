@@ -10,6 +10,14 @@ define [
     @getInstance: ->
       instance or= new PrivateClass()
 
+    @isLogged: ->
+      session = @getInstance()
+      session.isLogged()
+
+    @getToken: ->
+      session = @getInstance()
+      session.get('session_token')
+
     class PrivateClass extends UserModel
       url: 'api/sign_in.json'
 
@@ -18,9 +26,6 @@ define [
           attributes = JSON.parse(Storage.getItem('userSession'))
           @set(attributes)
 
-      getToken: ->
-        @get('session_token')
-
       saveInStorage: (data) ->
         Storage.setItem('userSession', data)
 
@@ -28,7 +33,6 @@ define [
         Storage.getItem('userSession') is null
 
       isLogged: ->
-        # not @storageIsEmpty()
         not _.isEmpty(@attributes.session_token)
 
       logout: ->

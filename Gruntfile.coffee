@@ -7,11 +7,16 @@ module.exports = (grunt) ->
     publicDir: 'public'
     testDir: 'tests'
 
-    copy:
-      main:
-        expand: true
-        src: ['vendor/**/*', 'bower_components/**/*']
-        dest: '<%= publicDir %>'
+    symlink:
+      development:
+        files: [
+          expand: true
+          overwrite: false
+          cwd: ''
+          src: ['bower_components', 'vendor']
+          dest: '<%= publicDir %>'
+          filter: 'isDirectory'
+        ]
 
     coffeelint:
       files:
@@ -80,10 +85,6 @@ module.exports = (grunt) ->
     clean:
       development: [
         '<%= publicDir %>/**/*'
-        '!<%= publicDir %>/bower_components'
-        '!<%= publicDir %>/bower_components/**/*'
-        '!<%= publicDir %>/vendor'
-        '!<%= publicDir %>/vendor/**/*'
       ]
 
     requirejs:
@@ -170,7 +171,7 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'initialize', [
       'clean:development'
-      'copy:main'
+      'symlink:development'
       'templates'
       'stylus:development'
       'coffee:development'
@@ -184,7 +185,6 @@ module.exports = (grunt) ->
       'clean:public'
       'initialize'
       'requirejs:public'
-      'copy:publicCopyStyles'
     ]
 
     grunt.registerTask 'default', [
