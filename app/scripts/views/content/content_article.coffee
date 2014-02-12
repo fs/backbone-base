@@ -1,8 +1,7 @@
 define [
   'marionette'
   'views/content/content_comment'
-  'collections/comments'
-], (Marionette, CommentView, CommentsCollection) ->
+], (Marionette, CommentView) ->
 
   class ArticleView extends Marionette.CompositeView
     className: 'media'
@@ -10,6 +9,9 @@ define [
     itemView: CommentView
     itemViewContainer: '.comments'
 
-    initialize: ->
-      @collection = new CommentsCollection
-      @collection.fetch()
+    events:
+      'click .close': 'onRemoveClicked'
+
+    onRemoveClicked: ->
+      @model.destroy().then =>
+        alert 'article deleted'

@@ -19,7 +19,7 @@ define [
       session.get('session_token')
 
     class PrivateClass extends UserModel
-      url: 'api/sign_in.json'
+      url: 'api/sign_in'
 
       initialize: ->
         unless @storageIsEmpty()

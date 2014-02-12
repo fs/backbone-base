@@ -1,5 +1,3 @@
-pushState = require('grunt-connect-pushstate/lib/utils').pushState
-
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
@@ -112,6 +110,7 @@ module.exports = (grunt) ->
         hostname: 'localhost'
         middleware: (connect, options) ->
           proxy = require('grunt-connect-proxy/lib/utils').proxyRequest
+          pushState = require('grunt-connect-pushstate/lib/utils').pushState
           [
             proxy
             pushState()

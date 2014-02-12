@@ -1,5 +1,5 @@
 requirejs.config
-  baseUrl: '.'
+  baseUrl: 'http://localhost:8000/'
   deps: ['scripts/application']
   paths:
     #bower components

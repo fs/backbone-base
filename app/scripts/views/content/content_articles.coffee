@@ -1,14 +1,13 @@
 define [
   'marionette'
   'views/content/content_article'
-  'collections/articles'
-], (Marionette, ArticleView, ArticleCollection) ->
+], (Marionette, ArticleView) ->
 
   class ContentArticlesView extends Marionette.CollectionView
     className: 'articles'
     itemView: ArticleView
+    # itemViewOptions:
+    #   collection: @collection
 
     initialize: ->
-      @collection = new ArticleCollection()
-      @collection.fetch()
       console.log @collection
