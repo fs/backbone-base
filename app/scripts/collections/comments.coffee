@@ -1,8 +1,7 @@
 define [
   'collections/app'
   'models/comment'
-], (AppCollection, CommentModel) ->
+], (AppCollection, Comment) ->
 
-  class CommentsCollection extends AppCollection
-    url: 'api/comments.json'
-    model: CommentModel
+  class Comments extends AppCollection
+    model: Comment

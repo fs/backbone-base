@@ -4,5 +4,8 @@ a.pull-left(href='#')
   h4.media-heading #{user_name}
   button.close(type="button" aria-hidden="true")
     | &times;
-  | #{text}
-  .comments
+  p
+    | #{text}
+  .article-navigation
+    input(type='submit', class='btn btn-primary js-link' href='articles/#{id}')
+    span.comments-count #{comments_count}

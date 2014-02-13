@@ -16,8 +16,13 @@ define [
     indexPage: ->
       if UserSession.isLogged()
         articles = new Articles()
-        articles.fetch()
-        @layout.mainRegion.show(new ContentLayoutView({collection: articles}))
+        $.when(articles.fetch()).then =>
+          @layout.mainRegion.show(new ContentLayoutView({collection: articles}))
+      else
+        @layout.mainRegion.show(new ContentLayoutView)
 
     somePage: ->
       alert 'show some page'
+
+    showArticle: (id) ->
+      alert "#{id}"

@@ -2,9 +2,9 @@ define [
   'backbone'
   'models/user'
   'storage'
-], (Backbone, UserModel, Storage) ->
+], (Backbone, User, Storage) ->
 
-  class UserSessionModel
+  class UserSession
     instance = null
 
     @getInstance: ->
@@ -18,7 +18,7 @@ define [
       session = @getInstance()
       session.get('session_token')
 
-    class PrivateClass extends UserModel
+    class PrivateClass extends User
       url: 'api/sign_in'
 
       initialize: ->
