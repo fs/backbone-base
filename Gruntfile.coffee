@@ -59,25 +59,25 @@ module.exports = (grunt) ->
           urlfunc: 'embedurl'
           paths: ['bower_components', 'vendor']
         files:
-          "<%= publicDir %>/stylesheets/style.css": "<%= appDir %>/stylesheets/application.styl"
+          '<%= publicDir %>/stylesheets/style.css': '<%= appDir %>/stylesheets/application.styl'
 
     jade:
-      index:
+      html:
         options:
           pretty: true
           client: false
         files: [
-          "<%= publicDir %>/index.html": ["<%= appDir %>/index.jade"]
+          '<%= publicDir %>/index.html': ['<%= appDir %>/index.jade']
         ]
-      development:
+      jst:
         options:
           pretty: false
           client: true
           amd: true
           processName: (filename) ->
-            filename.slice(filename.indexOf("templates"), filename.length - 5)
+            filename.slice(filename.indexOf('templates'), filename.length - 5)
         files: [
-          "<%= publicDir %>/scripts/templates.js": ["<%= appDir %>/templates/**/*.jade"]
+          '<%= publicDir %>/scripts/templates.js': ['<%= appDir %>/templates/**/*.jade']
         ]
 
     clean:
@@ -156,11 +156,19 @@ module.exports = (grunt) ->
         command:
           'bower install'
 
+    concurrent:
+        compile: [
+          'templates'
+          'stylus:development'
+          'coffee:development'
+          'coffeelint'
+        ]
+
     require('load-grunt-tasks')(grunt)
 
     grunt.registerTask 'templates', [
-      'jade:index'
-      'jade:development'
+      'jade:html'
+      'jade:jst'
     ]
 
     grunt.registerTask 'test', '', ->
@@ -171,10 +179,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'initialize', [
       'clean:development'
       'symlink:development'
-      'templates'
-      'stylus:development'
-      'coffee:development'
-      'coffeelint'
+      'concurrent:compile'
       'connect:livereload'
       'easymock'
       'configureProxies:server'
