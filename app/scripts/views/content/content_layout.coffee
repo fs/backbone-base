@@ -26,3 +26,4 @@ define [
         @writeArticleRegion.show(new ContentWriteArticleView({collection: @collection}))
       else
         @contentRegion.show(new ContentLandingView)
+        @writeArticleRegion.close()

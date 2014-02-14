@@ -7,15 +7,17 @@ define [
     template: JST['templates/content/content_write_article']
     model: UserSession.getInstance()
 
+    ui:
+      form: '#save_article'
+
     events:
       'submit form#save_article': '_onSaveArticle'
 
     _onSaveArticle: (event) ->
       event.preventDefault()
-      $form = $(event.currentTarget)
       data =
-        'text': $form.find('textarea').val()
+        'text': @ui.form.find('textarea').val()
         'user_name': @model.get('user_name')
         'avatar': @model.get('user_avatar')
-      @collection.saveArticle(data)
+      @collection.create(data)
 
