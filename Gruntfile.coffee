@@ -3,7 +3,12 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON 'package.json'
     appDir: 'app'
     publicDir: 'public'
+    productionDir: 'production'
     testDir: 'tests'
+    ports:
+      livereload: 35729
+      connect: 8000
+      easymock: 8001
 
     symlink:
       development:
@@ -59,34 +64,40 @@ module.exports = (grunt) ->
           urlfunc: 'embedurl'
           paths: ['bower_components', 'vendor']
         files:
-          "<%= publicDir %>/stylesheets/style.css": "<%= appDir %>/stylesheets/application.styl"
+          '<%= publicDir %>/stylesheets/style.css': '<%= appDir %>/stylesheets/application.styl'
 
     jade:
-      index:
+      html:
         options:
           pretty: true
           client: false
         files: [
-          "<%= publicDir %>/index.html": ["<%= appDir %>/index.jade"]
+          '<%= publicDir %>/index.html': ['<%= appDir %>/index.jade']
         ]
-      development:
+      jst:
         options:
           pretty: false
           client: true
           amd: true
           processName: (filename) ->
-            filename.slice(filename.indexOf("templates"), filename.length - 5)
+            filename.slice(filename.indexOf('templates'), filename.length - 5)
         files: [
-          "<%= publicDir %>/scripts/templates.js": ["<%= appDir %>/templates/**/*.jade"]
+          '<%= publicDir %>/scripts/templates.js': ['<%= appDir %>/templates/**/*.jade']
         ]
 
     clean:
       development: [
         '<%= publicDir %>/**/*'
       ]
+      production: [
+        '<%= productionDir %>/scripts'
+        '<%= productionDir %>/stylesheets'
+        '<%= productionDir %>/bower_components'
+        '<%= productionDir %>/vendor'
+      ]
 
     requirejs:
-      public:
+      production:
         options:
           name: 'scripts/config'
           preserveLicenseComments: false
@@ -98,15 +109,15 @@ module.exports = (grunt) ->
             compress:
               global_defs:
                 DEBUG: false
-          baseUrl: '<%= publicDir %>'
-          mainConfigFile: '<%= publicDir %>/scripts/config.js'
-          out: '<%= publicDir %>/scripts/app.min.js'
-          removeCombined: false
+          baseUrl: '<%= productionDir %>'
+          mainConfigFile: '<%= productionDir %>/scripts/config.js'
+          out: '<%= productionDir %>/application.js'
+          # removeCombined: false
 
     connect:
       options:
-        port: 8000
-        livereload: 35729
+        port: '<%= ports.connect %>'
+        livereload: '<%= ports.livereload %>'
         hostname: 'localhost'
         middleware: (connect, options) ->
           proxy = require('grunt-connect-proxy/lib/utils').proxyRequest
@@ -123,7 +134,7 @@ module.exports = (grunt) ->
       proxies: [
         context: '/api'
         host: 'localhost'
-        port: 8080
+        port: '<%= ports.easymock %>'
       ]
 
     watch:
@@ -141,7 +152,7 @@ module.exports = (grunt) ->
     easymock:
       api:
         options:
-          port: 8080
+          port: '<%= ports.easymock %>'
           path: 'mocks'
 
     jsonlint:
@@ -160,11 +171,42 @@ module.exports = (grunt) ->
         command:
           'bower install'
 
+    concurrent:
+        compile: [
+          'templates'
+          'stylus:development'
+          'coffee:development'
+          'coffeelint'
+        ]
+
+    copy:
+      production:
+        files: [
+          expand: true
+          cwd: '<%= publicDir %>'
+          src: ['**']
+          dest: '<%= productionDir %>'
+        ,
+          src: '<%= publicDir %>/stylesheets/style.css'
+          dest: '<%= productionDir %>/style.css'
+        ,
+          src: '<%= publicDir %>/bower_components/requirejs/require.js'
+          dest: '<%= productionDir %>/require.js'
+        ]
+
+    htmlmin:
+      production:
+        options:
+          removeComments: true
+          collapseWhitespace: true
+        files:
+          '<%= productionDir %>/index.html': '<%= publicDir %>/index.html'
+
     require('load-grunt-tasks')(grunt)
 
     grunt.registerTask 'templates', [
-      'jade:index'
-      'jade:development'
+      'jade:html'
+      'jade:jst'
     ]
 
     grunt.registerTask 'test', '', ->
@@ -175,20 +217,28 @@ module.exports = (grunt) ->
     grunt.registerTask 'initialize', [
       'clean:development'
       'symlink:development'
+<<<<<<< HEAD
       'templates'
       'stylus:development'
       'coffee:development'
       'coffeelint'
       'jsonlint:development'
+=======
+      'concurrent:compile'
+>>>>>>> improve-gruntfile
       'connect:livereload'
       'easymock'
       'configureProxies:server'
     ]
 
-    grunt.registerTask 'public', [
-      'clean:public'
-      'initialize'
-      'requirejs:public'
+    grunt.registerTask 'production', [
+      'copy:production'
+      'requirejs:production'
+      'htmlmin:production'
+      'clean:production'
+      # 'clean:public'
+      # 'initialize'
+      # 'requirejs:public'
     ]
 
     grunt.registerTask 'default', [
