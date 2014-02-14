@@ -15,10 +15,7 @@ define [
       formRegion: '#login_form_region'
 
     modelEvents:
-      'change': 'toggleNavBar'
-
-    toggleNavBar: ->
-      @onRender()
+      'change': 'render'
 
     onRender: ->
       if @model.isLogged()

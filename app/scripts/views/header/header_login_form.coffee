@@ -13,6 +13,7 @@ define [
       "submit #login_form": "onFormSubmit"
 
     onFormSubmit: (event) ->
+      #TODO: replace this view with two single views and do dashboard redirect
       event.preventDefault()
       @model.login(@_getFormData(@$form)).then =>
         @$el.html(@templateGreeting(@model.attributes))

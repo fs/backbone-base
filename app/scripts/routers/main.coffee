@@ -8,14 +8,16 @@ define [
     initialize: ->
       @controller = new Controller
       @listenTo @controller, 'logout', @redirectIfNotLoggedIn
+      @listenTo @controller, 'dashboard', @showDashboard
 
       super
 
     appRoutes:
       #on unknown reason without '/' doesn't work articles/:id/'
       '': 'indexPage'
-      'articles/': 'showArticles'
-      'articles/:id/': 'showArticle'
+      'dashboard/': 'showDashboard'
+      'dashboard/articles/': 'showArticles'
+      'dashboard/articles/:id/': 'showArticle'
       'logout/': 'logout'
 
     # NOTE: route filter usage example
