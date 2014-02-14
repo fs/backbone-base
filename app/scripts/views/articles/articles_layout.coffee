@@ -11,9 +11,6 @@ define [
       articlesRegion: '#articles_list_region'
       writeArticleRegion: '#write_article_region'
 
-    toggleNavBar: ->
-      @onRender()
-
     onRender: ->
       @articlesRegion.show(new ArticlesView({collection: @collection}))
       @writeArticleRegion.show(new WriteArticleView({collection: @collection}))

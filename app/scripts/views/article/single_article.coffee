@@ -9,7 +9,5 @@ define [
     itemView: CommentView
     itemViewContainer: '.comments'
 
-    render: ->
-      super
-
-      comments = @model.get('comments')
+    initialize: ->
+      @collection = @model.get('comments')

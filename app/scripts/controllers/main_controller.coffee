@@ -5,9 +5,10 @@ define [
   'views/articles/articles_layout'
   'views/header/header_layout'
   'views/article/single_article'
+  'models/user_session'
   'models/article'
   'collections/articles'
-], (Marionette, LayoutView, ContentLayoutView, ArticlesLayoutView, HeaderLayoutView, SingleArticleView, Article, Articles) ->
+], (Marionette, LayoutView, ContentLayoutView, ArticlesLayoutView, HeaderLayoutView, SingleArticleView, UserSession, Article, Articles) ->
 
   class MainController extends Marionette.Controller
     initialize: ->
@@ -18,8 +19,10 @@ define [
     indexPage: ->
       @layout.mainRegion.show(new ContentLayoutView)
 
-    somePage: ->
-      alert 'show some page'
+    logout: ->
+      session = UserSession.getInstance()
+      session.logout()
+      @trigger('logout')
 
     showArticles: ->
       articles = new Articles()
@@ -30,3 +33,5 @@ define [
       model = new Article({id: id})
       model.fetch().then =>
         @layout.mainRegion.show(new SingleArticleView({model: model}))
+
+
