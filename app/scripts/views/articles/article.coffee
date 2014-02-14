@@ -3,11 +3,9 @@ define [
   'views/content/content_comment'
 ], (Marionette, CommentView) ->
 
-  class ArticleView extends Marionette.CompositeView
+  class ArticleView extends Marionette.ItemView
     className: 'media'
-    template: JST['templates/content/content_article']
-    itemView: CommentView
-    itemViewContainer: '.comments'
+    template: JST['templates/articles/article']
 
     events:
       'click .close': 'onRemoveClicked'

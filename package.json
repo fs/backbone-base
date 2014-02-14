@@ -19,6 +19,7 @@
     "grunt-connect-pushstate": "~0.2.0",
     "grunt-connect-proxy": "~0.1.7",
     "grunt-easymock": "~0.0.4",
+    "grunt-jsonlint": "~1.0.4",
     "grunt-mocha": "~0.4.7",
     "grunt-shell": "~0.6.1",
     "load-grunt-tasks": "~0.2.0"

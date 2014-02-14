@@ -1,10 +1,9 @@
 define [
   'marionette'
   'views/content/content_landing'
-  'views/content/content_articles'
-  'views/content/content_write_article'
+  'views/content/greeting'
   'models/user_session'
-], (Marionette, ContentLandingView, ContentArticlesView, ContentWriteArticleView, UserSession) ->
+], (Marionette, ContentLandingView, GreetingView, UserSession) ->
 
   class ContentLayoutView extends Marionette.Layout
     template: JST['templates/content/content_layout']
@@ -12,7 +11,6 @@ define [
 
     regions:
       contentRegion: '#content_container'
-      writeArticleRegion: '#write_message_container'
 
     modelEvents:
       "change": "onUserLogged"
@@ -22,8 +20,6 @@ define [
 
     onRender: ->
       if @model.isLogged()
-        @contentRegion.show(new ContentArticlesView({collection: @collection}))
-        @writeArticleRegion.show(new ContentWriteArticleView({collection: @collection}))
+        @contentRegion.show(new GreetingView(model: @model))
       else
         @contentRegion.show(new ContentLandingView)
-        @writeArticleRegion.close()

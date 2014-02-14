@@ -144,6 +144,10 @@ module.exports = (grunt) ->
           port: 8080
           path: 'mocks'
 
+    jsonlint:
+      development:
+        src: ['mocks/**/*.json']
+
     mocha:
       options:
         reporter: 'Nyan'
@@ -175,6 +179,7 @@ module.exports = (grunt) ->
       'stylus:development'
       'coffee:development'
       'coffeelint'
+      'jsonlint:development'
       'connect:livereload'
       'easymock'
       'configureProxies:server'

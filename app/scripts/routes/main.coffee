@@ -8,4 +8,5 @@ define [
     appRoutes:
       '': 'indexPage'
       'page': 'somePage'
+      'articles': 'showArticles'
       'articles/:id': 'showArticle'
