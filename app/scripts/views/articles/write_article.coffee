@@ -4,7 +4,7 @@ define [
 ], (Marionette, UserSession) ->
 
   class WriteArticleView extends Marionette.ItemView
-    template: JST['templates/content/content_write_article']
+    template: JST['templates/articles/write_article']
     model: UserSession.getInstance()
 
     ui:

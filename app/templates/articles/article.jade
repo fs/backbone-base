@@ -7,5 +7,5 @@ a.pull-left(href='#')
   p
     | #{text}
   .article-navigation
-    input(type='submit', class='btn btn-primary js-link' href='articles/#{id}')
-    span.comments-count #{comments_count}
+    input(type='submit' value='Show article' class='btn btn-primary js-link' href='articles/#{id}/')
+    span.comments-count Comments: #{comments_count}

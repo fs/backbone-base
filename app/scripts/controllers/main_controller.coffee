@@ -2,10 +2,13 @@ define [
   'marionette'
   'views/layout'
   'views/content/content_layout'
+  'views/articles/articles_layout'
   'views/header/header_layout'
+  'views/article/single_article'
   'models/user_session'
+  'models/article'
   'collections/articles'
-], (Marionette, LayoutView, ContentLayoutView, HeaderLayoutView, UserSession, Articles) ->
+], (Marionette, LayoutView, ContentLayoutView, ArticlesLayoutView, HeaderLayoutView, SingleArticleView, UserSession, Article, Articles) ->
 
   class MainController extends Marionette.Controller
     initialize: ->
@@ -14,15 +17,21 @@ define [
       @layout.headerRegion.show(new HeaderLayoutView)
 
     indexPage: ->
-      if UserSession.isLogged()
-        articles = new Articles()
-        $.when(articles.fetch()).then =>
-          @layout.mainRegion.show(new ContentLayoutView({collection: articles}))
-      else
-        @layout.mainRegion.show(new ContentLayoutView)
+      @layout.mainRegion.show(new ContentLayoutView)
 
-    somePage: ->
-      alert 'show some page'
+    logout: ->
+      session = UserSession.getInstance()
+      session.logout()
+      @trigger('logout')
+
+    showArticles: ->
+      articles = new Articles()
+      articles.fetch().then =>
+        @layout.mainRegion.show(new ArticlesLayoutView({collection: articles}))
 
     showArticle: (id) ->
-      alert "#{id}"
+      model = new Article({id: id})
+      model.fetch().then =>
+        @layout.mainRegion.show(new SingleArticleView({model: model}))
+
+

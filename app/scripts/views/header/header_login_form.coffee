@@ -4,7 +4,6 @@ define [
 ], (Marionette, UserSession) ->
 
   class HeaderLoginFormView extends Marionette.ItemView
-    tagName: 'div'
     className: 'nav navbar-nav navbar-right'
     templateForm: JST['templates/header/header_login_form']
     templateGreeting: JST['templates/header/header_user_greeting']
@@ -12,16 +11,11 @@ define [
 
     events:
       "submit #login_form": "onFormSubmit"
-      "click #logout button": "onExit"
 
     onFormSubmit: (event) ->
       event.preventDefault()
       @model.login(@_getFormData(@$form)).then =>
         @$el.html(@templateGreeting(@model.attributes))
-
-    onExit: (event) ->
-      @model.logout()
-      @$el.html(@templateForm)
 
     render: ->
       if @model.isLogged() then @$el.html(@templateGreeting(@model.attributes))

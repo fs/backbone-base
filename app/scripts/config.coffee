@@ -14,7 +14,7 @@ requirejs.config
     #application
     'views': 'scripts/views'
     'controllers': 'scripts/controllers'
-    'routes': 'scripts/routes'
+    'routers': 'scripts/routers'
     'models': 'scripts/models'
     'collections': 'scripts/collections'
     'templates': 'scripts/templates'

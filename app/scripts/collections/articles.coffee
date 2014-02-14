@@ -4,5 +4,5 @@ define [
 ], (AppCollection, Article) ->
 
   class ArticleCollection extends AppCollection
-    url: 'api/articles'
+    url: '/api/articles'
     model: Article
