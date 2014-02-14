@@ -217,15 +217,7 @@ module.exports = (grunt) ->
     grunt.registerTask 'initialize', [
       'clean:development'
       'symlink:development'
-<<<<<<< HEAD
-      'templates'
-      'stylus:development'
-      'coffee:development'
-      'coffeelint'
-      'jsonlint:development'
-=======
       'concurrent:compile'
->>>>>>> improve-gruntfile
       'connect:livereload'
       'easymock'
       'configureProxies:server'
