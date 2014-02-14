@@ -1,36 +1,43 @@
 # Skeleton for Backbone.Marionette based application
 
-This simple application includes Backbone.js/Marionette.js frameworks and grunt/bower technologies. 
+This simple application includes Backbone.js/Marionette.js frameworks and grunt/bower technologies.
 
 ## NPM Moules:
-    grunt: 0.4.2
-    grunt-contrib-requirejs: 0.4.1
-    grunt-contrib-watch: 0.5.3
-    grunt-contrib-coffee: 0.7.0
-    grunt-contrib-compass: 0.7.0
-    grunt-contrib-connect: 0.5.0
-    grunt-contrib-copy: 0.4.1
-    grunt-contrib-clean: 0.5.0
-    grunt-contrib-imagemin: 0.4.0
-    grunt-contrib-jst: 0.5.1
-    grunt-remove-logging: 0.2.0
-    grunt-coffeelint: 0.0.8
-    grunt-shell: 0.6.1
-    mocha: 1.13.0
-    load-grunt-tasks: 0.2.0
+    "grunt": "~0.4.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-symlink": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jade": "~0.9.1",
+    "grunt-contrib-stylus": "~0.12.0",
+    "grunt-coffeelint": "~0.0.8",
+    "grunt-connect-pushstate": "~0.2.0",
+    "grunt-connect-proxy": "~0.1.7",
+    "grunt-easymock": "~0.0.4",
+    "grunt-jsonlint": "~1.0.4",
+    "grunt-mocha": "~0.4.7",
+    "grunt-shell": "~0.6.1",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-concurrent": "~0.4.3",
+    "grunt-contrib-htmlmin": "~0.2.0"
 
 ## Libraries:
-    jquery: 2.0.3
-    marionette: 1.4.1
-    requirejs: 2.1.8
-    backbone: 1.1.0
-    backbone-relational: 0.8.6
-    sass-bootstrap: 3.0.0
+    "jquery": "~2.0.3",
+    "backbone-route-filter": "~0.1.0",
+    "marionette": "~1.6.1",
+    "requirejs": "~2.1.8",
+    "bootstrap": "~3.1.0",
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0",
+    "sinon": "~1.8.1"
 
 ## Install
 
 Install Nodejs
-    
+
     brew install node
 
 Install Grunt CLI
