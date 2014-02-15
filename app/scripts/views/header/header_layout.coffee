@@ -1,9 +1,10 @@
 define [
   'marionette'
   'views/header/header_navigation'
-  'views/header/header_login_form'
+  'views/header/header_login'
+  'views/header/header_login_logout'
   'models/user_session'
-], (Marionette, HeaderNavigationView, HeaderLoginFormView, UserSession) ->
+], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, UserSession) ->
 
   class HeaderLayoutView extends Marionette.Layout
     className: 'container-fluid'
@@ -20,6 +21,9 @@ define [
     onRender: ->
       if @model.isLogged()
         @navigationRegion.show(new HeaderNavigationView)
+        @formRegion.show(new HeaderLoginView)
       else
         @navigationRegion.close()
-      @formRegion.show(new HeaderLoginFormView)
+        @formRegion.show(new HeaderLogoutView)
+
+      # @formRegion.show(new HeaderLoginFormView)
