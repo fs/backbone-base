@@ -19,6 +19,7 @@ requirejs.config
     'collections': 'scripts/collections'
     'templates': 'scripts/templates'
     'storage': 'scripts/facades/storage'
+    'events': 'scripts/helpers/event_aggregator'
   shim:
     'marionette':
       deps: ['backbone', 'backbone.routefilter', 'templates', 'bootstrap', 'storage']

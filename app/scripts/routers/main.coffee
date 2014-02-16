@@ -13,7 +13,7 @@ define [
       super
 
     appRoutes:
-      #on unknown reason without '/' doesn't work articles/:id/'
+      #on unknown reason without '/' doesn't work articles/:id/
       '': 'indexPage'
       'dashboard/': 'showDashboard'
       'dashboard/articles/': 'showArticles'
@@ -26,6 +26,7 @@ define [
       'articles/': 'redirectIfNotLoggedIn'
 
     redirectIfNotLoggedIn: ->
+      #didn't work without refresh page
       session = UserSession.getInstance()
       unless session.isLogged()
         @navigate '/', trigger: true
