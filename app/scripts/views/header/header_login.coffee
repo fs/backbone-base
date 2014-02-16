@@ -1,24 +1,22 @@
 define [
   'marionette'
-], (Marionette) ->
+  'events'
+], (Marionette, Vent) ->
 
   class HeaderLoginView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
-    templateForm: JST['templates/header/header_login_form']
+    template: JST['templates/header/header_login']
 
     events:
-      "submit #login_form": "onFormSubmit"
+      'submit #login_form': 'onFormSubmit'
+
+    ui:
+      form: '#login_form'
 
     onFormSubmit: (event) ->
-      #TODO: replace this view with two single views and do dashboard redirect
       event.preventDefault()
-      @model.login(@_getFormData(@$form)).then =>
-        @$el.html(@templateGreeting(@model.attributes))
-
-    # render: ->
-    #   if @model.isLogged() then @$el.html(@templateGreeting(@model.attributes))
-    #   else @$el.html(@templateForm)
-    #   @$form = @$('#login_form')
+      @model.login(@_getFormData(@ui.form)).then =>
+        Vent.trigger('login')
 
     _getFormData: (form) ->
       @model.set
