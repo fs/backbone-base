@@ -1,7 +1,6 @@
 define [
   'marionette'
-  'events'
-], (Marionette, Vent) ->
+], (Marionette) ->
 
   class HeaderLoginView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
@@ -16,7 +15,7 @@ define [
     onFormSubmit: (event) ->
       event.preventDefault()
       @model.login(@_getFormData(@ui.form)).then =>
-        Vent.trigger('login')
+        @trigger('login')
 
     _getFormData: (form) ->
       @model.set

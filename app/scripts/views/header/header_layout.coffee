@@ -1,11 +1,10 @@
 define [
   'marionette'
-  'events'
   'views/header/header_navigation'
   'views/header/header_login'
   'views/header/header_logout'
   'models/user_session'
-], (Marionette, Vent, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, UserSession) ->
+], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, UserSession) ->
 
   class HeaderLayoutView extends Marionette.Layout
     className: 'container-fluid'
@@ -20,7 +19,11 @@ define [
       'change': 'render'
 
     initialize: ->
-      Vent.on 'login', @render
+      @loginView = new HeaderLoginView(model: @model)
+      @listenTo(@loginView, 'login', @render)
+
+    clear: ->
+      console.log @model.attributes
 
     onRender: ->
       if @model.isLogged()
@@ -28,4 +31,7 @@ define [
         @formRegion.show(new HeaderLogoutView)
       else
         @navigationRegion.close()
-        @formRegion.show(new HeaderLoginView(model: @model))
+        @loginView.model = @model
+        @formRegion.show(@loginView)
+
+      console.log '111'
