@@ -3,17 +3,17 @@ define [
   'models/user_session'
 ], (Marionette, UserSession) ->
 
-  class WriteArticleView extends Marionette.ItemView
-    template: JST['templates/articles/write_article']
+  class ArticlesFormView extends Marionette.ItemView
+    template: JST['templates/articles/form']
     model: UserSession.getInstance()
 
     ui:
       form: '#save_article'
 
     events:
-      'submit form#save_article': '_onSaveArticle'
+      'submit form#save_article': 'onSaveArticle'
 
-    _onSaveArticle: (event) ->
+    onSaveArticle: (event) ->
       event.preventDefault()
       data =
         'text': @ui.form.find('textarea').val()

@@ -43,6 +43,7 @@ define [
             @save {},
               success: =>
                 @saveInStorage(JSON.stringify(@attributes))
+                console.log 'model save in storage'
                 def.resolve()
               error: ->
                 def.reject()
