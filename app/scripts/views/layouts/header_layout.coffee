@@ -21,11 +21,9 @@ define [
     modelEvents:
       'change': 'render'
 
-    initialize: ->
-      @headerNavView = new HeaderNavigationView
-
     onRender: ->
       if @model.isLogged()
+        @headerNavView = new HeaderNavigationView
         @navigationRegion.show(@headerNavView)
         @formRegion.show(new HeaderLogoutView(model: @model))
       else
