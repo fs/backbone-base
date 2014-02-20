@@ -2,7 +2,7 @@
 
 This simple application includes Backbone.js/Marionette.js frameworks and grunt/bower technologies.
 
-## NPM Moules:
+## NPM Modules:
     "grunt": "~0.4.2",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
