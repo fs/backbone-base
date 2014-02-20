@@ -22,11 +22,9 @@ define [
 
     # NOTE: route filter usage example
     before:
-      'articles/:id/': 'redirectIfNotLoggedIn'
-      'articles/': 'redirectIfNotLoggedIn'
+      'dashboard/*path': 'redirectIfNotLoggedIn'
 
     redirectIfNotLoggedIn: ->
-      #didn't work without refresh page
       session = UserSession.getInstance()
       unless session.isLogged()
         @navigate '/', trigger: true
