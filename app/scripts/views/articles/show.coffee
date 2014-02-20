@@ -1,6 +1,7 @@
 define [
   'marionette'
   'views/comments/item'
+  'templates'
 ], (Marionette, CommentsItemView) ->
 
   class ArticlesShowView extends Marionette.CompositeView

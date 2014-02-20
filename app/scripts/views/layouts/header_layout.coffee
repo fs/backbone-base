@@ -4,6 +4,7 @@ define [
   'views/header/login'
   'views/header/logout'
   'models/user_session'
+  'templates'
 ], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, UserSession) ->
 
   class HeaderLayout extends Marionette.Layout

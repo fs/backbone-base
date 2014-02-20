@@ -21,7 +21,7 @@ requirejs.config
     'storage': 'scripts/facades/storage'
   shim:
     'marionette':
-      deps: ['backbone', 'backbone.routefilter', 'templates', 'bootstrap', 'storage']
+      deps: ['backbone', 'backbone.routefilter']
       exports: 'Marionette'
     'backbone':
       deps: ['jquery', 'underscore']
