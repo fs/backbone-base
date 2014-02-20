@@ -11,12 +11,10 @@ define [
       instance or= new PrivateClass()
 
     @isLogged: ->
-      session = @getInstance()
-      session.isLogged()
+      @getInstance().isLogged()
 
     @getToken: ->
-      session = @getInstance()
-      session.get('session_token')
+      @getInstance().get('session_token')
 
     class PrivateClass extends User
       url: '/api/sign_in'
@@ -45,6 +43,7 @@ define [
             @save {},
               success: =>
                 @saveInStorage(JSON.stringify(@attributes))
+                console.log 'model save in storage'
                 def.resolve()
               error: ->
                 def.reject()

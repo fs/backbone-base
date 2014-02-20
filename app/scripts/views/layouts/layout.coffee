@@ -2,9 +2,9 @@ define [
   'marionette'
 ], (Marionette) ->
 
-  class MainLayoutView extends Marionette.Layout
+  class MainLayout extends Marionette.Layout
     el: '#wrapper'
-    template: JST['templates/layout']
+    template: JST['templates/layouts/layout']
 
     regions:
       headerRegion: '#header_region'

@@ -2,13 +2,13 @@ define [
   'marionette'
 ], (Marionette) ->
 
-  class ArticleView extends Marionette.ItemView
+  class ArticlesItemView extends Marionette.ItemView
     className: 'media'
-    template: JST['templates/articles/article']
+    template: JST['templates/articles/item']
 
     events:
       'click .close': 'onRemoveClicked'
 
     onRemoveClicked: ->
-      @model.destroy().then =>
+      @model.destroy().then ->
         alert 'article deleted'

@@ -2,6 +2,6 @@ define [
   'marionette'
 ], (Marionette) ->
 
-  class LandingView extends Marionette.ItemView
+  class ContentLandingView extends Marionette.ItemView
     className: 'page-header'
-    template: JST['templates/content/content_landing']
+    template: JST['templates/content/landing']
