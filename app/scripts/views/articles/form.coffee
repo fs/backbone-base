@@ -1,6 +1,7 @@
 define [
   'marionette'
   'models/user_session'
+  'templates'
 ], (Marionette, UserSession) ->
 
   class ArticlesFormView extends Marionette.ItemView

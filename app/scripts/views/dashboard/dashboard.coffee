@@ -2,6 +2,7 @@ define [
   'marionette'
   'views/dashboard/item'
   'models/user_session'
+  'templates'
 ], (Marionette, DashboardItemView, UserSession) ->
 
   class DashboardView extends Marionette.CompositeView

@@ -2,6 +2,7 @@ define [
   'marionette'
   'views/articles/list'
   'views/articles/form'
+  'templates'
 ], (Marionette, ArticlesListView, ArticlesFormView) ->
 
   class ArticlesLayout extends Marionette.Layout

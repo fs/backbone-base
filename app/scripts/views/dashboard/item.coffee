@@ -1,5 +1,6 @@
 define [
   'marionette'
+  'templates'
 ], (Marionette) ->
 
   class DashboardItemView extends Marionette.ItemView
