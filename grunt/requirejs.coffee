@@ -1,9 +1,12 @@
 module.exports = (grunt) ->
   production:
     options:
-      name: 'scripts/config'
+      baseUrl: '<%= grunt.productionDir %>'
+      mainConfigFile: '<%= grunt.productionDir %>/scripts/config.js'
+      out: '<%= grunt.productionDir %>/application.js'
       preserveLicenseComments: false
-      findNestedDependencies: true
+      # findNestedDependencies: true
+      include: ["bower_components/requirejs/require"]
       optimize: 'uglify2'
       uglify2:
         output:
@@ -11,7 +14,3 @@ module.exports = (grunt) ->
         compress:
           global_defs:
             DEBUG: false
-      baseUrl: '<%= grunt.productionDir %>'
-      mainConfigFile: '<%= grunt.productionDir %>/scripts/config.js'
-      out: '<%= grunt.productionDir %>/application.js'
-      # removeCombined: false

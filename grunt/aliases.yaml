@@ -18,5 +18,5 @@ default:
 production:
   - 'copy:production'
   - 'requirejs:production'
-  - 'htmlmin:production'
+  # - 'htmlmin:production'
   - 'clean:production'
