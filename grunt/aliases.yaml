@@ -1,0 +1,22 @@
+templates:
+  - 'jade:html'
+  - 'jade:jst'
+
+initialize:
+  - 'clean:development'
+  - 'symlink:development'
+  - 'concurrent:compile'
+  - 'connect:livereload'
+  - 'easymock'
+  - 'configureProxies:server'
+
+default:
+  - 'shell:bower'
+  - 'initialize'
+  - 'watch'
+
+production:
+  - 'copy:production'
+  - 'requirejs:production'
+  - 'htmlmin:production'
+  - 'clean:production'
