@@ -1,13 +1,13 @@
 define [
   'marionette'
   'views/dashboard/item'
-  'models/user_session'
+  'facades/session'
   'templates'
-], (Marionette, DashboardItemView, UserSession) ->
+], (Marionette, DashboardItemView, Session) ->
 
   class DashboardView extends Marionette.CompositeView
     className: 'jumbotron'
     template: JST['templates/dashboard/dashboard']
     itemView: DashboardItemView
     itemViewContainer: '.articles-list'
-    model: UserSession.getInstance()
+    model: Session.currentUser()

@@ -1,7 +1,8 @@
 define [
   'marionette'
+  'helpers/routes'
   'templates'
-], (Marionette) ->
+], (Marionette, Routes) ->
 
   class HeaderNavigationView extends Marionette.ItemView
     tagName: 'ul'
@@ -13,6 +14,9 @@ define [
 
     events:
       'click li': 'onNavbarClick'
+
+    templateHelpers:
+      routes: Routes
 
     onNavbarClick: (event) ->
       currentItem = $(event.currentTarget)

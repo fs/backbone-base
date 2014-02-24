@@ -10,7 +10,7 @@ define [
     defaults:
       'id': ''
       'text': ''
-      'user_name': ''
+      'name': ''
       'avatar': avatar
       'comments_count': 0
       'comments': []

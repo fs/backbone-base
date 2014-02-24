@@ -6,12 +6,12 @@ define [
   'views/content/landing'
   'views/articles/show'
   'views/dashboard/dashboard'
-  'models/user_session'
+  'facades/session'
   'models/article'
   'collections/dashboard_articles'
   'collections/articles'
 ], (Marionette, Layout, HeaderLayout, ArticlesLayout, ContentLandingView, ArticlesShowView,
-    DashboardView, UserSession, Article, DashboardArticles, Articles) ->
+    DashboardView, Session, Article, DashboardArticles, Articles) ->
 
   class MainController extends Marionette.Controller
     initialize: ->
@@ -23,8 +23,7 @@ define [
       @layout.mainRegion.show(new ContentLandingView)
 
     logout: ->
-      session = UserSession.getInstance()
-      session.logout()
+      Session.destroy()
       @trigger('logout')
 
     showDashboard: ->

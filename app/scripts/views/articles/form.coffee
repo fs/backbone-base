@@ -1,12 +1,12 @@
 define [
   'marionette'
-  'models/user_session'
+  'facades/session'
   'templates'
-], (Marionette, UserSession) ->
+], (Marionette, Session) ->
 
   class ArticlesFormView extends Marionette.ItemView
     template: JST['templates/articles/form']
-    model: UserSession.getInstance()
+    model: Session.currentUser()
 
     ui:
       form: '#save_article'
@@ -18,7 +18,7 @@ define [
       event.preventDefault()
       data =
         'text': @ui.form.find('textarea').val()
-        'user_name': @model.get('user_name')
-        'avatar': @model.get('user_avatar')
+        'name': @model.get('name')
+        'avatar': @model.get('avatar')
       @collection.create(data)
 

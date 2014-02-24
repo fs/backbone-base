@@ -1,6 +1,6 @@
 {
   "id": "2",
-  "user_name": "M@rik",
+  "name": "M@rik",
   "text": "Backbone provides a great set of building blocks for our JavaScript applications. It gives us the core constructs that are needed to build small apps, organize jQuery DOM events, or create single page apps that support mobile devices and large scale enterprise needs. But Backbone is not a complete framework. It's a set of building blocks. It leaves much of the application design, architecture and scalability to the developer, including memory management, view management, and more. Marionette brings an application architecture to Backbone, along with built in view management and memory management. It's designed to be a lightweight and flexible library of tools that sits on top of Backbone, providing the framework for building a scalable application. Like Backbone itself, you're not required to use all of Marionette just because you want to use some of it. You can pick and choose which features you want to use. This allows you to work with other Backbone frameworks and plugins easily. It also means that you are not required to engage in an all-or-nothing migration to begin using Marionette.",
   "avatar": "http://ru.gravatar.com/userimage/60946353/e9d10ff600f0ac0339eaf5609681609c.jpg",
   "comments": [

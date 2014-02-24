@@ -3,14 +3,15 @@ define [
   'views/header/navigation'
   'views/header/login'
   'views/header/logout'
-  'models/user_session'
+  'facades/session'
+  'helpers/routes'
   'templates'
-], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, UserSession) ->
+], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, Session, Routes) ->
 
   class HeaderLayout extends Marionette.Layout
     className: 'container-fluid'
     template: JST['templates/layouts/header_layout']
-    model: UserSession.getInstance()
+    model: Session.currentUser()
 
     regions:
       navigationRegion: '#navigation_region'
@@ -22,14 +23,17 @@ define [
     modelEvents:
       'change': 'render'
 
+    templateHelpers:
+      routes: Routes
+
     onRender: ->
-      if @model.isLogged()
+      if Session.isLoggedIn()
         @headerNavView = new HeaderNavigationView
         @navigationRegion.show(@headerNavView)
-        @formRegion.show(new HeaderLogoutView(model: @model))
+        @formRegion.show(new HeaderLogoutView)
       else
         @navigationRegion.close()
-        @formRegion.show(new HeaderLoginView(model: @model))
+        @formRegion.show(new HeaderLoginView)
 
     onBrandClick: ->
       @headerNavView.resetNavigation()

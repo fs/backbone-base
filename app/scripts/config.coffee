@@ -17,8 +17,9 @@ requirejs.config
     'routers': 'scripts/routers'
     'models': 'scripts/models'
     'collections': 'scripts/collections'
+    'facades': 'scripts/facades'
+    'helpers': 'scripts/helpers'
     'templates': 'scripts/templates'
-    'storage': 'scripts/facades/storage'
   shim:
     'marionette':
       deps: ['backbone', 'backbone.routefilter']
