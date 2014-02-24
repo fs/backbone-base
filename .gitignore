@@ -6,6 +6,5 @@ bower_components
 access_logs.db
 npm-debug.log
 
-develop
 public
 production

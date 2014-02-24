@@ -14,7 +14,7 @@ define [
       @getInstance().isLogged()
 
     @getToken: ->
-      @getInstance().get('session_token')
+      @getInstance().pick('session_token')
 
     class PrivateClass extends User
       url: '/api/sign_in'
