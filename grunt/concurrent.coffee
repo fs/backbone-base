@@ -1,7 +1,12 @@
 module.exports = (grunt) ->
-  compile: [
+  development: [
     'templates'
     'stylus:development'
     'coffee:development'
+    'coffeelint'
+  ]
+  production: [
+    'stylus:production'
+    'coffee:production'
     'coffeelint'
   ]

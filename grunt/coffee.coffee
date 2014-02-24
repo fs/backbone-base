@@ -9,11 +9,11 @@ module.exports = (grunt) ->
       dest: '<%= grunt.publicDir %>/scripts'
       ext: '.js'
     ]
-  tests:
+  production:
     files: [
       expand: true
-      cwd: '<%= grunt.testDir %>/coffee'
+      cwd: '<%= grunt.appDir %>/scripts'
       src: ['*.coffee', '**/*.coffee']
-      dest: '<%= grunt.testDir %>/scripts'
+      dest: '<%= grunt.productionDir %>/scripts'
       ext: '.js'
     ]

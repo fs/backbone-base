@@ -9,3 +9,6 @@ module.exports = (grunt) ->
     '<%= grunt.productionDir %>/bower_components'
     '<%= grunt.productionDir %>/vendor'
   ]
+  beforeCompile: [
+    '<%= grunt.productionDir %>/**/*'
+  ]
