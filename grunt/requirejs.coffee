@@ -5,8 +5,8 @@ module.exports = (grunt) ->
       mainConfigFile: '<%= grunt.productionDir %>/scripts/config.js'
       out: '<%= grunt.productionDir %>/application.js'
       preserveLicenseComments: false
-      # findNestedDependencies: true
-      include: ["bower_components/requirejs/require"]
+      findNestedDependencies: true
+      include: ['bower_components/almond/almond']
       optimize: 'uglify2'
       uglify2:
         output:
