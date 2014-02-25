@@ -6,8 +6,11 @@ html.no-js
     title Backbone base
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type='text/javascript', data-main='/scripts/config', src='/bower_components/requirejs/require.js')
+    | <!--(if target development)><link rel="stylesheet" href="/stylesheets/style.css"><![endif]-->
+    | <!--(if target development)><script type='text/javascript' data-main='/scripts/config' src='/bower_components/requirejs/require.js'></script><![endif]-->
+
+    | <!--(if target production)><link rel="stylesheet" href="/style.css"><![endif]-->
+    | <!--(if target production)><script type="text/javascript" src="/application.js"></script><![endif]-->
   body
     #wrapper.wrapper
     .footer

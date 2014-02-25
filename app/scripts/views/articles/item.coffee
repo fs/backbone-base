@@ -1,7 +1,8 @@
 define [
   'marionette'
+  'helpers/routes'
   'templates'
-], (Marionette) ->
+], (Marionette, Routes) ->
 
   class ArticlesItemView extends Marionette.ItemView
     className: 'media'
@@ -9,6 +10,9 @@ define [
 
     events:
       'click .close': 'onRemoveClicked'
+
+    templateHelpers:
+      routes: Routes
 
     onRemoveClicked: ->
       @model.destroy().then ->

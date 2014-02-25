@@ -2,11 +2,11 @@ a.pull-left(href='#')
   .media-object(style='background-image: url(#{avatar})')
 .media-body
   h4.media-heading #{title}
-  i author: #{user_name}
+  i author: #{name}
   button.close(type="button" aria-hidden="true")
     | &times;
   p
     | #{text}
   .article-navigation
-    input(type='submit' value='Show article' class='btn btn-primary js-link' href='dashboard/articles/#{id}/')
+    input(type='submit' value='Show article' class='btn btn-primary js-link' href=routes.articlePath(id))
     span.comments-count Comments: #{comments_count}

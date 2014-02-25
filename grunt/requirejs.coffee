@@ -1,8 +1,8 @@
 module.exports = (grunt) ->
   production:
     options:
-      baseUrl: '<%= grunt.productionDir %>'
-      mainConfigFile: '<%= grunt.productionDir %>/scripts/config.js'
+      baseUrl: '<%= grunt.publicDir %>'
+      mainConfigFile: '<%= grunt.publicDir %>/scripts/config.js'
       out: '<%= grunt.productionDir %>/application.js'
       preserveLicenseComments: false
       findNestedDependencies: true

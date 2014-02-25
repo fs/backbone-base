@@ -1,11 +1,11 @@
 define [
-  'marionette'
-  'models/user_session'
-], (Marionette, UserSession) ->
+  'backbone'
+  'facades/session'
+], (Backbone, Session) ->
 
   class AppCollection extends Backbone.Collection
     sync: (method, model, options) ->
-      if UserSession.isLogged()
-        options.data = _.extend({}, options.data, UserSession.getToken())
+      if Session.isLoggedIn()
+        options.data = _.extend({}, options.data, Session.getToken())
 
       super

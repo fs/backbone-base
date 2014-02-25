@@ -3,16 +3,16 @@ define ->
   class Storage
     storage = localStorage
 
-    setItem: (key, data) ->
+    @set: (key, data) ->
+      data = JSON.stringify(data)
       storage.setItem(key, data)
 
-    getItem: (key) ->
-      storage.getItem(key)
+    @get: (key) ->
+      data = storage.getItem(key)
+      JSON.parse(data)
 
-    removeItem: (key) ->
+    @remove: (key) ->
       storage.removeItem(key)
 
-    clear: ->
+    @clear: ->
       storage.clear()
-
-  new Storage()

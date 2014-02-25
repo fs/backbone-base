@@ -1,22 +1,35 @@
 templates:
   - 'jade:html'
   - 'jade:jst'
+  - 'targethtml:development'
 
-initialize:
-  - 'clean:development'
-  - 'symlink:development'
-  - 'concurrent:compile'
-  - 'connect:livereload'
+developmentServer:
+  - 'connect:development'
+  - 'easymock'
+  - 'configureProxies:server'
+
+productionServer:
+  - 'connect:production'
   - 'easymock'
   - 'configureProxies:server'
 
 default:
   - 'shell:bower'
-  - 'initialize'
-  - 'watch'
+  - 'clean:development'
+  - 'symlink:development'
+  - 'concurrent:development'
+  - 'developmentServer'
+  - 'watch:development'
 
 production:
-  - 'copy:production'
-  - 'requirejs:production'
+  - 'shell:bower'
+  - 'clean:development'
+  - 'symlink:development'
+  - 'concurrent:development'
   - 'clean:production'
+  - 'jade:production'
+  - 'targethtml:production'
   - 'cssmin:production'
+  - 'requirejs:production'
+  - 'productionServer'
+  - 'watch:production'

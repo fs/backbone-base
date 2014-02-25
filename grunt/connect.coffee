@@ -12,9 +12,13 @@ module.exports = (grunt) ->
         connect.static(options.base)
         connect.directory(options.base)
       ]
-  livereload:
+  development:
     options:
       base: '<%= grunt.publicDir %>'
+  production:
+    options:
+      base: '<%= grunt.productionDir %>'
+      livereload: false
   proxies: [
     context: '/api'
     host: 'localhost'

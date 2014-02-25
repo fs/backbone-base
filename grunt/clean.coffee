@@ -4,8 +4,5 @@ module.exports = (grunt) ->
     'access_logs.db'
   ]
   production: [
-    '<%= grunt.productionDir %>/scripts'
-    '<%= grunt.productionDir %>/stylesheets'
-    '<%= grunt.productionDir %>/bower_components'
-    '<%= grunt.productionDir %>/vendor'
+    '<%= grunt.productionDir %>/**/*'
   ]

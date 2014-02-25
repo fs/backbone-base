@@ -1,8 +1,8 @@
 define [
   'marionette'
   'controllers/main_controller'
-  'models/user_session'
-], (Marionette, Controller, UserSession) ->
+  'facades/session'
+], (Marionette, Controller, Session) ->
 
   class MainRouter extends Marionette.AppRouter
     initialize: ->
@@ -20,12 +20,10 @@ define [
       'dashboard/articles/:id/': 'showArticle'
       'logout/': 'logout'
 
-    # NOTE: route filter usage example
     before:
       'dashboard/*path': 'redirectIfNotLoggedIn'
 
     redirectIfNotLoggedIn: ->
-      session = UserSession.getInstance()
-      unless session.isLogged()
+      unless Session.isLoggedIn()
         @navigate '/', trigger: true
         false

@@ -1,5 +1,5 @@
 #logout.logout-form.form-inline
-  div.avatar(style="background-image: url(#{user_avatar})")
-  span.user-name Hi #{user_name}
+  div.avatar(style="background-image: url(#{avatar})")
+  span.user-name Hi #{name}
   //- didn't work without refreshing
-  a(class='btn btn-default' href='/logout') Exit
+  a(class='btn btn-default' href=routes.logoutPath()) Exit
