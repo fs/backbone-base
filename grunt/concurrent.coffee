@@ -5,8 +5,3 @@ module.exports = (grunt) ->
     'coffee:development'
     'coffeelint'
   ]
-  production: [
-    'stylus:production'
-    'coffee:production'
-    'coffeelint'
-  ]
