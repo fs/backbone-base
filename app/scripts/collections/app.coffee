@@ -1,7 +1,7 @@
 define [
-  'marionette'
+  'backbone'
   'facades/session'
-], (Marionette, Session) ->
+], (Backbone, Session) ->
 
   class AppCollection extends Backbone.Collection
     sync: (method, model, options) ->

@@ -23,14 +23,13 @@ default:
 
 production:
   - 'shell:bower'
-  - 'clean:beforeCompile'
-  - 'copy:production'
-  - 'jade:jstproduction'
+  - 'clean:development'
+  - 'symlink:development'
+  - 'concurrent:development'
+  - 'clean:production'
   - 'jade:production'
   - 'targethtml:production'
-  - 'concurrent:production'
   - 'cssmin:production'
   - 'requirejs:production'
-  # - 'clean:production'
   - 'productionServer'
   - 'watch:production'
