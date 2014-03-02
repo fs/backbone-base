@@ -22,7 +22,6 @@ module.exports = (grunt) ->
   production:
     options:
       base: '<%= grunt.productionDir %>'
-      livereload: false
   proxies: [
     context: '/api'
     host: 'localhost'

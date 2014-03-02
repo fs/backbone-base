@@ -6,6 +6,7 @@ module.exports = (grunt) ->
       out: '<%= grunt.productionDir %>/application.js'
       preserveLicenseComments: false
       findNestedDependencies: true
+      wrapShim: true
       include: ['bower_components/almond/almond']
       optimize: 'uglify2'
       uglify2:
