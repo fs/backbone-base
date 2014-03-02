@@ -15,10 +15,10 @@ define [
     appRoutes:
       #on unknown reason without '/' doesn't work articles/:id/
       '': 'indexPage'
-      'dashboard/': 'showDashboard'
-      'dashboard/articles/': 'showArticles'
-      'dashboard/articles/:id/': 'showArticle'
-      'logout/': 'logout'
+      'dashboard': 'showDashboard'
+      'dashboard/articles': 'showArticles'
+      'dashboard/articles/:id': 'showArticle'
+      'logout': 'logout'
 
     before:
       'dashboard/*path': 'redirectIfNotLoggedIn'

@@ -16,13 +16,13 @@
     "grunt-contrib-stylus": "~0.12.0",
     "grunt-contrib-cssmin": "^0.8.0",
     "grunt-coffeelint": "~0.0.8",
-    "grunt-connect-pushstate": "~0.2.0",
     "grunt-connect-proxy": "~0.1.7",
     "grunt-easymock": "~0.0.4",
     "grunt-jsonlint": "~1.0.4",
     "grunt-concurrent": "~0.4.3",
     "grunt-targethtml": "~0.2.6",
     "grunt-shell": "~0.6.1",
-    "load-grunt-config": "~0.7.1"
+    "load-grunt-config": "~0.7.1",
+    "http-rewrite-middleware": "^0.1.5"
   }
 }
