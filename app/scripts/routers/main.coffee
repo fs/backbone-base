@@ -8,20 +8,18 @@ define [
     initialize: ->
       @controller = new Controller
       @listenTo @controller, 'logout', @redirectIfNotLoggedIn
-      @listenTo @controller, 'dashboard', @showDashboard
 
       super
 
     appRoutes:
-      #on unknown reason without '/' doesn't work articles/:id/
       '': 'indexPage'
-      'dashboard/': 'showDashboard'
-      'dashboard/articles/': 'showArticles'
-      'dashboard/articles/:id/': 'showArticle'
-      'logout/': 'logout'
+      'dashboard': 'showDashboard'
+      'dashboard/articles': 'showArticles'
+      'dashboard/articles/:id': 'showArticle'
+      'logout': 'logout'
 
     before:
-      'dashboard/*path': 'redirectIfNotLoggedIn'
+      'dashboard(/*path)': 'redirectIfNotLoggedIn'
 
     redirectIfNotLoggedIn: ->
       unless Session.isLoggedIn()

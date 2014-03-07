@@ -5,10 +5,14 @@ module.exports = (grunt) ->
     hostname: 'localhost'
     middleware: (connect, options) ->
       proxy = require('grunt-connect-proxy/lib/utils').proxyRequest
-      pushState = require('grunt-connect-pushstate/lib/utils').pushState
+      rewriteModule = require('http-rewrite-middleware')
+      rewriteMiddleware = rewriteModule.getMiddleware [
+        {from: '^/[^\.]*$', to: '/index.html'}
+      ]
+
       [
         proxy
-        pushState()
+        rewriteMiddleware
         connect.static(options.base)
         connect.directory(options.base)
       ]
@@ -18,7 +22,6 @@ module.exports = (grunt) ->
   production:
     options:
       base: '<%= grunt.productionDir %>'
-      livereload: false
   proxies: [
     context: '/api'
     host: 'localhost'
