@@ -12,6 +12,9 @@
     "bootstrap": "~3.1.0",
     "almond": "~0.2.9"
   },
+  "resolutions": {
+    "jquery": "~2.0.3"
+  },
   "devDependencies": {
     "mocha": "~1.17.1",
     "chai": "~1.9.0",
