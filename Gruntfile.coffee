@@ -10,4 +10,12 @@ module.exports = (grunt) ->
     connect: 8000
     easymock: 8001
 
+  grunt.event.on 'watch', (action, filepath) ->
+    file = {}
+    if /(.coffee)/.test filepath
+      dest = filepath.replace("#{grunt.appDir}/scripts", "#{grunt.publicDir}/scripts").replace('.coffee', '.js')
+      file[dest] = filepath
+      grunt.config 'coffeelint.watch.files', file
+      grunt.config 'coffee.watch.files', file
+
   require('load-grunt-config')(grunt)

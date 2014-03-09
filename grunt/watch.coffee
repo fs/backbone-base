@@ -7,8 +7,8 @@ module.exports = (grunt) ->
     tasks: [
       'templates'
       'stylus:development'
-      'coffee:development'
-      'coffeelint'
+      'coffee:watch'
+      'coffeelint:watch'
     ]
   production:
     files: []

@@ -9,3 +9,5 @@ module.exports = (grunt) ->
       dest: '<%= grunt.publicDir %>/scripts'
       ext: '.js'
     ]
+  watch:
+    files: {}
