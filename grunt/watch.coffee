@@ -5,8 +5,10 @@ module.exports = (grunt) ->
   development:
     files: ['<%= grunt.appDir %>/**/*']
     tasks: [
-      'templates'
-      'stylus:development'
+      'jade:html'
+      'targethtml:development'
+      'jade:watch'
+      'stylus:watch'
       'coffee:watch'
       'coffeelint:watch'
     ]
