@@ -1,4 +1,4 @@
-requirejs [
+define [
   'marionette'
   'routers/main'
 ], (Marionette, Router) ->
@@ -20,4 +20,4 @@ requirejs [
 
     console.log 'app started'
 
-  App.start()
+  App
