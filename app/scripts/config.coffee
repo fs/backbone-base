@@ -1,6 +1,5 @@
 requirejs.config
   baseUrl: '/scripts'
-  deps: ['application']
   paths:
     'underscore': '../bower_components/underscore/underscore'
     'jquery': '../bower_components/jquery/jquery'
