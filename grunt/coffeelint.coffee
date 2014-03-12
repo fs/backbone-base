@@ -1,6 +1,6 @@
 module.exports = (grunt) ->
   files:
-    src: ['<%= grunt.appDir %>/scripts/**/*.coffee']
+    src: ['<%= grunt.appDir %>/scripts/**/*.coffee', '<%= grunt.testDir %>/coffee/**/*.coffee']
   options:
     'no_trailing_whitespace':
       level: 'warn'

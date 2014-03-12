@@ -4,7 +4,7 @@ module.exports = (grunt) ->
   grunt.appDir = 'app'
   grunt.publicDir = 'public'
   grunt.productionDir = 'production'
-  grunt.testDir = 'tests'
+  grunt.testDir = 'specs'
   grunt.ports =
     livereload: 35729
     connect: 8000

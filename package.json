@@ -23,6 +23,19 @@
     "grunt-targethtml": "~0.2.6",
     "grunt-shell": "~0.6.1",
     "load-grunt-config": "~0.7.1",
-    "http-rewrite-middleware": "^0.1.5"
+    "http-rewrite-middleware": "^0.1.5",
+    "karma": "^0.12.0",
+    "mocha": "^1.17.1",
+    "karma-mocha": "^0.1.1",
+    "chai": "^1.9.0",
+    "karma-chai": "^0.1.0",
+    "sinon": "^1.9.0",
+    "karma-sinon": "^1.0.2",
+    "grunt-karma": "^0.8.0",
+    "karma-chrome-launcher": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.1.2",
+    "requirejs": "^2.1.11",
+    "karma-requirejs": "^0.2.1",
+    "karma-coffee-preprocessor": "^0.2.0"
   }
 }
