@@ -7,30 +7,20 @@ module.exports = (grunt) ->
       singleRun: true
       browsers: ['PhantomJS']
       files: [
-        {pattern: 'public/bower_components/underscore/underscore.js', included: false},
-        {pattern: 'public/bower_components/jquery/jquery.js', included: false},
-        {pattern: 'public/bower_components/backbone/backbone.js', included: false},
-        {pattern: 'public/bower_components/backbone-route-filter/backbone-route-filter.js', included: false},
-        {pattern: 'public/bower_components/bootstrap/dist/js/bootstrap.js', included: false},
-        {pattern: 'public/scripts/**/*.js', included: false},
-        {pattern: 'specs/**/*spec.coffee', included: false},
-
-        'specs/test-main.coffee'
+        {pattern: '<%= grunt.publicDir %>/bower_components/**/*.js', included: false}
+        {pattern: '<%= grunt.publicDir %>/vendor/**/*.js', included: false}
+        {pattern: '<%= grunt.publicDir %>/scripts/**/*.js', included: false}
+        {pattern: '<%= grunt.testDir %>/**/*_spec.coffee', included: false}
+        '<%= grunt.testDir %>/runner.coffee'
       ]
-
-      # list of files to exclude
       exclude: [
-          'public/scripts/application.js'
-          'public/scripts/config.js'
+        '<%= grunt.publicDir %>/scripts/application.js'
+        '<%= grunt.publicDir %>/scripts/config.js'
       ]
-      reporters: ['dots', 'coverage']
-      coverageReporter:
-        type : 'html'
-        dir : 'coverage/'
+      reporters: ['dots']
       colors: true
       preprocessors:
         'specs/**/*.coffee': ['coffee']
-
       plugins: [
         'karma-mocha'
         'karma-chai'

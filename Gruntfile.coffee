@@ -11,9 +11,3 @@ module.exports = (grunt) ->
     easymock: 8001
 
   require('load-grunt-config')(grunt)
-  grunt.loadNpmTasks('grunt-karma')
-
-  grunt.registerTask 'test', '', ->
-    grunt.task.run('coffeelint')
-    grunt.task.run('karma')
-
