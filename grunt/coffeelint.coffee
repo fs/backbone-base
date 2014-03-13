@@ -1,6 +1,4 @@
 module.exports = (grunt) ->
-  files:
-    src: ['<%= grunt.appDir %>/scripts/**/*.coffee', '<%= grunt.testDir %>/coffee/**/*.coffee']
   options:
     'no_trailing_whitespace':
       level: 'warn'
@@ -12,3 +10,8 @@ module.exports = (grunt) ->
       level: 'ignore'
     'max_line_length':
       level: 'ignore'
+  development:
+    files:
+      src: ['<%= grunt.appDir %>/scripts/**/*.coffee', '<%= grunt.testDir %>/coffee/**/*.coffee']
+  watch:
+    files: {}

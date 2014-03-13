@@ -3,5 +3,5 @@ module.exports = (grunt) ->
     'templates'
     'stylus:development'
     'coffee:development'
-    'coffeelint'
+    'coffeelint:development'
   ]

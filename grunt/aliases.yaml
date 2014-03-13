@@ -39,5 +39,5 @@ test:
   - 'clean:development'
   - 'symlink:development'
   - 'concurrent:development'
-  - 'coffeelint'
+  - 'coffeelint:development'
   - 'karma'

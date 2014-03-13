@@ -22,6 +22,7 @@
     "grunt-concurrent": "~0.4.3",
     "grunt-targethtml": "~0.2.6",
     "grunt-shell": "~0.6.1",
+    "grunt-notify": "~0.2.18",
     "load-grunt-config": "~0.7.1",
     "http-rewrite-middleware": "^0.1.5",
     "karma": "^0.12.0",
