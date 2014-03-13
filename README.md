@@ -72,6 +72,10 @@ Start to use application on browser:
 
     localhost:8000
 
+Run tests
+
+    grunt test
+
 ## Credits
 
 Thank you, [contributors](https://github.com/fs/backbone-base/contributors)!

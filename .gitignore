@@ -7,3 +7,5 @@ npm-debug.log
 
 public
 production
+coverage
+coverage.html

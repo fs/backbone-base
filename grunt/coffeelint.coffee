@@ -12,6 +12,6 @@ module.exports = (grunt) ->
       level: 'ignore'
   development:
     files:
-      src: ['<%= grunt.appDir %>/scripts/**/*.coffee']
+      src: ['<%= grunt.appDir %>/scripts/**/*.coffee', '<%= grunt.testDir %>/coffee/**/*.coffee']
   watch:
     files: {}
