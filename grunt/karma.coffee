@@ -28,7 +28,6 @@ module.exports = (grunt) ->
         'karma-requirejs'
         'karma-chrome-launcher'
         'karma-phantomjs-launcher'
-        'karma-coverage'
         'karma-coffee-preprocessor'
       ]
       client:
