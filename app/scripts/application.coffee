@@ -1,17 +1,16 @@
 define [
   'marionette'
-  'routers/main'
-], (Marionette, Router) ->
+], (Marionette) ->
 
   App = new Marionette.Application()
 
   App.addRegions
     headerRegion: '#header_region'
     mainRegion: '#main_region'
-    footerRegion: '#footer_region'
 
-  App.addInitializer ->
-    @router = new Router
+  App.navigate = (route, options) ->
+    options or= {}
+    Backbone.history.navigate(route, options)
 
   App.on 'initialize:after', ->
     Backbone.history.start
@@ -21,7 +20,7 @@ define [
     $(document).on 'click', '.js-link', (event) ->
       event.preventDefault()
       href = $(event.currentTarget).attr('href')
-      App.router.navigate(href, trigger: true)
+      App.navigate(href, trigger: true)
 
     console.log 'app started'
 

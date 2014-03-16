@@ -1,12 +1,12 @@
 define [
-  'controllers/base_controller'
+  'application'
   'views/dashboard/dashboard'
   'collections/dashboard_articles'
-], (BaseController, DashboardView, DashboardArticles) ->
+], (App, DashboardView, DashboardArticles) ->
 
-  class DashboardController extends BaseController
+  class DashboardController extends Marionette.Controller
     index: ->
       articles = new DashboardArticles
 
       articles.fetch().then =>
-        @layout.mainRegion.show(new DashboardView(collection: articles))
+        App.mainRegion.show(new DashboardView(collection: articles))

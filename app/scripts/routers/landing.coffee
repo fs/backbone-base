@@ -1,9 +1,9 @@
 define [
   'routers/base'
-  'controllers/main_controller'
+  'controllers/landing_controller'
 ], (BaseRouter, Controller) ->
 
-  class MainRouter extends BaseRouter
+  class LandingRouter extends BaseRouter
     initialize: ->
       @controller = new Controller
 
