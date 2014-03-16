@@ -28,3 +28,59 @@ module.exports = (grunt) ->
       grunt.config 'jade.watch.files', file
 
   require('load-grunt-config')(grunt)
+
+  grunt.registerTask 'build', (target) ->
+    if target == 'development'
+      grunt.task.run [
+        'shell:bower'
+        'clean:development'
+        'symlink:development'
+        'concurrent:development'
+      ]
+    else if target == 'production'
+      grunt.task.run [
+        'shell:bower'
+        'clean:development'
+        'symlink:development'
+        'concurrent:development'
+        'clean:production'
+        'jade:production'
+        'targethtml:production'
+        'cssmin:production'
+        'requirejs:production'
+      ]
+
+  grunt.registerTask 'server', (target) ->
+    if target == 'development'
+      grunt.task.run [
+        'connect:development'
+        'easymock'
+        'configureProxies:server'
+        'watch:development'
+      ]
+    else if target == 'production'
+      grunt.task.run [
+        'connect:production'
+        'easymock'
+        'configureProxies:server'
+        'watch:production'
+      ]
+
+  grunt.registerTask 'test', [
+    'build:development'
+    'karma'
+  ]
+
+  grunt.registerTask 'development', [
+    'build:development'
+    'server:development'
+  ]
+
+  grunt.registerTask 'production', [
+    'build:production'
+    'server:production'
+  ]
+
+  grunt.registerTask 'default', [
+    'development'
+  ]
