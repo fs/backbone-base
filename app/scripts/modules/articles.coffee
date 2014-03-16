@@ -1,4 +1,7 @@
-define ['application', 'routers/articles'], (App, ArticlesRouter) ->
+define [
+  'application'
+  'routers/articles'
+], (App, ArticlesRouter) ->
 
   Articles = App.module('Articles')
 

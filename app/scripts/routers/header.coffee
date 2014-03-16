@@ -1,11 +1,12 @@
 define [
   'routers/base'
-  'controllers/main_controller'
+  'controllers/header_controller'
 ], (BaseRouter, Controller) ->
 
   class MainRouter extends BaseRouter
     initialize: ->
       @controller = new Controller
+      @listenTo @controller, 'logout', @redirectIfNotLoggedIn
 
     appRoutes:
-      '': 'index'
+      'logout': 'logout'
