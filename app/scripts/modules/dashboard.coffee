@@ -1,4 +1,8 @@
-define ['application', 'routers/dashboard'], (App, DashboardRouter) ->
+define [
+  'application'
+  'routers/dashboard'
+], (App, DashboardRouter) ->
+
   Dashboard = App.module('Dashboard')
 
   Dashboard.addInitializer ->

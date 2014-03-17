@@ -1,20 +1,20 @@
 define [
-  'controllers/base_controller'
+  'application'
   'views/layouts/articles_layout'
   'views/articles/show'
   'models/article'
   'collections/articles'
-], (BaseController, ArticlesLayout, ArticlesShowView, Article, Articles) ->
+], (App, ArticlesLayout, ArticlesShowView, Article, Articles) ->
 
-  class ArticlesController extends BaseController
+  class ArticlesController extends Marionette.Controller
     index: ->
       articles = new Articles
 
       articles.fetch().then =>
-        @layout.mainRegion.show(new ArticlesLayout(collection: articles))
+        App.mainRegion.show(new ArticlesLayout(collection: articles))
 
     show: (id) ->
       model = new Article(id: id)
 
       model.fetch().then =>
-        @layout.mainRegion.show(new ArticlesShowView(model: model))
+        App.mainRegion.show(new ArticlesShowView(model: model))
