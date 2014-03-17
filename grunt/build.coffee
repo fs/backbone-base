@@ -6,6 +6,8 @@ module.exports = (grunt) ->
         'clean:development'
         'symlink:development'
         'concurrent:development'
+        'jade:html'
+        'targethtml:development'
       ]
     else if target is 'production'
       grunt.task.run [
