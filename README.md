@@ -14,14 +14,28 @@ This simple application includes Backbone.js/Marionette.js frameworks and grunt/
     "grunt-contrib-stylus": "~0.12.0",
     "grunt-contrib-cssmin": "^0.8.0",
     "grunt-coffeelint": "~0.0.8",
-    "grunt-connect-pushstate": "~0.2.0",
     "grunt-connect-proxy": "~0.1.7",
     "grunt-easymock": "~0.0.4",
     "grunt-jsonlint": "~1.0.4",
     "grunt-concurrent": "~0.4.3",
     "grunt-targethtml": "~0.2.6",
     "grunt-shell": "~0.6.1",
-    "load-grunt-config": "~0.7.1"
+    "grunt-notify": "~0.2.18",
+    "load-grunt-config": "~0.7.1",
+    "http-rewrite-middleware": "^0.1.5",
+    "karma": "^0.12.0",
+    "mocha": "^1.17.1",
+    "karma-mocha": "^0.1.1",
+    "chai": "^1.9.0",
+    "karma-chai": "^0.1.0",
+    "sinon": "^1.9.0",
+    "karma-sinon": "^1.0.2",
+    "grunt-karma": "^0.8.0",
+    "karma-chrome-launcher": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.1.2",
+    "requirejs": "^2.1.11",
+    "karma-requirejs": "^0.2.1",
+    "karma-coffee-preprocessor": "^0.2.0"
 
 ## Libraries:
     "jquery": "~2.0.3",
@@ -29,10 +43,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and grunt/
     "marionette": "~1.6.1",
     "requirejs": "~2.1.8",
     "bootstrap": "~3.1.0",
-    "almond": "~0.2.9",
-    "mocha": "~1.17.1",
-    "chai": "~1.9.0",
-    "sinon": "~1.8.1"
+    "almond": "~0.2.9"
 
 ## Install
 
@@ -72,13 +83,23 @@ Start to use application on browser:
 
     localhost:8000
 
+## Tasks
+
+Build for development
+
+    grunt development
+
+Build for production
+
+    grunt production
+
 Run tests
 
     grunt test
 
 ## Credits
 
-Thank you, [contributors](https://github.com/fs/backbone-base/contributors)!
+Thank you, contributors: [Marat Fakhreev](https://github.com/FakhreevMarat) and [Anton Gudkov](https://github.com/antongudkov)!
 
 ![FlatStack](http://www.flatstack.com/assets/images/logo.png)
 

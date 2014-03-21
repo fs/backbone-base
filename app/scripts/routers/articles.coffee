@@ -4,6 +4,8 @@ define [
 ], (BaseRouter, Controller) ->
 
   class ArticlesRouter extends BaseRouter
+    navigation: 'articles'
+
     initialize: ->
       @controller = new Controller
 

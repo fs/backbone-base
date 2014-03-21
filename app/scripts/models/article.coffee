@@ -8,7 +8,6 @@ define [
     urlRoot: "/api/articles"
 
     defaults:
-      'id': ''
       'text': ''
       'name': ''
       'avatar': avatar

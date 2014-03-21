@@ -1,7 +1,8 @@
 define [
   'marionette'
+  'routers/landing'
   'templates'
-], (Marionette) ->
+], (Marionette, Router) ->
 
   class ContentLandingView extends Marionette.ItemView
     className: 'page-header'

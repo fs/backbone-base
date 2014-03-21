@@ -1,8 +1,10 @@
 define [
   'marionette'
+  'application'
+  'facades/session'
   'helpers/routes'
   'templates'
-], (Marionette, Routes) ->
+], (Marionette, App, Session, Routes) ->
 
   class HeaderNavigationView extends Marionette.ItemView
     tagName: 'ul'
@@ -12,17 +14,14 @@ define [
     ui:
       menuItem: 'li'
 
-    events:
-      'click li': 'onNavbarClick'
-
     templateHelpers:
       routes: Routes
 
-    onNavbarClick: (event) ->
-      currentItem = $(event.currentTarget)
-      @resetNavigation()
-      currentItem.addClass('active')
+    initialize: ->
+      @listenTo App.vent, 'navigation:page_loaded', @highlightNavigation
 
-    resetNavigation: ->
+    highlightNavigation: (nav) =>
       @ui.menuItem.removeClass('active')
 
+      unless _.isEmpty(nav)
+        @$el.find("a[data-nav='#{nav}']").parent().addClass('active')

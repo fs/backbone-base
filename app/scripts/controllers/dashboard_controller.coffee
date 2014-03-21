@@ -8,5 +8,5 @@ define [
     index: ->
       articles = new DashboardArticles
 
-      articles.fetch().then =>
+      articles.fetch().then ->
         App.mainRegion.show(new DashboardView(collection: articles))

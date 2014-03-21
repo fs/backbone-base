@@ -10,11 +10,11 @@ define [
     index: ->
       articles = new Articles
 
-      articles.fetch().then =>
+      articles.fetch().then ->
         App.mainRegion.show(new ArticlesLayout(collection: articles))
 
     show: (id) ->
       model = new Article(id: id)
 
-      model.fetch().then =>
+      model.fetch().then ->
         App.mainRegion.show(new ArticlesShowView(model: model))
