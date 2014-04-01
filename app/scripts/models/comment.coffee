@@ -4,7 +4,6 @@ define [
 
   class Comment extends AppModel
     defaults:
-      'id': '',
       'articleId': '',
       'user': 'User',
       'comment': 'Comment'

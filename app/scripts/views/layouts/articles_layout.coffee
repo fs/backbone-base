@@ -13,5 +13,5 @@ define [
       writeArticleRegion: '#write_article_region'
 
     onRender: ->
-      @articlesRegion.show(new ArticlesListView({collection: @collection}))
-      @writeArticleRegion.show(new ArticlesFormView({collection: @collection}))
+      @articlesRegion.show(new ArticlesListView(collection: @collection))
+      @writeArticleRegion.show(new ArticlesFormView(collection: @collection))

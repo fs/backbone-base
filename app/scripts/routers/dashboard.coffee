@@ -4,6 +4,8 @@ define [
 ], (BaseRouter, Controller) ->
 
   class DashboardRouter extends BaseRouter
+    navigation: 'dashboard'
+
     initialize: ->
       @controller = new Controller
 

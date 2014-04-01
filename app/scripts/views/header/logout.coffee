@@ -1,15 +1,17 @@
 define [
+  'application'
   'marionette'
   'facades/session'
-  'helpers/routes'
   'templates'
-], (Marionette, Session, Routes) ->
+], (App, Marionette, Session) ->
 
   class HeaderLogoutView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
     template: JST['templates/header/logout']
     model: Session.currentUser()
 
-    templateHelpers:
-      routes: Routes
+    events:
+      'click #logout_btn': 'onLogout'
 
+    onLogout: ->
+      App.vent.trigger('current_user:logout')

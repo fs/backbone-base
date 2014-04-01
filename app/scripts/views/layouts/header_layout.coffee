@@ -17,9 +17,6 @@ define [
       navigationRegion: '#navigation_region'
       formRegion: '#login_form_region'
 
-    events:
-      'click .navbar-brand': 'onBrandClick'
-
     modelEvents:
       'change': 'render'
 
@@ -34,6 +31,3 @@ define [
       else
         @navigationRegion.close()
         @formRegion.show(new HeaderLoginView)
-
-    onBrandClick: ->
-      @headerNavView.resetNavigation()
