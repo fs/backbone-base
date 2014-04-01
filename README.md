@@ -99,11 +99,9 @@ Run tests
 
 ## Credits
 
-Thank you, contributors: [Marat Fakhreev](https://github.com/FakhreevMarat) and [Anton Gudkov](https://github.com/antongudkov)!
+Rails Base is maintained by [Anton Gudkov](http://github.com/antongudkov).
+It was written by [Flatstack](http://www.flatstack.com) with the help of our
+[contributors](http://github.com/fs/backbone-base/contributors).
 
-![FlatStack](http://www.flatstack.com/assets/images/logo.png)
 
-Backbone-base is maintained by [FlatStack](https://github.com/fs)
-
-Backbone-base is © 2013-2014 FlatStack. It is free software and may be
-redistributed under the terms specified in the [LICENSE](LICENSE) file.
+[![Flatstack](http://www.flatstack.com/assets/images/logo.png)](http://www.flatstack.com)
