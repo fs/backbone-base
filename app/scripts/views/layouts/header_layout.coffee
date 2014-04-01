@@ -11,23 +11,24 @@ define [
   class HeaderLayout extends Marionette.Layout
     className: 'container-fluid'
     template: JST['templates/layouts/header_layout']
-    model: Session.currentUser()
 
     regions:
       navigationRegion: '#navigation_region'
       formRegion: '#login_form_region'
 
-    modelEvents:
-      'change': 'render'
-
     templateHelpers:
       routes: Routes
 
+    initialize: ->
+      @listenTo Session, 'create destroy', @render
+
     onRender: ->
       if Session.isLoggedIn()
-        @headerNavView = new HeaderNavigationView
-        @navigationRegion.show(@headerNavView)
-        @formRegion.show(new HeaderLogoutView)
+        headerNavView = new HeaderNavigationView
+        formRegionView = new HeaderLogoutView
+        @navigationRegion.show(headerNavView)
       else
+        formRegionView = new HeaderLoginView
         @navigationRegion.close()
-        @formRegion.show(new HeaderLoginView)
+
+      @formRegion.show(formRegionView)
