@@ -18,9 +18,9 @@ define [
       routes: Routes
 
     initialize: ->
-      @listenTo App.vent, 'navigation:page_loaded', @highlightNavigation
+      @listenTo App.vent, 'navigation:change', @highlightNavigation
 
-    highlightNavigation: (nav) =>
+    highlightNavigation: (nav) ->
       @ui.menuItem.removeClass('active')
 
       unless _.isEmpty(nav)

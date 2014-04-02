@@ -5,6 +5,8 @@ requirejs.config
     'jquery': '../bower_components/jquery/jquery'
     'backbone': '../bower_components/backbone/backbone'
     'backbone.routefilter': '../bower_components/backbone-route-filter/backbone-route-filter'
+    'backbone.stickit': '../bower_components/backbone.stickit/backbone.stickit'
+    'backbone-validtion': '../bower_components/backbone-validation/dist/backbone-validation-amd'
     'marionette': '../bower_components/marionette/lib/backbone.marionette'
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
 
@@ -15,12 +17,12 @@ requirejs.config
     'jquery':
       exports: '$'
     'backbone':
-      deps: ['underscore', 'jquery']
+      deps: ['underscore', 'jquery', 'bootstrap']
       exports: 'Backbone'
     'backbone.routefilter':
       deps: ['backbone']
     'marionette':
-      deps: ['backbone', 'backbone.routefilter']
+      deps: ['backbone', 'backbone.routefilter', 'backbone.stickit', 'backbone-validtion']
       exports: 'Marionette'
     'bootstrap':
       deps: ['jquery']

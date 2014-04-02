@@ -4,6 +4,8 @@ define [
 ], (User, Storage) ->
 
   class Session
+    _.extend @, Backbone.Events
+
     STORAGE_KEY = 'user_session'
     SESSION_KEY = 'session_token'
 
@@ -12,13 +14,14 @@ define [
     @currentUser: ->
       currentUser or= new User(Storage.get(STORAGE_KEY))
 
-    @create: (data) ->
+    @create: ->
       deferred = $.Deferred()
 
       unless @isLoggedIn()
-        @currentUser().save data,
+        @currentUser().save null,
           success: =>
             @save()
+            @trigger 'create'
             deferred.resolve()
           error: ->
             deferred.reject()
@@ -28,6 +31,7 @@ define [
     @destroy: ->
       Storage.remove(STORAGE_KEY)
       @currentUser().clear()
+      @trigger 'destroy'
 
     @save: ->
       Storage.set(STORAGE_KEY, @currentUser().toJSON())

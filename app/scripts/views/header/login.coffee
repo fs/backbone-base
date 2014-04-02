@@ -1,32 +1,33 @@
 define [
   'marionette'
   'facades/session'
-  'helpers/routes'
+  'views/abstract/form_view'
   'templates'
-], (Marionette, Session, Routes) ->
+], (Marionette, Session, AbstractFormView) ->
 
-  class HeaderLoginView extends Marionette.ItemView
+  class HeaderLoginView extends AbstractFormView
     className: 'nav navbar-nav navbar-right'
     template: JST['templates/header/login']
 
     events:
-      'submit #login_form': 'onFormSubmit'
+      'submit form': 'onFormSubmit'
 
-    ui:
-      form: '#login_form'
+    bindings:
+      '[name="email"]':
+        observe: 'email'
+        updateView: false
+        setOptions:
+          validate: true
+      '[name="password"]':
+        observe: 'password'
+        updateView: false
+        setOptions:
+          validate: true
 
-    templateHelpers:
-      routes: Routes
-
-    initialize: ->
-      @model = Session.currentUser()
+    model: Session.currentUser()
 
     onFormSubmit: (event) ->
       event.preventDefault()
-      Session.create(@_getFormData(@ui.form)).done ->
-        console.log 'user has logged'
 
-    _getFormData: (form) ->
-      data =
-        email: form.find('#user_email').val()
-        password: form.find('#user_password').val()
+      if @model.isValid(true)
+        Session.create()

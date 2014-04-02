@@ -1,13 +1,9 @@
 define [
   'routers/base'
-  'controllers/dashboard_controller'
-], (BaseRouter, Controller) ->
+], (BaseRouter) ->
 
   class DashboardRouter extends BaseRouter
     navigation: 'dashboard'
-
-    initialize: ->
-      @controller = new Controller
 
     appRoutes:
       'dashboard': 'index'
