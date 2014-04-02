@@ -1,12 +1,14 @@
 define [
+  'application'
   'routers/base'
   'facades/session'
   'helpers/routes'
-], (BaseRouter, Session, routes) ->
+], (App, BaseRouter, Session, routes) ->
 
   class NavigationRouter extends BaseRouter
     initialize: ->
       @listenTo Session, 'create destroy', @onSessionChange
+      @listenTo Backbone.history, 'route', @onNavigationChange
 
     onSessionChange: ->
       if Session.isLoggedIn()
@@ -15,3 +17,6 @@ define [
         path = routes.rootPath()
 
       @navigate(path, trigger: true)
+
+    onNavigationChange: (router) ->
+      App.vent.trigger 'navigation:change', router.navigation
