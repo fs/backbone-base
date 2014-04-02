@@ -2,7 +2,10 @@
   "name": "backbone-base",
   "version": "0.0.7",
   "authors": [
-    "Marat Fakhreev <marat.fakhreev@flatstack.com>"
+    "Marat Fakhreev <marat.fakhreev@flatstack.com>",
+    "Anton Gudkov <anton.gudkov@flatstack.com>",
+    "Timur Vafin <timur.vafin@flatstack.com>",
+    "Ildus Sadykov <ildus.sadykov@flatstack.com>"
   ],
   "devDependencies": {
     "grunt": "~0.4.2",
