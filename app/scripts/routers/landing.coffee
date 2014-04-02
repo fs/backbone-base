@@ -4,8 +4,8 @@ define [
 ], (BaseRouter, Controller) ->
 
   class LandingRouter extends BaseRouter
-    initialize: ->
-      @controller = new Controller
-
     appRoutes:
       '': 'index'
+
+    initialize: ->
+      @controller = new Controller

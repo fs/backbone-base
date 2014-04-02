@@ -14,4 +14,4 @@ define [
       'click #logout_btn': 'onLogout'
 
     onLogout: ->
-      App.vent.trigger('current_user:logout')
+      Session.destroy()

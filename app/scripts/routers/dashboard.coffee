@@ -6,8 +6,8 @@ define [
   class DashboardRouter extends BaseRouter
     navigation: 'dashboard'
 
-    initialize: ->
-      @controller = new Controller
-
     appRoutes:
       'dashboard': 'index'
+
+    initialize: ->
+      @controller = new Controller
