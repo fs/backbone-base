@@ -1,7 +1,10 @@
 {
   "name": "backbone-base",
   "authors": [
-    "Marat Fakhreev <marat.fakhreev@flatstack.com>"
+    "Marat Fakhreev <marat.fakhreev@flatstack.com>",
+    "Anton Gudkov <anton.gudkov@flatstack.com>",
+    "Timur Vafin <timur.vafin@flatstack.com>",
+    "Ildus Sadykov <ildus.sadykov@flatstack.com>"
   ],
   "description": "backbone base application",
   "dependencies": {
