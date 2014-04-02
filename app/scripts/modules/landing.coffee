@@ -1,12 +1,14 @@
 define [
   'application'
   'routers/landing'
-], (App, LandingRouter) ->
+  'controllers/landing_controller'
+], (App, Router, Controller) ->
 
   Landing = App.module('Landing')
 
   Landing.addInitializer ->
-    @router = new LandingRouter
+    controller = new Controller
+    @router = new Router(controller: controller)
 
   Landing.on 'start', ->
     console.log 'module landing started'

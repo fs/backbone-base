@@ -1,7 +1,6 @@
 define [
   'routers/base'
-  'controllers/articles_controller'
-], (BaseRouter, Controller) ->
+], (BaseRouter) ->
 
   class ArticlesRouter extends BaseRouter
     navigation: 'articles'
@@ -9,6 +8,3 @@ define [
     appRoutes:
       'dashboard/articles': 'index'
       'dashboard/articles/:id': 'show'
-
-    initialize: ->
-      @controller = new Controller

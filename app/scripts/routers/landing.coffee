@@ -1,11 +1,7 @@
 define [
   'routers/base'
-  'controllers/landing_controller'
-], (BaseRouter, Controller) ->
+], (BaseRouter) ->
 
   class LandingRouter extends BaseRouter
     appRoutes:
       '': 'index'
-
-    initialize: ->
-      @controller = new Controller

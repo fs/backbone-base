@@ -1,12 +1,14 @@
 define [
   'application'
   'routers/dashboard'
-], (App, DashboardRouter) ->
+  'controllers/dashboard_controller'
+], (App, Router, Controller) ->
 
   Dashboard = App.module('Dashboard')
 
   Dashboard.addInitializer ->
-    @router = new DashboardRouter
+    controller = new Controller
+    @router = new Router(controller: controller)
 
   Dashboard.on 'start', ->
     console.log 'module dashboard started'

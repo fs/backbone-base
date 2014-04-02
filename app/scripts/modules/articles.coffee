@@ -1,12 +1,14 @@
 define [
   'application'
   'routers/articles'
-], (App, ArticlesRouter) ->
+  'controllers/articles_controller'
+], (App, Router, Controller) ->
 
   Articles = App.module('Articles')
 
   Articles.addInitializer ->
-    @router = new ArticlesRouter
+    controller = new Controller
+    @router = new Router(controller: controller)
 
   Articles.on 'start', ->
     console.log 'module articles started'

@@ -1,14 +1,11 @@
 define [
   'routers/base'
-  'controllers/navigation_controller'
   'facades/session'
   'helpers/routes'
-], (BaseRouter, Controller, Session, routes) ->
+], (BaseRouter, Session, routes) ->
 
   class NavigationRouter extends BaseRouter
     initialize: ->
-      @controller = new Controller
-
       @listenTo Session, 'create destroy', @onSessionChange
 
     onSessionChange: ->
