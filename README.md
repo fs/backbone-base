@@ -40,10 +40,12 @@ This simple application includes Backbone.js/Marionette.js frameworks and grunt/
 ## Libraries:
     "jquery": "~2.0.3",
     "backbone-route-filter": "~0.1.0",
-    "marionette": "~1.7.4",
+    "marionette": "~1.8.2",
     "requirejs": "~2.1.8",
     "bootstrap": "~3.1.0",
-    "almond": "~0.2.9"
+    "almond": "~0.2.9",
+    "backbone.stickit": "~0.7.0",
+    "backbone-validation": "~0.9.1"
 
 ## Install
 
@@ -99,7 +101,7 @@ Run tests
 
 ## Credits
 
-Rails Base is maintained by [Anton Gudkov](http://github.com/antongudkov).
+Backbone Base is maintained by [Anton Gudkov](http://github.com/antongudkov).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/backbone-base/contributors).
 
