@@ -1,7 +1,8 @@
 define [
+  'marionette'
   'application'
   'views/layouts/header_layout'
-], (App, HeaderLayout) ->
+], (Marionette, App, HeaderLayout) ->
 
   class NavigationController extends Marionette.Controller
     initialize: ->

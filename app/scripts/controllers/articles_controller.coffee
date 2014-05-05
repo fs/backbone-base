@@ -1,10 +1,11 @@
 define [
+  'marionette'
   'application'
   'views/layouts/articles_layout'
   'views/articles/show'
   'models/article'
   'collections/articles'
-], (App, ArticlesLayout, ArticlesShowView, Article, Articles) ->
+], (Marionette, App, ArticlesLayout, ArticlesShowView, Article, Articles) ->
 
   class ArticlesController extends Marionette.Controller
     index: ->

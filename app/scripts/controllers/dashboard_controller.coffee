@@ -1,8 +1,9 @@
 define [
+  'marionette'
   'application'
   'views/dashboard/dashboard'
   'collections/dashboard_articles'
-], (App, DashboardView, DashboardArticles) ->
+], (Marionette, App, DashboardView, DashboardArticles) ->
 
   class DashboardController extends Marionette.Controller
     index: ->
