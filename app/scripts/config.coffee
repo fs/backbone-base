@@ -20,12 +20,10 @@ requirejs.config
       exports: '$'
     'backbone':
       deps: ['underscore', 'jquery', 'bootstrap']
-      exports: 'Backbone'
     'backbone.routefilter':
       deps: ['backbone']
     'marionette':
       deps: ['backbone', 'backbone.babysitter', 'backbone.wreqr', 'backbone.routefilter', 'backbone.stickit', 'backbone-validtion']
-      exports: 'Marionette'
     'bootstrap':
       deps: ['jquery']
     'templates':
