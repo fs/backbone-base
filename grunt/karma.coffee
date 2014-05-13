@@ -14,7 +14,6 @@ module.exports = (grunt) ->
         '<%= grunt.testDir %>/runner.coffee'
       ]
       exclude: [
-        '<%= grunt.publicDir %>/scripts/application.js'
         '<%= grunt.publicDir %>/scripts/config.js'
       ]
       reporters: ['dots']
