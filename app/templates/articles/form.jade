@@ -2,6 +2,7 @@
   .avatar(style='background-image: url(#{avatar})')
 .text-container
   h4.media-heading #{name}, here you can write new article
-  form#save_article
-    textarea
+  form(role='form')
+    .form-group
+      textarea.form-control(name='text', placeholder='Your text here')
     input(type='submit' value='Post article' class='btn btn-primary btn-lg')

@@ -1,24 +1,40 @@
 define [
   'marionette'
+  'models/article'
+  'views/behaviors/form'
   'facades/session'
   'templates'
-], (Marionette, Session) ->
+], (Marionette, Article, FormBehavior, Session) ->
 
   class ArticlesFormView extends Marionette.ItemView
     template: JST['templates/articles/form']
-    model: Session.currentUser()
-
-    ui:
-      form: '#save_article'
 
     events:
-      'submit form#save_article': 'onSaveArticle'
+      'submit form': 'onFormSubmit'
 
-    onSaveArticle: (event) ->
+    bindings:
+      '[name="text"]':
+        observe: 'text'
+        updateView: false
+        setOptions:
+          validate: true
+
+    behaviors:
+      form:
+        behaviorClass: FormBehavior
+        tooltip:
+          placement: 'bottom'
+          trigger: 'focus'
+
+    serializeData: ->
+      Session.currentUser().pick('avatar', 'name')
+
+    initialize: ->
+      @model = new Article
+
+    onFormSubmit: (event) ->
       event.preventDefault()
-      data =
-        'text': @ui.form.find('textarea').val()
-        'name': @model.get('name')
-        'avatar': @model.get('avatar')
-      @collection.create(data)
+
+      if @model.isValid(true)
+        @collection.create(@model)
 
