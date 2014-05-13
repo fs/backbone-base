@@ -1,7 +1,8 @@
 define [
+  'marionette'
   'application'
   'views/content/landing'
-], (App, ContentLandingView) ->
+], (Marionette, App, ContentLandingView) ->
 
   class LandingController extends Marionette.Controller
     index: ->

@@ -2,7 +2,7 @@ define [
   'marionette'
 ], (Marionette) ->
 
-  App = new Marionette.Application()
+  App = new Marionette.Application
 
   App.addRegions
     headerRegion: '#header_region'
