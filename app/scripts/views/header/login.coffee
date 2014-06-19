@@ -1,11 +1,11 @@
 define [
   'marionette'
   'facades/session'
-  'views/abstract/form_view'
+  'views/behaviors/form'
   'templates'
-], (Marionette, Session, AbstractFormView) ->
+], (Marionette, Session, FormBehavior) ->
 
-  class HeaderLoginView extends AbstractFormView
+  class HeaderLoginView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
     template: JST['templates/header/login']
 
@@ -23,6 +23,13 @@ define [
         updateView: false
         setOptions:
           validate: true
+
+    behaviors:
+      form:
+        behaviorClass: FormBehavior
+        tooltip:
+          placement: 'bottom'
+          trigger: 'focus'
 
     model: Session.currentUser()
 
