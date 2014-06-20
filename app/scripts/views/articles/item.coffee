@@ -1,8 +1,9 @@
 define [
   'marionette'
   'helpers/routes'
+  'facades/session'
   'templates'
-], (Marionette, Routes) ->
+], (Marionette, Routes, Session) ->
 
   class ArticlesItemView extends Marionette.ItemView
     className: 'media'
@@ -13,6 +14,9 @@ define [
 
     templateHelpers:
       routes: Routes
+
+    serializeData: ->
+      _.extend super, Session.currentUser().pick('avatar', 'name')
 
     onRemoveClicked: ->
       @model.destroy().then ->
