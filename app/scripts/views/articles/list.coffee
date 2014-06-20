@@ -5,4 +5,4 @@ define [
 
   class ArticlesListView extends Marionette.CollectionView
     className: 'articles'
-    itemView: ArticleItemView
+    childView: ArticleItemView

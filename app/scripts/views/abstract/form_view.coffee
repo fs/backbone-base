@@ -9,7 +9,7 @@ define [
     onRender: ->
       @stickit()
 
-    onClose: ->
+    onDestroy: ->
       @unbindValidation()
 
     bindValidation: ->

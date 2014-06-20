@@ -7,8 +7,8 @@ define [
   class ArticlesShowView extends Marionette.CompositeView
     className: 'media'
     template: JST['templates/articles/show']
-    itemView: CommentsItemView
-    itemViewContainer: '.comments'
+    childView: CommentsItemView
+    childViewContainer: '.comments'
 
     initialize: ->
       @collection = @model.get('comments')

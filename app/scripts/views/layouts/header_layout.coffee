@@ -8,7 +8,7 @@ define [
   'templates'
 ], (Marionette, HeaderNavigationView, HeaderLoginView, HeaderLogoutView, Session, Routes) ->
 
-  class HeaderLayout extends Marionette.Layout
+  class HeaderLayout extends Marionette.LayoutView
     className: 'container-fluid'
     template: JST['templates/layouts/header_layout']
 
@@ -29,6 +29,6 @@ define [
         @navigationRegion.show(headerNavView)
       else
         formRegionView = new HeaderLoginView
-        @navigationRegion.close()
+        @navigationRegion.empty()
 
       @formRegion.show(formRegionView)

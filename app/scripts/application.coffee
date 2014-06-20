@@ -12,7 +12,7 @@ define [
     options or= {}
     Backbone.history.navigate(route, options)
 
-  App.on 'initialize:after', ->
+  App.on 'start', ->
     Backbone.history.start
       pushState: true
       root: '/'
