@@ -8,6 +8,6 @@ define [
   class DashboardView extends Marionette.CompositeView
     className: 'jumbotron'
     template: JST['templates/dashboard/dashboard']
-    itemView: DashboardItemView
-    itemViewContainer: '.articles-list'
+    childView: DashboardItemView
+    childViewContainer: '.articles-list'
     model: Session.currentUser()

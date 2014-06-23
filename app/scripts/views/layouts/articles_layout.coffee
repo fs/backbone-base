@@ -5,7 +5,7 @@ define [
   'templates'
 ], (Marionette, ArticlesListView, ArticlesFormView) ->
 
-  class ArticlesLayout extends Marionette.Layout
+  class ArticlesLayout extends Marionette.LayoutView
     template: JST['templates/layouts/articles_layout']
 
     regions:

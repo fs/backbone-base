@@ -1,6 +1,7 @@
 define [
   'marionette'
 ], (Marionette) ->
+
   class FormBehavior extends Marionette.Behavior
     defaults:
       forceUpdate: true
