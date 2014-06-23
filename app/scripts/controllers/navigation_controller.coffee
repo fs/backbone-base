@@ -1,9 +1,9 @@
 define [
   'marionette'
   'application'
-  'views/layouts/header_layout'
-], (Marionette, App, HeaderLayout) ->
+  'views/layouts/navigation_layout'
+], (Marionette, App, NavigationLayout) ->
 
   class NavigationController extends Marionette.Controller
     initialize: ->
-      App.headerRegion.show(new HeaderLayout)
+      App.navigationRegion.show(new NavigationLayout)

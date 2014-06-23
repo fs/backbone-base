@@ -5,7 +5,7 @@ define [
   App = new Marionette.Application
 
   App.addRegions
-    headerRegion: '#header_region'
+    navigationRegion: '#navigation_region'
     mainRegion: '#main_region'
 
   App.navigate = (route, options) ->

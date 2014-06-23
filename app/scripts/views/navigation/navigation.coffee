@@ -9,7 +9,7 @@ define [
   class HeaderNavigationView extends Marionette.ItemView
     tagName: 'ul'
     className: 'nav navbar-nav'
-    template: JST['templates/header/navigation']
+    template: JST['templates/navigation/navigation']
 
     ui:
       menuItem: 'li'
