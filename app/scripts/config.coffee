@@ -12,16 +12,8 @@ requirejs.config
 
     'jade': '../vendor/scripts/runtime'
   shim:
-    'underscore':
-      exports: '_'
-    'jquery':
-      exports: '$'
-    'backbone':
-      deps: [
-        'underscore'
-        'jquery'
-        'bootstrap'
-      ]
+    'bootstrap':
+      deps: ['jquery']
     'backbone.routefilter':
       deps: ['backbone']
     'marionette':
@@ -30,8 +22,7 @@ requirejs.config
         'backbone.routefilter'
         'backbone.stickit'
         'backbone-validation'
+        'bootstrap'
       ]
-    'bootstrap':
-      deps: ['jquery']
     'templates':
       deps: ['jade']
