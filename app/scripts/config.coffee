@@ -14,8 +14,6 @@ requirejs.config
   shim:
     'bootstrap':
       deps: ['jquery']
-    'backbone.routefilter':
-      deps: ['backbone']
     'marionette':
       deps: [
         'backbone'

@@ -7,8 +7,7 @@ module.exports = (grunt) ->
       preserveLicenseComments: false
       findNestedDependencies: true
       wrapShim: true
-      include: ['main']
-      name: '../bower_components/almond/almond'
+      include: ['../bower_components/almond/almond', 'main']
       optimize: 'uglify2'
       uglify2:
         output:
