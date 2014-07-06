@@ -15,7 +15,8 @@
     "almond": "~0.2.9",
     "backbone-route-filter": "~0.1.1",
     "backbone.stickit": "~0.8.0",
-    "backbone-validation": "~0.9.1"
+    "backbone-validation": "~0.9.1",
+    "flat-ui": "latest"
   },
   "resolutions": {
     "jquery": "~2.1.1"
