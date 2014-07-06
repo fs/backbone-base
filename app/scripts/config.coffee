@@ -9,11 +9,17 @@ requirejs.config
     'backbone-validation': '../bower_components/backbone-validation/dist/backbone-validation-amd'
     'marionette': '../bower_components/marionette/lib/backbone.marionette'
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
+    'flat-ui.controls': '../bower_components/flat-ui/js/custom_checkbox_and_radio'
 
     'jade': '../vendor/scripts/runtime'
   shim:
-    'bootstrap':
+    'flat-ui.controls':
       deps: ['jquery']
+    'bootstrap':
+      deps: [
+        'jquery'
+        'flat-ui.controls'
+      ]
     'marionette':
       deps: [
         'backbone'
