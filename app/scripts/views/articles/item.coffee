@@ -19,5 +19,6 @@ define [
       _.extend super, Session.currentUser().pick('avatar', 'name')
 
     onRemoveClicked: ->
-      @model.destroy().then ->
-        alert 'article deleted'
+      @model.destroy
+        success: ->
+          alert 'article deleted'

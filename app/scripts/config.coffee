@@ -9,29 +9,24 @@ requirejs.config
     'backbone-validation': '../bower_components/backbone-validation/dist/backbone-validation-amd'
     'marionette': '../bower_components/marionette/lib/backbone.marionette'
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
+    'flat-ui.controls': '../bower_components/flat-ui/js/custom_checkbox_and_radio'
 
     'jade': '../vendor/scripts/runtime'
   shim:
-    'underscore':
-      exports: '_'
-    'jquery':
-      exports: '$'
-    'backbone':
+    'flat-ui.controls':
+      deps: ['jquery']
+    'bootstrap':
       deps: [
-        'underscore'
         'jquery'
-        'bootstrap'
+        'flat-ui.controls'
       ]
-    'backbone.routefilter':
-      deps: ['backbone']
     'marionette':
       deps: [
         'backbone'
         'backbone.routefilter'
         'backbone.stickit'
         'backbone-validation'
+        'bootstrap'
       ]
-    'bootstrap':
-      deps: ['jquery']
     'templates':
       deps: ['jade']

@@ -7,7 +7,7 @@ define [
 
   class HeaderLoginView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
-    template: JST['templates/header/login']
+    template: JST['templates/navigation/login']
 
     events:
       'submit form': 'onFormSubmit'
