@@ -29,12 +29,12 @@ define [
     serializeData: ->
       Session.currentUser().pick('avatar', 'name')
 
-    initialize: ->
+    onRender: ->
       @model = new Article
 
     onFormSubmit: (event) ->
       event.preventDefault()
 
       if @model.isValid(true)
-        @collection.create(@model)
-
+        $.when(@collection.create(@model)).then =>
+          @render()
