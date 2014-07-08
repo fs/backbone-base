@@ -12,6 +12,15 @@ define [
       articlesRegion: '#articles_list_region'
       writeArticleRegion: '#write_article_region'
 
+    initialize: ->
+      @listenTo @collection, 'add', @onAddNewArticle
+
     onRender: ->
       @articlesRegion.show(new ArticlesListView(collection: @collection))
+      @_showFormView()
+
+    onAddNewArticle: ->
+      @_showFormView()
+
+    _showFormView: ->
       @writeArticleRegion.show(new ArticlesFormView(collection: @collection))
