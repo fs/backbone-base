@@ -5,6 +5,7 @@ define [
   App = new Marionette.Application
 
   App.addRegions
+    notificationsRegion: '#notifications_region'
     headerRegion: '#header_region'
     mainRegion: '#main_region'
 
