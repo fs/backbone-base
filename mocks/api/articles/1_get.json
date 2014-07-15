@@ -2,21 +2,21 @@
   "id": "1",
   "name": "M@rik",
   "text": "Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.",
-  "avatar": "http://ru.gravatar.com/userimage/60946353/e9d10ff600f0ac0339eaf5609681609c.jpg",
+  "avatar": "http://localhost:8000/images/avatar.png",
   "comments": [
     {
       "id": "1",
       "articleId": "1",
       "user": "Sector",
       "comment": "Sector wins",
-      "avatar": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRufWGNp-3ekuDLx5gUirEpwsOalBhEn4ZMuyM4LC5hUAKoK7JcPQ"
+      "avatar": "http://localhost:8000/images/avatar.png"
     },
     {
       "id": "2",
       "articleId": "1",
       "user": "Johnny Cage",
       "comment": "Johnny Cage Wins",
-      "avatar": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRufWGNp-3ekuDLx5gUirEpwsOalBhEn4ZMuyM4LC5hUAKoK7JcPQ"
+      "avatar": "http://localhost:8000/images/avatar.png"
     },
     {
       "id": "3",

@@ -7,7 +7,7 @@ define [
 ], (Marionette, App, Session, FormBehavior) ->
 
   class HeaderLoginView extends Marionette.ItemView
-    template: JST['templates/header/login']
+    template: JST['templates/navigation/login']
 
     className: 'nav navbar-nav navbar-right'
 

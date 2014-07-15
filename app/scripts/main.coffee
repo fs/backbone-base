@@ -1,11 +1,10 @@
-require [
-  'config'
-  'application'
-  'modules/navigation'
-  'modules/landing'
-  'modules/dashboard'
-  'modules/articles'
-  'modules/notifications'
-], (_, App) ->
+require ['config'], ->
+  require [
+    'application'
+    'modules/navigation'
+    'modules/landing'
+    'modules/dashboard'
+    'modules/articles'
+  ], (App) ->
 
-  App.start()
+    App.start()

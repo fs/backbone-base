@@ -6,7 +6,7 @@ define [
 
   App.addRegions
     notificationsRegion: '#notifications_region'
-    headerRegion: '#header_region'
+    navigationRegion: '#navigation_region'
     mainRegion: '#main_region'
 
   App.navigate = (route, options) ->

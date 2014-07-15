@@ -7,7 +7,7 @@ define [
 
   class HeaderLogoutView extends Marionette.ItemView
     className: 'nav navbar-nav navbar-right'
-    template: JST['templates/header/logout']
+    template: JST['templates/navigation/logout']
     model: Session.currentUser()
 
     events:

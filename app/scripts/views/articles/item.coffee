@@ -21,5 +21,6 @@ define [
       _.extend super, Session.currentUser().pick('avatar', 'name')
 
     onRemoveClicked: ->
-      @model.destroy().then ->
-        App.vent.trigger('notification', {type: 'info', message: 'Article successfully deleted!'})
+      @model.destroy
+        success: ->
+          App.vent.trigger('notification', {type: 'info', message: 'Article successfully deleted!'})
