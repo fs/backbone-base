@@ -1,0 +1,13 @@
+clearfix()
+  zoom: 1
+
+  &::before
+  &::after
+    content: ''
+    display: block
+
+  &::after
+    clear: both
+
+nolist()
+  list-style: none outside
