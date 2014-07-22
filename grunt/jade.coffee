@@ -3,6 +3,8 @@ module.exports = (grunt) ->
     options:
       pretty: true
       client: false
+      data:
+        development: true
     files: [
       '<%= grunt.publicDir %>/index.html': ['<%= grunt.appDir %>/index.jade']
     ]
