@@ -1,13 +1,17 @@
 define [
   'marionette'
+  'application'
   'facades/session'
   'views/behaviors/form'
   'templates'
-], (Marionette, Session, FormBehavior) ->
+], (Marionette, App, Session, FormBehavior) ->
 
   class HeaderLoginView extends Marionette.ItemView
-    className: 'nav navbar-nav navbar-right'
     template: JST['templates/navigation/login']
+
+    className: 'nav navbar-nav navbar-right'
+
+    model: Session.currentUser()
 
     events:
       'submit form': 'onFormSubmit'
@@ -31,10 +35,9 @@ define [
           placement: 'bottom'
           trigger: 'focus'
 
-    model: Session.currentUser()
-
     onFormSubmit: (event) ->
       event.preventDefault()
 
       if @model.isValid(true)
         Session.create()
+        App.vent.trigger('notification', {type: 'success', message: 'You have successfully registered!'})

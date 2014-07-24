@@ -1,13 +1,15 @@
 define [
   'marionette'
+  'application'
   'helpers/routes'
   'facades/session'
   'templates'
-], (Marionette, Routes, Session) ->
+], (Marionette, App, Routes, Session) ->
 
   class ArticlesItemView extends Marionette.ItemView
-    className: 'media'
     template: JST['templates/articles/item']
+
+    className: 'media'
 
     events:
       'click .close': 'onRemoveClicked'
@@ -21,4 +23,4 @@ define [
     onRemoveClicked: ->
       @model.destroy
         success: ->
-          alert 'article deleted'
+          App.vent.trigger('notification', {type: 'info', message: 'Article successfully deleted!'})
