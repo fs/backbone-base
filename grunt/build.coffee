@@ -8,7 +8,6 @@ module.exports = (grunt) ->
         'copy:development'
         'concurrent:development'
         'jade:html'
-        'targethtml:development'
       ]
     else if target is 'production'
       grunt.task.run [
@@ -19,7 +18,6 @@ module.exports = (grunt) ->
         'concurrent:development'
         'clean:production'
         'jade:production'
-        'targethtml:production'
         'cssmin:production'
         'requirejs:production'
       ]

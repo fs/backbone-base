@@ -24,7 +24,6 @@
     "grunt-easymock": "~0.1.0",
     "grunt-jsonlint": "~1.0.4",
     "grunt-concurrent": "~0.4.3",
-    "grunt-targethtml": "~0.2.6",
     "grunt-shell": "~0.6.4",
     "grunt-notify": "~0.2.20",
     "grunt-karma": "~0.8.3",
