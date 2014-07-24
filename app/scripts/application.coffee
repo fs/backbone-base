@@ -1,5 +1,6 @@
 define [
   'marionette'
+  'bootstrap'
 ], (Marionette) ->
 
   App = new Marionette.Application

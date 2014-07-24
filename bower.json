@@ -9,7 +9,7 @@
   "description": "backbone base application",
   "dependencies": {
     "jquery": "~2.1.1",
-    "marionette": "~2.0.2",
+    "marionette": "~2.0.3",
     "requirejs": "~2.1.14",
     "bootstrap": "~3.2.0",
     "almond": "~0.2.9",
