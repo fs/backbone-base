@@ -3,7 +3,13 @@ define [
   'application'
   'facades/session'
   'helpers/routes'
-], (Marionette, App, Session, routes) ->
+  'backbone.routefilter'
+], (
+  Marionette
+  App
+  Session
+  Routes
+) ->
 
   class BaseRouter extends Marionette.AppRouter
     before:
@@ -11,5 +17,5 @@ define [
 
     redirectIfNotLoggedIn: ->
       unless Session.isLoggedIn()
-        @navigate(routes.rootPath(), trigger: true)
+        @navigate(Routes.rootPath(), trigger: true)
         false
