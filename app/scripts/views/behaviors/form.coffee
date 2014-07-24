@@ -1,5 +1,7 @@
 define [
   'marionette'
+  'backbone.stickit'
+  'backbone-validation'
 ], (Marionette) ->
 
   class FormBehavior extends Marionette.Behavior

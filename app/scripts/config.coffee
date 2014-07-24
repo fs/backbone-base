@@ -12,15 +12,9 @@ requirejs.config
 
     'jade': '../vendor/scripts/runtime'
   shim:
+    'marionette':
+      deps: ['backbone']
     'bootstrap':
       deps: ['jquery']
-    'marionette':
-      deps: [
-        'backbone'
-        'backbone.routefilter'
-        'backbone.stickit'
-        'backbone-validation'
-        'bootstrap'
-      ]
     'templates':
       deps: ['jade']
