@@ -45,10 +45,26 @@ This simple application includes Backbone.js/Marionette.js frameworks and grunt/
     "backbone-validation": "~0.9.1"
 
 ## Install
+### OSX
 
-Install Node.js
+* Install Node.js
+
 
     brew install node
+
+### Ubuntu 12.04
+
+* Install Node.js and Npm
+
+
+    sudo add-apt-repository ppa:richarvey/nodejs
+    sudo apt-get update && sudo apt-get install nodejs npm
+
+* Configure Npm path (for avoid _sudo_ usage for installing modules)
+
+
+    npm config set prefix ~/npm
+    echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc #for zsh shell
 
 Install Grunt CLI
 
