@@ -7,6 +7,7 @@ module.exports = (grunt) ->
         'symlink:development'
         'copy:development'
         'concurrent:development'
+        'replace:development'
         'jade:html'
       ]
     else if target is 'production'
@@ -19,5 +20,6 @@ module.exports = (grunt) ->
         'copy:production'
         'jade:production'
         'cssmin:production'
+        'replace:production'
         'requirejs:production'
       ]

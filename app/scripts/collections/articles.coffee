@@ -1,8 +1,13 @@
 define [
   'collections/app'
+  'helpers/config_helper'
   'models/article'
-], (AppCollection, Article) ->
+], (
+  AppCollection
+  Config
+  Article
+) ->
 
   class ArticleCollection extends AppCollection
-    url: '/api/articles'
+    url: "#{Config.getUrl()}/articles"
     model: Article

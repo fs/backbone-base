@@ -1,8 +1,13 @@
 define [
   'collections/app'
+  'helpers/config_helper'
   'models/dashboard_article'
-], (AppCollection, DashboardArticle) ->
+], (
+  AppCollection
+  Config
+  DashboardArticle
+) ->
 
   class DashboardArticles extends AppCollection
-    url: '/api/dashboard'
+    url: "#{Config.getUrl()}/dashboard"
     model: DashboardArticle

@@ -4,7 +4,7 @@ define [
   'views/navigation/login'
   'views/navigation/logout'
   'facades/session'
-  'helpers/routes'
+  'helpers/routes_helper'
   'templates'
 ], (Marionette, NavigationNavigationView, NavigationLoginView, NavigationLogoutView, Session, Routes) ->
 

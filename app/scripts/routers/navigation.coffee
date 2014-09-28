@@ -2,8 +2,8 @@ define [
   'application'
   'routers/base'
   'facades/session'
-  'helpers/routes'
-], (App, BaseRouter, Session, routes) ->
+  'helpers/routes_helper'
+], (App, BaseRouter, Session, Routes) ->
 
   class NavigationRouter extends BaseRouter
     initialize: ->
@@ -12,9 +12,9 @@ define [
 
     onSessionChange: ->
       if Session.isLoggedIn()
-        path = routes.dashboardPath()
+        path = Routes.dashboardPath()
       else
-        path = routes.rootPath()
+        path = Routes.rootPath()
 
       @navigate(path, trigger: true)
 

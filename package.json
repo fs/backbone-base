@@ -19,6 +19,7 @@
     "grunt-contrib-jade": "~0.9.1",
     "grunt-contrib-stylus": "~0.12.0",
     "grunt-contrib-cssmin": "~0.8.0",
+    "grunt-replace": "~0.7.9",
     "grunt-coffeelint": "~0.0.10",
     "grunt-connect-proxy": "~0.1.10",
     "grunt-easymock": "~0.1.0",
