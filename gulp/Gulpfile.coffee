@@ -53,7 +53,7 @@ gulp.task 'jade', ['clean'], ->
       pretty: false
     ))
     .pipe(jstConcat('templates.js', {
-      renameKeys: ['^.*views/(.*).html$', '$1']
+      renameKeys: ['^.*app/(.*).js$', '$1']
     }))
     .pipe(gulp.dest("#{application.publicDir}/scripts/"))
 
@@ -66,7 +66,7 @@ gulp.task 'stylus', ['clean'], ->
 gulp.task 'connect', ->
   connect.server
     root: "#{application.publicDir}"
-    port: 8000
+    port: application.ports.connect
     livereload: true
 
 gulp.task 'default', [
