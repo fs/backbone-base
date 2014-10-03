@@ -1,8 +1,8 @@
-lr = require('tiny-lr')
 gulp = require('gulp')
 gutil = require('gulp-util')
 clean = require('gulp-clean')
 copy = require('gulp-copy')
+wrap = require('gulp-wrap-amd')
 jade = require('gulp-jade')
 stylus = require('gulp-stylus')
 coffee = require('gulp-coffee')
@@ -13,7 +13,6 @@ uglify = require('gulp-uglify')
 connect = require('gulp-connect')
 jstConcat = require('gulp-jst-concat')
 rimraf = require('rimraf')
-server = lr()
 
 application =
   appDir: 'app'
@@ -31,14 +30,7 @@ gulp.task 'copy', ['clean'], ->
   gulp.src(['bower_components/**/*', 'vendor/**/*'], base: './')
     .pipe(gulp.dest("#{application.publicDir}/"))
 
-gulp.task 'coffee', ['clean'], ->
-  gulp.src("#{application.appDir}/scripts/**/*.coffee")
-    .pipe(coffeelint())
-    .pipe(coffeelint.reporter())
-    .pipe(coffee().on('error', gutil.log))
-    .pipe(gulp.dest("#{application.publicDir}/scripts/"))
-
-gulp.task 'jade', ['clean'], ->
+gulp.task 'templates', ->
   gulp.src("#{application.appDir}/*.jade")
     .pipe(jade(
       client: false
@@ -52,16 +44,30 @@ gulp.task 'jade', ['clean'], ->
       client: true
       pretty: false
     ))
+    .pipe(wrap(
+      deps: ['jade']
+      params: ['jade']
+    ))
     .pipe(jstConcat('templates.js', {
       renameKeys: ['^.*app/(.*).js$', '$1']
     }))
     .pipe(gulp.dest("#{application.publicDir}/scripts/"))
+    # .pipe(livereload())
 
-gulp.task 'stylus', ['clean'], ->
+gulp.task 'stylesheets', ->
   gulp.src("#{application.appDir}/stylesheets/**/*.styl")
     .pipe(stylus())
     .pipe(concat('style.css'))
     .pipe(gulp.dest("#{application.publicDir}/stylesheets/"))
+    # .pipe(livereload())
+
+gulp.task 'scripts', ->
+  gulp.src("#{application.appDir}/scripts/**/*.coffee")
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter())
+    .pipe(coffee().on('error', gutil.log))
+    .pipe(gulp.dest("#{application.publicDir}/scripts/"))
+    # .pipe(livereload())
 
 gulp.task 'connect', ->
   connect.server
@@ -69,11 +75,18 @@ gulp.task 'connect', ->
     port: application.ports.connect
     livereload: true
 
-gulp.task 'default', [
-  'clean'
-  'copy'
-  'connect'
-  'coffee'
-  'stylus'
-  'jade'
-]
+gulp.task 'build', ['clean'], ->
+  gulp.run(
+    'copy'
+    'templates'
+    'stylesheets'
+    'scripts'
+    'connect'
+  )
+
+gulp.task 'watch', ->
+  gulp.watch("#{application.appDir}/scripts/**/*.coffee", ['scripts'])
+  gulp.watch("#{application.appDir}/stylesheets/**/*.styl", ['stylesheets'])
+  gulp.watch("#{application.appDir}/templates/**/*.jade", ['templates'])
+
+gulp.task 'default', ['build', 'watch']
