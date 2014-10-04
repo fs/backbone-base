@@ -14,6 +14,29 @@ connect = require('gulp-connect')
 jstConcat = require('gulp-jst-concat')
 rimraf = require('rimraf')
 
+through = require('through2')
+path = require('path')
+
+modify = ->
+  transform = (file, enc, callback) ->
+    unless file.isBuffer()
+      @push(file)
+      callback()
+
+    fileName = file.path.slice(file.path.indexOf('templates'), file.path.length - 3)
+
+    from = "function template(locals) {"
+    to = """
+      this["JST"] = this["JST"] || {}
+      this["JST"]["#{fileName}"] = function template(locals) {
+    """
+    contents = file.contents.toString().replace(from, to)
+    file.contents = new Buffer(contents)
+    @push(file)
+    callback()
+
+  through.obj transform
+
 application =
   appDir: 'app'
   publicDir: 'public'
@@ -40,17 +63,13 @@ gulp.task 'templates', ->
     ))
     .pipe(gulp.dest("#{application.publicDir}/"))
   gulp.src("#{application.appDir}/templates/**/*.jade")
-    .pipe(jade(
-      client: true
-      pretty: false
-    ))
+    .pipe(jade(client: true))
+    .pipe(modify())
+    .pipe(concat('templates.js'))
     .pipe(wrap(
       deps: ['jade']
       params: ['jade']
     ))
-    .pipe(jstConcat('templates.js', {
-      renameKeys: ['^.*app/(.*).js$', '$1']
-    }))
     .pipe(gulp.dest("#{application.publicDir}/scripts/"))
     # .pipe(livereload())
 
