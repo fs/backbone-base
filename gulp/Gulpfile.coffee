@@ -1,12 +1,13 @@
 gulp = require('gulp')
 require('gulp-grunt')(gulp)
 
+karma = require('gulp-karma')
 gutil = require('gulp-util')
 clean = require('gulp-clean')
-copy = require('gulp-copy')
+symlink = require('gulp-symlink')
 jade = require('gulp-jade')
 stylus = require('gulp-stylus')
-importcss = require('gulp-import-css')
+cssimport = require('gulp-cssimport')
 coffee = require('gulp-coffee')
 coffeelint = require('gulp-coffeelint')
 jsonlint = require('gulp-jsonlint')
@@ -16,8 +17,9 @@ uglify = require('gulp-uglify')
 connect = require('gulp-connect')
 rimraf = require('rimraf')
 modRewrite = require('connect-modrewrite')
+rewriteModule = require('http-rewrite-middleware')
 
-jadeAmdJST = require('./jade-amd-jst.coffee')
+jadeAmdJST = require('./jade-amd-jst')
 
 application =
   appDir: 'app'
@@ -31,8 +33,8 @@ gulp.task 'clean', (cb) ->
   rimraf("#{application.publicDir}/", cb)
 
 gulp.task 'copy', ['clean'], ->
-  gulp.src(['bower_components/**/*', 'vendor/**/*'], base: './')
-    .pipe(gulp.dest("#{application.publicDir}/"))
+  gulp.src(['bower_components', 'vendor'])
+    .pipe(symlink("#{application.publicDir}/"))
   gulp.src("#{application.appDir}/images/**/*")
     .pipe(gulp.dest("#{application.publicDir}/images/"))
 
@@ -55,9 +57,9 @@ gulp.task 'templates', ->
 
 gulp.task 'stylesheets', ->
   gulp.src("#{application.appDir}/stylesheets/**/*.styl")
-    .pipe(stylus())
+    .pipe(stylus(linenos: true))
     .pipe(concat('style.css'))
-    .pipe(importcss())
+    .pipe(cssimport())
     .pipe(gulp.dest("#{application.publicDir}/stylesheets/"))
     # .pipe(livereload())
 
@@ -80,14 +82,29 @@ gulp.task 'connect', ->
     port: application.ports.connect
     livereload: true
   middleware: (connect, options) ->
+    rewriteMiddleware = rewriteModule.getMiddleware [
+      {from: '^/[^\.]*$', to: '/index.html'}
+    ]
+
     [
-      modRewrite(['^/[^\.]*$ /index.html'])
+      rewriteMiddleware
       connect.static(options.base)
       connect.directory(options.base)
     ]
 
-gulp.task 'easymock', ->
-  gulp.run('grunt-mocks')
+gulp.task 'karma', ->
+  gulp.src("#{application.testDir}/**/*_spec.coffee")
+    .pipe(karma(
+      configFile: "#{application.testDir}/karma.conf.coffee",
+      action: 'run'
+    ))
+    .on('error', gutil.log)
+
+gulp.task 'test', ->
+  gulp.run(
+    'scripts'
+    'karma'
+  )
 
 gulp.task 'build', ['clean'], ->
   gulp.run(
@@ -97,7 +114,7 @@ gulp.task 'build', ['clean'], ->
     'stylesheets'
     'scripts'
     'connect'
-    'easymock'
+    'grunt-mocks'
   )
 
 gulp.task 'watch', ->

@@ -1,5 +1,7 @@
+require('coffee-script')
+
 define [
-  'marionette',
+  'marionette'
   'application'
 ], (Marionette, App) ->
 
