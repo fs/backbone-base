@@ -10,10 +10,11 @@ requirejs.config
     'marionette': '../bower_components/marionette/lib/backbone.marionette'
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
 
+    'templates': '../scripts/templates'
     'jade': '../vendor/scripts/runtime'
   shim:
     'marionette':
-      deps: ['backbone']
+      deps: ['backbone', 'templates']
     'bootstrap':
       deps: ['jquery']
     'templates':

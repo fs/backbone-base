@@ -1,41 +1,23 @@
 gulp = require('gulp')
+require('gulp-grunt')(gulp)
+
 gutil = require('gulp-util')
 clean = require('gulp-clean')
 copy = require('gulp-copy')
-wrap = require('gulp-wrap-amd')
 jade = require('gulp-jade')
 stylus = require('gulp-stylus')
+importcss = require('gulp-import-css')
 coffee = require('gulp-coffee')
 coffeelint = require('gulp-coffeelint')
+jsonlint = require('gulp-jsonlint')
 livereload = require('gulp-livereload')
 concat = require('gulp-concat')
 uglify = require('gulp-uglify')
 connect = require('gulp-connect')
-jstConcat = require('gulp-jst-concat')
 rimraf = require('rimraf')
+modRewrite = require('connect-modrewrite')
 
-through = require('through2')
-path = require('path')
-
-modify = ->
-  transform = (file, enc, callback) ->
-    unless file.isBuffer()
-      @push(file)
-      callback()
-
-    fileName = file.path.slice(file.path.indexOf('templates'), file.path.length - 3)
-
-    from = "function template(locals) {"
-    to = """
-      this["JST"] = this["JST"] || {}
-      this["JST"]["#{fileName}"] = function template(locals) {
-    """
-    contents = file.contents.toString().replace(from, to)
-    file.contents = new Buffer(contents)
-    @push(file)
-    callback()
-
-  through.obj transform
+jadeAmdJST = require('./jade-amd-jst.coffee')
 
 application =
   appDir: 'app'
@@ -44,7 +26,6 @@ application =
   testDir: 'specs'
   ports:
     connect: 8000
-    easymock: 8001
 
 gulp.task 'clean', (cb) ->
   rimraf("#{application.publicDir}/", cb)
@@ -52,6 +33,8 @@ gulp.task 'clean', (cb) ->
 gulp.task 'copy', ['clean'], ->
   gulp.src(['bower_components/**/*', 'vendor/**/*'], base: './')
     .pipe(gulp.dest("#{application.publicDir}/"))
+  gulp.src("#{application.appDir}/images/**/*")
+    .pipe(gulp.dest("#{application.publicDir}/images/"))
 
 gulp.task 'templates', ->
   gulp.src("#{application.appDir}/*.jade")
@@ -64,12 +47,9 @@ gulp.task 'templates', ->
     .pipe(gulp.dest("#{application.publicDir}/"))
   gulp.src("#{application.appDir}/templates/**/*.jade")
     .pipe(jade(client: true))
-    .pipe(modify())
+    .pipe(jadeAmdJST.modify())
     .pipe(concat('templates.js'))
-    .pipe(wrap(
-      deps: ['jade']
-      params: ['jade']
-    ))
+    .pipe(jadeAmdJST.append())
     .pipe(gulp.dest("#{application.publicDir}/scripts/"))
     # .pipe(livereload())
 
@@ -77,6 +57,7 @@ gulp.task 'stylesheets', ->
   gulp.src("#{application.appDir}/stylesheets/**/*.styl")
     .pipe(stylus())
     .pipe(concat('style.css'))
+    .pipe(importcss())
     .pipe(gulp.dest("#{application.publicDir}/stylesheets/"))
     # .pipe(livereload())
 
@@ -88,19 +69,35 @@ gulp.task 'scripts', ->
     .pipe(gulp.dest("#{application.publicDir}/scripts/"))
     # .pipe(livereload())
 
+gulp.task 'jsonlint', ->
+  gulp.src('mocks/**/*.json')
+    .pipe(jsonlint())
+    .pipe(jsonlint.reporter())
+
 gulp.task 'connect', ->
   connect.server
     root: "#{application.publicDir}"
     port: application.ports.connect
     livereload: true
+  middleware: (connect, options) ->
+    [
+      modRewrite(['^/[^\.]*$ /index.html'])
+      connect.static(options.base)
+      connect.directory(options.base)
+    ]
+
+gulp.task 'easymock', ->
+  gulp.run('grunt-mocks')
 
 gulp.task 'build', ['clean'], ->
   gulp.run(
     'copy'
+    'jsonlint'
     'templates'
     'stylesheets'
     'scripts'
     'connect'
+    'easymock'
   )
 
 gulp.task 'watch', ->
