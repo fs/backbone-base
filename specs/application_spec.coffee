@@ -1,5 +1,3 @@
-require('coffee-script')
-
 define [
   'marionette'
   'application'

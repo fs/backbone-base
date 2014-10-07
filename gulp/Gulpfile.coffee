@@ -1,9 +1,9 @@
 gulp = require('gulp')
-require('gulp-grunt')(gulp)
-
-karma = require('gulp-karma')
+gulpgrunt = require('gulp-grunt')(gulp)
 gutil = require('gulp-util')
 clean = require('gulp-clean')
+ignore = require('gulp-ignore')
+rimraf = require('gulp-rimraf')
 symlink = require('gulp-symlink')
 jade = require('gulp-jade')
 stylus = require('gulp-stylus')
@@ -13,12 +13,10 @@ coffeelint = require('gulp-coffeelint')
 jsonlint = require('gulp-jsonlint')
 livereload = require('gulp-livereload')
 concat = require('gulp-concat')
-uglify = require('gulp-uglify')
 connect = require('gulp-connect')
 rjs = require('gulp-requirejs')
-rimraf = require('rimraf')
-modRewrite = require('connect-modrewrite')
-rewriteModule = require('http-rewrite-middleware')
+proxyMiddleware = require("proxy-middleware")
+karma = require('karma').server
 
 jadeAmdJST = require('./jade-amd-jst')
 
@@ -29,11 +27,13 @@ application =
   testDir: 'specs'
   ports:
     connect: 8000
+    test: 9999
 
-gulp.task 'clean', (cb) ->
-  rimraf("#{application.publicDir}/", cb)
+gulp.task 'clean', ->
+  gulp.src("#{application.publicDir}/", read: false)
+    .pipe(rimraf())
 
-gulp.task 'copy', ['clean'], ->
+gulp.task 'copy', ->
   gulp.src(['bower_components', 'vendor'])
     .pipe(symlink("#{application.publicDir}/"))
   gulp.src("#{application.appDir}/images/**/*")
@@ -79,25 +79,52 @@ gulp.task 'jsonlint', ->
 
 gulp.task 'connect', ->
   connect.server
-    root: "#{application.productionDir}"
+    root: "#{application.publicDir}"
     port: 8000
     livereload: true
   middleware: (connect, o) ->
     [(->
       url = require("url")
-      proxy = require("proxy-middleware")
+      proxy = proxyMiddleware
       options = url.parse("http://localhost:8001/mocks/api")
       options.route = "/api"
       proxy(options)
     )()]
 
-gulp.task 'karma', ->
-  gulp.src("#{application.testDir}/**/*_spec.coffee")
-    .pipe(karma(
-      configFile: "#{application.testDir}/karma.conf.coffee",
-      action: 'run'
-    ))
-    .on('error', gutil.log)
+gulp.task 'karma', (done) ->
+  karma.start(
+    basePath: ''
+    frameworks: ['mocha', 'requirejs', 'chai', 'sinon']
+    runnerPort: application.ports.test
+    singleRun: true
+    browsers: ['PhantomJS']
+    files: [
+      {pattern: "#{application.publicDir}/bower_components/**/*.js", included: false}
+      {pattern: "#{application.publicDir}/vendor/**/*.js", included: false}
+      {pattern: "#{application.publicDir}/scripts/**/*.js", included: false}
+      {pattern: "#{application.testDir}/**/*_spec.coffee", included: false}
+      "#{application.testDir}/runner.coffee"
+    ]
+    exclude: [
+      "#{application.publicDir}/scripts/config.js"
+    ]
+    reporters: ['dots']
+    colors: true
+    preprocessors:
+      'specs/**/*.coffee': ['coffee']
+    plugins: [
+      'karma-mocha'
+      'karma-chai'
+      'karma-sinon'
+      'karma-requirejs'
+      'karma-chrome-launcher'
+      'karma-phantomjs-launcher'
+      'karma-coffee-preprocessor'
+    ]
+    client:
+      mocha:
+        ui: 'bdd'
+  , done)
 
 gulp.task 'requirejs', ->
   rjs
@@ -116,11 +143,8 @@ gulp.task 'requirejs', ->
         global_defs:
           DEBUG: false
 
-gulp.task 'test', ->
-  gulp.run(
-    'scripts'
-    'karma'
-  )
+gulp.task 'test', ['scripts'], ->
+  gulp.run('karma')
 
 gulp.task 'build', ['clean'], ->
   gulp.run(
