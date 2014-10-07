@@ -15,6 +15,7 @@ livereload = require('gulp-livereload')
 concat = require('gulp-concat')
 uglify = require('gulp-uglify')
 connect = require('gulp-connect')
+rjs = require('gulp-requirejs')
 rimraf = require('rimraf')
 modRewrite = require('connect-modrewrite')
 rewriteModule = require('http-rewrite-middleware')
@@ -78,19 +79,17 @@ gulp.task 'jsonlint', ->
 
 gulp.task 'connect', ->
   connect.server
-    root: "#{application.publicDir}"
-    port: application.ports.connect
+    root: "#{application.productionDir}"
+    port: 8000
     livereload: true
-  middleware: (connect, options) ->
-    rewriteMiddleware = rewriteModule.getMiddleware [
-      {from: '^/[^\.]*$', to: '/index.html'}
-    ]
-
-    [
-      rewriteMiddleware
-      connect.static(options.base)
-      connect.directory(options.base)
-    ]
+  middleware: (connect, o) ->
+    [(->
+      url = require("url")
+      proxy = require("proxy-middleware")
+      options = url.parse("http://localhost:8001/mocks/api")
+      options.route = "/api"
+      proxy(options)
+    )()]
 
 gulp.task 'karma', ->
   gulp.src("#{application.testDir}/**/*_spec.coffee")
@@ -99,6 +98,23 @@ gulp.task 'karma', ->
       action: 'run'
     ))
     .on('error', gutil.log)
+
+gulp.task 'requirejs', ->
+  rjs
+    baseUrl: "#{application.publicDir}/scripts"
+    mainConfigFile: "#{application.publicDir}/scripts/config.js"
+    out: '#{application.productionDir}/application.js'
+    preserveLicenseComments: false
+    findNestedDependencies: true
+    wrapShim: true
+    include: ['../../bower_components/almond/almond', 'main']
+    optimize: 'uglify2'
+    uglify2:
+      output:
+        beautify: false
+      compress:
+        global_defs:
+          DEBUG: false
 
 gulp.task 'test', ->
   gulp.run(
