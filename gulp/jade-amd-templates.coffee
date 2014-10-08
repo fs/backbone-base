@@ -1,7 +1,7 @@
 through = require('through2')
 path = require('path')
 
-modify = ->
+module.exports.jst = ->
   transform = (file, enc, callback) ->
     unless file.isBuffer()
       @push(file)
@@ -18,7 +18,7 @@ modify = ->
 
   through.obj transform
 
-append = ->
+module.exports.amd = ->
   transform = (file, enc, callback) ->
     unless file.isBuffer()
       @push(file)
@@ -39,6 +39,3 @@ append = ->
     callback()
 
   through.obj transform
-
-module.exports.modify = modify
-module.exports.append = append
