@@ -11,7 +11,7 @@ tests = require('./tests')
 
 gulp.task('clean', utils.clean)
 gulp.task('copy', utils.copy)
-gulp.task('requirejs', utils.requirejs)
+gulp.task('requirejs', utils.rjs)
 gulp.task('scripts', scripts)
 gulp.task('stylesheets', stylesheets)
 gulp.task('templates', templates)
@@ -24,6 +24,7 @@ gulp.task 'watch', ->
   gulp.watch("#{config.appDir}/templates/**/*.jade", ['templates'])
 
 gulp.task 'development', ->
+  config.environment = 'development'
   config.publicDir = 'public'
   runSequence(
     'clean'
@@ -39,6 +40,7 @@ gulp.task 'development', ->
   )
 
 gulp.task 'production', ->
+  config.environment = 'production'
   config.publicDir = 'production'
   runSequence(
     'clean'
@@ -49,9 +51,9 @@ gulp.task 'production', ->
       'scripts'
       'server'
       'grunt-mocks'
+      'watch'
     ]
     'requirejs'
-    'watch'
   )
 
 gulp.task 'test', ->

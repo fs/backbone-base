@@ -1,6 +1,7 @@
 module.exports =
+  environment: 'development'
   appDir: 'app'
-  publicDir: 'public'
+  publicDir: 'production'
   testDir: 'specs'
   ports:
     connect: 8000

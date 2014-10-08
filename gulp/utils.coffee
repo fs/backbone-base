@@ -11,20 +11,25 @@ module.exports.clean = ->
     .pipe(rimraf())
 
 module.exports.copy = ->
-  gulp.src(['bower_components', 'vendor'])
-    .pipe(symlink("#{config.publicDir}/"))
+  if config.environment is 'development'
+    gulp.src(['bower_components', 'vendor'])
+      .pipe(symlink("#{config.publicDir}/"))
+  else
+    gulp.src(['bower_components/**/*', 'vendor/**/*'], base: './')
+      .pipe(gulp.dest("#{config.publicDir}/"))
+
   gulp.src("#{config.appDir}/images/**/*")
     .pipe(gulp.dest("#{config.publicDir}/images/"))
 
-module.exports.requirejs = ->
+module.exports.rjs = ->
   rjs
     baseUrl: "#{config.publicDir}/scripts"
     mainConfigFile: "#{config.publicDir}/scripts/config.js"
-    out: 'tt/application.js'
+    out: 'application.js'
     preserveLicenseComments: false
     findNestedDependencies: true
     wrapShim: true
-    # include: ['../../bower_components/almond/almond', 'main']
+    include: ['../bower_components/almond/almond', 'main']
     optimize: 'uglify2'
     uglify2:
       output:
@@ -32,3 +37,5 @@ module.exports.requirejs = ->
       compress:
         global_defs:
           DEBUG: false
+  .pipe(gulp.dest("#{config.publicDir}"))
+
