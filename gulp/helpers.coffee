@@ -1,6 +1,8 @@
 through = require('through2')
 path = require('path')
 
+# TO DO: create node module from this two functions
+
 module.exports.jst = ->
   transform = (file, enc, callback) ->
     unless file.isBuffer()
@@ -18,7 +20,7 @@ module.exports.jst = ->
 
   through.obj transform
 
-module.exports.amd = ->
+module.exports.jadeAmd = ->
   transform = (file, enc, callback) ->
     unless file.isBuffer()
       @push(file)

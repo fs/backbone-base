@@ -1,14 +1,15 @@
 gulp = require('gulp')
 gulpgrunt = require('gulp-grunt')(gulp)
 runSequence = require('run-sequence')
-config = require('./config')
-utils = require('./utils')
-scripts = require('./scripts')
-stylesheets = require('./stylesheets')
-templates = require('./templates')
-server = require('./server')
-tests = require('./tests')
+config = require('./gulp/config')
+utils = require('./gulp/utils')
+scripts = require('./gulp/scripts')
+stylesheets = require('./gulp/stylesheets')
+templates = require('./gulp/templates')
+server = require('./gulp/server')
+tests = require('./gulp/tests')
 
+gulp.task('install', utils.install)
 gulp.task('clean', utils.clean)
 gulp.task('copy', utils.copy)
 gulp.task('requirejs', utils.rjs)
@@ -27,6 +28,7 @@ gulp.task 'development', ->
   config.environment = 'development'
   config.publicDir = 'public'
   runSequence(
+    'install'
     'clean'
     [
       'copy'
@@ -43,6 +45,7 @@ gulp.task 'production', (cb) ->
   config.environment = 'production'
   config.publicDir = 'public'
   runSequence(
+    'install'
     'clean'
     [
       'copy'

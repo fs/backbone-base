@@ -1,2 +1,2 @@
 require('coffee-script');
-require('./gulp/build.coffee');
+require('./gulpfile.coffee');

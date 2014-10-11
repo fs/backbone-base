@@ -1,8 +1,10 @@
 gulp = require('gulp')
+plumber = require('gulp-plumber')
 config = require('./config')
 jade = require('gulp-jade')
 concat = require('gulp-concat')
-jadeAmdTemplates = require('./jade-amd-templates')
+helpers = require('./helpers')
+notify = require('gulp-notify')
 
 module.exports = ->
   jadeConfig =
@@ -14,12 +16,14 @@ module.exports = ->
     jadeConfig.data['development'] = true
 
   gulp.src("#{config.appDir}/*.jade")
-    .pipe(jade(jadeConfig))
+    .pipe(plumber())
+    .pipe(jade(jadeConfig).on('error', notify.onError()))
     .pipe(gulp.dest("#{config.publicDir}/"))
   gulp.src("#{config.appDir}/templates/**/*.jade")
-    .pipe(jade(client: true))
-    .pipe(jadeAmdTemplates.jst())
+    .pipe(plumber())
+    .pipe(jade(client: true).on('error', notify.onError()))
+    .pipe(helpers.jst())
     .pipe(concat('templates.js'))
-    .pipe(jadeAmdTemplates.amd())
+    .pipe(helpers.jadeAmd())
     .pipe(gulp.dest("#{config.publicDir}/scripts/"))
     # .pipe(livereload())

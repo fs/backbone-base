@@ -1,10 +1,15 @@
 gulp = require('gulp')
+install = require('gulp-install')
 config = require('./config')
 clean = require('gulp-clean')
 rimraf = require('gulp-rimraf')
 ignore = require('gulp-ignore')
 symlink = require('gulp-symlink')
 rjs = require('gulp-requirejs')
+
+module.exports.install = ->
+  gulp.src(['./bower.json'])
+    .pipe(install())
 
 module.exports.clean = ->
   gulp.src("#{config.publicDir}/", read: false)

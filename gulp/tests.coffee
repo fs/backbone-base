@@ -1,5 +1,4 @@
 gulp = require('gulp')
-gutil = require('gulp-util')
 config = require('./config')
 karma = require('karma').server
 
