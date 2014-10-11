@@ -1,6 +1,6 @@
 gulp = require('gulp')
 gulpgrunt = require('gulp-grunt')(gulp)
-runSequence = require('gulp-run-sequence')
+runSequence = require('run-sequence')
 config = require('./config')
 utils = require('./utils')
 scripts = require('./scripts')
@@ -39,9 +39,9 @@ gulp.task 'development', ->
     ]
   )
 
-gulp.task 'production', ->
+gulp.task 'production', (cb) ->
   config.environment = 'production'
-  config.publicDir = 'production'
+  config.publicDir = 'public'
   runSequence(
     'clean'
     [
@@ -51,9 +51,9 @@ gulp.task 'production', ->
       'scripts'
       'server'
       'grunt-mocks'
-      'watch'
     ]
     'requirejs'
+    cb
   )
 
 gulp.task 'test', ->

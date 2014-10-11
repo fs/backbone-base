@@ -33,7 +33,7 @@ module.exports.rjs = ->
     optimize: 'uglify2'
     uglify2:
       output:
-        beautify: false
+        beautify: true
       compress:
         global_defs:
           DEBUG: false
