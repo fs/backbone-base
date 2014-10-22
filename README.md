@@ -56,6 +56,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and grunt/
 * Install Node.js and Npm
 
     `sudo add-apt-repository ppa:richarvey/nodejs`
+
     `sudo apt-get update && sudo apt-get install nodejs npm`
 
 * Configure Npm path (for avoid _sudo_ usage for installing modules)
