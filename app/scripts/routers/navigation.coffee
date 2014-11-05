@@ -1,22 +1,22 @@
-define [
-  'application'
-  'routers/base'
-  'facades/session'
-  'helpers/routes'
-], (App, BaseRouter, Session, routes) ->
+App = require('../application.coffee')
+BaseRouter = require('../routers/base.coffee')
+Session = require('../facades/session.coffee')
+Routes = require('../helpers/routes.coffee')
 
-  class NavigationRouter extends BaseRouter
-    initialize: ->
-      @listenTo Session, 'create destroy', @onSessionChange
-      @listenTo Backbone.history, 'route', @onNavigationChange
+class NavigationRouter extends BaseRouter
+  initialize: ->
+    @listenTo Session, 'create destroy', @onSessionChange
+    @listenTo Backbone.history, 'route', @onNavigationChange
 
-    onSessionChange: ->
-      if Session.isLoggedIn()
-        path = routes.dashboardPath()
-      else
-        path = routes.rootPath()
+  onSessionChange: ->
+    if Session.isLoggedIn()
+      path = routes.dashboardPath()
+    else
+      path = routes.rootPath()
 
-      @navigate(path, trigger: true)
+    @navigate(path, trigger: true)
 
-    onNavigationChange: (router) ->
-      App.vent.trigger 'navigation:change', router.navigation
+  onNavigationChange: (router) ->
+    App.vent.trigger 'navigation:change', router.navigation
+
+module.exports = NavigationRouter

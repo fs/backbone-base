@@ -1,10 +1,12 @@
-require ['config'], ->
-  require [
-    'application'
-    'modules/navigation'
-    'modules/landing'
-    'modules/dashboard'
-    'modules/articles'
-  ], (App) ->
+require('underscore')
+require('backbone')
+require('backbone-routefilter')
+require('backbone-stickit')
+require('backbone-validation')
+require('marionette')
+require('bootstrap')
+require('jade')
+require('./modules/navigation.coffee')
+App = require('./application.coffee')
 
-    App.start()
+App.start()
