@@ -1,43 +1,43 @@
-define [
-  'models/user'
-  'facades/storage'
-], (User, Storage) ->
+User = require('../models/user.coffee')
+Storage = require('../facades/storage.coffee')
 
-  class Session
-    _.extend @, Backbone.Events
+class Session
+  _.extend @, Backbone.Events
 
-    STORAGE_KEY = 'user_session'
-    SESSION_KEY = 'session_token'
+  STORAGE_KEY = 'user_session'
+  SESSION_KEY = 'session_token'
 
-    currentUser = null
+  currentUser = null
 
-    @currentUser: ->
-      currentUser or= new User(Storage.get(STORAGE_KEY))
+  @currentUser: ->
+    currentUser or= new User(Storage.get(STORAGE_KEY))
 
-    @create: ->
-      deferred = $.Deferred()
+  @create: ->
+    deferred = $.Deferred()
 
-      unless @isLoggedIn()
-        @currentUser().save null,
-          success: =>
-            @save()
-            @trigger 'create'
-            deferred.resolve()
-          error: ->
-            deferred.reject()
+    unless @isLoggedIn()
+      @currentUser().save null,
+        success: =>
+          @save()
+          @trigger 'create'
+          deferred.resolve()
+        error: ->
+          deferred.reject()
 
-      deferred.promise()
+    deferred.promise()
 
-    @destroy: ->
-      Storage.remove(STORAGE_KEY)
-      @currentUser().clear()
-      @trigger 'destroy'
+  @destroy: ->
+    Storage.remove(STORAGE_KEY)
+    @currentUser().clear()
+    @trigger 'destroy'
 
-    @save: ->
-      Storage.set(STORAGE_KEY, @currentUser().toJSON())
+  @save: ->
+    Storage.set(STORAGE_KEY, @currentUser().toJSON())
 
-    @isLoggedIn: ->
-      not @currentUser().isNew()
+  @isLoggedIn: ->
+    not @currentUser().isNew()
 
-    @getToken: ->
-      @currentUser().pick(SESSION_KEY)
+  @getToken: ->
+    @currentUser().pick(SESSION_KEY)
+
+module.exports = Session

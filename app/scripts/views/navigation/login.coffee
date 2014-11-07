@@ -1,40 +1,39 @@
-define [
-  'marionette'
-  'facades/session'
-  'views/behaviors/form'
-  'templates'
-], (Marionette, Session, FormBehavior) ->
+Session = require('../../facades/session.coffee')
+FormBehavior = require('../../views/behaviors/form.coffee')
+template = require('../../../templates/navigation/login.jade')
 
-  class HeaderLoginView extends Marionette.ItemView
-    className: 'nav navbar-nav navbar-right'
-    template: JST['templates/navigation/login']
+class NavigationLoginView extends Marionette.ItemView
+  className: 'nav navbar-nav navbar-right'
+  template: template()
 
-    events:
-      'submit form': 'onFormSubmit'
+  events:
+    'submit form': 'onFormSubmit'
 
-    bindings:
-      '[name="email"]':
-        observe: 'email'
-        updateView: false
-        setOptions:
-          validate: true
-      '[name="password"]':
-        observe: 'password'
-        updateView: false
-        setOptions:
-          validate: true
+  bindings:
+    '[name="email"]':
+      observe: 'email'
+      updateView: false
+      setOptions:
+        validate: true
+    '[name="password"]':
+      observe: 'password'
+      updateView: false
+      setOptions:
+        validate: true
 
-    behaviors:
-      form:
-        behaviorClass: FormBehavior
-        tooltip:
-          placement: 'bottom'
-          trigger: 'focus'
+  behaviors:
+    form:
+      behaviorClass: FormBehavior
+      tooltip:
+        placement: 'bottom'
+        trigger: 'focus'
 
-    model: Session.currentUser()
+  model: Session.currentUser()
 
-    onFormSubmit: (event) ->
-      event.preventDefault()
+  onFormSubmit: (event) ->
+    event.preventDefault()
 
-      if @model.isValid(true)
-        Session.create()
+    if @model.isValid(true)
+      Session.create()
+
+module.exports = NavigationLoginView

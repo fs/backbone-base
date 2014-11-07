@@ -9,4 +9,4 @@ require('jade')
 require('./modules/navigation.coffee')
 App = require('./application.coffee')
 
-App.start()
+$ -> App.start()

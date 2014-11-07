@@ -15,20 +15,18 @@ jade = require('gulp-jade')
 source = require('vinyl-source-stream')
 browserify = require('browserify')
 watchify = require('watchify')
-livereload = require('gulp-livereload')
+browserSync = require('browser-sync')
 notify = require('gulp-notify')
-connect = require('gulp-connect')
-proxyMiddleware = require("proxy-middleware")
+proxy = require("proxy-middleware")
 karma = require('karma').server
 
 
 config =
-  environment: 'development'
   appDir: 'app'
-  publicDir: 'production'
+  publicDir: 'public'
   testDir: 'specs'
   ports:
-    connect: 8000
+    server: 8000
     mocks: 8001
     test: 9999
 
@@ -72,7 +70,6 @@ gulp.task 'stylesheets', ->
 
 gulp.task 'templates', ->
   jadeConfig =
-    client: false
     pretty: true
     data: {}
 
@@ -87,9 +84,12 @@ gulp.task 'browserify', ->
     cache: {}
     packageCache: {}
     fullPaths: true
-    paths: ["./#{config.appDir}/scripts"]
-    entries: "./#{config.appDir}/scripts/main.coffee"
     debug: true
+    paths: [
+      "./#{config.appDir}/scripts"
+      "./#{config.appDir}/templates"
+    ]
+    entries: "./#{config.appDir}/scripts/main.coffee"
   )
 
   bundle = ->
@@ -103,23 +103,26 @@ gulp.task 'browserify', ->
   bundler
     .on('error', notify.onError())
     .on('update', bundle)
-
   bundle()
 
 
-gulp.task 'server', ->
-  connect.server
-    root: "#{config.publicDir}"
-    port: config.ports.connect
-    livereload: true
-  middleware: (connect, o) ->
-    [(->
-      url = require("url")
-      proxy = proxyMiddleware
-      options = url.parse("http://localhost:#{config.ports.mocks}/mocks/api")
-      options.route = "/api"
-      proxy(options)
-    )()]
+gulp.task 'browser-sync', ->
+  browserSync
+    port: config.ports.server
+    open: false
+    notify: false
+    server:
+      baseDir: "#{config.publicDir}"
+      middleware: [(->
+        url = require('url')
+        options = url.parse("http://localhost:#{config.ports.mocks}/mocks/api")
+        options.route = '/api'
+        proxy(options)
+      )()]
+    files: [
+      "#{config.publicDir}/**"
+      "!#{config.publicDir}/**.map"
+    ]
 
 
 gulp.task 'karma', ->
@@ -160,28 +163,7 @@ gulp.task 'karma', ->
 
 gulp.task 'watch', ->
   gulp.watch("#{config.appDir}/stylesheets/**/*.styl", ['stylesheets'])
-  gulp.watch("#{config.appDir}/templates/**/*.jade", ['templates'])
-
-
-gulp.task 'development', ->
-  config.environment = 'development'
-  config.publicDir = 'public'
-  runSequence(
-    'install'
-    'clean'
-    [
-      'templates'
-      'stylesheets'
-      'jsonlint'
-      'coffeelint'
-    ]
-    'browserify'
-    [
-      'server'
-      'grunt-mocks'
-    ]
-    'watch'
-  )
+  gulp.watch("#{config.appDir}/*.jade", ['templates'])
 
 
 gulp.task 'test', ->
@@ -194,5 +176,36 @@ gulp.task 'test', ->
     'karma'
   )
 
+
+gulp.task 'server', ->
+  runSequence(
+    [
+      'browser-sync'
+      'grunt-mocks'
+    ]
+  )
+
+
+gulp.task 'build', ->
+  runSequence(
+    'install'
+    'clean'
+    [
+      'copy'
+      'templates'
+      'stylesheets'
+      'jsonlint'
+      'coffeelint'
+    ]
+    'browserify'
+  )
+
+
+gulp.task 'development', ->
+  runSequence(
+    'build'
+    'server'
+    'watch'
+  )
 
 gulp.task('default', ['development'])
