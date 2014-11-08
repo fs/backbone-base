@@ -6,3 +6,5 @@ class AppCollection extends Backbone.Collection
       options.data = _.extend({}, options.data, Session.getToken())
 
     super
+
+module.exports = AppCollection

@@ -17,9 +17,8 @@ browserify = require('browserify')
 watchify = require('watchify')
 browserSync = require('browser-sync')
 notify = require('gulp-notify')
-# proxy = require("proxy-middleware")
 karma = require('karma').server
-
+middlewareProxy = require("proxy-middleware")
 httpProxy = require('http-proxy')
 
 
@@ -123,7 +122,7 @@ gulp.task 'browser-sync', ->
       "!#{config.publicDir}/**.map"
     ]
 
-# Need to implement correct test environment with browserify
+# Need to implement correct test environment with karma-browserify
 gulp.task 'karma', ->
   karma.start(
     basePath: ''

@@ -1,5 +1,4 @@
 App = require('../../application.coffee')
-Session = require('../../facades/session.coffee')
 Routes = require('../../helpers/routes.coffee')
 template = require('../../../templates/navigation/navigation.jade')
 
@@ -23,3 +22,4 @@ class NavigationView extends Marionette.ItemView
     unless _.isEmpty(nav)
       @$el.find("a[data-nav='#{nav}']").parent().addClass('active')
 
+module.exports = NavigationView

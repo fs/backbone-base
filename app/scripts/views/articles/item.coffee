@@ -1,24 +1,23 @@
-define [
-  'marionette'
-  'helpers/routes'
-  'facades/session'
-  'templates'
-], (Marionette, Routes, Session) ->
+Session = require('../../facades/session.coffee')
+routes = require('../../helpers/routes.coffee')
+template = require('../../../templates/articles/item.jade')
 
-  class ArticlesItemView extends Marionette.ItemView
-    className: 'media'
-    template: JST['templates/articles/item']
+class ArticlesItemView extends Marionette.ItemView
+  className: 'media'
+  template: template
 
-    events:
-      'click .close': 'onRemoveClicked'
+  events:
+    'click .close': 'onRemoveClicked'
 
-    templateHelpers:
-      routes: Routes
+  templateHelpers:
+    routes: routes
 
-    serializeData: ->
-      _.extend super, Session.currentUser().pick('avatar', 'name')
+  serializeData: ->
+    _.extend super, Session.currentUser().pick('avatar', 'name')
 
-    onRemoveClicked: ->
-      @model.destroy
-        success: ->
-          alert 'article deleted'
+  onRemoveClicked: ->
+    @model.destroy
+      success: ->
+        alert 'article deleted'
+
+module.exports = ArticlesItemView
