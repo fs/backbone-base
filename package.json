@@ -45,6 +45,7 @@
     "karma-coffee-preprocessor": "~0.2.1",
     "coffee-script": "~1.6.3",
     "proxy-middleware": "0.6.0",
+    "http-proxy": "~1.6.1",
     "through2": "~0.6.2"
   },
   "browserify": {

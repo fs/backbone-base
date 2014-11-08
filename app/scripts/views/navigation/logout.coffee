@@ -3,7 +3,7 @@ template = require('../../../templates/navigation/logout.jade')
 
 class NavigationLogoutView extends Marionette.ItemView
   className: 'nav navbar-nav navbar-right'
-  template: template()
+  template: template
   model: Session.currentUser()
 
   events:

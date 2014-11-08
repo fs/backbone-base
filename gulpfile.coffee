@@ -17,8 +17,10 @@ browserify = require('browserify')
 watchify = require('watchify')
 browserSync = require('browser-sync')
 notify = require('gulp-notify')
-proxy = require("proxy-middleware")
+# proxy = require("proxy-middleware")
 karma = require('karma').server
+
+httpProxy = require('http-proxy')
 
 
 config =
@@ -85,10 +87,6 @@ gulp.task 'browserify', ->
     packageCache: {}
     fullPaths: true
     debug: true
-    paths: [
-      "./#{config.appDir}/scripts"
-      "./#{config.appDir}/templates"
-    ]
     entries: "./#{config.appDir}/scripts/main.coffee"
   )
 
@@ -107,18 +105,19 @@ gulp.task 'browserify', ->
 
 
 gulp.task 'browser-sync', ->
+  proxy = httpProxy.createProxyServer({})
+
   browserSync
     port: config.ports.server
     open: false
     notify: false
     server:
       baseDir: "#{config.publicDir}"
-      middleware: [(->
-        url = require('url')
-        options = url.parse("http://localhost:#{config.ports.mocks}/mocks/api")
-        options.route = '/api'
-        proxy(options)
-      )()]
+      middleware: (req, res, next) ->
+        if req.url.indexOf('api') isnt -1
+          proxy.web(req, res, target: "http://localhost:#{config.ports.mocks}/mocks/api")
+        else
+          next()
     files: [
       "#{config.publicDir}/**"
       "!#{config.publicDir}/**.map"
@@ -176,17 +175,7 @@ gulp.task 'test', ->
     'karma'
   )
 
-
-gulp.task 'server', ->
-  runSequence(
-    [
-      'browser-sync'
-      'grunt-mocks'
-    ]
-  )
-
-
-gulp.task 'build', ->
+gulp.task 'development', ->
   runSequence(
     'install'
     'clean'
@@ -198,13 +187,10 @@ gulp.task 'build', ->
       'coffeelint'
     ]
     'browserify'
-  )
-
-
-gulp.task 'development', ->
-  runSequence(
-    'build'
-    'server'
+    [
+      'browser-sync'
+      'grunt-mocks'
+    ]
     'watch'
   )
 

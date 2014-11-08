@@ -4,7 +4,7 @@ Session = require('../../facades/session.coffee')
 template = require('../../../templates/articles/form.jade')
 
 class ArticlesFormView extends Marionette.ItemView
-  template: template()
+  template: template
 
   events:
     'submit form': 'onFormSubmit'

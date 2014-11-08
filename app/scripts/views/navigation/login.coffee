@@ -4,7 +4,8 @@ template = require('../../../templates/navigation/login.jade')
 
 class NavigationLoginView extends Marionette.ItemView
   className: 'nav navbar-nav navbar-right'
-  template: template()
+  template: template
+  model: Session.currentUser()
 
   events:
     'submit form': 'onFormSubmit'
@@ -27,8 +28,6 @@ class NavigationLoginView extends Marionette.ItemView
       tooltip:
         placement: 'bottom'
         trigger: 'focus'
-
-  model: Session.currentUser()
 
   onFormSubmit: (event) ->
     event.preventDefault()
