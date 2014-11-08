@@ -1,9 +1,9 @@
-define [
-  'routers/base'
-], (BaseRouter) ->
+BaseRouter = require('../routers/base.coffee')
 
-  class DashboardRouter extends BaseRouter
-    navigation: 'dashboard'
+class DashboardRouter extends BaseRouter
+  navigation: 'dashboard'
 
-    appRoutes:
-      'dashboard': 'index'
+  appRoutes:
+    'dashboard': 'index'
+
+module.exports = DashboardRouter

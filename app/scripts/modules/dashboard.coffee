@@ -1,16 +1,14 @@
-define [
-  'application'
-  'routers/dashboard'
-  'controllers/dashboard_controller'
-], (App, Router, Controller) ->
+App = require('../application.coffee')
+Router = require('../routers/dashboard.coffee')
+Controller = require('../controllers/dashboard_controller.coffee')
 
-  Dashboard = App.module('Dashboard')
+Dashboard = App.module('Dashboard')
 
-  Dashboard.addInitializer ->
-    controller = new Controller
-    @router = new Router(controller: controller)
+Dashboard.addInitializer ->
+  controller = new Controller
+  @router = new Router(controller: controller)
 
-  Dashboard.on 'start', ->
-    console.log 'module dashboard started'
+Dashboard.on 'start', ->
+  console.log 'module dashboard started'
 
-  Dashboard
+module.exports = Dashboard

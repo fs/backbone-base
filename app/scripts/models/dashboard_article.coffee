@@ -1,5 +1,5 @@
-define [
-  'models/app'
-], (AppModel) ->
+AppModel = require('../models/app.coffee')
 
-  class DashboardArticle extends AppModel
+class DashboardArticle extends AppModel
+
+module.exports = DashboardArticle
