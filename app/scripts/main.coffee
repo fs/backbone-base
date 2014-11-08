@@ -7,6 +7,7 @@ require('marionette')
 require('bootstrap')
 require('jade')
 require('./modules/navigation.coffee')
+require('./modules/landing.coffee')
 App = require('./application.coffee')
 
 $ -> App.start()

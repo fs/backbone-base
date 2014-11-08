@@ -1,16 +1,14 @@
-define [
-  'application'
-  'routers/landing'
-  'controllers/landing_controller'
-], (App, Router, Controller) ->
+App = require('../application.coffee')
+Router = require('../routers/landing.coffee')
+Controller = require('../controllers/landing_controller.coffee')
 
-  Landing = App.module('Landing')
+Landing = App.module('Landing')
 
-  Landing.addInitializer ->
-    controller = new Controller
-    @router = new Router(controller: controller)
+Landing.addInitializer ->
+  controller = new Controller
+  @router = new Router(controller: controller)
 
-  Landing.on 'start', ->
-    console.log 'module landing started'
+Landing.on 'start', ->
+  console.log 'module landing started'
 
-  Landing
+module.exports = Landing

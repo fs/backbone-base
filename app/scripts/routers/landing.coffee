@@ -1,7 +1,7 @@
-define [
-  'routers/base'
-], (BaseRouter) ->
+BaseRouter = require('../routers/base.coffee')
 
-  class LandingRouter extends BaseRouter
-    appRoutes:
-      '': 'index'
+class LandingRouter extends BaseRouter
+  appRoutes:
+    '': 'index'
+
+module.exports = LandingRouter
