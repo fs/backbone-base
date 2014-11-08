@@ -41,7 +41,7 @@
     "karma-sinon": "~1.0.3",
     "karma-chrome-launcher": "~0.1.4",
     "karma-phantomjs-launcher": "~0.1.4",
-    "karma-requirejs": "~0.2.2",
+    "karma-browserify": "~0.2.1",
     "karma-coffee-preprocessor": "~0.2.1",
     "coffee-script": "~1.6.3",
     "proxy-middleware": "0.6.0",

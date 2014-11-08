@@ -123,37 +123,36 @@ gulp.task 'browser-sync', ->
       "!#{config.publicDir}/**.map"
     ]
 
-
+# Need to implement correct test environment with browserify
 gulp.task 'karma', ->
   karma.start(
     basePath: ''
-    frameworks: ['mocha', 'requirejs', 'chai', 'sinon']
+    frameworks: ['mocha', 'browserify', 'chai', 'sinon']
     runnerPort: config.ports.test
     singleRun: true
     browsers: ['PhantomJS']
     files: [
       {pattern: "#{config.publicDir}/bower_components/**/*.js", included: false}
       {pattern: "#{config.publicDir}/vendor/**/*.js", included: false}
-      {pattern: "#{config.publicDir}/scripts/**/*.js", included: false}
+      {pattern: "#{config.appDir}/scripts/**/*.coffee", included: false}
       {pattern: "#{config.testDir}/**/*_spec.coffee", included: false}
-      "#{config.testDir}/runner.coffee"
-    ]
-    exclude: [
-      "#{config.publicDir}/scripts/config.js"
     ]
     reporters: ['dots']
     colors: true
     preprocessors:
-      'specs/**/*.coffee': ['coffee']
+      'specs/**/*.coffee': ['browserify']
     plugins: [
       'karma-mocha'
       'karma-chai'
       'karma-sinon'
-      'karma-requirejs'
+      'karma-browserify'
       'karma-chrome-launcher'
       'karma-phantomjs-launcher'
       'karma-coffee-preprocessor'
     ]
+    browserify:
+      extensions: ['.coffee']
+      transform: ['coffeeify']
     client:
       mocha:
         ui: 'bdd'
@@ -188,8 +187,8 @@ gulp.task 'development', ->
     ]
     'browserify'
     [
-      'browser-sync'
       'grunt-mocks'
+      'browser-sync'
     ]
     'watch'
   )
