@@ -3,8 +3,6 @@ gulpgrunt = require('gulp-grunt')(gulp)
 plumber = require('gulp-plumber')
 runSequence = require('run-sequence')
 install = require('gulp-install')
-clean = require('gulp-clean')
-rimraf = require('gulp-rimraf')
 ignore = require('gulp-ignore')
 coffeelint = require('gulp-coffeelint')
 jsonlint = require('gulp-jsonlint')
@@ -12,6 +10,7 @@ stylus = require('gulp-stylus')
 cssimport = require('gulp-cssimport')
 concat = require('gulp-concat')
 jade = require('gulp-jade')
+del = require('del')
 source = require('vinyl-source-stream')
 browserify = require('browserify')
 watchify = require('watchify')
@@ -38,8 +37,7 @@ gulp.task 'install', ->
 
 
 gulp.task 'clean', ->
-  gulp.src("#{config.publicDir}/", read: false)
-    .pipe(rimraf())
+  del("#{config.publicDir}/")
 
 
 gulp.task 'copy', ->
