@@ -44,6 +44,7 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-browserify": "~0.2.1",
     "karma-coffee-preprocessor": "~0.2.1",
+    "require-dir": "~0.1.0",
     "coffee-script": "~1.6.3"
   },
   "browserify": {
