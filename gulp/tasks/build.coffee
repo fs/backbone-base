@@ -1,5 +1,4 @@
 gulp = require('gulp')
-gulpgrunt = require('gulp-grunt')(gulp)
 runSequence = require('run-sequence')
 
 gulp.task 'build', ->
@@ -15,7 +14,6 @@ gulp.task 'build', ->
     ]
     'browserify'
     [
-      'grunt-mocks'
       'browser-sync'
     ]
     'watch'
