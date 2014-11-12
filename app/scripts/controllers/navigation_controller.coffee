@@ -1,5 +1,5 @@
-App = require('../application.coffee')
-NavigationLayout = require('../views/layouts/navigation_layout.coffee')
+App = require('../application')
+NavigationLayout = require('../views/layouts/navigation_layout')
 
 class NavigationController extends Marionette.Controller
   initialize: ->

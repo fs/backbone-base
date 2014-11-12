@@ -5,11 +5,11 @@ require('marionette')
 require('bootstrap')
 require('jade')
 
-require('./modules/navigation.coffee')
-require('./modules/landing.coffee')
-require('./modules/dashboard.coffee')
-require('./modules/articles.coffee')
+require('./modules/navigation')
+require('./modules/landing')
+require('./modules/dashboard')
+require('./modules/articles')
 
-App = require('./application.coffee')
+App = require('./application')
 
 $ -> App.start()

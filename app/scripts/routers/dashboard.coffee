@@ -1,4 +1,4 @@
-BaseRouter = require('../routers/base.coffee')
+BaseRouter = require('../routers/base')
 
 class DashboardRouter extends BaseRouter
   navigation: 'dashboard'

@@ -1,4 +1,4 @@
-Session = require('../facades/session.coffee')
+Session = require('../facades/session')
 
 class AppCollection extends Backbone.Collection
   sync: (method, model, options) ->

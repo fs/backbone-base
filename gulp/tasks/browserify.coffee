@@ -12,6 +12,7 @@ gulp.task 'browserify', ->
     packageCache: {}
     fullPaths: true
     debug: true
+    extensions: ['.js', '.coffee', '.jade']
     entries: "./#{config.appDir}/scripts/main.coffee"
   )
 

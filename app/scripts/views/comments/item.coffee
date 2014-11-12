@@ -1,4 +1,4 @@
-template = require('../../../templates/comments/item.jade')
+template = require('../../../templates/comments/item')
 
 class CommentsItemView extends Marionette.ItemView
   className: 'media'

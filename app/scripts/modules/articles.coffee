@@ -1,6 +1,6 @@
-App = require('../application.coffee')
-Router = require('../routers/articles.coffee')
-Controller = require('../controllers/articles_controller.coffee')
+App = require('../application')
+Router = require('../routers/articles')
+Controller = require('../controllers/articles_controller')
 
 Articles = App.module('Articles')
 

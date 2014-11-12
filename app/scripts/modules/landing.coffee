@@ -1,6 +1,6 @@
-App = require('../application.coffee')
-Router = require('../routers/landing.coffee')
-Controller = require('../controllers/landing_controller.coffee')
+App = require('../application')
+Router = require('../routers/landing')
+Controller = require('../controllers/landing_controller')
 
 Landing = App.module('Landing')
 

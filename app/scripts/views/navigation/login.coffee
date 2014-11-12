@@ -1,6 +1,6 @@
-Session = require('../../facades/session.coffee')
-FormBehavior = require('../../views/behaviors/form.coffee')
-template = require('../../../templates/navigation/login.jade')
+Session = require('../../facades/session')
+FormBehavior = require('../../views/behaviors/form')
+template = require('../../../templates/navigation/login')
 
 class NavigationLoginView extends Marionette.ItemView
   className: 'nav navbar-nav navbar-right'

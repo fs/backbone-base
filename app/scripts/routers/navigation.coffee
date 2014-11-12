@@ -1,7 +1,7 @@
-App = require('../application.coffee')
-BaseRouter = require('../routers/base.coffee')
-Session = require('../facades/session.coffee')
-routes = require('../helpers/routes.coffee')
+App = require('../application')
+BaseRouter = require('../routers/base')
+Session = require('../facades/session')
+routes = require('../helpers/routes')
 
 class NavigationRouter extends BaseRouter
   initialize: ->

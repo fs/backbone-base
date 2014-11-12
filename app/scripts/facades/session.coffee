@@ -1,5 +1,5 @@
-User = require('../models/user.coffee')
-Storage = require('../facades/storage.coffee')
+User = require('../models/user')
+Storage = require('../facades/storage')
 
 class Session
   _.extend @, Backbone.Events

@@ -1,8 +1,8 @@
-App = require('../application.coffee')
-ArticlesLayout = require('../views/layouts/articles_layout.coffee')
-ArticlesShowView = require('../views/articles/show.coffee')
-Article = require('../models/article.coffee')
-Articles = require('../collections/articles.coffee')
+App = require('../application')
+ArticlesLayout = require('../views/layouts/articles_layout')
+ArticlesShowView = require('../views/articles/show')
+Article = require('../models/article')
+Articles = require('../collections/articles')
 
 class ArticlesController extends Marionette.Controller
   index: ->
