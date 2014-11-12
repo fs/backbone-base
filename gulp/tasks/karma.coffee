@@ -11,9 +11,8 @@ gulp.task 'karma', ->
     singleRun: true
     browsers: ['PhantomJS']
     files: [
-      {pattern: "#{config.publicDir}/bower_components/**/*.js", included: false}
-      {pattern: "#{config.publicDir}/vendor/**/*.js", included: false}
-      {pattern: "#{config.appDir}/scripts/**/*.coffee", included: false}
+      {pattern: "./bower_components/**/*.js", included: false}
+      {pattern: "./vendor/**/*.js", included: false}
       {pattern: "#{config.testDir}/**/*_spec.coffee", included: false}
     ]
     reporters: ['dots']
@@ -24,15 +23,13 @@ gulp.task 'karma', ->
       'karma-mocha'
       'karma-chai'
       'karma-sinon'
-      'karma-browserify'
+      'karma-bro'
       'karma-chrome-launcher'
       'karma-phantomjs-launcher'
-      'karma-coffee-preprocessor'
     ]
     browserify:
       extensions: ['.coffee']
-      transform: ['coffeeify']
     client:
       mocha:
         ui: 'bdd'
-  , done)
+  )

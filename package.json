@@ -34,7 +34,7 @@
     "http-proxy": "~1.6.1",
     "jadeify": "3.0.0",
     "karma": "~0.12.16",
-    "karma-browserify": "~0.2.1",
+    "karma-bro": "^0.10.0",
     "karma-chai": "~0.1.0",
     "karma-chrome-launcher": "~0.1.4",
     "karma-coffee-preprocessor": "~0.2.1",

@@ -5,7 +5,6 @@ gulp.task 'test', ->
   runSequence(
     [
       'copy'
-      'scripts'
     ]
     'karma'
   )
