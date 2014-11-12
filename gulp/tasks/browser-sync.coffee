@@ -1,5 +1,6 @@
 gulp = require('gulp')
 browserSync = require('browser-sync')
+historyApiFallback = require('connect-history-api-fallback')
 prism = require('connect-prism')
 config = require('../config')
 
@@ -10,8 +11,7 @@ gulp.task 'browser-sync', ->
     notify: false
     server:
       baseDir: "#{config.publicDir}"
-      middleware: (req, res, next) ->
-        prism.middleware(req, res, next)
+      middleware: [prism.middleware, historyApiFallback]
     files: [
       "#{config.publicDir}/**"
       "!#{config.publicDir}/**.map"
