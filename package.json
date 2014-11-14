@@ -31,17 +31,15 @@
     "gulp-notify": "~2.0.0",
     "gulp-plumber": "~0.6.6",
     "gulp-stylus": "~1.3.3",
-    "http-proxy": "~1.6.1",
     "jadeify": "3.0.0",
     "karma": "~0.12.16",
-    "karma-bro": "^0.10.0",
+    "karma-browserify": "^1.0.0",
     "karma-chai": "~0.1.0",
     "karma-chrome-launcher": "~0.1.4",
     "karma-coffee-preprocessor": "~0.2.1",
     "karma-mocha": "~0.1.4",
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-sinon": "~1.0.3",
-    "proxy-middleware": "0.6.0",
     "require-dir": "~0.1.0",
     "run-sequence": "~1.0.1",
     "vinyl-source-stream": "~1.0.0",
@@ -62,8 +60,7 @@
     "backbone-stickit": "./bower_components/backbone.stickit/backbone.stickit.js",
     "backbone-validation": "./bower_components/backbone-validation/dist/backbone-validation.js",
     "marionette": "./bower_components/marionette/lib/backbone.marionette.js",
-    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
-    "jade": "./vendor/scripts/runtime.js"
+    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js"
   },
   "browserify-shim": {
     "jquery": "$",
