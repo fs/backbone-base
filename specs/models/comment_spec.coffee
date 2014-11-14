@@ -1,4 +1,4 @@
-Comment = require('../../app/scripts/models/comment.coffee')
+Comment = require('../../app/scripts/models/comment')
 
 describe 'Comment', ->
   beforeEach ->
