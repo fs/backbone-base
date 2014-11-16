@@ -1,9 +1,10 @@
 define [
   'backbone'
-], (Backbone) ->
+  'helpers/config_helper'
+], (Backbone, Config) ->
 
   class User extends Backbone.Model
-    url: '/api/sign_in'
+    url: '#{Config.getUrl()}/sign_in'
 
     validation:
       password:

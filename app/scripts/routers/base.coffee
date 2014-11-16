@@ -2,7 +2,7 @@ define [
   'marionette'
   'application'
   'facades/session'
-  'helpers/routes'
+  'helpers/routes_helper'
   'backbone.routefilter'
 ], (
   Marionette

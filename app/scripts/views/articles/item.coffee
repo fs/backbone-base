@@ -1,6 +1,6 @@
 define [
   'marionette'
-  'helpers/routes'
+  'helpers/routes_helper'
   'facades/session'
   'templates'
 ], (Marionette, Routes, Session) ->

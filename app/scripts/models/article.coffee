@@ -1,10 +1,15 @@
 define [
   'models/app'
+  'helpers/config_helper'
   'collections/comments'
-], (AppModel, Comments) ->
+], (
+  AppModel
+  Config
+  Comments
+) ->
 
   class Article extends AppModel
-    urlRoot: '/api/articles'
+    urlRoot: "#{Config.getUrl()}/articles"
 
     defaults:
       'text': ''
