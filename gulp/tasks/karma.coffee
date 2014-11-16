@@ -1,5 +1,6 @@
 gulp = require('gulp')
 karma = require('karma')
+remapify = require('remapify')
 config = require('../config')
 
 # Need to implement correct test environment with karma-browserify
@@ -37,6 +38,13 @@ gulp.task 'karma', ->
     ]
     browserify:
       extensions: ['.coffee']
+      transform: ['coffeeify']
+      prebundle: (bundle) ->
+        bundle.plugin(remapify, [
+          src: '**/*.coffee'
+          expose: 'scripts'
+          cwd: './app/scripts'
+        ])
     client:
       mocha:
         ui: 'bdd'

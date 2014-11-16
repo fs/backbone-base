@@ -1,5 +1,5 @@
 Marionette = require('marionette')
-App = require('../app/scripts/application')
+App = require('scripts/application')
 
 describe 'Application', ->
   it 'should start successfully', ->

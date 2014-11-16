@@ -1,4 +1,4 @@
-Article = require('../../app/scripts/models/article')
+Article = require('scripts/models/article')
 
 describe 'Article', ->
   beforeEach ->
