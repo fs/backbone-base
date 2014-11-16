@@ -1,4 +1,4 @@
-template = require('../../../templates/dashboard/item')
+template = require('templates/dashboard/item')
 
 class DashboardItemView extends Marionette.ItemView
   tagName: 'li'

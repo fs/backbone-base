@@ -1,5 +1,5 @@
-AppCollection = require('../collections/app')
-DashboardArticle = require('../models/dashboard_article')
+AppCollection = require('scripts/collections/app')
+DashboardArticle = require('scripts/models/dashboard_article')
 
 class DashboardArticles extends AppCollection
   url: '/api/dashboard'

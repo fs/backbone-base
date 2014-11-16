@@ -1,7 +1,7 @@
-Article = require('../../models/article')
-FormBehavior = require('../../views/behaviors/form')
-Session = require('../../facades/session')
-template = require('../../../templates/articles/form')
+Article = require('scripts/models/article')
+FormBehavior = require('scripts/views/behaviors/form')
+Session = require('scripts/facades/session')
+template = require('templates/articles/form')
 
 class ArticlesFormView extends Marionette.ItemView
   template: template

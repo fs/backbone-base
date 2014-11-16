@@ -1,6 +1,6 @@
-Session = require('../../facades/session')
-DashboardItemView = require('../../views/dashboard/item')
-template = require('../../../templates/dashboard/dashboard')
+Session = require('scripts/facades/session')
+DashboardItemView = require('scripts/views/dashboard/item')
+template = require('templates/dashboard/dashboard')
 
 class DashboardView extends Marionette.CompositeView
   className: 'jumbotron'

@@ -1,5 +1,5 @@
-AppCollection = require('../collections/app')
-Article = require('../models/article')
+AppCollection = require('scripts/collections/app')
+Article = require('scripts/models/article')
 
 class ArticleCollection extends AppCollection
   url: '/api/articles'

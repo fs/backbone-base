@@ -1,5 +1,5 @@
-AppModel = require('../models/app')
-Comments = require('../collections/comments')
+AppModel = require('scripts/models/app')
+Comments = require('scripts/collections/comments')
 
 class Article extends AppModel
   urlRoot: '/api/articles'

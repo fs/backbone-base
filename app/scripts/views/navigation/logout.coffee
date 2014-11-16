@@ -1,5 +1,5 @@
-Session = require('../../facades/session')
-template = require('../../../templates/navigation/logout')
+Session = require('scripts/facades/session')
+template = require('templates/navigation/logout')
 
 class NavigationLogoutView extends Marionette.ItemView
   className: 'nav navbar-nav navbar-right'

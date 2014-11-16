@@ -2,6 +2,7 @@ gulp = require('gulp')
 plumber = require('gulp-plumber')
 source = require('vinyl-source-stream')
 browserify = require('browserify')
+remapify = require('remapify')
 watchify = require('watchify')
 notify = require('gulp-notify')
 config = require('../config')
@@ -12,19 +13,38 @@ gulp.task 'browserify', ->
     packageCache: {}
     fullPaths: true
     debug: true
-    extensions: ['.js', '.coffee', '.jade']
+    extensions: ['.coffee', '.js', '.jade']
     entries: "./#{config.appDir}/scripts/main.coffee"
   )
 
+  bundler.plugin(remapify, [
+    src: '**/*.coffee'
+    expose: 'scripts'
+    cwd: './app/scripts'
+  ])
+
+  bundler.plugin(remapify, [
+    src: '**/*.jade'
+    expose: 'templates'
+    cwd: './app/templates'
+  ])
+
   bundle = ->
     bundler
+      .transform('coffeeify')
       .bundle()
       .pipe(plumber())
       .pipe(source('application.js'))
-      .pipe(gulp.dest("#{config.publicDir}"));
+      .pipe(gulp.dest(config.publicDir))
 
-  bundler = watchify(bundler)
-  bundler
-    .on('error', notify.onError())
-    .on('update', bundle)
+  watchify(bundler)
+    .on('error', notify.onError)
+    .on('update', ->
+      bundler
+        .bundle()
+        .pipe(plumber())
+        .pipe(source('application.js'))
+        .pipe(gulp.dest(config.publicDir))
+    )
+
   bundle()

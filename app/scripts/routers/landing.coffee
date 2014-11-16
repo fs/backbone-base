@@ -1,4 +1,4 @@
-BaseRouter = require('../routers/base')
+BaseRouter = require('scripts/routers/base')
 
 class LandingRouter extends BaseRouter
   appRoutes:

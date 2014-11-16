@@ -1,5 +1,5 @@
-App = require('../application')
-ContentLandingView = require('../views/content/landing')
+App = require('scripts/application')
+ContentLandingView = require('scripts/views/content/landing')
 
 class LandingController extends Marionette.Controller
   index: ->

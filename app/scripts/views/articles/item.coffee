@@ -1,6 +1,6 @@
-Session = require('../../facades/session')
-routes = require('../../helpers/routes')
-template = require('../../../templates/articles/item')
+Session = require('scripts/facades/session')
+routes = require('scripts/helpers/routes')
+template = require('templates/articles/item')
 
 class ArticlesItemView extends Marionette.ItemView
   className: 'media'

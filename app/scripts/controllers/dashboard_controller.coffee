@@ -1,6 +1,6 @@
-App = require('../application')
-DashboardView = require('../views/dashboard/dashboard')
-DashboardArticles = require('../collections/dashboard_articles')
+App = require('scripts/application')
+DashboardView = require('scripts/views/dashboard/dashboard')
+DashboardArticles = require('scripts/collections/dashboard_articles')
 
 class DashboardController extends Marionette.Controller
   index: ->

@@ -1,4 +1,4 @@
-AppModel = require('../models/app')
+AppModel = require('scripts/models/app')
 
 class DashboardArticle extends AppModel
 

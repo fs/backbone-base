@@ -1,7 +1,7 @@
 Marionette = require('marionette')
-App = require('../application')
-Session = require('../facades/session')
-Routes = require('../helpers/routes')
+App = require('scripts/application')
+Session = require('scripts/facades/session')
+Routes = require('scripts/helpers/routes')
 
 class BaseRouter extends Marionette.AppRouter
   before:

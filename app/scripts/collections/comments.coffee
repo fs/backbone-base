@@ -1,5 +1,5 @@
-AppCollection = require('../collections/app')
-Comment = require('../models/comment')
+AppCollection = require('scripts/collections/app')
+Comment = require('scripts/models/comment')
 
 class Comments extends AppCollection
   model: Comment

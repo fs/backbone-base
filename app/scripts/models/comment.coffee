@@ -1,4 +1,4 @@
-AppModel = require('../models/app')
+AppModel = require('scripts/models/app')
 
 class Comment extends AppModel
   defaults:

@@ -1,5 +1,5 @@
-CommentsItemView = require('../../views/comments/item')
-template = require('../../../templates/articles/show')
+CommentsItemView = require('scripts/views/comments/item')
+template = require('templates/articles/show')
 
 class ArticlesShowView extends Marionette.CompositeView
   className: 'media'

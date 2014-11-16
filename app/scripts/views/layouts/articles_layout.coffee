@@ -1,6 +1,6 @@
-ArticlesListView = require('../../views/articles/list')
-ArticlesFormView = require('../../views/articles/form')
-template = require('../../../templates/layouts/articles_layout')
+ArticlesListView = require('scripts/views/articles/list')
+ArticlesFormView = require('scripts/views/articles/form')
+template = require('templates/layouts/articles_layout')
 
 class ArticlesLayout extends Marionette.LayoutView
   template: template

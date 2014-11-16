@@ -1,4 +1,4 @@
-ArticleItemView = require('../../views/articles/item')
+ArticleItemView = require('scripts/views/articles/item')
 
 class ArticlesListView extends Marionette.CollectionView
   className: 'articles'

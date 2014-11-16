@@ -1,6 +1,6 @@
-App = require('../../application')
-Routes = require('../../helpers/routes')
-template = require('../../../templates/navigation/navigation')
+App = require('scripts/application')
+Routes = require('scripts/helpers/routes')
+template = require('templates/navigation/navigation')
 
 class NavigationView extends Marionette.ItemView
   tagName: 'ul'

@@ -1,9 +1,9 @@
-NavigationNavigationView = require('../../views/navigation/navigation')
-NavigationLoginView = require('../../views/navigation/login')
-NavigationLogoutView = require('../../views/navigation/logout')
-Session = require('../../facades/session')
-Routes = require('../../helpers/routes')
-template = require('../../../templates/layouts/navigation_layout')
+NavigationNavigationView = require('scripts/views/navigation/navigation')
+NavigationLoginView = require('scripts/views/navigation/login')
+NavigationLogoutView = require('scripts/views/navigation/logout')
+Session = require('scripts/facades/session')
+Routes = require('scripts/helpers/routes')
+template = require('templates/layouts/navigation_layout')
 
 class NavigationLayout extends Marionette.LayoutView
   className: 'container-fluid'

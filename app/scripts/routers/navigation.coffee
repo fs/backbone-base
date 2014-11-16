@@ -1,7 +1,7 @@
-App = require('../application')
-BaseRouter = require('../routers/base')
-Session = require('../facades/session')
-routes = require('../helpers/routes')
+App = require('scripts/application')
+BaseRouter = require('scripts/routers/base')
+Session = require('scripts/facades/session')
+routes = require('scripts/helpers/routes')
 
 class NavigationRouter extends BaseRouter
   initialize: ->

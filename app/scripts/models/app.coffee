@@ -1,4 +1,4 @@
-Session = require('../facades/session')
+Session = require('scripts/facades/session')
 
 class AppModel extends Backbone.Model
   sync: (method, model, options) ->
