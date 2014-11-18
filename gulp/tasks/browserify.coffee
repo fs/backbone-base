@@ -31,7 +31,9 @@ gulp.task 'browserify', ->
 
   bundle = ->
     bundler
+      .transform('browserify-shim')
       .transform('coffeeify')
+      .transform('jadeify')
       .bundle()
       .pipe(plumber())
       .pipe(source('application.js'))
