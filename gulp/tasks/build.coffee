@@ -13,8 +13,6 @@ gulp.task 'build', ->
       'coffeelint'
     ]
     'browserify'
-    [
-      'browser-sync'
-    ]
+    'browser-sync'
     'watch'
   )

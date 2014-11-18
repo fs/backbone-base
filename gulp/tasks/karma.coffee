@@ -3,7 +3,6 @@ karma = require('karma')
 remapify = require('remapify')
 config = require('../config')
 
-# Need to implement correct test environment with karma-browserify
 gulp.task 'karma', ->
   karma.server.start(
     basePath: ''
@@ -23,7 +22,6 @@ gulp.task 'karma', ->
       "./vendor/**/*.js"
       "./specs/**/*_spec.coffee"
     ]
-    exclude: ['./bower_components/backbone-route-filter']
     reporters: ['dots']
     colors: true
     preprocessors:
@@ -32,7 +30,7 @@ gulp.task 'karma', ->
       'karma-mocha'
       'karma-chai'
       'karma-sinon'
-      'karma-bro'
+      'karma-browserify'
       'karma-chrome-launcher'
       'karma-phantomjs-launcher'
     ]
