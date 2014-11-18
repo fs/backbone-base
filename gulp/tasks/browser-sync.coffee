@@ -5,6 +5,16 @@ prism = require('connect-prism')
 config = require('../config')
 
 gulp.task 'browser-sync', ->
+  prism.create(
+    name: 'serve'
+    mode: 'mock'
+    context: '/api'
+    host: 'localhost'
+    port: 8001
+    delay: 0
+    rewrite: {}
+  )
+
   browserSync
     port: config.ports.server
     open: false
