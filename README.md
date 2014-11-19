@@ -40,7 +40,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "vinyl-source-stream"
     "watchify"
 
-## Libraries:
+## Bower components:
     "jquery"
     "underscore"
     "backbone"
@@ -53,9 +53,9 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
 ## Install
 ### OSX
 
-* Install Node.js
+Install Node.js
 
-    `brew install node`
+    brew install node
 
 ### Ubuntu 12.04
 
