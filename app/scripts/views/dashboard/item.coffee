@@ -1,9 +1,8 @@
-define [
-  'marionette'
-  'templates'
-], (Marionette) ->
+template = require('templates/dashboard/item')
 
-  class DashboardItemView extends Marionette.ItemView
-    tagName: 'li'
-    className: 'item'
-    template: JST['templates/dashboard/item']
+class DashboardItemView extends Marionette.ItemView
+  tagName: 'li'
+  className: 'item'
+  template: template
+
+module.exports = DashboardItemView

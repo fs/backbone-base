@@ -1,28 +1,23 @@
-define [
-  'marionette'
-  'bootstrap'
-], (Marionette) ->
+App = new Marionette.Application
 
-  App = new Marionette.Application
+App.addRegions
+  navigationRegion: '#navigation_region'
+  mainRegion: '#main_region'
 
-  App.addRegions
-    navigationRegion: '#navigation_region'
-    mainRegion: '#main_region'
+App.navigate = (route, options) ->
+  options or= {}
+  Backbone.history.navigate(route, options)
 
-  App.navigate = (route, options) ->
-    options or= {}
-    Backbone.history.navigate(route, options)
+App.on 'start', ->
+  Backbone.history.start
+    pushState: true
+    root: '/'
 
-  App.on 'start', ->
-    Backbone.history.start
-      pushState: true
-      root: '/'
+  $(document).on 'click', '.js-link', (event) ->
+    event.preventDefault()
+    href = $(event.currentTarget).attr('href')
+    App.navigate(href, trigger: true)
 
-    $(document).on 'click', '.js-link', (event) ->
-      event.preventDefault()
-      href = $(event.currentTarget).attr('href')
-      App.navigate(href, trigger: true)
+  console.log 'app started'
 
-    console.log 'app started'
-
-  App
+module.exports = App

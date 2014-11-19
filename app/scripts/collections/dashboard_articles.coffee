@@ -1,8 +1,8 @@
-define [
-  'collections/app'
-  'models/dashboard_article'
-], (AppCollection, DashboardArticle) ->
+AppCollection = require('scripts/collections/app')
+DashboardArticle = require('scripts/models/dashboard_article')
 
-  class DashboardArticles extends AppCollection
-    url: '/api/dashboard'
-    model: DashboardArticle
+class DashboardArticles extends AppCollection
+  url: 'dashboard'
+  model: DashboardArticle
+
+module.exports = DashboardArticles

@@ -1,9 +1,8 @@
-define [
-  'marionette'
-  'application'
-  'views/layouts/navigation_layout'
-], (Marionette, App, NavigationLayout) ->
+App = require('scripts/application')
+NavigationLayout = require('scripts/views/layouts/navigation_layout')
 
-  class NavigationController extends Marionette.Controller
-    initialize: ->
-      App.navigationRegion.show(new NavigationLayout)
+class NavigationController extends Marionette.Controller
+  initialize: ->
+    App.navigationRegion.show(new NavigationLayout)
+
+module.exports = NavigationController

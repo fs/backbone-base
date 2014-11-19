@@ -1,7 +1,7 @@
-define [
-  'routers/base'
-], (BaseRouter) ->
+BaseRouter = require('scripts/routers/base')
 
-  class LandingRouter extends BaseRouter
-    appRoutes:
-      '': 'index'
+class LandingRouter extends BaseRouter
+  appRoutes:
+    '': 'index'
+
+module.exports = LandingRouter

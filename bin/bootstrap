@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if ! which bower; then
+  npm install -g bower
+fi
+
+if ! which gulp; then
+  npm install -g gulp
+fi
+
+npm install
+bower install

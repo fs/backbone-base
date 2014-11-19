@@ -1,8 +1,7 @@
-define [
-  'marionette'
-  'views/articles/item'
-], (Marionette, ArticleItemView) ->
+ArticleItemView = require('scripts/views/articles/item')
 
-  class ArticlesListView extends Marionette.CollectionView
-    className: 'articles'
-    childView: ArticleItemView
+class ArticlesListView extends Marionette.CollectionView
+  className: 'articles'
+  childView: ArticleItemView
+
+module.exports = ArticlesListView

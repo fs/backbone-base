@@ -1,18 +1,18 @@
-define ->
+class Storage
+  storage = localStorage
 
-  class Storage
-    storage = localStorage
+  @set: (key, data) ->
+    data = JSON.stringify(data)
+    storage.setItem(key, data)
 
-    @set: (key, data) ->
-      data = JSON.stringify(data)
-      storage.setItem(key, data)
+  @get: (key) ->
+    data = storage.getItem(key)
+    JSON.parse(data)
 
-    @get: (key) ->
-      data = storage.getItem(key)
-      JSON.parse(data)
+  @remove: (key) ->
+    storage.removeItem(key)
 
-    @remove: (key) ->
-      storage.removeItem(key)
+  @clear: ->
+    storage.clear()
 
-    @clear: ->
-      storage.clear()
+module.exports = Storage

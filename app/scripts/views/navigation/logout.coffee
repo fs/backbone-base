@@ -1,17 +1,15 @@
-define [
-  'application'
-  'marionette'
-  'facades/session'
-  'templates'
-], (App, Marionette, Session) ->
+Session = require('scripts/facades/session')
+template = require('templates/navigation/logout')
 
-  class HeaderLogoutView extends Marionette.ItemView
-    className: 'nav navbar-nav navbar-right'
-    template: JST['templates/navigation/logout']
-    model: Session.currentUser()
+class NavigationLogoutView extends Marionette.ItemView
+  className: 'nav navbar-nav navbar-right'
+  template: template
+  model: Session.currentUser()
 
-    events:
-      'click #logout_btn': 'onLogout'
+  events:
+    'click #logout_btn': 'onLogout'
 
-    onLogout: ->
-      Session.destroy()
+  onLogout: ->
+    Session.destroy()
+
+module.exports = NavigationLogoutView

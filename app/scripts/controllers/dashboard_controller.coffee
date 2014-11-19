@@ -1,13 +1,12 @@
-define [
-  'marionette'
-  'application'
-  'views/dashboard/dashboard'
-  'collections/dashboard_articles'
-], (Marionette, App, DashboardView, DashboardArticles) ->
+App = require('scripts/application')
+DashboardView = require('scripts/views/dashboard/dashboard')
+DashboardArticles = require('scripts/collections/dashboard_articles')
 
-  class DashboardController extends Marionette.Controller
-    index: ->
-      articles = new DashboardArticles
+class DashboardController extends Marionette.Controller
+  index: ->
+    articles = new DashboardArticles
 
-      articles.fetch().then ->
-        App.mainRegion.show(new DashboardView(collection: articles))
+    articles.fetch().then ->
+      App.mainRegion.show(new DashboardView(collection: articles))
+
+module.exports = DashboardController

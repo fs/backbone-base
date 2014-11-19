@@ -1,6 +1,10 @@
 {
   "name": "backbone-base",
-  "version": "0.0.7",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:fs/backbone-base.git"
+  },
   "authors": [
     "Marat Fakhreev <marat.fakhreev@flatstack.com>",
     "Anton Gudkov <anton.gudkov@flatstack.com>",
@@ -8,35 +12,96 @@
     "Ildus Sadykov <ildus.sadykov@flatstack.com>"
   ],
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-requirejs": "~0.4.4",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-symlink": "~0.3.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jade": "~0.9.1",
-    "grunt-contrib-stylus": "~0.12.0",
-    "grunt-contrib-cssmin": "~0.8.0",
-    "grunt-coffeelint": "~0.0.10",
-    "grunt-connect-proxy": "~0.1.10",
-    "grunt-easymock": "~0.1.0",
-    "grunt-jsonlint": "~1.0.4",
-    "grunt-concurrent": "~0.4.3",
-    "grunt-shell": "~0.6.4",
-    "grunt-notify": "~0.2.20",
-    "grunt-karma": "~0.8.3",
-    "load-grunt-config": "~0.7.2",
-    "requirejs": "~2.1.14",
-    "http-rewrite-middleware": "~0.1.6",
+    "autoprefixer-stylus": "0.2.0",
+    "browser-sync": "~1.6.3",
+    "browserify": "~6.2.0",
+    "browserify-shim": "~3.8.0",
+    "coffee-script": "~1.6.3",
+    "coffeeify": "~0.7.0",
+    "connect-history-api-fallback": "0.0.5",
+    "connect-prism": "~0.7.5",
+    "del": "~0.1.3",
+    "gulp": "~3.8.8",
+    "gulp-coffeelint": "~0.4.0",
+    "gulp-concat": "~2.4.1",
+    "gulp-cssimport": "~1.2.3",
+    "gulp-ignore": "~1.2.1",
+    "gulp-install": "~0.2.0",
+    "gulp-jade": "~0.8.0",
+    "gulp-jsonlint": "~0.1.0",
+    "gulp-notify": "~2.0.0",
+    "gulp-plumber": "~0.6.6",
+    "gulp-replace-task": "^0.1.0",
+    "gulp-stylus": "~1.3.3",
+    "jadeify": "3.0.0",
+    "jeet": "^6.1.2",
     "karma": "~0.12.16",
-    "karma-mocha": "~0.1.4",
+    "karma-browserify": "^1.0.0",
     "karma-chai": "~0.1.0",
-    "karma-sinon": "~1.0.3",
     "karma-chrome-launcher": "~0.1.4",
+    "karma-coffee-preprocessor": "~0.2.1",
+    "karma-mocha": "~0.1.4",
     "karma-phantomjs-launcher": "~0.1.4",
-    "karma-requirejs": "~0.2.2",
-    "karma-coffee-preprocessor": "~0.2.1"
+    "karma-sinon": "~1.0.3",
+    "remapify": "^1.3.0",
+    "require-dir": "~0.1.0",
+    "run-sequence": "~1.0.1",
+    "vinyl-source-stream": "~1.0.0",
+    "watchify": "~2.1.1"
+  },
+  "browser": {
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "underscore": "./bower_components/underscore/underscore.js",
+    "backbone": "./bower_components/backbone/backbone.js",
+    "backbone-routefilter": "./bower_components/backbone-route-filter/backbone-route-filter.js",
+    "backbone-stickit": "./bower_components/backbone.stickit/backbone.stickit.js",
+    "backbone-validation": "./bower_components/backbone-validation/dist/backbone-validation.js",
+    "marionette": "./bower_components/marionette/lib/backbone.marionette.js",
+    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "underscore": "_",
+    "backbone": {
+      "exports": "Backbone",
+      "depends": [
+        "jquery",
+        "underscore"
+      ]
+    },
+    "backbone-routefilter": {
+      "exports": "Backbone",
+      "depends": [
+        "backbone"
+      ]
+    },
+    "backbone-stickit": {
+      "exports": "Backbone",
+      "depends": [
+        "backbone"
+      ]
+    },
+    "backbone-validation": {
+      "exports": "Backbone",
+      "depends": [
+        "backbone"
+      ]
+    },
+    "marionette": {
+      "exports": "Marionette",
+      "depends": [
+        "backbone"
+      ]
+    },
+    "bootstrap": {
+      "depends": [
+        "jquery"
+      ]
+    },
+    "templates": {
+      "depends": [
+        "jade"
+      ]
+    }
   }
 }
