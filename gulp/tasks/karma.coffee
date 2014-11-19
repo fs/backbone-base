@@ -36,7 +36,7 @@ gulp.task 'karma', ->
     ]
     browserify:
       extensions: ['.coffee']
-      transform: ['coffeeify']
+      transform: ['browserify-shim', 'coffeeify']
       prebundle: (bundle) ->
         bundle.plugin(remapify, [
           src: '**/*.coffee'
