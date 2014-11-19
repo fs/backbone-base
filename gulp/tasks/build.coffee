@@ -11,6 +11,7 @@ gulp.task 'build', ->
       'stylesheets'
       'jsonlint'
       'coffeelint'
+      'replace'
     ]
     'browserify'
     [

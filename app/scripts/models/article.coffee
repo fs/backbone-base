@@ -2,7 +2,7 @@ AppModel = require('scripts/models/app')
 Comments = require('scripts/collections/comments')
 
 class Article extends AppModel
-  urlRoot: '/api/articles'
+  urlRoot: 'articles'
 
   defaults:
     'text': ''

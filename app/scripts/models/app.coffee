@@ -1,6 +1,12 @@
+AppConfig = require('scripts/config')
 Session = require('scripts/facades/session')
 
 class AppModel extends Backbone.Model
+  initialize: ->
+    urlRoot = _.result(@, 'urlRoot')
+    @urlRoot = AppConfig.apiPath + urlRoot
+    super
+
   sync: (method, model, options) ->
     if Session.isLoggedIn()
       if _.contains(['create', 'update', 'patch'], method)
