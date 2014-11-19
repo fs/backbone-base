@@ -11,16 +11,16 @@ gulp.task 'karma', ->
     singleRun: true
     browsers: ['PhantomJS']
     files: [
-      "./bower_components/jquery/dist/jquery.js"
-      "./bower_components/underscore/underscore.js"
-      "./bower_components/backbone/backbone.js"
-      "./bower_components/backbone-route-filter/backbone-route-filter.js"
-      "./bower_components/backbone.stickit/backbone.stickit.js"
-      "./bower_components/backbone-validation/dist/backbone-validation.js"
-      "./bower_components/marionette/lib/backbone.marionette.js"
-      "./bower_components/bootstrap/dist/js/bootstrap.js"
-      "./vendor/**/*.js"
-      "./specs/**/*_spec.coffee"
+      './bower_components/jquery/dist/jquery.js'
+      './bower_components/underscore/underscore.js'
+      './bower_components/backbone/backbone.js'
+      './bower_components/backbone-route-filter/backbone-route-filter.js'
+      './bower_components/backbone.stickit/backbone.stickit.js'
+      './bower_components/backbone-validation/dist/backbone-validation.js'
+      './bower_components/marionette/lib/backbone.marionette.js'
+      './bower_components/bootstrap/dist/js/bootstrap.js'
+      './vendor/**/*.js'
+      './specs/**/*_spec.coffee'
     ]
     reporters: ['dots']
     colors: true
