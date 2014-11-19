@@ -51,8 +51,23 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "bootstrap"
 
 ## Install
+### OSX
 
-    sh bin/bootstrap
+* Install Node.js
+
+    `brew install node`
+
+### Ubuntu 12.04
+
+Install Node.js and Npm
+
+    sudo add-apt-repository ppa:richarvey/nodejs
+    sudo apt-get update && sudo apt-get install nodejs npm
+
+Configure Npm path (for avoid _sudo_ usage for installing modules)
+
+    npm config set prefix ~/npm
+    echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc # for zsh shell
 
 ## Quick start
 
@@ -65,6 +80,10 @@ Make sure master branch is tracking origin repo.
 
     git remote add origin git@github.com:[MY-GITHUB-ACCOUNT]/[MY-NEW-PROJECT].git
     git push -u origin master
+
+Run bootstrap script
+
+    sh bin/bootstrap
 
 Run app
 
@@ -87,4 +106,4 @@ It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/backbone-base/contributors).
 
 
-[![Flatstack](http://www.flatstack.com/assets/images/logo.png)](http://www.flatstack.com)
+[![Flatstack](https://avatars0.githubusercontent.com/u/15136?v=2&s=200)](http://www.flatstack.com)

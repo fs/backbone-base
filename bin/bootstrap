@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if ! which node; then
-  brew install node
-fi
-
 if ! which bower; then
   npm install -g bower
 fi
