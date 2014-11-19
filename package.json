@@ -12,6 +12,7 @@
     "Ildus Sadykov <ildus.sadykov@flatstack.com>"
   ],
   "devDependencies": {
+    "autoprefixer-stylus": "0.2.0",
     "browser-sync": "~1.6.3",
     "browserify": "~6.2.0",
     "browserify-shim": "~3.8.0",
