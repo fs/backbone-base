@@ -1,3 +1,5 @@
 {
-  "apiPath": "/api/"
+  "apiPath": "/api/",
+  "storageKey": "user_session",
+  "sessionKey": "session_token"
 }

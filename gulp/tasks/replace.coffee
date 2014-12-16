@@ -11,12 +11,20 @@ gulp.task 'replace', ->
     .pipe(replace(
       patterns: [
         {
+          match: 'env'
+          replacement: env
+        }
+        {
           match: 'apiPath'
           replacement: settings.apiPath
         }
         {
-          match: 'env'
-          replacement: env
+          match: 'storageKey'
+          replacement: settings.storageKey
+        }
+        {
+          match: 'sessionKey'
+          replacement: settings.sessionKey
         }
       ]
     ))

@@ -1,5 +1,7 @@
 class Appconfig
-  @env: '@env'
+  @env: '@@env'
   @apiPath: '@@apiPath'
+  @storageKey: '@@storageKey'
+  @sessionKey: '@@sessionKey'
 
 module.exports = Appconfig
