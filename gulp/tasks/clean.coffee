@@ -3,4 +3,4 @@ del = require('del')
 config = require('../config')
 
 gulp.task 'clean', ->
-  del("#{config.publicDir}/")
+  del(config.publicDir)
