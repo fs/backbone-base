@@ -5,9 +5,9 @@ config = require('../config')
 
 gulp.task 'replace', ->
   env = 'development'
-  settings = JSON.parse(fs.readFileSync("./#{config.appDir}/config/environments/#{env}.json", 'utf8'))
+  settings = JSON.parse(fs.readFileSync("#{config.appDir}/config/environments/#{env}.json", 'utf8'))
 
-  gulp.src("./#{config.appDir}/config/config.coffee")
+  gulp.src("#{config.appDir}/config/config.coffee")
     .pipe(replace(
       patterns: [
         {
@@ -28,4 +28,4 @@ gulp.task 'replace', ->
         }
       ]
     ))
-    .pipe(gulp.dest("./#{config.appDir}/scripts"))
+    .pipe(gulp.dest("#{config.appDir}/scripts"))
