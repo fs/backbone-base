@@ -1,6 +1,6 @@
-App = require('../application')
-Router = require('../routers/dashboard')
-Controller = require('../controllers/dashboard_controller')
+App = require('scripts/application')
+Router = require('scripts/routers/dashboard')
+Controller = require('scripts/controllers/dashboard_controller')
 
 Dashboard = App.module('Dashboard')
 
