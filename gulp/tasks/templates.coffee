@@ -12,4 +12,4 @@ gulp.task 'templates', ->
   gulp.src("#{config.appDir}/*.jade")
     .pipe(plumber())
     .pipe(jade(jadeConfig).on('error', notify.onError()))
-    .pipe(gulp.dest("#{config.publicDir}/"))
+    .pipe(gulp.dest(config.publicDir))

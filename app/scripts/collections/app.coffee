@@ -3,8 +3,7 @@ Session = require('scripts/facades/session')
 
 class AppCollection extends Backbone.Collection
   initialize: ->
-    url = _.result(@, 'url')
-    @url = AppConfig.apiPath + url
+    @url = AppConfig.apiPath + _.result(@, 'url')
     super
 
   sync: (method, model, options) ->

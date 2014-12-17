@@ -1,11 +1,12 @@
+AppConfig = require('scripts/config')
 User = require('scripts/models/user')
 Storage = require('scripts/facades/storage')
 
 class Session
   _.extend @, Backbone.Events
 
-  STORAGE_KEY = 'user_session'
-  SESSION_KEY = 'session_token'
+  STORAGE_KEY = AppConfig.storageKey
+  SESSION_KEY = AppConfig.sessionKey
 
   currentUser = null
 

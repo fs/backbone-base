@@ -1,6 +1,6 @@
-App = require('../application')
-Router = require('../routers/navigation')
-Controller = require('../controllers/navigation_controller')
+App = require('scripts/application')
+Router = require('scripts/routers/navigation')
+Controller = require('scripts/controllers/navigation_controller')
 
 Navigation = App.module('Navigation')
 

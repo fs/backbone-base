@@ -20,13 +20,13 @@ gulp.task 'browserify', ->
   bundler.plugin(remapify, [
     src: '**/*.coffee'
     expose: 'scripts'
-    cwd: './app/scripts'
+    cwd: "./#{config.appDir}/scripts"
   ])
 
   bundler.plugin(remapify, [
     src: '**/*.jade'
     expose: 'templates'
-    cwd: './app/templates'
+    cwd: "./#{config.appDir}/templates"
   ])
 
   bundle = ->

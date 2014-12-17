@@ -10,12 +10,14 @@ config = require('../config')
 gulp.task 'stylesheets', ->
   gulp.src("#{config.appDir}/stylesheets/application.styl")
     .pipe(plumber())
-    .pipe(stylus(
-      linenos: true
-      use: [
-        autoprefixer(browsers: 'last 2 versions')
-        jeet()
-      ]
-    ).on('error', notify.onError()))
+    .pipe(
+      stylus(
+        linenos: true
+        use: [
+          autoprefixer(browsers: 'last 2 versions')
+          jeet()
+        ]
+      ).on('error', notify.onError())
+    )
     .pipe(cssimport())
-    .pipe(gulp.dest("#{config.publicDir}"))
+    .pipe(gulp.dest(config.publicDir))
