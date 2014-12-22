@@ -7,17 +7,15 @@ class RoutesHelper
   @init: ->
     return if @isInited
 
-    @isInited = true
-
-    for moduleName, module of App.submodules
-      continue unless module.router?
-
+    for moduleName, module of App.submodules when module.router?
       for pattern, routeName of module.router.appRoutes
         addRoute(moduleName, routeName, pattern)
 
+    @isInited = true
+
   @rootPath: -> AppConfig.rootPath
 
-  rootCheck = (path) =>
+  checkRoot = (path) =>
     rootPath = @rootPath()
     if path.indexOf(rootPath) then "#{rootPath}#{path}" else path
 
@@ -26,13 +24,13 @@ class RoutesHelper
     methodName = "#{moduleName.toLowerCase()}#{routeName.charAt(0).toUpperCase()}#{routeName.substr(1).toLowerCase()}Path"
 
     @[methodName] = (params...) ->
-      return rootCheck(pattern) unless keys
+      return checkRoot(pattern) unless keys
 
       if keys.length isnt params.length
         throw new Error("incorrect params count (#{params.length} for #{keys.length})")
 
       pattern = pattern.replace(/\:\w+/, param) for param in params
 
-      rootCheck(pattern)
+      checkRoot(pattern)
 
 module.exports = RoutesHelper
