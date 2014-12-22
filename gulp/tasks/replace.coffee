@@ -19,6 +19,10 @@ gulp.task 'replace', ->
           replacement: settings.apiPath
         }
         {
+          match: 'rootPath'
+          replacement: settings.rootPath
+        }
+        {
           match: 'storageKey'
           replacement: settings.storageKey
         }
