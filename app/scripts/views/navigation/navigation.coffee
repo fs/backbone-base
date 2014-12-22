@@ -14,6 +14,7 @@ class NavigationView extends Marionette.ItemView
     routes: Routes
 
   initialize: ->
+    Routes.init()
     @listenTo App.vent, 'navigation:change', @highlightNavigation
 
   highlightNavigation: (nav) ->

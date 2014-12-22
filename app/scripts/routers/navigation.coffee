@@ -10,7 +10,7 @@ class NavigationRouter extends BaseRouter
 
   onSessionChange: ->
     if Session.isLoggedIn()
-      path = routes.dashboardPath()
+      path = routes.dashboardIndexPath()
     else
       path = routes.rootPath()
 
