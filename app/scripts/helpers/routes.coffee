@@ -1,5 +1,4 @@
 App = require('scripts/application')
-
 AppConfig = require('scripts/config')
 
 class RoutesHelper
