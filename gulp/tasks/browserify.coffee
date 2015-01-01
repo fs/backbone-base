@@ -9,11 +9,13 @@ notify = require('gulp-notify')
 config = require('../config')
 
 gulp.task 'browserify', ->
+  debug = config.env is 'development'
+
   bundler = browserify(
     cache: {}
     packageCache: {}
     fullPaths: true
-    debug: true
+    debug: debug
     extensions: ['.coffee', '.js', '.jade']
     entries: "./#{config.appDir}/scripts/main.coffee"
   )
@@ -30,10 +32,10 @@ gulp.task 'browserify', ->
     cwd: "./#{config.appDir}/templates"
   ])
 
-  bundler
-    .transform('browserify-shim')
-    .transform('coffeeify')
-    .transform('jadeify')
+  bundler.transform('browserify-shim')
+  bundler.transform('coffeeify')
+  bundler.transform('jadeify')
+  bundler.transform('uglifyify') if config.env isnt 'development'
 
   bundle = ->
     bundler.bundle()
