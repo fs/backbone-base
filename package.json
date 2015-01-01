@@ -46,6 +46,7 @@
     "remapify": "^1.3.0",
     "require-dir": "~0.1.0",
     "run-sequence": "~1.0.1",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "~1.0.0",
     "watchify": "~2.1.1"
   },

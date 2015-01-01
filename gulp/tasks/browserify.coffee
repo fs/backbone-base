@@ -1,6 +1,7 @@
 gulp = require('gulp')
 plumber = require('gulp-plumber')
 source = require('vinyl-source-stream')
+buffer = require('vinyl-buffer')
 browserify = require('browserify')
 remapify = require('remapify')
 watchify = require('watchify')
@@ -29,24 +30,18 @@ gulp.task 'browserify', ->
     cwd: "./#{config.appDir}/templates"
   ])
 
+  bundler
+    .transform('browserify-shim')
+    .transform('coffeeify')
+    .transform('jadeify')
+
   bundle = ->
-    bundler
-      .transform('browserify-shim')
-      .transform('coffeeify')
-      .transform('jadeify')
-      .bundle()
-      .pipe(plumber())
+    bundler.bundle()
+      .on('error', notify.onError())
       .pipe(source('application.js'))
+      .pipe(buffer())
       .pipe(gulp.dest(config.publicDir))
 
-  watchify(bundler)
-    .on('error', notify.onError)
-    .on('update', ->
-      bundler
-        .bundle()
-        .pipe(plumber())
-        .pipe(source('application.js'))
-        .pipe(gulp.dest(config.publicDir))
-    )
+  watchify(bundler).on('update', bundle)
 
   bundle()
