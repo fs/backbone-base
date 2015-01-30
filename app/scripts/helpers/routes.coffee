@@ -2,16 +2,9 @@ App = require('scripts/application')
 AppConfig = require('scripts/config')
 
 class RoutesHelper
-  @alreadyInitialized: false
-
-  @init: ->
-    return if @alreadyInitialized
-
-    for moduleName, module of App.submodules when module.router?
+  @initModule: (module) ->
       for pattern, routeName of module.router.appRoutes
-        addRoute(moduleName, routeName, pattern)
-
-    @alreadyInitialized = true
+        addRoute(module.moduleName, routeName, pattern)
 
   @rootPath: -> AppConfig.rootPath
 

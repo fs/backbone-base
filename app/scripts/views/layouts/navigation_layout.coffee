@@ -17,7 +17,6 @@ class NavigationLayout extends Marionette.LayoutView
     routes: Routes
 
   initialize: ->
-    Routes.init()
     @listenTo Session, 'create destroy', @render
 
   onRender: ->
