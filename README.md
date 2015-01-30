@@ -7,6 +7,8 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "browser-sync"
     "browserify"
     "browserify-shim"
+    "casper-chai"
+    "casperjs"
     "coffee-script"
     "coffeeify"
     "connect-history-api-fallback"
@@ -34,6 +36,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "karma-mocha"
     "karma-phantomjs-launcher"
     "karma-sinon"
+    "mocha-casperjs"
     "remapify"
     "require-dir"
     "run-sequence"
@@ -85,7 +88,7 @@ Make sure master branch is tracking origin repo.
 
 Run bootstrap script
 
-    sh bin/bootstrap
+    bin/bootstrap
 
 Run app
 
@@ -97,7 +100,15 @@ Start to use application on browser:
 
 ## Tasks
 
-Run tests
+Run unit tests
+
+    gulp karma
+
+Run e2e tests
+
+    gulp e2e
+
+Run all tests
 
     gulp test
 
