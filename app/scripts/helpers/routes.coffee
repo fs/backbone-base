@@ -2,20 +2,20 @@ App = require('scripts/application')
 AppConfig = require('scripts/config')
 
 class RoutesHelper
-  @isInited: false
+  @alreadyInitialized: false
 
   @init: ->
-    return if @isInited
+    return if @alreadyInitialized
 
     for moduleName, module of App.submodules when module.router?
       for pattern, routeName of module.router.appRoutes
         addRoute(moduleName, routeName, pattern)
 
-    @isInited = true
+    @alreadyInitialized = true
 
   @rootPath: -> AppConfig.rootPath
 
-  checkRoot = (path) =>
+  prependRoot = (path) =>
     rootPath = @rootPath()
     if path.indexOf(rootPath) then "#{rootPath}#{path}" else path
 
@@ -24,13 +24,13 @@ class RoutesHelper
     methodName = "#{moduleName.toLowerCase()}#{routeName.charAt(0).toUpperCase()}#{routeName.substr(1).toLowerCase()}Path"
 
     @[methodName] = (params...) ->
-      return checkRoot(pattern) unless keys
+      return prependRoot(pattern) unless keys
 
       if keys.length isnt params.length
         throw new Error("incorrect params count (#{params.length} for #{keys.length})")
 
       pattern = pattern.replace(/\:\w+/, param) for param in params
 
-      checkRoot(pattern)
+      prependRoot(pattern)
 
 module.exports = RoutesHelper
