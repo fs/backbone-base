@@ -1,6 +1,7 @@
 gulp = require('gulp')
-del = require('del')
+rimraf = require('gulp-rimraf')
 config = require('../config')
 
 gulp.task 'clean', ->
-  del(config.publicDir)
+  gulp.src("#{config.publicDir}/", read: false)
+    .pipe(rimraf())
