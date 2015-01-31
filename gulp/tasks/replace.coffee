@@ -4,7 +4,8 @@ replace = require('gulp-replace-task')
 config = require('../config')
 
 gulp.task 'replace', ->
-  env = 'development'
+  env = config.env
+  env = 'development' unless fs.existsSync("#{config.appDir}/config/environments/#{env}.json")
   settings = JSON.parse(fs.readFileSync("#{config.appDir}/config/environments/#{env}.json", 'utf8'))
 
   gulp.src("#{config.appDir}/config/config.coffee")
