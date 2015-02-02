@@ -63,7 +63,8 @@
     "backbone-validation": "./bower_components/backbone-validation/dist/backbone-validation.js",
     "marionette": "./bower_components/marionette/lib/backbone.marionette.js",
     "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
-    "velocity": "./bower_components/velocity/velocity.js"
+    "velocity": "./bower_components/velocity/velocity.js",
+    "velocity-ui": "./bower_components/velocity/velocity.ui.js"
   },
   "browserify-shim": {
     "jquery": "$",
@@ -108,6 +109,12 @@
       "exports": "$",
       "depends": [
         "jquery"
+      ]
+    },
+    "velocity-ui": {
+      "exports": "$",
+      "depends": [
+        "velocity"
       ]
     },
     "templates": {

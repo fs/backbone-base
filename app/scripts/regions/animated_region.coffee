@@ -17,10 +17,17 @@ class AnimatedRegion extends Marionette.Region
     @$el.velocity('stop')
 
     if @animation.hideAnimation
-      @$el.velocity(
-        @animation.hideAnimation.p
-        _.extend(@animation.hideAnimation.o, {complete: => @_emptyRegion(view)})
-      )
+      itter = 0
+      length = @animation.hideAnimation.length
+
+      for animation in @animation.hideAnimation
+        $.Velocity.animate(
+          @$el
+          animation.p
+          animation.o
+        ).then =>
+          itter++
+          @_emptyRegion(view) if itter is length
     else
       @_emptyRegion(view)
 
@@ -31,15 +38,5 @@ class AnimatedRegion extends Marionette.Region
     @triggerMethod('empty', view)
     delete @currentView
     @
-
-  _destroyView: ->
-    view = @currentView
-    return unless view
-
-    if view.destroy and not view.isDestroyed
-      view.destroy()
-    else if view.remove
-      view.remove()
-      view.isDestroyed = true
 
 module.exports = AnimatedRegion

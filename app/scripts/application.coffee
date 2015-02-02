@@ -10,12 +10,8 @@ App.addRegions
     animation:
       showAnimation: [
         {
-          p: {scale: 0}
-          o: {duration: 0, display: 'none'}
-        }
-        {
-          p: {scale: 1}
-          o: {duration: 400, display: 'block'}
+          p: 'transition.slideLeftBigIn'
+          o: {stagger: 300}
         }
       ]
 

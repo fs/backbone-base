@@ -16,12 +16,15 @@ class NotificationsLayout extends Marionette.LayoutView
         showAnimation: [
           {
             p: 'slideDown'
-            o: {duration: 500}
+            o: {duration: 300}
           }
         ]
-        hideAnimation:
-          p: 'slideUp'
-          o: {duration: 500}
+        hideAnimation: [
+          {
+            p: 'slideUp'
+            o: {duration: 300}
+          }
+        ]
 
   initialize: ->
     @listenTo App.vent, 'notification:show', @onRenderNotification

@@ -3,7 +3,7 @@ require('backbone-stickit')
 require('backbone-validation')
 require('marionette')
 require('bootstrap')
-require('velocity')
+require('velocity-ui')
 require('jade')
 
 require('scripts/modules/navigation')
