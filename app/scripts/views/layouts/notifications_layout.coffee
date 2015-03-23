@@ -15,14 +15,14 @@ class NotificationsLayout extends Marionette.LayoutView
       animation:
         showAnimation: [
           {
-            p: 'slideDown'
-            o: {duration: 300}
+            p: 'transition.slideDownBigIn'
+            o: {stagger: 300}
           }
         ]
         hideAnimation: [
           {
-            p: 'slideUp'
-            o: {duration: 300}
+            p: 'transition.slideUpBigOut'
+            o: {stagger: 300}
           }
         ]
 
