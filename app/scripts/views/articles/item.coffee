@@ -1,3 +1,4 @@
+App = require('scripts/application')
 Session = require('scripts/facades/session')
 routes = require('scripts/helpers/routes')
 template = require('templates/articles/item')
@@ -18,6 +19,6 @@ class ArticlesItemView extends Marionette.ItemView
   onRemoveClicked: ->
     @model.destroy
       success: ->
-        alert 'article deleted'
+        App.vent.trigger('notification:show', {type: 'info', message: 'Article successfully deleted!'})
 
 module.exports = ArticlesItemView

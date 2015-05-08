@@ -1,3 +1,4 @@
+App = new Marionette.Application
 Session = require('scripts/facades/session')
 FormBehavior = require('scripts/views/behaviors/form')
 template = require('templates/navigation/login')
@@ -33,6 +34,7 @@ class NavigationLoginView extends Marionette.ItemView
     event.preventDefault()
 
     if @model.isValid(true)
-      Session.create()
+      Session.create().then ->
+        App.vent.trigger('notification:show', {type: 'success', message: 'You have successfully logged!'})
 
 module.exports = NavigationLoginView

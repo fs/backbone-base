@@ -1,8 +1,19 @@
 App = new Marionette.Application
+AnimatedRegion = require('scripts/regions/animated_region')
 
 App.addRegions
+  notificationsRegion: '#notifications_region'
   navigationRegion: '#navigation_region'
-  mainRegion: '#main_region'
+  mainRegion:
+    selector: '#main_region'
+    regionClass: AnimatedRegion
+    animation:
+      showAnimation: [
+        {
+          p: 'transition.slideLeftBigIn'
+          o: {stagger: 300}
+        }
+      ]
 
 App.navigate = (route, options) ->
   options or= {}
