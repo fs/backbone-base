@@ -3,8 +3,8 @@ AppConfig = require('scripts/config')
 
 class RoutesHelper
   @initModule: (module) ->
-      for pattern, routeName of module.router.appRoutes
-        addRoute(module.moduleName, routeName, pattern)
+    for pattern, routeName of module.router.appRoutes
+      addRoute(module.moduleName, routeName, pattern)
 
   @rootPath: -> AppConfig.rootPath
 
@@ -22,7 +22,8 @@ class RoutesHelper
       if keys.length isnt params.length
         throw new Error("incorrect params count (#{params.length} for #{keys.length})")
 
-      pattern = pattern.replace(/\:\w+/, param) for param in params
+      for param in params
+        pattern = pattern.replace(/\:\w+/, param)
 
       prependRoot(pattern)
 
