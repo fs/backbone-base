@@ -25,15 +25,14 @@ gulp.task 'browserify', ->
   .transform(coffeeify)
 
   bundle = ->
-    bundle = transform (filename) ->
+    bundleTransform = transform (filename) ->
       bundler.bundle()
 
     gulp.src(entryPoint)
-      .pipe(bundle)
+      .pipe(bundleTransform)
       .on('error', notify.onError())
       .pipe(rename('application.js'))
       .pipe(gulp.dest(config.publicDir))
 
   watchify(bundler).on('update', bundle)
-
   bundle()

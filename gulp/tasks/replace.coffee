@@ -9,10 +9,10 @@ gulp.task 'replace', ->
   settings = JSON.parse(fs.readFileSync("#{config.appDir}/config/environments/#{env}.json", 'utf8'))
   settings['env'] = env
 
-  for settingName, setting of settings
+  for key, value of settings
     patterns.push
-      match: settingName
-      replacement: setting
+      match: key
+      replacement: value
 
   gulp.src("#{config.appDir}/config/config.coffee")
     .pipe(replace(patterns: patterns))
