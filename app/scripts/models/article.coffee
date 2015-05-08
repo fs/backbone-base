@@ -5,11 +5,12 @@ class Article extends AppModel
   urlRoot: 'articles'
 
   defaults:
-    'text': ''
-    'comments_count': 0
+    comments_count: 0
 
   validation:
     text:
+      required: true
+    title:
       required: true
 
   parse: (response) ->

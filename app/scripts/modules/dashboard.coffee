@@ -1,14 +1,19 @@
 App = require('scripts/application')
 Router = require('scripts/routers/dashboard')
 Controller = require('scripts/controllers/dashboard_controller')
+Routes = require('scripts/helpers/routes')
 
-Dashboard = App.module('Dashboard')
+class Dashboard extends Marionette.Module
+  startWithParent: true
 
-Dashboard.addInitializer ->
-  controller = new Controller
-  @router = new Router(controller: controller)
+  onBeforeStart: ->
+    controller = new Controller
+    @router = new Router(controller: controller)
+    Routes.initModule(@)
 
-Dashboard.on 'start', ->
-  console.log 'module dashboard started'
+  onStart: ->
+    console.log 'module dashboard started'
+
+App.module('Dashboard', Dashboard)
 
 module.exports = Dashboard

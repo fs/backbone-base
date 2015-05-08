@@ -10,7 +10,7 @@ class NavigationLayout extends Marionette.LayoutView
   template: template
 
   regions:
-    navigationRegion: '#navigation_region'
+    navigationRegion: '#navigations_region'
     formRegion: '#login_form_region'
 
   templateHelpers:

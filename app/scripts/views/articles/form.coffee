@@ -15,12 +15,17 @@ class ArticlesFormView extends Marionette.ItemView
       updateView: false
       setOptions:
         validate: true
+    '[name="title"]':
+      observe: 'title'
+      updateView: false
+      setOptions:
+        validate: true
 
   behaviors:
     form:
       behaviorClass: FormBehavior
       tooltip:
-        placement: 'bottom'
+        placement: 'left'
         trigger: 'focus'
 
   serializeData: ->

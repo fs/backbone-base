@@ -1,14 +1,19 @@
 App = require('scripts/application')
 Router = require('scripts/routers/landing')
 Controller = require('scripts/controllers/landing_controller')
+Routes = require('scripts/helpers/routes')
 
-Landing = App.module('Landing')
+class Landing extends Marionette.Module
+  startWithParent: true
 
-Landing.addInitializer ->
-  controller = new Controller
-  @router = new Router(controller: controller)
+  onBeforeStart: ->
+    controller = new Controller
+    @router = new Router(controller: controller)
+    Routes.initModule(@)
 
-Landing.on 'start', ->
-  console.log 'module landing started'
+  onStart: ->
+    console.log 'module landing started'
+
+App.module('Landing', Landing)
 
 module.exports = Landing

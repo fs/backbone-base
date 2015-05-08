@@ -1,14 +1,19 @@
 App = require('scripts/application')
 Router = require('scripts/routers/articles')
 Controller = require('scripts/controllers/articles_controller')
+Routes = require('scripts/helpers/routes')
 
-Articles = App.module('Articles')
+class Articles extends Marionette.Module
+  startWithParent: true
 
-Articles.addInitializer ->
-  controller = new Controller
-  @router = new Router(controller: controller)
+  onBeforeStart: ->
+    controller = new Controller
+    @router = new Router(controller: controller)
+    Routes.initModule(@)
 
-Articles.on 'start', ->
-  console.log 'module articles started'
+  onStart: ->
+    console.log 'module articles started'
+
+App.module('Articles', Articles)
 
 module.exports = Articles
