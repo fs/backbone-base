@@ -5,31 +5,15 @@ config = require('../config')
 
 gulp.task 'replace', ->
   env = 'development'
+  patterns = []
   settings = JSON.parse(fs.readFileSync("#{config.appDir}/config/environments/#{env}.json", 'utf8'))
+  settings['env'] = env
+
+  for key, value of settings
+    patterns.push
+      match: key
+      replacement: value
 
   gulp.src("#{config.appDir}/config/config.coffee")
-    .pipe(replace(
-      patterns: [
-        {
-          match: 'env'
-          replacement: env
-        }
-        {
-          match: 'apiPath'
-          replacement: settings.apiPath
-        }
-        {
-          match: 'rootPath'
-          replacement: settings.rootPath
-        }
-        {
-          match: 'storageKey'
-          replacement: settings.storageKey
-        }
-        {
-          match: 'sessionKey'
-          replacement: settings.sessionKey
-        }
-      ]
-    ))
+    .pipe(replace(patterns: patterns))
     .pipe(gulp.dest("#{config.appDir}/scripts"))

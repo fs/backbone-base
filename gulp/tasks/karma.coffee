@@ -1,6 +1,5 @@
 gulp = require('gulp')
 karma = require('karma')
-remapify = require('remapify')
 config = require('../config')
 
 gulp.task 'karma', ->
@@ -37,12 +36,7 @@ gulp.task 'karma', ->
     browserify:
       extensions: ['.coffee']
       transform: ['browserify-shim', 'coffeeify']
-      prebundle: (bundle) ->
-        bundle.plugin(remapify, [
-          src: '**/*.coffee'
-          expose: 'scripts'
-          cwd: 'app/scripts'
-        ])
+      paths: ["./#{config.appDir}"]
     client:
       mocha:
         ui: 'bdd'
