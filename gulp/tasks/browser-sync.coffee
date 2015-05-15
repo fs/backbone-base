@@ -13,6 +13,8 @@ gulp.task 'browser-sync', ->
     port: 8001
     delay: 0
     rewrite: {}
+    mockFilenameGenerator: (config, req) ->
+      req._parsedUrl.pathname.replace(/^\//, '') + '.json'
   )
 
   browserSync
@@ -20,7 +22,7 @@ gulp.task 'browser-sync', ->
     open: false
     notify: false
     server:
-      baseDir: "#{config.publicDir}"
+      baseDir: config.publicDir
       middleware: [prism.middleware, historyApiFallback]
     files: [
       "#{config.publicDir}/**"

@@ -1,6 +1,0 @@
-{
-  "requestUrl": "/api/articles",
-  "contentType": "application/json",
-  "statusCode": 200,
-  "data": {}
-}
