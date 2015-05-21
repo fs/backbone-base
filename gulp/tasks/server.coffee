@@ -4,7 +4,7 @@ historyApiFallback = require('connect-history-api-fallback')
 prism = require('connect-prism')
 config = require('../config')
 
-gulp.task 'browser-sync', ->
+gulp.task 'server', ->
   prism.create(
     name: 'serve'
     mode: 'mock'
@@ -14,7 +14,7 @@ gulp.task 'browser-sync', ->
     delay: 0
     rewrite: {}
     mockFilenameGenerator: (config, req) ->
-      req._parsedUrl.pathname.replace(/^\//, '') + '.json'
+      req._parsedUrl.pathname.replace(/^\//, '') + '_' + req.method + '.json'
   )
 
   browserSync
