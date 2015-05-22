@@ -14,6 +14,6 @@ gulp.task 'build', ->
       'replace'
     ]
     'browserify'
-    'browser-sync'
+    'server'
     'watch'
   )
