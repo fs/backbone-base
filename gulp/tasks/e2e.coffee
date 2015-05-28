@@ -13,4 +13,4 @@ casperCommand = "mocha-casperjs \
 
 gulp.task 'e2e', ->
   gulp.src("#{config.testDir}/features/**/*_feature.coffee", read: false)
-      .pipe(shell(casperCommand))
+    .pipe(shell(casperCommand))

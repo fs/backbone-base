@@ -5,8 +5,8 @@ describe 'Landing page', ->
       password: '123456'
 
     casper
-    .start('http://localhost:8000')
-    .thenOpen '/', -> @evaluate(window.localStorage.clear)
+      .start('http://localhost:8000')
+      .thenOpen '/', -> @evaluate(window.localStorage.clear)
 
   it 'has title', ->
     casper.then -> expect('Backbone base').to.matchTitle

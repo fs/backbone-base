@@ -101,11 +101,6 @@
       "depends": [
         "jquery"
       ]
-    },
-    "templates": {
-      "depends": [
-        "jade"
-      ]
     }
   }
 }
