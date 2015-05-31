@@ -1,4 +1,3 @@
-Marionette = require('marionette')
 Session = require('scripts/facades/session')
 Routes = require('scripts/helpers/routes')
 
