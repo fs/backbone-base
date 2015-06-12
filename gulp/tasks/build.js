@@ -9,9 +9,9 @@ gulp.task('build', function() {
       'copy',
       'templates',
       'stylesheets',
-      'replace',
-      'jshint',
-      'jsonlint'
+      'replace'
+      // 'jshint',
+      // 'jsonlint'
     ],
     'browserify',
     'server',

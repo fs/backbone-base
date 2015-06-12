@@ -1,0 +1,12 @@
+import 'backbone-routefilter';
+import 'backbone-stickit';
+import 'backbone-validation';
+import 'marionette';
+import 'bootstrap';
+import 'scripts/modules/landing';
+import 'scripts/modules/dashboard';
+import 'scripts/modules/articles';
+import 'scripts/modules/navigation';
+import App from 'scripts/application';
+
+$(function() { App.start(); });
