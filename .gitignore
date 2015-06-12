@@ -9,4 +9,4 @@ public
 production
 coverage
 coverage.html
-app/scripts/config.coffee
+app/scripts/config.js
