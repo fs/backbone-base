@@ -5,6 +5,10 @@ import routes from 'scripts/helpers/routes';
 
 export default class NavigationRouter extends BaseRouter {
   constructor(...args) {
+    this.appRoutes = {
+      'sign_out': 'signOut'
+    };
+
     super(...args);
 
     this.listenTo(Session, 'create destroy', this.onSessionChange);

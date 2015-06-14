@@ -10,3 +10,4 @@ production
 coverage
 coverage.html
 app/scripts/config.js
+specs/features/screenshots

@@ -1,3 +1,5 @@
+var Setup = require('../features/helpers/setup');
+
 describe('Landing page', function() {
   before(function() {
     this.userCredentials = {
@@ -5,11 +7,7 @@ describe('Landing page', function() {
       password: '123456'
     };
 
-    casper
-      .start('http://localhost:8000')
-      .thenOpen('/', function() {
-        this.evaluate(window.localStorage.clear);
-      });
+    Setup();
   });
 
   it('has title', function() {
