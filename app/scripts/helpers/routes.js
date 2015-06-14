@@ -1,61 +1,40 @@
-var AppConfig, RoutesHelper,
-  slice = [].slice;
-
 import AppConfig from 'scripts/config';
 
-RoutesHelper = (function() {
-  var addRoute, prependRoot;
+export default class RoutesHelper {
+  static initModule(module) {
+    let appRoutes = module.router.appRoutes;
 
-  function RoutesHelper() {}
-
-  RoutesHelper.initModule = function(module) {
-    var pattern, ref, results, routeName;
-    ref = module.router.appRoutes;
-    results = [];
-    for (pattern in ref) {
-      routeName = ref[pattern];
-      results.push(addRoute(module.moduleName, routeName, pattern));
+    for (let pattern in appRoutes) {
+      let routeName = appRoutes[pattern];
+      this.addRoute(module.moduleName, routeName, pattern);
     }
-    return results;
-  };
+  }
 
-  RoutesHelper.rootPath = function() {
+  static rootPath() {
     return AppConfig.rootPath;
-  };
+  }
 
-  prependRoot = function(path) {
-    var rootPath;
-    rootPath = RoutesHelper.rootPath();
-    if (path.indexOf(rootPath)) {
-      return "" + rootPath + path;
-    } else {
-      return path;
-    }
-  };
+  static prependRoot(path) {
+    let rootPath = this.rootPath();
+    return (path.indexOf(rootPath)) ? `${rootPath}${path}` : path;
+  }
 
-  addRoute = function(moduleName, routeName, pattern) {
-    var keys, methodName;
-    keys = pattern.match(/\:\w+/g);
-    methodName = "" + (moduleName.toLowerCase()) + (routeName.charAt(0).toUpperCase()) + (routeName.substr(1).toLowerCase()) + "Path";
-    return RoutesHelper[methodName] = function() {
-      var i, len, param, params;
-      params = 1 <= arguments.length ? slice.call(arguments, 0) : [];
-      if (!keys) {
-        return prependRoot(pattern);
-      }
+  static addRoute(moduleName, routeName, pattern) {
+    let keys = pattern.match(/\:\w+/g);
+    let methodName = `${moduleName.toLowerCase()}${routeName.charAt(0).toUpperCase()}${routeName.substr(1).toLowerCase()}Path`;
+
+    return this[methodName] = function(...params) {
+      if (!keys) return this.prependRoot(pattern);
+
       if (keys.length !== params.length) {
-        throw new Error("incorrect params count (" + params.length + " for " + keys.length + ")");
+        throw new Error(`incorrect params count (${params.length} for ${keys.length})`);
       }
-      for (i = 0, len = params.length; i < len; i++) {
-        param = params[i];
+
+      for (let param of params) {
         pattern = pattern.replace(/\:\w+/, param);
       }
-      return prependRoot(pattern);
-    };
-  };
 
-  return RoutesHelper;
-
-})();
-
-export default RoutesHelper
+      return this.prependRoot(pattern);
+    }
+  }
+}
