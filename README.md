@@ -4,30 +4,30 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
 
 ## NPM Modules:
     "autoprefixer-stylus"
+    "babelify"
     "browser-sync"
     "browserify"
     "browserify-shim"
     "casper-chai"
     "casperjs"
-    "coffee-script"
-    "coffeeify"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
     "gulp"
-    "gulp-coffeelint"
-    "gulp-concat"
     "gulp-cssimport"
-    "gulp-ignore"
     "gulp-install"
     "gulp-jade"
+    "gulp-jshint"
     "gulp-jsonlint"
     "gulp-notify"
     "gulp-plumber"
+    "gulp-rename"
     "gulp-replace-task"
+    "gulp-shell"
     "gulp-stylus"
     "jadeify"
     "jeet"
+    "jshint-stylish"
     "karma"
     "karma-browserify"
     "karma-chai"
@@ -37,10 +37,9 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "karma-phantomjs-launcher"
     "karma-sinon"
     "mocha-casperjs"
-    "remapify"
     "require-dir"
     "run-sequence"
-    "vinyl-source-stream"
+    "vinyl-transform"
     "watchify"
 
 ## Bower components:
@@ -88,7 +87,7 @@ Make sure master branch is tracking origin repo.
 
 Run bootstrap script
 
-    bin/bootstrap
+    bin/setup
 
 Run app
 
