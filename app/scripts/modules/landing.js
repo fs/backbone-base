@@ -23,4 +23,4 @@ class Landing extends Marionette.Module {
 
 App.module('Landing', Landing);
 
-export default Landing
+export default Landing;

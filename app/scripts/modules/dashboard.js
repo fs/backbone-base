@@ -23,4 +23,4 @@ class Dashboard extends Marionette.Module {
 
 App.module('Dashboard', Dashboard);
 
-export default Dashboard
+export default Dashboard;

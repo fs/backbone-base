@@ -23,4 +23,4 @@ class Articles extends Marionette.Module {
 
 App.module('Articles', Articles);
 
-export default Articles
+export default Articles;

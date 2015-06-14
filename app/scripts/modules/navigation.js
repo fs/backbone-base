@@ -23,4 +23,4 @@ class Navigation extends Marionette.Module {
 
 App.module('Navigation', Navigation);
 
-export default Navigation
+export default Navigation;

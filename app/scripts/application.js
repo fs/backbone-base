@@ -8,7 +8,7 @@ App.history = function() {
     pushState: true,
     root: AppConfig.rootPath
   });
-}
+};
 
 App.addRegions({
   navigationRegion: '#navigation_region',

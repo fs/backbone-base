@@ -5,8 +5,10 @@ export default class RoutesHelper {
     let appRoutes = module.router.appRoutes;
 
     for (let pattern in appRoutes) {
-      let routeName = appRoutes[pattern];
-      this.addRoute(module.moduleName, routeName, pattern);
+      if (appRoutes.hasOwnProperty(pattern)) {
+        let routeName = appRoutes[pattern];
+        this.addRoute(module.moduleName, routeName, pattern);
+      }
     }
   }
 
@@ -23,7 +25,7 @@ export default class RoutesHelper {
     let keys = pattern.match(/\:\w+/g);
     let methodName = `${moduleName.toLowerCase()}${routeName.charAt(0).toUpperCase()}${routeName.substr(1).toLowerCase()}Path`;
 
-    return this[methodName] = function(...params) {
+    this[methodName] = function(...params) {
       if (!keys) return this.prependRoot(pattern);
 
       if (keys.length !== params.length) {
@@ -35,6 +37,8 @@ export default class RoutesHelper {
       }
 
       return this.prependRoot(pattern);
-    }
+    };
+
+    return this[methodName];
   }
 }
