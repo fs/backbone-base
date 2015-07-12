@@ -2,14 +2,16 @@
 
 This simple application includes Backbone.js/Marionette.js frameworks and gulp/bower technologies.
 
-## NPM Modules:
+## NPM Dependencies:
     "autoprefixer-stylus"
+    "jeet"
+
+## NPM Dev dependencies:
     "babelify"
     "browser-sync"
     "browserify"
     "browserify-shim"
     "casper-chai"
-    "casperjs"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
@@ -26,13 +28,10 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "gulp-shell"
     "gulp-stylus"
     "jadeify"
-    "jeet"
-    "jshint-stylish"
     "karma"
     "karma-browserify"
     "karma-chai"
     "karma-chrome-launcher"
-    "karma-coffee-preprocessor"
     "karma-mocha"
     "karma-phantomjs-launcher"
     "karma-sinon"
