@@ -4,7 +4,7 @@ import Storage from 'scripts/facades/storage';
 
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;
-var currentUser = null;
+let currentUser = null;
 
 class Session {
   static currentUser() {
@@ -21,7 +21,7 @@ class Session {
           this.trigger('create');
           deferred.resolve();
         },
-        error: function() {
+        error() {
           deferred.reject();
         }
       });

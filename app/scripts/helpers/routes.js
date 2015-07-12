@@ -32,9 +32,9 @@ export default class RoutesHelper {
         throw new Error(`incorrect params count (${params.length} for ${keys.length})`);
       }
 
-      for (let param of params) {
+      params.forEach(function(param) {
         pattern = pattern.replace(/\:\w+/, param);
-      }
+      });
 
       return this.prependRoot(pattern);
     };

@@ -14,7 +14,7 @@ export default class ArticlesController extends Marionette.Controller {
   }
 
   show(id) {
-    let article = new Article({ id: id });
+    let article = new Article({ id });
 
     article.fetch().then(function() {
       App.mainRegion.show(new ArticlesShowView({ model: article }));

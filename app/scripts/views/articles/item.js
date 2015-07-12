@@ -20,8 +20,8 @@ export default class ArticlesItemView extends Marionette.ItemView {
 
   onRemoveClicked() {
     this.model.destroy({
-      success: function() {
-        alert('article deleted');
+      success() {
+        alert('Article has been deleted');
       }
     });
   }

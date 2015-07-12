@@ -12,7 +12,7 @@ class Navigation extends Marionette.Module {
 
   onBeforeStart() {
     let controller = new Controller();
-    this.router = new Router({controller: controller});
+    this.router = new Router({ controller });
     Routes.initModule(this);
   }
 
