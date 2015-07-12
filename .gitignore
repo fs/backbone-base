@@ -1,7 +1,6 @@
 .DS_Store
 
 node_modules
-bower_components
 access_logs.db
 npm-debug.log
 

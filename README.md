@@ -1,10 +1,18 @@
 # Skeleton for Backbone.Marionette based application
 
-This simple application includes Backbone.js/Marionette.js frameworks and gulp/bower technologies.
+This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
 
 ## NPM Dependencies:
     "autoprefixer-stylus"
+    "backbone"
+    "backbone-validation"
+    "backbone.marionette"
+    "backbone.routefilter"
+    "backbone.stickit"
+    "bootstrap"
     "jeet"
+    "jquery"
+    "underscore"
 
 ## NPM Dev dependencies:
     "babelify"
@@ -17,7 +25,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "del"
     "gulp"
     "gulp-cssimport"
-    "gulp-install"
     "gulp-jade"
     "gulp-jshint"
     "gulp-jsonlint"
@@ -40,16 +47,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and gulp/b
     "run-sequence"
     "vinyl-transform"
     "watchify"
-
-## Bower components:
-    "jquery"
-    "underscore"
-    "backbone"
-    "backbone-route-filter"
-    "backbone.stickit"
-    "backbone-validation"
-    "marionette"
-    "bootstrap"
 
 ## Install
 ### OSX

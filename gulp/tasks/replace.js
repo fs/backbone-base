@@ -8,7 +8,7 @@ gulp.task('replace', function() {
   var settings = {};
   var patterns = [];
 
-  settings = JSON.parse(fs.readFileSync(config.appDir + "/config/environments/" + env + ".json", 'utf8'));
+  settings = JSON.parse(fs.readFileSync(config.appDir + '/config/environments/' + env + '.json', 'utf8'));
   settings['env'] = env;
 
   for (var settingName in settings) {
@@ -18,7 +18,7 @@ gulp.task('replace', function() {
     });
   };
 
-  return gulp.src(config.appDir + "/config/config.js")
-    .pipe(replace({patterns: patterns}))
-    .pipe(gulp.dest(config.appDir + "/scripts"));
+  return gulp.src(config.appDir + '/config/config.js')
+    .pipe(replace({ patterns: patterns }))
+    .pipe(gulp.dest(config.appDir + '/scripts'));
 });

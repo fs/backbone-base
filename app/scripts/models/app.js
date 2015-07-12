@@ -10,7 +10,7 @@ export default class AppModel extends Backbone.Model {
 
   sync(method, model, options) {
     if (Session.isLoggedIn()) {
-      if (method === 'create' || method === 'update' || method === 'patch') {
+      if (_.contains(['create', 'update', 'patch'], method)) {
         let data = _.extend(model.toJSON(), Session.token);
         options.data = JSON.stringify(data);
         options.contentType = 'application/json';

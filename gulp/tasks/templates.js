@@ -5,7 +5,7 @@ var notify = require('gulp-notify');
 var config = require('../config');
 
 gulp.task('templates', function() {
-  return gulp.src(config.appDir + "/*.jade")
+  return gulp.src(config.appDir + '/*.jade')
     .pipe(plumber())
     .pipe(jade({
       pretty: true,
