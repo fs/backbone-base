@@ -1,57 +1,52 @@
 # Skeleton for Backbone.Marionette based application
 
-This simple application includes Backbone.js/Marionette.js frameworks and gulp/bower technologies.
+This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
 
-## NPM Modules:
+## NPM Dependencies:
     "autoprefixer-stylus"
+    "backbone"
+    "backbone-validation"
+    "backbone.marionette"
+    "backbone.routefilter"
+    "backbone.stickit"
+    "bootstrap"
+    "jeet"
+    "jquery"
+    "underscore"
+
+## NPM Dev dependencies:
+    "babelify"
     "browser-sync"
     "browserify"
     "browserify-shim"
     "casper-chai"
-    "casperjs"
-    "coffee-script"
-    "coffeeify"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
     "gulp"
-    "gulp-coffeelint"
-    "gulp-concat"
     "gulp-cssimport"
-    "gulp-ignore"
-    "gulp-install"
     "gulp-jade"
+    "gulp-jshint"
     "gulp-jsonlint"
     "gulp-notify"
     "gulp-plumber"
+    "gulp-rename"
     "gulp-replace-task"
+    "gulp-shell"
     "gulp-stylus"
     "jadeify"
-    "jeet"
     "karma"
     "karma-browserify"
     "karma-chai"
     "karma-chrome-launcher"
-    "karma-coffee-preprocessor"
     "karma-mocha"
     "karma-phantomjs-launcher"
     "karma-sinon"
     "mocha-casperjs"
-    "remapify"
     "require-dir"
     "run-sequence"
-    "vinyl-source-stream"
+    "vinyl-transform"
     "watchify"
-
-## Bower components:
-    "jquery"
-    "underscore"
-    "backbone"
-    "backbone-route-filter"
-    "backbone.stickit"
-    "backbone-validation"
-    "marionette"
-    "bootstrap"
 
 ## Install
 ### OSX
@@ -88,7 +83,7 @@ Make sure master branch is tracking origin repo.
 
 Run bootstrap script
 
-    bin/bootstrap
+    bin/setup
 
 Run app
 

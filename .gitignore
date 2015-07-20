@@ -1,7 +1,6 @@
 .DS_Store
 
 node_modules
-bower_components
 access_logs.db
 npm-debug.log
 
@@ -9,4 +8,5 @@ public
 production
 coverage
 coverage.html
-app/scripts/config.coffee
+app/scripts/config.js
+specs/features/screenshots

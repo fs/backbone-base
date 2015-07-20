@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! which gulp; then
+  npm install -g gulp
+fi
+
+npm install
