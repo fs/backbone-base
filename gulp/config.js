@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+  env: 'development',
   appDir: 'app',
   publicDir: 'public',
   testDir: 'specs',

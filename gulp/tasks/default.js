@@ -1,3 +1,3 @@
-var gulp = require('gulp');
+import gulp from 'gulp';
 
 gulp.task('default', ['build']);

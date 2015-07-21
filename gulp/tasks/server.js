@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var historyApiFallback = require('connect-history-api-fallback');
-var prism = require('connect-prism');
-var config = require('../config');
+import gulp from 'gulp';
+import browserSync from 'browser-sync';
+import historyApiFallback from 'connect-history-api-fallback';
+import prism from 'connect-prism';
+import config from '../config';
 
 gulp.task('server', function() {
   prism.create({
@@ -14,7 +14,7 @@ gulp.task('server', function() {
     delay: 0,
     rewrite: {},
     mockFilenameGenerator: function(config, req) {
-      return req._parsedUrl.pathname.replace(/^\//, '') + '_' + req.method + '.json';
+      return `${req._parsedUrl.pathname.replace(/^\//, '')}_${req.method}.json`;
     }
   });
 
@@ -30,8 +30,8 @@ gulp.task('server', function() {
       ]
     },
     files: [
-      config.publicDir + '/**',
-      '!' + config.publicDir + '/**.map'
+      `${config.publicDir}/**`,
+      `!${config.publicDir}/**.map`
     ]
   });
 });
