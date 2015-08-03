@@ -13,7 +13,7 @@ gulp.task('server', function() {
     port: 8001,
     delay: 0,
     rewrite: {},
-    mockFilenameGenerator: function(config, req) {
+    mockFilenameGenerator(config, req) {
       return `${req._parsedUrl.pathname.replace(/^\//, '')}_${req.method}.json`;
     }
   });

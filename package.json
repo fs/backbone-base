@@ -37,6 +37,7 @@
     "connect-prism": "~0.7.5",
     "del": "^1.1.1",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
     "gulp-cssimport": "~1.2.3",
     "gulp-jade": "~0.8.0",
     "gulp-jshint": "^1.9.2",

@@ -1,4 +1,4 @@
-var Setup = require('../features/helpers/setup');
+import Setup from '../features/helpers/setup';
 
 describe('Landing page', function() {
   before(function() {
@@ -17,7 +17,7 @@ describe('Landing page', function() {
   });
 
   it('logs user in', function() {
-    var userCredentials = this.userCredentials;
+    let userCredentials = this.userCredentials;
 
     casper.then(function() {
       this.waitForSelector('form.login-form', function() {
