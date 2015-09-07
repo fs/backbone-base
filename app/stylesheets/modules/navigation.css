@@ -1,0 +1,43 @@
+.navigation {
+  .navbar-brand {
+    height: auto;
+  }
+
+  .login-form,
+  .logout-form {
+    box-sizing: border-box;
+    padding: 8px 15px;
+    overflow: auto;
+  }
+
+  .login-form {
+    input {
+      float: right;
+      margin-right: 5px;
+    }
+  }
+
+  .logout-form {
+    position: relative;
+
+    * {
+      float: left;
+      display: block;
+      margin-left: 25px;
+    }
+
+    span {
+      line-height: 34px;
+      height: 100%;
+      margin-left: 10px;
+    }
+
+    .avatar {
+      width: 25px;
+      height: 25px;
+      background-size: cover;
+      position: relative;
+      top: 4px;
+    }
+  }
+}

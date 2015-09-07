@@ -1,22 +1,28 @@
 var gulp = require('gulp');
-var stylus = require('gulp-stylus');
-var cssimport = require('gulp-cssimport');
-var autoprefixer = require('autoprefixer-stylus');
-var jeet = require('jeet');
 var plumber = require('gulp-plumber');
+var postcss = require('gulp-postcss');
 var notify = require('gulp-notify');
 var config = require('../config');
 
 gulp.task('stylesheets', function() {
-  return gulp.src(config.appDir + '/stylesheets/application.styl')
+  var autoprefixer = require('autoprefixer-core');
+  var pxtorem = require('postcss-pxtorem');
+  var processors = [
+    require('postcss-color-function'),
+    require('postcss-import'),
+    require('postcss-mixins'),
+    require('postcss-nested'),
+    require('postcss-simple-vars'),
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    pxtorem({
+      root_value: 13,
+      replace: false
+    })
+  ];
+
+  return gulp.src(config.appDir + '/stylesheets/application.css')
     .pipe(plumber())
-    .pipe(stylus({
-      linenos: true,
-      use: [
-        autoprefixer({ browsers: 'last 2 versions' }),
-        jeet()
-      ]
-    }).on('error', notify.onError()))
-    .pipe(cssimport())
+    .pipe(postcss(processors))
+    .on('error', notify.onError())
     .pipe(gulp.dest(config.publicDir));
-});
+})
