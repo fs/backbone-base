@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import babel from 'gulp-babel';
 import shell from 'gulp-shell';
 import config from '../config';
 

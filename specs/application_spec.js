@@ -1,5 +1,5 @@
-import Marionette from 'marionette';
-import App from 'scripts/application';
+var Marionette = require('marionette');
+var App = require('scripts/application');
 
 describe('Application', function() {
   it('should start successfully', function() {
