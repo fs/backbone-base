@@ -3,8 +3,8 @@ import karma from 'karma';
 import babelify from 'babelify';
 import config from '../config';
 
-gulp.task('karma', function() {
-  return karma.server.start({
+gulp.task('karma', () => {
+  karma.server.start({
     basePath: process.cwd(),
     frameworks: [
       'mocha',
@@ -49,7 +49,7 @@ gulp.task('karma', function() {
       transform: [
         'browserify-shim'
       ],
-      prebundle: function(bundle) {
+      prebundle: (bundle) => {
         bundle.transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
       }
     },

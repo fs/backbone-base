@@ -7,7 +7,7 @@ import config from '../config';
 import autoprefixer from 'autoprefixer-core';
 import pxtorem from 'postcss-pxtorem';
 
-gulp.task('stylesheets', function() {
+gulp.task('stylesheets', () => {
   const processors = [
     require('postcss-color-function'),
     require('postcss-import'),
@@ -21,9 +21,9 @@ gulp.task('stylesheets', function() {
     })
   ];
 
-  return gulp.src(`${config.appDir}/stylesheets/application.css`)
+  gulp.src(`${config.appDir}/stylesheets/application.css`)
     .pipe(plumber())
     .pipe(postcss(processors))
     .on('error', notify.onError())
     .pipe(gulp.dest(config.publicDir));
-})
+});

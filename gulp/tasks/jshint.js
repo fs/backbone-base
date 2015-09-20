@@ -2,8 +2,8 @@ import gulp from 'gulp';
 import jshint from 'gulp-jshint';
 import config from '../config';
 
-gulp.task('jshint', function() {
-  return gulp.src(`${config.appDir}/scripts/**/*.js`)
+gulp.task('jshint', () => {
+  gulp.src(`${config.appDir}/scripts/**/*.js`)
     .pipe(jshint({
       esnext: true,
       eqeqeq: true,

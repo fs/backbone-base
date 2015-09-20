@@ -4,7 +4,7 @@ import historyApiFallback from 'connect-history-api-fallback';
 import prism from 'connect-prism';
 import config from '../config';
 
-gulp.task('server', function() {
+gulp.task('server', () => {
   prism.create({
     name: 'serve',
     mode: 'mock',

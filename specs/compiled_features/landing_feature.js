@@ -1,8 +1,4 @@
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _featuresHelpersSetup = require('../features/helpers/setup');
-
-var _featuresHelpersSetup2 = _interopRequireDefault(_featuresHelpersSetup);
+var Setup = require('../features/helpers/setup');
 
 describe('Landing page', function () {
   before(function () {
@@ -11,7 +7,7 @@ describe('Landing page', function () {
       password: '123456'
     };
 
-    (0, _featuresHelpersSetup2['default'])();
+    Setup();
   });
 
   it('has title', function () {
