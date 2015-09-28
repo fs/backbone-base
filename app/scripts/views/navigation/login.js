@@ -8,8 +8,14 @@ export default class NavigationLoginView extends Marionette.ItemView {
     this.template = template;
     this.model = Session.currentUser();
 
+    this.ui = {
+      form: 'form',
+      register: '.register'
+    };
+
     this.events = {
-      'submit form': 'onFormSubmit'
+      'submit @ui.form': 'onFormSubmit',
+      'click @ui.register': 'onShowRegisterForm'
     };
 
     this.bindings = {
@@ -48,5 +54,9 @@ export default class NavigationLoginView extends Marionette.ItemView {
     if (this.model.isValid(true)) {
       Session.create();
     }
+  }
+
+  onShowRegisterForm() {
+    // App.vent.trigger('show', router.navigation);
   }
 }
