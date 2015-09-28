@@ -46,6 +46,6 @@ class Session {
   }
 }
 
-_.extend(Session, Backbone.Events);
+Object.assign(Session, Backbone.Events);
 
 export default Session;

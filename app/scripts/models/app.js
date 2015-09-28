@@ -11,7 +11,7 @@ export default class AppModel extends Backbone.Model {
   sync(method, model, options) {
     if (Session.isLoggedIn()) {
       options.headers = options.headers || {};
-      _.extend(options.headers, { 'Authorization': `Token token=${Session.token}` });
+      Object.assign(options.headers, { 'X-Auth-Token': Session.token });
     }
 
     return super.sync(method, model, options);
