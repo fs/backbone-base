@@ -1,5 +1,5 @@
 {
-  "requestUrl": "/api/articles?session_token=12937698127698712936",
+  "requestUrl": "/api/articles",
   "contentType": "application/json",
   "statusCode": 200,
   "data": [

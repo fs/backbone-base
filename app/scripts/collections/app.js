@@ -10,7 +10,8 @@ export default class AppCollection extends Backbone.Collection {
 
   sync(method, model, options) {
     if (Session.isLoggedIn()) {
-      options.data = _.extend({}, options.data, Session.token);
+      options.headers = options.headers || {};
+      _.extend(options.headers, { 'Authorization': `Token token=${Session.token}` });
     }
 
     return super.sync(method, model, options);

@@ -42,7 +42,7 @@ class Session {
   }
 
   static get token() {
-    return this.currentUser().pick(SESSION_KEY);
+    return this.currentUser().get(SESSION_KEY);
   }
 }
 
