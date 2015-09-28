@@ -26,17 +26,19 @@ export default class RoutesHelper {
     let methodName = `${moduleName.toLowerCase()}${routeName.charAt(0).toUpperCase()}${routeName.substr(1).toLowerCase()}Path`;
 
     this[methodName] = function(...params) {
-      if (!keys) return this.prependRoot(pattern);
+      let path = pattern;
+
+      if (!keys) return this.prependRoot(path);
 
       if (keys.length !== params.length) {
         throw new Error(`incorrect params count (${params.length} for ${keys.length})`);
       }
 
       params.forEach(function(param) {
-        pattern = pattern.replace(/\:\w+/, param);
+        path = path.replace(/\:\w+/, param);
       });
 
-      return this.prependRoot(pattern);
+      return this.prependRoot(path);
     };
 
     return this[methodName];
