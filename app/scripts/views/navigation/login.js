@@ -1,5 +1,6 @@
 import Session from 'scripts/facades/session';
 import FormBehavior from 'scripts/views/behaviors/form';
+import routes from 'scripts/helpers/routes';
 import template from 'templates/navigation/login';
 
 export default class NavigationLoginView extends Marionette.ItemView {
@@ -9,13 +10,11 @@ export default class NavigationLoginView extends Marionette.ItemView {
     this.model = Session.currentUser();
 
     this.ui = {
-      form: 'form',
-      register: '.register'
+      form: 'form'
     };
 
     this.events = {
       'submit @ui.form': 'onFormSubmit',
-      'click @ui.register': 'onShowRegisterForm'
     };
 
     this.bindings = {
@@ -45,6 +44,10 @@ export default class NavigationLoginView extends Marionette.ItemView {
       }
     };
 
+    this.templateHelpers = {
+      routes: routes
+    };
+
     super(...args);
   }
 
@@ -54,9 +57,5 @@ export default class NavigationLoginView extends Marionette.ItemView {
     if (this.model.isValid(true)) {
       Session.create();
     }
-  }
-
-  onShowRegisterForm() {
-    // App.vent.trigger('show', router.navigation);
   }
 }
