@@ -53,9 +53,6 @@ export default class NavigationLoginView extends Marionette.ItemView {
 
   onFormSubmit(event) {
     event.preventDefault();
-
-    if (this.model.isValid(true)) {
-      Session.create();
-    }
+    Session.create();
   }
 }

@@ -1,5 +1,5 @@
 {
-  "requestUrl": "/api/sign_in",
+  "requestUrl": "/api/users/sign_in",
   "contentType": "application/json",
   "statusCode": 200,
   "data": {

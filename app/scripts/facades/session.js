@@ -15,15 +15,12 @@ class Session {
     let deferred = $.Deferred();
 
     if (!this.isLoggedIn()) {
-      this.currentUser().save(null, {
-        success: () => {
-          this.save();
-          this.trigger('create');
-          deferred.resolve();
-        },
-        error() {
-          deferred.reject();
-        }
+      this.currentUser().signIn().done(() => {
+        this.save();
+        this.trigger('create');
+        deferred.resolve();
+      }).fail(() => {
+        deferred.reject();
       });
     }
 

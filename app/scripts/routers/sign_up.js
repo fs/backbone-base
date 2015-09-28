@@ -1,4 +1,6 @@
+import App from 'scripts/application';
 import BaseRouter from 'scripts/routers/base';
+import routes from 'scripts/helpers/routes';
 
 export default class SignUpRouter extends BaseRouter {
   constructor(...args) {
@@ -7,5 +9,12 @@ export default class SignUpRouter extends BaseRouter {
     };
 
     super(...args);
+
+    this.listenTo(App.vent, 'navigation:root', this.onRedirectToRoot);
+  }
+
+  onRedirectToRoot() {
+    let path = routes.rootPath();
+    this.navigate(path, { trigger: true });
   }
 }
