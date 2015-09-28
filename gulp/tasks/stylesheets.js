@@ -8,11 +8,11 @@ gulp.task('stylesheets', function() {
   var autoprefixer = require('autoprefixer-core');
   var pxtorem = require('postcss-pxtorem');
   var processors = [
-    require('postcss-color-function'),
     require('postcss-import'),
     require('postcss-mixins'),
     require('postcss-nested'),
     require('postcss-simple-vars'),
+    require('postcss-color-function'),
     autoprefixer({ browsers: ['last 2 versions'] }),
     pxtorem({
       root_value: 13,
