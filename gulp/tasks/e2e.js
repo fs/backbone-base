@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var shell = require('gulp-shell');
-var config = require('../config');
+import gulp from 'gulp';
+import shell from 'gulp-shell';
+import config from '../config';
 
-var casperCommand = 'mocha-casperjs \
+const casperCommand = 'mocha-casperjs \
   --chai-path=node_modules/chai \
   --casper-chai-path=node_modules/casper-chai \
   --viewport-width=1280 \
@@ -10,7 +10,8 @@ var casperCommand = 'mocha-casperjs \
   <%= file.path %> \
 ';
 
-gulp.task('e2e', ['clean-screenshots'], function() {
-  return gulp.src(config.testDir + '/features/**/*_feature.js', { read: false })
-    .pipe(shell(casperCommand));
+gulp.task('e2e', ['clean-screenshots'], (cb) => {
+  gulp.src(`${config.testDir}/compiled_features/**/*_feature.js`)
+    .pipe(shell(casperCommand))
+    .on('end', cb);
 });

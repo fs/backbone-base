@@ -1,10 +1,10 @@
-var gulp = require('gulp');
-var karma = require('karma');
-var babelify = require('babelify');
-var config = require('../config');
+import gulp from 'gulp';
+import karma from 'karma';
+import babelify from 'babelify';
+import config from '../config';
 
-gulp.task('karma', function() {
-  return karma.server.start({
+gulp.task('karma', () => {
+  karma.server.start({
     basePath: process.cwd(),
     frameworks: [
       'mocha',
@@ -45,18 +45,16 @@ gulp.task('karma', function() {
       packageCache: {},
       fullPaths: true,
       debug: true,
-      paths: ['./' + config.appDir],
+      paths: [`./${config.appDir}`],
       transform: [
         'browserify-shim'
       ],
-      prebundle: function(bundle) {
-        bundle.transform(babelify.configure({ sourceMapRelative: './' + config.appDir }));
+      prebundle: (bundle) => {
+        bundle.transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
       }
     },
     client: {
-      mocha: {
-        ui: 'bdd'
-      }
+      mocha: { ui: 'bdd' }
     }
   });
 });

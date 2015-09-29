@@ -1,11 +1,11 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var jade = require('gulp-jade');
-var notify = require('gulp-notify');
-var config = require('../config');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import jade from 'gulp-jade';
+import notify from 'gulp-notify';
+import config from '../config';
 
-gulp.task('templates', function() {
-  return gulp.src(config.appDir + '/*.jade')
+gulp.task('templates', () => {
+  gulp.src(`${config.appDir}/*.jade`)
     .pipe(plumber())
     .pipe(jade({
       pretty: true,

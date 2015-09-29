@@ -1,31 +1,30 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var browserify = require('browserify');
-var transform = require('vinyl-transform');
-var jadeify = require('jadeify');
-var babelify = require('babelify');
-var watchify = require('watchify');
-var notify = require('gulp-notify');
-var config = require('../config');
-var entryPoint = './' + config.appDir + '/scripts/main.js';
+import gulp from 'gulp';
+import rename from 'gulp-rename';
+import browserify from 'browserify';
+import transform from 'vinyl-transform';
+import jadeify from 'jadeify';
+import babelify from 'babelify';
+import watchify from 'watchify';
+import notify from 'gulp-notify';
+import config from '../config';
 
-gulp.task('browserify', function() {
-  var bundler = browserify({
+const entryPoint = `./${config.appDir}/scripts/main.js`;
+
+gulp.task('browserify', () => {
+  let bundler = browserify({
     cache: {},
     packageCache: {},
     fullPaths: true,
     debug: true,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
-    paths: ['./' + config.appDir]
+    paths: [`./${config.appDir}`]
   })
   .transform(jadeify)
-  .transform(babelify.configure({ sourceMapRelative: './' + config.appDir }));
+  .transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
 
-  function bundle() {
-    var bundleTransform = transform(function(filename) {
-      return bundler.bundle();
-    });
+  let bundle = () => {
+    let bundleTransform = transform(() => bundler.bundle());
 
     return gulp.src(entryPoint)
       .pipe(bundleTransform)
@@ -36,5 +35,5 @@ gulp.task('browserify', function() {
 
   watchify(bundler).on('update', bundle);
 
-  return bundle();
+  bundle();
 });

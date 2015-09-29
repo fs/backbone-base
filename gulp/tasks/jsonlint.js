@@ -1,9 +1,12 @@
-var gulp = require('gulp');
-var jsonlint = require('gulp-jsonlint');
-var config = require('../config');
+import gulp from 'gulp';
+import jsonlint from 'gulp-jsonlint';
+import config from '../config';
 
-gulp.task('jsonlint', function() {
-  return gulp.src([config.mocksDir + '/**/*.json', config.appDir + '/config/environments/*.json'])
+gulp.task('jsonlint', () => {
+  gulp.src([
+    `${config.mocksDir}/**/*.json`,
+    `${config.appDir}/config/environments/*.json`
+  ])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter());
 });
