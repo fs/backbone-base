@@ -6,14 +6,14 @@ export default class User extends Backbone.Model {
 
     this.validation = {
       username: {
-        required: () => { return this.isSignup },
+        required: () => { return this.isSignup; }
       },
       password: {
         required: true
       },
       password_confirmation: {
         equalTo: 'password',
-        required: () => { return this.isSignup },
+        required: () => { return this.isSignup; }
       },
       email: {
         pattern: 'email',
