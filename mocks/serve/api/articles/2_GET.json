@@ -1,32 +1,29 @@
 {
-  "requestUrl": "/api/articles/2?session_token=12937698127698712936",
+  "requestUrl": "/api/articles/2",
   "contentType": "application/json",
   "statusCode": 200,
   "data": {
     "id": "2",
-    "name": "M@rik",
-    "text": "Backbone provides a great set of building blocks for our JavaScript applications. It gives us the core constructs that are needed to build small apps, organize jQuery DOM events, or create single page apps that support mobile devices and large scale enterprise needs. But Backbone is not a complete framework. It's a set of building blocks. It leaves much of the application design, architecture and scalability to the developer, including memory management, view management, and more. Marionette brings an application architecture to Backbone, along with built in view management and memory management. It's designed to be a lightweight and flexible library of tools that sits on top of Backbone, providing the framework for building a scalable application. Like Backbone itself, you're not required to use all of Marionette just because you want to use some of it. You can pick and choose which features you want to use. This allows you to work with other Backbone frameworks and plugins easily. It also means that you are not required to engage in an all-or-nothing migration to begin using Marionette.",
+    "name": "Gavin Jayson",
+    "text": "Normcore literally ethical, pickled keytar migas crucifix 90's mixtape Tumblr wolf chillwave narwhal. Stumptown bicycle rights listicle mixtape. Drinking vinegar four loko selfies art party. Tumblr selfies paleo, listicle Williamsburg Helvetica food truck slow-carb dreamcatcher pour-over American Apparel. Narwhal tote bag readymade mumblecore, mixtape Marfa seitan. Bespoke biodiesel typewriter normcore, four loko PBR&B quinoa. Bitters leggings skateboard, four loko squid crucifix beard Carles Truffaut selfies wolf.",
     "avatar": "http://localhost:8000/images/avatar.png",
     "comments": [
       {
         "id": "1",
-        "articleId": "1",
-        "user": "Sector",
-        "comment": "Sector wins",
-        "avatar": "http://localhost:8000/images/avatar.png"
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Cyril Freeman"
       },
       {
         "id": "2",
-        "articleId": "1",
-        "user": "Johnny Cage",
-        "comment": "Johnny Cage Wins",
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Sean Earl",
         "avatar": "http://localhost:8000/images/avatar.png"
       },
       {
         "id": "3",
-        "articleId": "1",
-        "user": "Raiden",
-        "comment": "Raiden Wins"
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Confer Claussen",
+        "avatar": "http://localhost:8000/images/avatar.png"
       }
     ]
   }

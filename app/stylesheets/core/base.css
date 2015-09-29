@@ -8,3 +8,11 @@ body {
 fieldset {
   border: none;
 }
+
+a {
+  color: $additionalSeaColor;
+
+  &:hover {
+    color: $additionalSeaColor;
+  }
+}

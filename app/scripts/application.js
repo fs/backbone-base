@@ -10,6 +10,8 @@ App.history = function() {
   });
 };
 
+App.origin = Backbone.history.location.origin;
+
 App.addRegions({
   navigationRegion: '#navigation_region',
   mainRegion: '#main_region'

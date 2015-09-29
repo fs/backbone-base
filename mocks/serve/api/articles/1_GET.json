@@ -1,32 +1,29 @@
 {
-  "requestUrl": "/api/articles/1?session_token=12937698127698712936",
+  "requestUrl": "/api/articles/1",
   "contentType": "application/json",
   "statusCode": 200,
   "data": {
     "id": "1",
-    "name": "M@rik",
-    "text": "Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.",
+    "name": "Gavin Jayson",
+    "text": "Austin master cleanse Pitchfork Vice. McSweeney's Marfa shabby chic synth 90's pop-up blog normcore iPhone, try-hard post-ironic semiotics 3 wolf moon vinyl. Leggings yr brunch iPhone, trust fund four loko chia meggings narwhal plaid sartorial kale chips Wes Anderson cray. Tumblr cred banjo, selvage meditation keffiyeh Vice trust fund sartorial McSweeney's. You probably haven't heard of them flannel wolf biodiesel lomo. Seitan ethical tilde, street art fashion axe mlkshk food truck freegan kitsch. McSweeney's Kickstarter typewriter, readymade tofu small batch aesthetic normcore lomo selvage shabby chic.",
     "avatar": "http://localhost:8000/images/avatar.png",
     "comments": [
       {
         "id": "1",
-        "articleId": "1",
-        "user": "Sector",
-        "comment": "Sector wins",
-        "avatar": "http://localhost:8000/images/avatar.png"
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Cyril Freeman"
       },
       {
         "id": "2",
-        "articleId": "1",
-        "user": "Johnny Cage",
-        "comment": "Johnny Cage Wins",
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Sean Earl",
         "avatar": "http://localhost:8000/images/avatar.png"
       },
       {
         "id": "3",
-        "articleId": "1",
-        "user": "Raiden",
-        "comment": "Raiden Wins"
+        "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
+        "name": "Confer Claussen",
+        "avatar": "http://localhost:8000/images/avatar.png"
       }
     ]
   }

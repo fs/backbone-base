@@ -9,11 +9,11 @@ import pxtorem from 'postcss-pxtorem';
 
 gulp.task('stylesheets', () => {
   const processors = [
-    require('postcss-color-function'),
     require('postcss-import'),
     require('postcss-mixins'),
     require('postcss-nested'),
     require('postcss-simple-vars'),
+    require('postcss-color-function'),
     autoprefixer({ browsers: ['last 2 versions'] }),
     pxtorem({
       root_value: 13,

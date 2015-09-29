@@ -1,29 +1,29 @@
 {
-  "requestUrl": "/api/articles?session_token=12937698127698712936",
+  "requestUrl": "/api/articles",
   "contentType": "application/json",
   "statusCode": 200,
   "data": [
     {
       "id": "1",
       "title": "Backbone codebase",
-      "name": "M@rik",
-      "text": "Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.",
+      "name": "Gavin Jayson",
+      "text": "Austin master cleanse Pitchfork Vice. McSweeney's Marfa shabby chic synth 90's pop-up blog normcore iPhone, try-hard post-ironic semiotics 3 wolf moon vinyl. Leggings yr brunch iPhone, trust fund four loko chia meggings narwhal plaid sartorial kale chips Wes Anderson cray. Tumblr cred banjo, selvage meditation keffiyeh Vice trust fund sartorial McSweeney's. You probably haven't heard of them flannel wolf biodiesel lomo. Seitan ethical tilde, street art fashion axe mlkshk food truck freegan kitsch. McSweeney's Kickstarter typewriter, readymade tofu small batch aesthetic normcore lomo selvage shabby chic.",
       "avatar": "http://localhost:8000/images/avatar.png",
       "comments_count": 6
     },
     {
       "id": "2",
       "title": "Marionette cookbook",
-      "name": "M@rik",
-      "text": "Backbone provides a great set of building blocks for our JavaScript applications. It gives us the core constructs that are needed to build small apps, organize jQuery DOM events, or create single page apps that support mobile devices and large scale enterprise needs. But Backbone is not a complete framework. It's a set of building blocks. It leaves much of the application design, architecture and scalability to the developer, including memory management, view management, and more. Marionette brings an application architecture to Backbone, along with built in view management and memory management. It's designed to be a lightweight and flexible library of tools that sits on top of Backbone, providing the framework for building a scalable application. Like Backbone itself, you're not required to use all of Marionette just because you want to use some of it. You can pick and choose which features you want to use. This allows you to work with other Backbone frameworks and plugins easily. It also means that you are not required to engage in an all-or-nothing migration to begin using Marionette.",
+      "name": "Gavin Jayson",
+      "text": "Normcore literally ethical, pickled keytar migas crucifix 90's mixtape Tumblr wolf chillwave narwhal. Stumptown bicycle rights listicle mixtape. Drinking vinegar four loko selfies art party. Tumblr selfies paleo, listicle Williamsburg Helvetica food truck slow-carb dreamcatcher pour-over American Apparel. Narwhal tote bag readymade mumblecore, mixtape Marfa seitan. Bespoke biodiesel typewriter normcore, four loko PBR&B quinoa. Bitters leggings skateboard, four loko squid crucifix beard Carles Truffaut selfies wolf.",
       "avatar": "http://localhost:8000/images/avatar.png",
       "comments_count": 8
     },
     {
       "id": "3",
       "title": "CoffeeScript syntax",
-      "name": "M@rik",
-      "text": "CoffeeScript is a little language that compiles into JavaScript. Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.",
+      "name": "Gavin Jayson",
+      "text": "Et Portland 3 wolf moon, Shoreditch iPhone id disrupt aesthetic drinking vinegar keytar dreamcatcher. Pour-over elit butcher locavore, laboris four dollar toast cliche veniam Marfa. Chillwave artisan butcher kale chips salvia id. Vinyl kitsch placeat, butcher umami cold-pressed YOLO ugh iPhone cornhole minim beard laboris tilde. Synth mollit dreamcatcher Wes Anderson 90's, meditation Austin +1 forage ethical cray ex small batch McSweeney's. Put a bird on it Brooklyn selfies, Helvetica delectus tote bag tilde Shoreditch. Master cleanse plaid est brunch culpa, hashtag post-ironic.",
       "avatar": "http://localhost:8000/images/avatar.png",
       "comments_count": 12
     }
