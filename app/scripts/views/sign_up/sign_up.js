@@ -1,13 +1,13 @@
-import Session from 'scripts/facades/session';
+import App from 'scripts/application';
+import User from 'scripts/models/user';
+import Routes from 'scripts/helpers/routes';
 import FormBehavior from 'scripts/views/behaviors/form';
-import routes from 'scripts/helpers/routes';
-import template from 'templates/navigation/login';
+import template from 'templates/sign_up/sign_up';
 
-export default class NavigationLoginView extends Marionette.ItemView {
+export default class SignUpView extends Marionette.ItemView {
   constructor(...args) {
-    this.className = 'nav navbar-nav navbar-right';
     this.template = template;
-    this.model = Session.currentUser();
+    this.model = new User();
 
     this.ui = {
       form: 'form'
@@ -18,6 +18,13 @@ export default class NavigationLoginView extends Marionette.ItemView {
     };
 
     this.bindings = {
+      '[name="username"]': {
+        observe: 'username',
+        updateView: false,
+        setOptions: {
+          validate: true
+        }
+      },
       '[name="email"]': {
         observe: 'email',
         updateView: false,
@@ -27,6 +34,13 @@ export default class NavigationLoginView extends Marionette.ItemView {
       },
       '[name="password"]': {
         observe: 'password',
+        updateView: false,
+        setOptions: {
+          validate: true
+        }
+      },
+      '[name="password_confirmation"]': {
+        observe: 'password_confirmation',
         updateView: false,
         setOptions: {
           validate: true
@@ -44,15 +58,15 @@ export default class NavigationLoginView extends Marionette.ItemView {
       }
     };
 
-    this.templateHelpers = {
-      routes: routes
-    };
-
     super(...args);
   }
 
   onFormSubmit(event) {
     event.preventDefault();
-    Session.create();
+
+    this.model.signUp().done(() => {
+      App.vent.trigger('navigation:root');
+      alert('Your account successfully created');
+    });
   }
 }
