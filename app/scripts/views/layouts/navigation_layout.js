@@ -25,17 +25,13 @@ export default class NavigationLayout extends Marionette.LayoutView {
   }
 
   onRender() {
-    let formRegionView;
-
     if (Session.isLoggedIn()) {
-      formRegionView = new NavigationLogoutView();
       this.navigationRegion.show(new NavigationNavigationView());
+      this.formRegion.show(new NavigationLogoutView());
     }
     else {
-      formRegionView = new NavigationLoginView();
       this.navigationRegion.empty();
+      this.formRegion.show(new NavigationLoginView());
     }
-
-    this.formRegion.show(formRegionView);
   }
 }

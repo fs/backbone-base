@@ -2,5 +2,11 @@
   "requestUrl": "/api/users/sign_up",
   "contentType": "application/json",
   "statusCode": 200,
-  "data": {}
+  "data": {
+    "id": "1",
+    "authentication_token": "12937698127698712936",
+    "email": "gavin.jayson@example.com",
+    "name": "Gavin Jayson",
+    "avatar": "http://localhost:8000/images/avatar.png"
+  }
 }

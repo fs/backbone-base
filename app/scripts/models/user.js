@@ -5,7 +5,7 @@ export default class User extends Backbone.Model {
     this.urlRoot = `${AppConfig.apiPath}/users`;
 
     this.validation = {
-      username: {
+      name: {
         required: () => { return this.isSignup; }
       },
       password: {

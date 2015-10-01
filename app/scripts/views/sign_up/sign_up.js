@@ -18,8 +18,8 @@ export default class SignUpView extends Marionette.ItemView {
     };
 
     this.bindings = {
-      '[name="username"]': {
-        observe: 'username',
+      '[name="name"]': {
+        observe: 'name',
         updateView: false,
         setOptions: {
           validate: true
@@ -45,7 +45,11 @@ export default class SignUpView extends Marionette.ItemView {
         setOptions: {
           validate: true
         }
-      }
+      },
+      '[name="avatar"]': {
+        observe: 'avatar',
+        updateView: false
+      },
     };
 
     this.behaviors = {
@@ -66,7 +70,7 @@ export default class SignUpView extends Marionette.ItemView {
 
     this.model.signUp().done(() => {
       App.vent.trigger('navigation:root');
-      alert('Your account successfully created');
+      alert('Your account successfully created. Now you can login with your credentials.');
     });
   }
 }
