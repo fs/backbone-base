@@ -45,6 +45,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-replace-task": "^0.1.0",
     "gulp-shell": "^0.2.11",
+    "http-proxy-middleware": "^0.9.0",
     "jadeify": "^4.0.0",
     "karma": "~0.12.16",
     "karma-browserify": "^1.0.0",
@@ -63,7 +64,8 @@
     "require-dir": "~0.1.0",
     "run-sequence": "~1.0.1",
     "vinyl-transform": "^1.0.0",
-    "watchify": "^2.2.1"
+    "watchify": "^2.2.1",
+    "yargs": "^3.26.0"
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",

@@ -15,7 +15,7 @@ gulp.task('browserify', () => {
     cache: {},
     packageCache: {},
     fullPaths: true,
-    debug: true,
+    debug: config.debug,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
     paths: [`./${config.appDir}`]
