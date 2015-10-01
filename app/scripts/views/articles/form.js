@@ -46,7 +46,7 @@ export default class ArticlesFormView extends Marionette.ItemView {
     event.preventDefault();
 
     if (this.model.isValid(true)) {
-      this.collection.create(this.model);
+      this.collection.create(this.model, { wait: true });
     }
   }
 }
