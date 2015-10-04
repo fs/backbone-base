@@ -1,5 +1,6 @@
 import Session from 'scripts/facades/session';
 import routes from 'scripts/helpers/routes';
+import user from 'scripts/helpers/user';
 import template from 'templates/articles/item';
 
 export default class ArticlesItemView extends Marionette.ItemView {
@@ -12,7 +13,8 @@ export default class ArticlesItemView extends Marionette.ItemView {
     };
 
     this.templateHelpers = {
-      routes: routes
+      routes: routes,
+      user: user
     };
 
     super(...args);

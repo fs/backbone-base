@@ -1,4 +1,5 @@
 import Session from 'scripts/facades/session';
+import user from 'scripts/helpers/user';
 import template from 'templates/navigation/logout';
 
 export default class NavigationLogoutView extends Marionette.ItemView {
@@ -9,6 +10,10 @@ export default class NavigationLogoutView extends Marionette.ItemView {
 
     this.events = {
       'click #logout_btn': 'onLogout'
+    };
+
+    this.templateHelpers = {
+      user: user
     };
 
     super(...args);

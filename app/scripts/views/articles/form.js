@@ -1,6 +1,7 @@
 import Article from 'scripts/models/article';
 import FormBehavior from 'scripts/views/behaviors/form';
 import Session from 'scripts/facades/session';
+import user from 'scripts/helpers/user';
 import template from 'templates/articles/form';
 
 export default class ArticlesFormView extends Marionette.ItemView {
@@ -37,6 +38,10 @@ export default class ArticlesFormView extends Marionette.ItemView {
           trigger: 'focus'
         }
       }
+    };
+
+    this.templateHelpers = {
+      user: user
     };
 
     super(...args);
