@@ -1,7 +1,7 @@
 import yargs from 'yargs';
 import configParser from './modules/config_parser';
 
-const argv = require('yargs').argv;
+const argv = yargs.argv;
 const env = (argv.env) ? argv.env : 'development';
 const mode = (argv.mode) ? argv.mode : 'mock';
 
