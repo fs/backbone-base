@@ -68,6 +68,7 @@
     "yargs": "^3.26.0"
   },
   "browser": {
+    "polyfill": "./node_modules/babel-core/polyfill.js",
     "jquery": "./node_modules/jquery/dist/jquery.js",
     "underscore": "./node_modules/underscore/underscore.js",
     "backbone": "./node_modules/backbone/backbone.js",

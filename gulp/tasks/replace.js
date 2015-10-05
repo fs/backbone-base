@@ -1,12 +1,11 @@
-import fs from 'fs';
 import gulp from 'gulp';
 import replace from 'gulp-replace-task';
 import config from '../config';
+import configParser from '../modules/config_parser';
 
 gulp.task('replace', () => {
   let patterns = [];
-  let settings = JSON.parse(fs.readFileSync(`config/environments/${config.env}.json`, 'utf8'));
-  settings['env'] = config.env;
+  let settings = configParser(`application/${config.env}`);
 
   for (let settingName in settings) {
     patterns.push({
@@ -15,7 +14,7 @@ gulp.task('replace', () => {
     });
   };
 
-  gulp.src('config/config.js')
+  gulp.src('config/application/config.js')
     .pipe(replace({ patterns }))
     .pipe(gulp.dest(`${config.appDir}/scripts`));
 });

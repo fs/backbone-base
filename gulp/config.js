@@ -1,31 +1,21 @@
 import yargs from 'yargs';
+import configParser from './modules/config_parser';
 
 const argv = require('yargs').argv;
+const env = (argv.env) ? argv.env : 'development';
+const mode = (argv.mode) ? argv.mode : 'mock';
 
-export default {
+const serverConfig = configParser(`server/${env}`);
+const gulpConfig = {
+  env,
+  mode,
   appDir: 'app',
   publicDir: 'public',
   testDir: 'specs',
   mocksDir: 'mocks',
-  apiPath: '/v1',
-  hosts: {
-    development: 'localhost'
-  },
-  ports: {
-    development: {
-      server: 8000,
-      mocks: 8001,
-      api: 3000
-    },
-    test: 9999
-  },
-  get env() {
-    return (argv.env) ? argv.env : 'development';
-  },
-  get mode() {
-    return (argv.mode) ? argv.mode : 'mock';
-  },
   get debug() {
     return this.env === 'development';
   }
 };
+
+export default Object.assign(gulpConfig, serverConfig);
