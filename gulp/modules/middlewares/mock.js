@@ -7,9 +7,9 @@ export default () => {
     prism.create({
       name: 'serve',
       mode: 'mock',
-      context: config.apiPath,
-      host: config.host,
-      port: config.ports.mocks,
+      context: config.mock.path,
+      host: config.mock.host,
+      port: config.mock.port,
       delay: 0,
       rewrite: {},
       mockFilenameGenerator(config, req) {

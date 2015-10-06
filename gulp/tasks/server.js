@@ -6,7 +6,7 @@ import mockMiddleware from '../modules/middlewares/mock';
 
 gulp.task('server', () => {
   browserSync({
-    port: config.ports.server,
+    port: config.server.port,
     open: false,
     notify: false,
     server: {

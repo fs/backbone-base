@@ -1,10 +1,17 @@
 {
-  "apiPath": "/v1",
-  "host": "localhost",
-  "ports": {
-    "server": 8000,
-    "mocks": 8001,
-    "api": 3000,
-    "test": 9999
+  "server": {
+    "port": 8000
+  },
+  "test": {
+    "port": 9999
+  },
+  "api": {
+    "target": "http://localhost:3000",
+    "path": "/v1"
+  },
+  "mock": {
+    "host": "localhost",
+    "port": 8001,
+    "path": "/v1"
   }
 }
