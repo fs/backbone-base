@@ -33,6 +33,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "gulp-rename"
     "gulp-replace-task"
     "gulp-shell"
+    "http-proxy-middleware"
     "jadeify"
     "karma"
     "karma-browserify"
@@ -52,65 +53,94 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "run-sequence"
     "vinyl-transform"
     "watchify"
+    "yargs"
 
 ## Install
 ### OSX
 
 Install Node.js
 
-    brew install node
+```bash
+brew install node
+```
 
 ### Ubuntu 12.04
 
 Install Node.js and Npm
 
-    sudo add-apt-repository ppa:richarvey/nodejs
-    sudo apt-get update && sudo apt-get install nodejs npm
+```bash
+sudo add-apt-repository ppa:richarvey/nodejs
+sudo apt-get update && sudo apt-get install nodejs npm
+```
 
 Configure Npm path (for avoid _sudo_ usage for installing modules)
 
-    npm config set prefix ~/npm
-    echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc # for zsh shell
+```bash
+npm config set prefix ~/npm
+echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc # for zsh shell
+```
 
 ## Quick start
 
 Clone application as new project with original repository named "backbone-base"
 
-    git clone --depth 1 git@github.com:fs/backbone-base.git
+```bash
+git clone --depth 1 git@github.com:fs/backbone-base.git
+```
 
 **Note: we use depth parameter here in order not to copy the history of changes in base project**
 
 Create your new repo on GitHub and push master into it.
 Make sure master branch is tracking origin repo.
 
-    git remote add origin git@github.com:[MY-GITHUB-ACCOUNT]/[MY-NEW-PROJECT].git
-    git push -u origin master
+```bash
+git remote add origin git@github.com:[MY-GITHUB-ACCOUNT]/[MY-NEW-PROJECT].git
+git push -u origin master
+```
 
 Run bootstrap script
 
-    bin/setup
+```bash
+bin/setup
+```
 
 Run app
 
-    gulp
+```bash
+gulp
+
+# run app with mock server
+gulp --mode=mock
+
+# run app with remote API server
+gulp --mode=api
+```
 
 Start to use application on browser:
 
-    localhost:8000
+```bash
+localhost:8000
+```
 
 ## Tasks
 
 Run unit tests
 
-    gulp karma
+```bash
+gulp karma
+```
 
 Run e2e tests
 
-    gulp e2e
+```bash
+gulp e2e
+```
 
 Run all tests
 
-    gulp test
+```bash
+gulp test
+```
 
 ## Credits
 

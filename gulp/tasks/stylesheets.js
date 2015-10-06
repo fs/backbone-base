@@ -4,21 +4,26 @@ import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import config from '../config';
 
+import postcssImport from 'postcss-import';
+import postcssMixins from 'postcss-mixins';
+import postcssNested from 'postcss-nested';
+import postcssSimpleVars from 'postcss-simple-vars';
+import postcssColorFunction from 'postcss-color-function';
+import postcssPxtorem from 'postcss-pxtorem';
 import autoprefixer from 'autoprefixer-core';
-import pxtorem from 'postcss-pxtorem';
 
 gulp.task('stylesheets', () => {
   const processors = [
-    require('postcss-import'),
-    require('postcss-mixins'),
-    require('postcss-nested'),
-    require('postcss-simple-vars'),
-    require('postcss-color-function'),
-    autoprefixer({ browsers: ['last 2 versions'] }),
-    pxtorem({
+    postcssImport,
+    postcssMixins,
+    postcssNested,
+    postcssSimpleVars,
+    postcssColorFunction,
+    postcssPxtorem({
       root_value: 13,
       replace: false
-    })
+    }),
+    autoprefixer({ browsers: ['last 2 versions'] })
   ];
 
   gulp.src(`${config.appDir}/stylesheets/application.css`)

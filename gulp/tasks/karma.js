@@ -12,10 +12,11 @@ gulp.task('karma', () => {
       'chai',
       'sinon'
     ],
-    runnerPort: config.ports.test,
+    runnerPort: config.test.port,
     singleRun: true,
     browsers: ['PhantomJS'],
     files: [
+      'node_modules/babel-core/polyfill.js',
       'node_modules/jquery/dist/jquery.js',
       'node_modules/underscore/underscore.js',
       'node_modules/backbone/backbone.js',
@@ -30,6 +31,7 @@ gulp.task('karma', () => {
     reporters: ['dots'],
     colors: true,
     preprocessors: {
+      'node_modules/babel-core/polyfill.js': ['browserify'],
       'specs/**/*.js': ['browserify']
     },
     plugins: [
@@ -44,7 +46,7 @@ gulp.task('karma', () => {
       cache: {},
       packageCache: {},
       fullPaths: true,
-      debug: true,
+      debug: config.debug,
       paths: [`./${config.appDir}`],
       transform: [
         'browserify-shim'
