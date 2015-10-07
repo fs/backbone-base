@@ -1,6 +1,6 @@
 import App from 'scripts/application';
+import ArticleLayout from 'scripts/views/layouts/article_layout';
 import ArticlesLayout from 'scripts/views/layouts/articles_layout';
-import ArticlesShowView from 'scripts/views/articles/show';
 import Article from 'scripts/models/article';
 import Articles from 'scripts/collections/articles';
 
@@ -17,7 +17,7 @@ export default class ArticlesController extends Marionette.Controller {
     let article = new Article({ id });
 
     article.fetch().then(function() {
-      App.mainRegion.show(new ArticlesShowView({ model: article }));
+      App.mainRegion.show(new ArticleLayout({ model: article }));
     });
   }
 }

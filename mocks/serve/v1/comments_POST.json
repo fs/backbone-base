@@ -1,0 +1,6 @@
+{
+  "requestUrl": "/v1/comments",
+  "contentType": "application/javascript",
+  "statusCode": 200,
+  "data": {}
+}

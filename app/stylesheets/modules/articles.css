@@ -58,7 +58,14 @@
   }
 }
 
-.write-article {
+.article {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $lightGreyColor;
+}
+
+.write-article,
+.write-comment {
   position: relative;
   min-height: 100px;
 
@@ -69,13 +76,13 @@
 
     .avatar {
       background-size: cover;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
   }
 
   .text-container {
-    padding-left: 120px;
+    padding-left: 100px;
     width: 100%;
     display: inline-block;
 
