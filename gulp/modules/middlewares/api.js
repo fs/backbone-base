@@ -5,7 +5,7 @@ import config from '../../config';
 export default () => {
   if (config.mode === 'api') {
     return [
-      proxyMiddleware(config.api.path, { target: config.api.targer }),
+      proxyMiddleware(config.api.path, { target: config.api.target }),
       historyApiFallback
     ];
   }
