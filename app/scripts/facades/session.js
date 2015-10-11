@@ -4,6 +4,7 @@ import Storage from 'scripts/facades/storage';
 
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;
+const EMAIL_KEY = 'email';
 let currentUser = null;
 
 class Session {
@@ -43,6 +44,10 @@ class Session {
 
   static get token() {
     return this.currentUser().get(SESSION_KEY);
+  }
+
+  static get email() {
+    return this.currentUser().get(EMAIL_KEY);
   }
 }
 
