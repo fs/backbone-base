@@ -1,17 +1,14 @@
 {
+  "app": {
+    "rootPath": "/",
+    "storageKey": "user_session",
+    "sessionKey": "authentication_token"
+  },
   "server": {
     "port": 8000
   },
-  "test": {
-    "port": 9999
-  },
   "api": {
     "target": "http://localhost:5000",
-    "path": "/v1"
-  },
-  "mock": {
-    "host": "localhost",
-    "port": 8001,
     "path": "/v1"
   }
 }

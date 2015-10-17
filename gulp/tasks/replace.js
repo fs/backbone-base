@@ -5,16 +5,21 @@ import configParser from '../modules/config_parser';
 
 gulp.task('replace', () => {
   let patterns = [];
-  let settings = configParser(`application/${config.env}`);
+  let settings = configParser(config.env);
 
-  for (let settingName in settings) {
+  for (let settingName in settings.app) {
     patterns.push({
       match: settingName,
-      replacement: settings[settingName]
+      replacement: settings.app[settingName]
     });
   };
 
-  gulp.src('config/application/config.js')
+  patterns.push({
+    match: 'apiPath',
+    replacement: `${config[config.mode].target}${config[config.mode].path}`
+  });
+
+  gulp.src('config/config.js')
     .pipe(replace({ patterns }))
     .pipe(gulp.dest(`${config.appDir}/scripts`));
 });
