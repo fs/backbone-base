@@ -4,7 +4,7 @@ export default class FormBehavior extends Marionette.Behavior {
       forceUpdate: true,
       tooltip: {
         placement: 'bottom',
-        trigger: 'focus'
+        trigger: 'hover'
       }
     };
 
