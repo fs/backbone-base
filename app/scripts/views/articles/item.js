@@ -1,3 +1,4 @@
+import App from 'scripts/application';
 import Session from 'scripts/facades/session';
 import routes from 'scripts/helpers/routes';
 import user from 'scripts/helpers/user';
@@ -9,7 +10,7 @@ export default class ArticlesItemView extends Marionette.ItemView {
     this.template = template;
 
     this.events = {
-      'click .close': 'onRemoveClicked'
+      'click .close': 'articleRemove'
     };
 
     this.templateHelpers = {
@@ -20,11 +21,7 @@ export default class ArticlesItemView extends Marionette.ItemView {
     super(...args);
   }
 
-  onRemoveClicked() {
-    this.model.destroy({
-      success() {
-        alert('Article has been deleted');
-      }
-    });
+  articleRemove() {
+    this.model.destroy();
   }
 }

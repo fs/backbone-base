@@ -1,3 +1,4 @@
+import App from 'scripts/application';
 import AppConfig from 'scripts/config';
 import Session from 'scripts/facades/session';
 
@@ -6,17 +7,22 @@ export default class AppModel extends Backbone.Model {
     this.urlRoot = `${AppConfig.apiPath}/${_.result(this, 'urlRoot')}`;
 
     super(...args);
+
+    this.listenTo(this, 'error', this.handleErrors);
   }
 
-  sync(method, model, options) {
-    if (Session.isLoggedIn()) {
-      options.headers = options.headers || {};
-      Object.assign(options.headers, {
-        'X-User-Token': Session.token,
-        'X-User-Email': Session.email
-      });
+  handleErrors(model, error) {
+    let { validations, error } = error.responseJSON;
+
+    if (validations) {
+      return this.trigger('validation:invalid', validations);
     }
 
-    return super.sync(method, model, options);
+    let message = (error) ? error : 'Server error has occured';
+
+    App.vent.trigger('notification:show', {
+      message,
+      type: 'danger'
+    });
   }
 }

@@ -9,6 +9,7 @@ import 'scripts/modules/landing';
 import 'scripts/modules/dashboard';
 import 'scripts/modules/articles';
 import 'scripts/modules/navigation';
+import 'scripts/modules/notifications';
 import App from 'scripts/application';
 
 $(function() { App.start(); });

@@ -9,12 +9,5 @@ export default class SignUpRouter extends BaseRouter {
     };
 
     super(...args);
-
-    this.listenTo(App.vent, 'navigation:root', this.onRedirectToRoot);
-  }
-
-  onRedirectToRoot() {
-    let path = routes.rootPath();
-    this.navigate(path, { trigger: true });
   }
 }

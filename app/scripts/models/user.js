@@ -1,8 +1,9 @@
+import AppModel from 'scripts/models/app';
 import AppConfig from 'scripts/config';
 
-export default class User extends Backbone.Model {
+export default class User extends AppModel {
   constructor(...args) {
-    this.urlRoot = `${AppConfig.apiPath}/users`;
+    this.urlRoot = 'users';
 
     this.validation = {
       name: {

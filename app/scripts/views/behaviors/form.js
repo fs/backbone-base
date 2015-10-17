@@ -4,7 +4,7 @@ export default class FormBehavior extends Marionette.Behavior {
       forceUpdate: true,
       tooltip: {
         placement: 'bottom',
-        trigger: 'focus'
+        trigger: 'hover'
       }
     };
 
@@ -21,12 +21,26 @@ export default class FormBehavior extends Marionette.Behavior {
     });
   }
 
+  bindValidationEvents() {
+    this.listenTo(this.view.model, 'validation:invalid', (errors) => {
+      let errorsKeys = _.keys(errors);
+
+      _.each(errors, (error, attr) => {
+        this.onInvalid(this.view, attr, error.join(','));
+      });
+
+      this.view.model.trigger('validated', false, this.view.model, errorsKeys);
+      this.view.model.trigger('validated:invalid', this.view.model, errorsKeys);
+    });
+  }
+
   unbindValidation() {
     Backbone.Validation.unbind(this.view);
   }
 
   onRender() {
     this.bindValidation();
+    this.bindValidationEvents();
     this.view.stickit();
   }
 

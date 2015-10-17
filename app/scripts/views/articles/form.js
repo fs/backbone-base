@@ -32,11 +32,7 @@ export default class ArticlesFormView extends Marionette.ItemView {
 
     this.behaviors = {
       form: {
-        behaviorClass: FormBehavior,
-        tooltip: {
-          placement: 'left',
-          trigger: 'focus'
-        }
+        behaviorClass: FormBehavior
       }
     };
 
