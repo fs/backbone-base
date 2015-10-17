@@ -5,7 +5,7 @@ const argv = yargs.argv;
 const env = (argv.env) ? argv.env : 'development';
 const mode = (argv.mode) ? argv.mode : 'mock';
 
-const serverConfig = configParser(`server/${env}`);
+const config = configParser(env);
 const gulpConfig = {
   env,
   mode,
@@ -18,4 +18,4 @@ const gulpConfig = {
   }
 };
 
-export default Object.assign(gulpConfig, serverConfig);
+export default Object.assign(gulpConfig, config);

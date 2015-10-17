@@ -11,13 +11,17 @@ export default class AppModel extends Backbone.Model {
   }
 
   handleErrors(model, response) {
-    let { validations, error } = response.responseJSON;
+    let message = 'Server error has occured';
 
-    if (validations) {
-      return this.trigger('validation:invalid', validations);
+    if (response.responseJSON) {
+      let { validations, error } = response.responseJSON;
+
+      if (validations) {
+        return this.trigger('validation:invalid', validations);
+      }
+
+      if (error) message = error;
     }
-
-    let message = (error) ? error : 'Server error has occured';
 
     App.vent.trigger('notification:show', {
       message,
