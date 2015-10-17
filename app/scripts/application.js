@@ -13,6 +13,7 @@ App.history = function() {
 App.origin = Backbone.history.location.origin;
 
 App.addRegions({
+  notificationsRegion: '#notifications_region',
   navigationRegion: '#navigation_region',
   mainRegion: '#main_region'
 });

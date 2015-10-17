@@ -6,6 +6,8 @@ export default class AppModel extends Backbone.Model {
     this.urlRoot = `${AppConfig.apiPath}/${_.result(this, 'urlRoot')}`;
 
     super(...args);
+
+    this.listenTo(this, 'error', this.handleErrors);
   }
 
   sync(method, model, options) {
@@ -18,5 +20,20 @@ export default class AppModel extends Backbone.Model {
     }
 
     return super.sync(method, model, options);
+  }
+
+  handleErrors(model, error) {
+    let { validations, error } = error.responseJSON;
+
+    if (validations) {
+      return this.trigger('validation:invalid', validations);
+    }
+
+    if (error) {
+      App.vent.trigger('notification:show', {
+        type: 'danger',
+        message: error
+      });
+    }
   }
 }

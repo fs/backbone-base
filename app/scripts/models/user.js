@@ -1,3 +1,4 @@
+import App from 'scripts/application';
 import AppConfig from 'scripts/config';
 
 export default class User extends Backbone.Model {
@@ -65,7 +66,10 @@ export default class User extends Backbone.Model {
     }
 
     if (error) {
-      // Call notification center
+      App.vent.trigger('notification:show', {
+        type: 'danger',
+        message: error
+      });
     }
   }
 }

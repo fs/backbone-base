@@ -1,5 +1,6 @@
 import App from 'scripts/application';
 import User from 'scripts/models/user';
+import Session from 'scripts/facades/session';
 import Routes from 'scripts/helpers/routes';
 import FormBehavior from 'scripts/views/behaviors/form';
 import template from 'templates/sign_up/sign_up';
@@ -14,7 +15,7 @@ export default class SignUpView extends Marionette.ItemView {
     };
 
     this.events = {
-      'submit @ui.form': 'onFormSubmit',
+      'submit @ui.form': 'signUpNewUser',
     };
 
     this.bindings = {
@@ -65,12 +66,21 @@ export default class SignUpView extends Marionette.ItemView {
     super(...args);
   }
 
-  onFormSubmit(event) {
+  signUpNewUser(event) {
     event.preventDefault();
+    this.model.signUp().done(() => { this.signInNewUser(); });
+  }
 
-    this.model.signUp().done(() => {
-      App.vent.trigger('navigation:root');
-      alert('Your account successfully created. Now you can login with your credentials.');
+  signInNewUser() {
+    Session.currentUser().set({
+      email: this.model.get('email'),
+      password: this.model.get('password')
+    });
+    Session.create().done(() => {
+      App.vent.trigger('notification:show', {
+        type: 'success',
+        message: 'Your account successfully created!'
+      });
     });
   }
 }
