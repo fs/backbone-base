@@ -1,9 +1,9 @@
-import App from 'scripts/application';
+import AppModel from 'scripts/models/app';
 import AppConfig from 'scripts/config';
 
-export default class User extends Backbone.Model {
+export default class User extends AppModel {
   constructor(...args) {
-    this.urlRoot = `${AppConfig.apiPath}/users`;
+    this.urlRoot = 'users';
 
     this.validation = {
       name: {
@@ -23,8 +23,6 @@ export default class User extends Backbone.Model {
     };
 
     super(...args);
-
-    this.listenTo(this, 'error', this.handleErrors);
   }
 
   signIn() {
@@ -56,20 +54,5 @@ export default class User extends Backbone.Model {
     }
 
     return deferred.promise();
-  }
-
-  handleErrors(model, error) {
-    let { validations, error } = error.responseJSON;
-
-    if (validations) {
-      return this.trigger('validation:invalid', validations);
-    }
-
-    if (error) {
-      App.vent.trigger('notification:show', {
-        type: 'danger',
-        message: error
-      });
-    }
   }
 }

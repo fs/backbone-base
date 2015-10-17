@@ -1,7 +1,7 @@
-import AppModel from 'scripts/models/app';
+import SessionModel from 'scripts/models/session';
 import Comments from 'scripts/collections/comments';
 
-export default class Article extends AppModel {
+export default class Article extends SessionModel {
   constructor(...args) {
     this.urlRoot = 'articles';
 
