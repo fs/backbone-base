@@ -9,7 +9,7 @@ class Notifications extends Marionette.Module {
   }
 
   onBeforeStart() {
-    App.notificationsRegion.show(new NotificationsLayout);
+    App.notificationsRegion.show(new NotificationsLayout());
   }
 
   onStart() {
