@@ -22,6 +22,8 @@ export default class User extends Backbone.Model {
     };
 
     super(...args);
+
+    this.listenTo(this, 'error', this.handleErrors);
   }
 
   signIn() {
@@ -53,5 +55,17 @@ export default class User extends Backbone.Model {
     }
 
     return deferred.promise();
+  }
+
+  handleErrors(model, error) {
+    let { validations, error } = error.responseJSON;
+
+    if (validations) {
+      return this.trigger('validation:invalid', validations);
+    }
+
+    if (error) {
+      // Call notification center
+    }
   }
 }
