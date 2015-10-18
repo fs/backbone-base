@@ -3,6 +3,6 @@ import config from '../../config';
 
 export default () => {
   if (config.mode === 'api') {
-    return [ historyApiFallback ];
+    return historyApiFallback;
   }
 }
