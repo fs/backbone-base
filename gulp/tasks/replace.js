@@ -19,7 +19,7 @@ gulp.task('replace', () => {
     replacement: `${config[config.mode].target}${config[config.mode].path}`
   });
 
-  gulp.src('config/config.js')
+  return gulp.src('config/config.js')
     .pipe(replace({ patterns }))
     .pipe(gulp.dest(`${config.appDir}/scripts`));
 });
