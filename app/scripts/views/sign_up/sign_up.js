@@ -57,8 +57,7 @@ export default class SignUpView extends Marionette.ItemView {
       form: {
         behaviorClass: FormBehavior,
         tooltip: {
-          placement: 'bottom',
-          trigger: 'focus'
+          placement: 'bottom'
         }
       }
     };

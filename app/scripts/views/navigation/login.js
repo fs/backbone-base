@@ -36,10 +36,7 @@ export default class NavigationLoginView extends Marionette.ItemView {
 
     this.behaviors = {
       form: {
-        behaviorClass: FormBehavior,
-        tooltip: {
-          placement: 'bottom'
-        }
+        behaviorClass: FormBehavior
       }
     };
 
