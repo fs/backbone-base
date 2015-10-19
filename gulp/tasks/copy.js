@@ -3,7 +3,7 @@ import plumber from 'gulp-plumber';
 import config from '../config';
 
 gulp.task('copy', () => {
-  gulp.src([
+  return gulp.src([
     `${config.appDir}/images/**/*`
   ], { base: config.appDir })
     .pipe(plumber())

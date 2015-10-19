@@ -35,5 +35,5 @@ gulp.task('browserify', () => {
 
   watchify(bundler).on('update', bundle);
 
-  bundle();
+  return bundle();
 });

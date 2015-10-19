@@ -26,7 +26,7 @@ gulp.task('stylesheets', () => {
     autoprefixer({ browsers: ['last 2 versions'] })
   ];
 
-  gulp.src(`${config.appDir}/stylesheets/application.css`)
+  return gulp.src(`${config.appDir}/stylesheets/application.css`)
     .pipe(plumber())
     .pipe(postcss(processors))
     .on('error', notify.onError())
