@@ -2,8 +2,8 @@ import yargs from 'yargs';
 import configParser from './modules/config_parser';
 
 const argv = yargs.argv;
-const env = (argv.env) ? argv.env : 'development';
-const mode = (argv.mode) ? argv.mode : 'mock';
+const env = (argv.env) ? process.env.NODE_ENV || argv.env : 'development';
+const mode = (argv.mode) ? process.env.MODE || argv.mode : 'mock';
 
 const config = configParser(env);
 const gulpConfig = {
@@ -13,7 +13,7 @@ const gulpConfig = {
   publicDir: 'public',
   testDir: 'specs',
   mocksDir: 'mocks',
-  get debug() {
+  get isDevelopment() {
     return this.env === 'development';
   }
 };
