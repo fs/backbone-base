@@ -46,7 +46,7 @@ gulp.task('karma', () => {
       cache: {},
       packageCache: {},
       fullPaths: true,
-      debug: config.debug,
+      debug: config.isDevelopment,
       paths: [`./${config.appDir}`],
       transform: [
         'browserify-shim'

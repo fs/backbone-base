@@ -3,23 +3,19 @@
 This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
 
 ## NPM Dependencies:
+    "autoprefixer-core"
+    "babel-core"
+    "babelify"
     "backbone"
     "backbone-validation"
     "backbone.marionette"
     "backbone.routefilter"
     "backbone.stickit"
     "bootstrap"
-    "jquery"
-    "underscore"
-
-## NPM Dev dependencies:
-    "autoprefixer-core"
-    "babel-core"
-    "babelify"
-    "browser-sync"
     "browserify"
     "browserify-shim"
     "casper-chai"
+    "connect"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
@@ -33,8 +29,8 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "gulp-rename"
     "gulp-replace-task"
     "gulp-shell"
-    "http-proxy-middleware"
     "jadeify"
+    "jquery"
     "karma"
     "karma-browserify"
     "karma-chai"
@@ -51,9 +47,10 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "postcss-simple-vars"
     "require-dir"
     "run-sequence"
+    "serve-static"
+    "underscore"
     "vinyl-transform"
     "watchify"
-    "yargs"
 
 ## Install
 ### OSX
@@ -104,16 +101,25 @@ Run bootstrap script
 bin/setup
 ```
 
-Run app
+## Run application
+
+Run app (by default environment is 'development', mode is 'mock', port is 8000)
 
 ```bash
 gulp
+```
 
-# run app with mock server
-gulp --mode=mock
+Run app with options
 
-# run app with remote API server
-gulp --mode=api
+```bash
+[<options>] gulp
+```
+```bash
+NODE_ENV=development # build app with development environment
+NODE_ENV=production # build app with production environment
+MODE=mock # run app with mock server
+MODE=api # run app with remote API server
+PORT=8000 # run server on 8000 port
 ```
 
 Start to use application on browser:

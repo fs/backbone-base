@@ -1,21 +1,16 @@
-import yargs from 'yargs';
 import configParser from './modules/config_parser';
 
-const argv = yargs.argv;
-const env = (argv.env) ? argv.env : 'development';
-const mode = (argv.mode) ? argv.mode : 'mock';
-
-const config = configParser(env);
 const gulpConfig = {
-  env,
-  mode,
+  env: process.env.NODE_ENV || 'development',
+  mode: process.env.MODE || 'mock',
   appDir: 'app',
   publicDir: 'public',
   testDir: 'specs',
   mocksDir: 'mocks',
-  get debug() {
+  get isDevelopment() {
     return this.env === 'development';
   }
 };
+const config = configParser(gulpConfig.env);
 
 export default Object.assign(gulpConfig, config);

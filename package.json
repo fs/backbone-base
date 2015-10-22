@@ -12,7 +12,9 @@
     "Ildus Sadykov <ildus.sadykov@flatstack.com>"
   ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "gulp build",
+    "start": "gulp server"
   },
   "license": "MIT",
   "engines": {
@@ -66,8 +68,7 @@
     "serve-static": "^1.10.0",
     "underscore": "^1.8.3",
     "vinyl-transform": "^1.0.0",
-    "watchify": "^2.2.1",
-    "yargs": "^3.26.0"
+    "watchify": "^2.2.1"
   },
   "browser": {
     "polyfill": "./node_modules/babel-core/polyfill.js",
