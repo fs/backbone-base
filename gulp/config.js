@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
 import configParser from './modules/config_parser';
 
+dotenv.load();
+
 const gulpConfig = {
-  env: process.env.NODE_ENV || 'development',
-  mode: process.env.MODE || 'mock',
+  env: process.env.NODE_ENV,
+  mode: process.env.MODE,
   appDir: 'app',
   publicDir: 'public',
   testDir: 'specs',

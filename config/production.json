@@ -4,9 +4,6 @@
     "storageKey": "user_session",
     "sessionKey": "authentication_token"
   },
-  "server": {
-    "port": 8000
-  },
   "api": {
     "target": "http://api-backbone-base.herokuapp.com",
     "path": "/v1"

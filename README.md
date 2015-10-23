@@ -19,6 +19,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "connect-history-api-fallback"
     "connect-prism"
     "del"
+    "dotenv"
     "gulp"
     "gulp-jade"
     "gulp-jshint"

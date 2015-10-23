@@ -8,7 +8,7 @@ import mockMiddleware from '../modules/middlewares/mock';
 
 gulp.task('server', () => {
   const server = connect();
-  const port = process.env.PORT || config.server.port;
+  const port = process.env.PORT;
   const middlewares = apiMiddleware() || mockMiddleware();
 
   server.use((req, res, next) => middlewaresStack(middlewares, req, res, next));
