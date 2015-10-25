@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import rename from 'gulp-rename';
 import browserify from 'browserify';
-import transform from 'vinyl-transform';
+import source from 'vinyl-source-stream';
 import jadeify from 'jadeify';
 import babelify from 'babelify';
 import watchify from 'watchify';
@@ -24,12 +24,12 @@ gulp.task('browserify', () => {
   .transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
 
   let bundle = () => {
-    let bundleTransform = transform(() => bundler.bundle());
+    let bundleStream = bundler.bundle();
 
-    return gulp.src(entryPoint)
-      .pipe(bundleTransform)
+    return bundleStream
       .on('error', notify.onError())
-      .pipe(rename({ basename: 'application' }))
+      .pipe(source(entryPoint))
+      .pipe(rename('application.js'))
       .pipe(gulp.dest(config.publicDir))
   };
 
