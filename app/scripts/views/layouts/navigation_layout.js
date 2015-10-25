@@ -4,23 +4,23 @@ import NavigationLogoutView from 'scripts/views/navigation/logout';
 import Session from 'scripts/facades/session';
 import Routes from 'scripts/helpers/routes';
 import template from 'templates/layouts/navigation_layout';
+import { props } from 'scripts/decorators';
 
+@props({
+  className: 'container-fluid',
+  template: template,
+
+  regions: {
+    navigationRegion: '#navigations_region',
+    formRegion: '#login_form_region'
+  },
+
+  templateHelpers: {
+    routes: Routes
+  }
+})
 export default class NavigationLayout extends Marionette.LayoutView {
-  constructor(...args) {
-    this.className = 'container-fluid';
-    this.template = template;
-
-    this.regions = {
-      navigationRegion: '#navigations_region',
-      formRegion: '#login_form_region'
-    };
-
-    this.templateHelpers = {
-      routes: Routes
-    };
-
-    super(...args);
-
+  initialize() {
     this.listenTo(Session, 'create destroy', this.render);
   }
 

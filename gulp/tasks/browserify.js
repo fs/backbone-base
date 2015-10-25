@@ -21,7 +21,10 @@ gulp.task('browserify', () => {
     paths: [`./${config.appDir}`]
   })
   .transform(jadeify)
-  .transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
+  .transform(babelify.configure({
+    stage: 1,
+    sourceMapRelative: `./${config.appDir}`
+  }));
 
   let bundle = () => {
     let bundleStream = bundler.bundle();

@@ -19,7 +19,7 @@ export default () => {
 
     return [
       prism.middleware,
-      historyApiFallback
+      historyApiFallback()
     ];
   }
 }

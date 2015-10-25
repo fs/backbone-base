@@ -2,14 +2,12 @@ import App from 'scripts/application';
 import Router from 'scripts/routers/navigation';
 import Controller from 'scripts/controllers/navigation_controller';
 import Routes from 'scripts/helpers/routes';
+import { props } from 'scripts/decorators';
 
+@props({
+  startWithParent: true
+})
 class Navigation extends Marionette.Module {
-  constructor(...args) {
-    this.startWithParent = true;
-
-    super(...args);
-  }
-
   onBeforeStart() {
     let controller = new Controller();
     this.router = new Router({ controller });

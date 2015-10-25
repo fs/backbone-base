@@ -1,16 +1,15 @@
-export default class FormBehavior extends Marionette.Behavior {
-  constructor(...args) {
-    this.defaults = {
-      forceUpdate: true,
-      tooltip: {
-        placement: 'bottom',
-        trigger: 'hover focus'
-      }
-    };
+import { props } from 'scripts/decorators';
 
-    super(...args);
+@props({
+  defaults: {
+    forceUpdate: true,
+    tooltip: {
+      placement: 'bottom',
+      trigger: 'hover focus'
+    }
   }
-
+})
+export default class FormBehavior extends Marionette.Behavior {
   bindValidation() {
     Backbone.Validation.bind(this.view, {
       forceUpdate: this.options.forceUpdate,
