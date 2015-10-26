@@ -1,13 +1,10 @@
 import App from 'scripts/application';
 import BaseRouter from 'scripts/routers/base';
-import routes from 'scripts/helpers/routes';
+import { props } from 'scripts/decorators';
 
-export default class SignUpRouter extends BaseRouter {
-  constructor(...args) {
-    this.appRoutes = {
-      'sign_up': 'index',
-    };
-
-    super(...args);
+@props({
+  appRoutes: {
+    'sign_up': 'index'
   }
-}
+})
+export default class SignUpRouter extends BaseRouter {}

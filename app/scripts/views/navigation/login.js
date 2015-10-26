@@ -45,10 +45,6 @@ import { props } from 'scripts/decorators';
   }
 })
 export default class NavigationLoginView extends Marionette.ItemView {
-  initialize() {
-    console.log(this);
-  }
-
   onFormSubmit(event) {
     event.preventDefault();
     Session.create();

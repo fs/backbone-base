@@ -4,17 +4,18 @@ import { props } from 'scripts/decorators';
 
 @props({
   urlRoot: 'users',
+  isSignup: false,
 
   validation: {
     name: {
-      required: () => { return this.isSignup; }
+      required: function() { return this.isSignup; }
     },
     password: {
       required: true
     },
     password_confirmation: {
       equalTo: 'password',
-      required: () => { return this.isSignup; }
+      required: function() { return this.isSignup; }
     },
     email: {
       pattern: 'email',

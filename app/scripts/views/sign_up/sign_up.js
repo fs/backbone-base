@@ -4,67 +4,65 @@ import Session from 'scripts/facades/session';
 import Routes from 'scripts/helpers/routes';
 import FormBehavior from 'scripts/views/behaviors/form';
 import template from 'templates/sign_up/sign_up';
+import { props } from 'scripts/decorators';
 
-export default class SignUpView extends Marionette.ItemView {
-  constructor(...args) {
-    this.template = template;
-    this.model = new User();
+@props({
+  template: template,
+  model: new User(),
 
-    this.ui = {
-      form: 'form'
-    };
+  ui: {
+    form: 'form'
+  },
 
-    this.events = {
-      'submit @ui.form': 'signUpNewUser',
-    };
+  events: {
+    'submit @ui.form': 'signUpNewUser'
+  },
 
-    this.bindings = {
-      '[name="name"]': {
-        observe: 'name',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
-      },
-      '[name="email"]': {
-        observe: 'email',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
-      },
-      '[name="password"]': {
-        observe: 'password',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
-      },
-      '[name="password_confirmation"]': {
-        observe: 'password_confirmation',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
-      },
-      '[name="avatar"]': {
-        observe: 'avatar',
-        updateView: false
-      },
-    };
-
-    this.behaviors = {
-      form: {
-        behaviorClass: FormBehavior,
-        tooltip: {
-          placement: 'bottom'
-        }
+  bindings: {
+    '[name="name"]': {
+      observe: 'name',
+      updateView: false,
+      setOptions: {
+        validate: true
       }
-    };
+    },
+    '[name="email"]': {
+      observe: 'email',
+      updateView: false,
+      setOptions: {
+        validate: true
+      }
+    },
+    '[name="password"]': {
+      observe: 'password',
+      updateView: false,
+      setOptions: {
+        validate: true
+      }
+    },
+    '[name="password_confirmation"]': {
+      observe: 'password_confirmation',
+      updateView: false,
+      setOptions: {
+        validate: true
+      }
+    },
+    '[name="avatar"]': {
+      observe: 'avatar',
+      updateView: false
+    }
+  },
 
-    super(...args);
+  behaviors: {
+    form: {
+      behaviorClass: FormBehavior,
+      tooltip: {
+        placement: 'bottom'
+      }
+    }
   }
-
+})
+export default class SignUpView extends Marionette.ItemView {
   signUpNewUser(event) {
     event.preventDefault();
     this.model.signUp().done(() => { this.signInNewUser(); });
