@@ -69,7 +69,7 @@
     "serve-static": "^1.10.0",
     "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
+    "watchify": "^3.5.0"
   },
   "browser": {
     "polyfill": "./node_modules/babel-core/polyfill.js",
