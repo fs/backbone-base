@@ -12,11 +12,6 @@ class Session {
     return currentUser || (currentUser = new User(Storage.get(STORAGE_KEY)));
   }
 
-  static currentUserDestroy() {
-    this.currentUser().clear();
-    currentUser = null;
-  }
-
   static create() {
     let deferred = $.Deferred();
 
@@ -35,7 +30,7 @@ class Session {
 
   static destroy() {
     Storage.remove(STORAGE_KEY);
-    this.currentUserDestroy();
+    this.currentUser().clear();
     this.trigger('destroy');
   }
 

@@ -6,7 +6,6 @@ import template from 'templates/comments/form';
 import { props } from 'scripts/decorators';
 
 @props({
-  model: new Comment(Session.currentUser().pick('avatar', 'name')),
   template: template,
 
   events: {
@@ -36,6 +35,7 @@ import { props } from 'scripts/decorators';
 export default class CommentFormView extends Marionette.ItemView {
   initialize() {
     this.currentArticle = this.options.currentArticle;
+    this.model = new Comment(Session.currentUser().pick('avatar', 'name'));
     this.model.set('article_id', this.currentArticle.get('id'));
   }
 

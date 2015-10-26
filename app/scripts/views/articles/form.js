@@ -6,7 +6,6 @@ import template from 'templates/articles/form';
 import { props } from 'scripts/decorators';
 
 @props({
-  model: new Article(Session.currentUser().pick('avatar', 'name')),
   template: template,
 
   events: {
@@ -41,6 +40,10 @@ import { props } from 'scripts/decorators';
   }
 })
 export default class ArticlesFormView extends Marionette.ItemView {
+  initialize() {
+    this.model = new Article(Session.currentUser().pick('avatar', 'name'));
+  }
+
   onFormSubmit(event) {
     event.preventDefault();
 
