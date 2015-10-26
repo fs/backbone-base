@@ -1,15 +1,13 @@
 import user from 'scripts/helpers/user';
 import template from 'templates/comments/item';
+import { props } from 'scripts/decorators';
 
-export default class CommentsItemView extends Marionette.ItemView {
-  constructor(...args) {
-    this.className = 'media';
-    this.template = template;
+@props({
+  className: 'media',
+  template: template,
 
-    this.templateHelpers = {
-      user: user
-    };
-
-    super(...args);
+  templateHelpers: {
+    user: user
   }
-}
+})
+export default class CommentsItemView extends Marionette.ItemView {}

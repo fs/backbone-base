@@ -3,24 +3,22 @@ import Session from 'scripts/facades/session';
 import routes from 'scripts/helpers/routes';
 import user from 'scripts/helpers/user';
 import template from 'templates/articles/item';
+import { props } from 'scripts/decorators';
 
-export default class ArticlesItemView extends Marionette.ItemView {
-  constructor(...args) {
-    this.className = 'media';
-    this.template = template;
+@props({
+  className: 'media',
+  template: template,
 
-    this.events = {
-      'click .close': 'articleRemove'
-    };
+  events: {
+    'click .close': 'articleRemove'
+  },
 
-    this.templateHelpers = {
-      routes: routes,
-      user: user
-    };
-
-    super(...args);
+  templateHelpers: {
+    routes: routes,
+    user: user
   }
-
+})
+export default class ArticlesItemView extends Marionette.ItemView {
   articleRemove() {
     this.model.destroy();
   }

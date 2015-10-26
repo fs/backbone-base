@@ -3,46 +3,44 @@ import FormBehavior from 'scripts/views/behaviors/form';
 import Session from 'scripts/facades/session';
 import user from 'scripts/helpers/user';
 import template from 'templates/articles/form';
+import { props } from 'scripts/decorators';
 
-export default class ArticlesFormView extends Marionette.ItemView {
-  constructor(...args) {
-    this.model = new Article(Session.currentUser().pick('avatar', 'name'));
-    this.template = template;
+@props({
+  model: new Article(Session.currentUser().pick('avatar', 'name')),
+  template: template,
 
-    this.events = {
-      'submit form': 'onFormSubmit'
-    };
+  events: {
+    'submit form': 'onFormSubmit'
+  },
 
-    this.bindings = {
-      '[name="text"]': {
-        observe: 'text',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
-      },
-      '[name="title"]': {
-        observe: 'title',
-        updateView: false,
-        setOptions: {
-          validate: true
-        }
+  bindings: {
+    '[name="text"]': {
+      observe: 'text',
+      updateView: false,
+      setOptions: {
+        validate: true
       }
-    };
-
-    this.behaviors = {
-      form: {
-        behaviorClass: FormBehavior
+    },
+    '[name="title"]': {
+      observe: 'title',
+      updateView: false,
+      setOptions: {
+        validate: true
       }
-    };
+    }
+  },
 
-    this.templateHelpers = {
-      user: user
-    };
+  behaviors: {
+    form: {
+      behaviorClass: FormBehavior
+    }
+  },
 
-    super(...args);
+  templateHelpers: {
+    user: user
   }
-
+})
+export default class ArticlesFormView extends Marionette.ItemView {
   onFormSubmit(event) {
     event.preventDefault();
 
