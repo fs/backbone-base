@@ -1,19 +1,19 @@
 import App from 'scripts/application';
 import NotificationsItemView from 'scripts/views/notifications/notification';
 import template from 'templates/layouts/notifications_layout';
+import { props } from 'scripts/decorators';
 
 const delaySpeed = 3000;
 
+@props({
+  template: template,
+
+  regions: {
+    notificationsListRegion: '#notifications_list_region'
+  }
+})
 export default class NotificationsLayout extends Marionette.LayoutView {
-  constructor(...args) {
-    this.template = template;
-
-    this.regions = {
-      notificationsListRegion: '#notifications_list_region'
-    };
-
-    super(...args);
-
+  initialize() {
     this.listenTo(App.vent, 'notification:show', this.renderNotification);
     this.listenTo(App.vent, 'notification:hide', this.destroyNotification);
   }
