@@ -1,15 +1,13 @@
 import SessionModel from 'scripts/models/session';
+import { props } from 'scripts/decorators';
 
-export default class Comment extends SessionModel {
-  constructor(...args) {
-    this.urlRoot = 'comments';
+@props({
+  urlRoot: 'comments',
 
-    this.validation = {
-      text: {
-        required: true
-      }
-    };
-
-    super(...args);
+  validation: {
+    text: {
+      required: true
+    }
   }
-}
+})
+export default class Comment extends SessionModel {}

@@ -2,10 +2,8 @@ import AppConfig from 'scripts/config';
 import Session from 'scripts/facades/session';
 
 export default class AppCollection extends Backbone.Collection {
-  constructor(...args) {
+  initialize() {
     this.url = `${AppConfig.apiPath}/${_.result(this, 'url')}`;
-
-    super(...args);
   }
 
   sync(method, model, options) {

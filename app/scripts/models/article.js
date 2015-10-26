@@ -1,26 +1,24 @@
 import SessionModel from 'scripts/models/session';
 import Comments from 'scripts/collections/comments';
+import { props } from 'scripts/decorators';
 
-export default class Article extends SessionModel {
-  constructor(...args) {
-    this.urlRoot = 'articles';
+@props({
+  urlRoot: 'articles',
 
-    this.defaults = {
-      comments_count: 0
-    };
+  defaults: {
+    comments_count: 0
+  },
 
-    this.validation = {
-      text: {
-        required: true
-      },
-      title: {
-        required: true
-      }
-    };
-
-    super(...args);
+  validation: {
+    text: {
+      required: true
+    },
+    title: {
+      required: true
+    }
   }
-
+})
+export default class Article extends SessionModel {
   parse(response) {
     if (response.comments) {
       this.set('comments', new Comments(response.comments));

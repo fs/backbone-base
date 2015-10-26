@@ -1,11 +1,9 @@
 import AppCollection from 'scripts/collections/app';
 import Article from 'scripts/models/article';
+import { props } from 'scripts/decorators';
 
-export default class Articles extends AppCollection {
-  constructor(...args) {
-    this.url = 'articles';
-    this.model = Article;
-
-    super(...args);
-  }
-}
+@props({
+  url: 'articles',
+  model: Article
+})
+export default class Articles extends AppCollection {}
