@@ -25,7 +25,7 @@ export default class RoutesHelper {
     let keys = pattern.match(/\:\w+/g);
     let methodName = `${moduleName.toLowerCase()}${routeName.charAt(0).toUpperCase()}${routeName.substr(1).toLowerCase()}Path`;
 
-    this[methodName] = function(...params) {
+    this[methodName] = (...params) => {
       let path = pattern;
 
       if (!keys) return this.prependRoot(path);
@@ -34,7 +34,7 @@ export default class RoutesHelper {
         throw new Error(`incorrect params count (${params.length} for ${keys.length})`);
       }
 
-      params.forEach(function(param) {
+      params.forEach((param) => {
         path = path.replace(/\:\w+/, param);
       });
 

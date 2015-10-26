@@ -6,7 +6,7 @@ export default class DashboardController extends Marionette.Controller {
   index() {
     let articles = new DashboardArticles();
 
-    articles.fetch().then(function() {
+    articles.fetch().then(() => {
       App.mainRegion.show(new DashboardView({ collection: articles }));
     });
   }
