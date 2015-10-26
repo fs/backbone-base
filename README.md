@@ -1,5 +1,7 @@
 # Skeleton for Backbone.Marionette based application
 
+[![Build Status](https://travis-ci.org/fs/backbone-base.svg)](https://travis-ci.org/fs/backbone-base)
+
 This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
 
 ## NPM Dependencies:
