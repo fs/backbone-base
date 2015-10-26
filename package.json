@@ -21,7 +21,7 @@
     "node": "4.2.1"
   },
   "dependencies": {
-    "autoprefixer-core": "^6.0.1",
+    "autoprefixer": "^6.0.3",
     "babel-core": "^5.8.29",
     "babelify": "^6.4.0",
     "backbone": "^1.2.3",
