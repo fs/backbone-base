@@ -10,7 +10,7 @@ import postcssNested from 'postcss-nested';
 import postcssSimpleVars from 'postcss-simple-vars';
 import postcssColorFunction from 'postcss-color-function';
 import postcssPxtorem from 'postcss-pxtorem';
-import autoprefixer from 'autoprefixer-core';
+import autoprefixer from 'autoprefixer';
 
 gulp.task('stylesheets', () => {
   const processors = [

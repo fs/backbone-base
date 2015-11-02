@@ -1,13 +1,11 @@
 import App from 'scripts/application';
 import NotificationsLayout from 'scripts/views/layouts/notifications_layout';
+import { props } from 'scripts/decorators';
 
+@props({
+  startWithParent: true
+})
 class Notifications extends Marionette.Module {
-  constructor(...args) {
-    this.startWithParent = true;
-
-    super(...args);
-  }
-
   onBeforeStart() {
     App.notificationsRegion.show(new NotificationsLayout());
   }

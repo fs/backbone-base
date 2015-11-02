@@ -1,11 +1,9 @@
 import BaseRouter from 'scripts/routers/base';
+import { props } from 'scripts/decorators';
 
-export default class LandingRouter extends BaseRouter {
-  constructor(...args) {
-    this.appRoutes = {
-      '': 'index'
-    };
-
-    super(...args);
+@props({
+  appRoutes: {
+    '': 'index'
   }
-}
+})
+export default class LandingRouter extends BaseRouter {}

@@ -11,8 +11,6 @@ gulp.task('build', (callback) => {
         'templates',
         'stylesheets',
         'replace',
-        'jshint',
-        'jsonlint'
       ],
       'browserify',
       'watch',

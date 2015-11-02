@@ -1,21 +1,19 @@
 import App from 'scripts/application';
 import template from 'templates/notifications/notification';
+import { props } from 'scripts/decorators';
 
-export default class NotificationView extends Marionette.ItemView {
-  constructor(...args) {
-    this.template = template;
+@props({
+  template: template,
 
-    this.ui = {
-      closeButton: '.close'
-    };
+  ui: {
+    closeButton: '.close'
+  },
 
-    this.events = {
-      'click @ui.closeButton': 'hideNofitication'
-    };
-
-    super(...args);
+  events: {
+    'click @ui.closeButton': 'hideNofitication'
   }
-
+})
+export default class NotificationView extends Marionette.ItemView {
   hideNofitication(event) {
     event.preventDefault();
     App.vent.trigger('notification:hide');

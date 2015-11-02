@@ -1,23 +1,23 @@
 import App from 'scripts/application';
 import Routes from 'scripts/helpers/routes';
 import template from 'templates/navigation/navigation';
+import { props } from 'scripts/decorators';
 
+@props({
+  tagName: 'ul',
+  className: 'nav navbar-nav',
+  template: template,
+
+  ui: {
+    menuItem: 'li'
+  },
+
+  templateHelpers: {
+    routes: Routes
+  }
+})
 export default class NavigationView extends Marionette.ItemView {
-  constructor(...args) {
-    this.tagName = 'ul';
-    this.className = 'nav navbar-nav';
-    this.template = template;
-
-    this.ui = {
-      menuItem: 'li'
-    };
-
-    this.templateHelpers = {
-      routes: Routes
-    };
-
-    super(...args);
-
+  initialize() {
     this.listenTo(App.vent, 'navigation:change', this.onHighlightNavigation);
   }
 

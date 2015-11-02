@@ -12,4 +12,4 @@ import 'scripts/modules/navigation';
 import 'scripts/modules/notifications';
 import App from 'scripts/application';
 
-$(function() { App.start(); });
+$(() => { App.start(); });

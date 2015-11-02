@@ -6,7 +6,7 @@ if ! which gulp; then
 fi
 
 # Install all dependencies
-npm install
+npm install --ignore-scripts
 
 # Set up configurable environment variables
 if [ ! -f .env ]; then

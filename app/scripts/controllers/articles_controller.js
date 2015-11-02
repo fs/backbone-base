@@ -8,7 +8,7 @@ export default class ArticlesController extends Marionette.Controller {
   index() {
     let articles = new Articles();
 
-    articles.fetch().then(function() {
+    articles.fetch().then(() => {
       App.mainRegion.show(new ArticlesLayout({ collection: articles }));
     });
   }
@@ -16,7 +16,7 @@ export default class ArticlesController extends Marionette.Controller {
   show(id) {
     let article = new Article({ id });
 
-    article.fetch().then(function() {
+    article.fetch().then(() => {
       App.mainRegion.show(new ArticleLayout({ model: article }));
     });
   }

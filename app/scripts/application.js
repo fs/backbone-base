@@ -3,7 +3,7 @@ import LinkOverride from 'scripts/overrides/link';
 
 let App = new Marionette.Application();
 
-App.history = function() {
+App.history = () => {
   Backbone.history.start({
     pushState: true,
     root: AppConfig.rootPath
@@ -18,7 +18,7 @@ App.addRegions({
   mainRegion: '#main_region'
 });
 
-App.on('start', function() {
+App.on('start', () => {
   App.history();
   LinkOverride.init();
   console.log('app started');

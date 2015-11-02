@@ -4,7 +4,7 @@ export default class LinkOverride {
   }
 
   static followLink() {
-    $(document).on('click', "a[href^='/']", function(event) {
+    $(document).on('click', "a[href^='/']", (event) => {
       event.preventDefault();
       let href = $(event.currentTarget).attr('href');
       Backbone.history.navigate(href, { trigger: true });

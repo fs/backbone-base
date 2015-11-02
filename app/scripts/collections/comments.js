@@ -1,10 +1,8 @@
 import AppCollection from 'scripts/collections/app';
 import Comment from 'scripts/models/comment';
+import { props } from 'scripts/decorators';
 
-export default class Comments extends AppCollection {
-  constructor(...args) {
-    this.model = Comment;
-
-    super(...args);
-  }
-}
+@props({
+  model: Comment
+})
+export default class Comments extends AppCollection {}

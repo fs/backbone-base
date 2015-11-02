@@ -2,15 +2,15 @@ import App from 'scripts/application';
 import BaseRouter from 'scripts/routers/base';
 import Session from 'scripts/facades/session';
 import routes from 'scripts/helpers/routes';
+import { props } from 'scripts/decorators';
 
+@props({
+  appRoutes: {
+    'sign_out': 'signOut'
+  }
+})
 export default class NavigationRouter extends BaseRouter {
-  constructor(...args) {
-    this.appRoutes = {
-      'sign_out': 'signOut'
-    };
-
-    super(...args);
-
+  initialize() {
     this.listenTo(Session, 'create destroy', this.onSessionChange);
     this.listenTo(Backbone.history, 'route', this.onNavigationChange);
   }

@@ -1,14 +1,12 @@
 import BaseRouter from 'scripts/routers/base';
+import { props } from 'scripts/decorators';
 
-export default class ArticlesRouter extends BaseRouter {
-  constructor(...args) {
-    this.navigation = 'articles';
+@props({
+  navigation: 'articles',
 
-    this.appRoutes = {
-      'dashboard/articles': 'index',
-      'dashboard/articles/:id': 'show'
-    };
-
-    super(...args);
+  appRoutes: {
+    'dashboard/articles': 'index',
+    'dashboard/articles/:id': 'show'
   }
-}
+})
+export default class ArticlesRouter extends BaseRouter {}

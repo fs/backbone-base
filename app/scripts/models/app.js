@@ -2,11 +2,8 @@ import App from 'scripts/application';
 import AppConfig from 'scripts/config';
 
 export default class AppModel extends Backbone.Model {
-  constructor(...args) {
+  initialize() {
     this.urlRoot = `${AppConfig.apiPath}/${_.result(this, 'urlRoot')}`;
-
-    super(...args);
-
     this.listenTo(this, 'error', this.handleErrors);
   }
 

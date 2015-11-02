@@ -1,24 +1,22 @@
 import Session from 'scripts/facades/session';
 import user from 'scripts/helpers/user';
 import template from 'templates/navigation/logout';
+import { props } from 'scripts/decorators';
 
-export default class NavigationLogoutView extends Marionette.ItemView {
-  constructor(...args) {
-    this.className = 'nav navbar-nav navbar-right';
-    this.template = template;
-    this.model = Session.currentUser();
+@props({
+  className: 'nav navbar-nav navbar-right',
+  template: template,
+  model: Session.currentUser(),
 
-    this.events = {
-      'click #logout_btn': 'onLogout'
-    };
+  events: {
+    'click #logout_btn': 'onLogout'
+  },
 
-    this.templateHelpers = {
-      user: user
-    };
-
-    super(...args);
+  templateHelpers: {
+    user: user
   }
-
+})
+export default class NavigationLogoutView extends Marionette.ItemView {
   onLogout() {
     Session.destroy();
   }

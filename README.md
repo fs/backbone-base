@@ -5,7 +5,7 @@
 This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
 
 ## NPM Dependencies:
-    "autoprefixer-core"
+    "autoprefixer"
     "babel-core"
     "babelify"
     "backbone"
@@ -52,7 +52,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "run-sequence"
     "serve-static"
     "underscore"
-    "vinyl-transform"
+    "vinyl-source-stream"
     "watchify"
 
 ## Install
@@ -120,6 +120,7 @@ Run app with options
 ```bash
 NODE_ENV=development # build app with development environment
 NODE_ENV=production # build app with production environment
+NODE_ENV=test # build app with test environment
 MODE=mock # run app with mock server
 MODE=api # run app with remote API server
 PORT=8000 # run server on 8000 port

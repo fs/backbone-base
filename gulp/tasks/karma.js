@@ -4,7 +4,7 @@ import babelify from 'babelify';
 import config from '../config';
 
 gulp.task('karma', () => {
-  karma.server.start({
+  let karmaServer = new karma.Server({
     basePath: process.cwd(),
     frameworks: [
       'mocha',
@@ -51,12 +51,19 @@ gulp.task('karma', () => {
       transform: [
         'browserify-shim'
       ],
-      prebundle: (bundle) => {
-        bundle.transform(babelify.configure({ sourceMapRelative: `./${config.appDir}` }));
+      configure: (bundle) => {
+        bundle.on('prebundle', () => {
+          bundle.transform(babelify.configure({
+            stage: 1,
+            sourceMapRelative: `./${config.appDir}`
+          }));
+        })
       }
     },
     client: {
       mocha: { ui: 'bdd' }
     }
   });
+
+  return karmaServer.start();
 });
