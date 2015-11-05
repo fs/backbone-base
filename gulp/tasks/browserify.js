@@ -22,7 +22,7 @@ gulp.task('browserify', () => {
   })
   .transform(jadeify)
   .transform(babelify.configure({
-    stage: 1,
+    presets: ['es2015', 'stage-1'],
     sourceMapRelative: `./${config.appDir}`
   }));
 

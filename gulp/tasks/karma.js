@@ -54,7 +54,7 @@ gulp.task('karma', () => {
       configure: (bundle) => {
         bundle.on('prebundle', () => {
           bundle.transform(babelify.configure({
-            stage: 1,
+            presets: ['es2015', 'stage-1'],
             sourceMapRelative: `./${config.appDir}`
           }));
         })

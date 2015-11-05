@@ -1,4 +1,4 @@
-import 'polyfill';
+import 'babel-polyfill';
 import 'backbone-routefilter';
 import 'backbone-stickit';
 import 'backbone-validation';
