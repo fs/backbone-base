@@ -42,7 +42,7 @@ export default class ArticlesLayout extends Marionette.LayoutView {
       page: pagination.page,
       maxVisible: MAXIMUM_OF_VISIBLE_PAGES,
     }).on('page', (event, pageNumber) => {
-      this.collection.fetchPage(pageNumber);
+      this.collection.fetchByPage(pageNumber);
     });
   }
 }

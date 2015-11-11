@@ -15,7 +15,7 @@ export default class PaginatedCollection extends AppCollection {
     return super.parse(response[this.rootKey]);
   }
 
-  fetchPage(page) {
+  fetchByPage(page) {
     this.fetch({
       data: { page }
     });
