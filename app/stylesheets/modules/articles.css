@@ -58,6 +58,29 @@
   }
 }
 
+.articles-pagination {
+  text-align: center;
+  margin: 0 0 50px;
+
+  .pagination {
+    margin: 0;
+
+    li {
+      a {
+        color: $additionalSeaColor;
+      }
+
+      &.active {
+        a {
+          color: #fff;
+          background-color: $additionalSeaColor;
+          border-color: $additionalSeaColor;
+        }
+      }
+    }
+  }
+}
+
 .article {
   margin-bottom: 30px;
   padding-bottom: 30px;

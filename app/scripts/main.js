@@ -4,6 +4,7 @@ import 'backbone-stickit';
 import 'backbone-validation';
 import 'marionette';
 import 'bootstrap';
+import 'bootpag';
 import 'scripts/modules/sign_up';
 import 'scripts/modules/landing';
 import 'scripts/modules/dashboard';

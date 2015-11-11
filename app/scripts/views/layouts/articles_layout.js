@@ -6,6 +6,10 @@ import { props } from 'scripts/decorators';
 @props({
   template: template,
 
+  ui: {
+    articlesPaginationContainer: '.articles-pagination'
+  },
+
   collectionEvents: {
     'add': 'onAddNewArticle'
   },
@@ -17,11 +21,26 @@ import { props } from 'scripts/decorators';
 })
 export default class ArticlesLayout extends Marionette.LayoutView {
   onRender() {
+    this.initPagination(this.collection.pagination);
     this.articlesRegion.show(new ArticlesListView({ collection: this.collection }));
     this.writeArticleRegion.show(new ArticlesFormView({ collection: this.collection }));
   }
 
+  onDestroy() {
+    this.ui.articlesPaginationContainer.off();
+  }
+
   onAddNewArticle() {
     this.writeArticleRegion.show(new ArticlesFormView({ collection: this.collection }));
+  }
+
+  initPagination(pagination) {
+    this.ui.articlesPaginationContainer.bootpag({
+      total: pagination.pagesTotal,
+      page: pagination.page,
+      maxVisible: 5,
+    }).on('page', (event, pageNumber) => {
+      this.collection.fetchPage(pageNumber);
+    });
   }
 }
