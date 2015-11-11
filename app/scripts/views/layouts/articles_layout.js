@@ -3,6 +3,8 @@ import ArticlesFormView from 'scripts/views/articles/form';
 import template from 'templates/layouts/articles_layout';
 import { props } from 'scripts/decorators';
 
+const MAXIMUM_OF_VISIBLE_PAGES = 5;
+
 @props({
   template: template,
 
@@ -38,7 +40,7 @@ export default class ArticlesLayout extends Marionette.LayoutView {
     this.ui.articlesPaginationContainer.bootpag({
       total: pagination.pagesTotal,
       page: pagination.page,
-      maxVisible: 5,
+      maxVisible: MAXIMUM_OF_VISIBLE_PAGES,
     }).on('page', (event, pageNumber) => {
       this.collection.fetchPage(pageNumber);
     });

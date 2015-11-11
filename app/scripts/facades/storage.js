@@ -1,21 +1,21 @@
-const storage = localStorage;
+const STORAGE = localStorage;
 
 export default class Storage {
   static set(key, data) {
     data = JSON.stringify(data);
-    storage.setItem(key, data);
+    STORAGE.setItem(key, data);
   }
 
   static get(key) {
-    let data = storage.getItem(key);
+    let data = STORAGE.getItem(key);
     return JSON.parse(data);
   }
 
   static remove(key) {
-    storage.removeItem(key);
+    STORAGE.removeItem(key);
   }
 
   static clear() {
-    storage.clear();
+    STORAGE.clear();
   }
 }
