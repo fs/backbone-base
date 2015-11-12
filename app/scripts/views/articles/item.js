@@ -22,4 +22,11 @@ export default class ArticlesItemView extends Marionette.ItemView {
   articleRemove() {
     this.model.destroy();
   }
+
+  serializeData() {
+    let props = { page: this.options.page };
+    Object.assign(props, this.model.toJSON());
+
+    return props;
+  }
 }

@@ -1,30 +1,33 @@
+import App from 'scripts/application';
 import { props } from 'scripts/decorators';
 
 @props({
   ui: {
-    articlesPaginationContainer: '.articles-pagination'
+    paginationContainer: '.pagination'
   },
 
   defaults: {
     maximumOfVisiblePages: 10
   }
 })
-export default class FormBehavior extends Marionette.Behavior {
+export default class PaginationBehavior extends Marionette.Behavior {
   onRender() {
     this.initPagination(this.view.collection.pagination);
   }
 
   onDestroy() {
-    this.ui.articlesPaginationContainer.off();
+    this.ui.paginationContainer.off();
   }
 
   initPagination(pagination) {
-    this.ui.articlesPaginationContainer.bootpag({
-      total: pagination.pagesTotal,
-      page: pagination.page,
-      maxVisible: this.options.maximumOfVisiblePages,
-    }).on('page', (event, pageNumber) => {
-      this.view.collection.fetchByPage(pageNumber);
+    this.ui.paginationContainer.bootstrapPaginator({
+      totalPages: pagination.pagesTotal,
+      currentPage: pagination.page,
+      numberOfPages: this.options.maximumOfVisiblePages,
+
+      onPageClicked(event, originalEvent, type, page) {
+        App.vent.trigger('page:change', page);
+      }
     });
   }
 }

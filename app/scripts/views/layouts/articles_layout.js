@@ -25,7 +25,10 @@ import { props } from 'scripts/decorators';
 })
 export default class ArticlesLayout extends Marionette.LayoutView {
   onRender() {
-    this.articlesRegion.show(new ArticlesListView({ collection: this.collection }));
+    this.articlesRegion.show(new ArticlesListView({
+      collection: this.collection,
+      page: this.options.page
+    }));
     this.writeArticleRegion.show(new ArticlesFormView({ collection: this.collection }));
   }
 

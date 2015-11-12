@@ -29,8 +29,8 @@
     "backbone-validation": "^0.11.5",
     "backbone.marionette": "^2.4.3",
     "backbone.stickit": "^0.9.2",
-    "bootpag": "^1.0.7",
     "bootstrap": "^3.3.5",
+    "bootstrap-paginator": "^1.0.2",
     "browserify": "^11.2.0",
     "browserify-shim": "^3.8.10",
     "casper-chai": "^0.2.1",
@@ -87,8 +87,7 @@
     "backbone-stickit": "./node_modules/backbone.stickit/backbone.stickit.js",
     "backbone-validation": "./node_modules/backbone-validation/dist/backbone-validation.js",
     "marionette": "./node_modules/backbone.marionette/lib/backbone.marionette.js",
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-    "bootpag": "./node_modules/bootpag/lib/jquery.bootpag.js"
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
   },
   "browserify-shim": {
     "jquery": "$",
@@ -129,9 +128,8 @@
         "jquery"
       ]
     },
-    "bootpag": {
+    "bootstrap-paginator": {
       "depends": [
-        "jquery",
         "bootstrap"
       ]
     }
