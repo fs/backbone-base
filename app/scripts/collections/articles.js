@@ -1,9 +1,10 @@
-import AppCollection from 'scripts/collections/app';
 import Article from 'scripts/models/article';
+import PaginatedCollection from 'scripts/collections/paginated';
 import { props } from 'scripts/decorators';
 
 @props({
   url: 'articles',
+  rootKey: 'articles',
   model: Article
 })
-export default class Articles extends AppCollection {}
+export default class Articles extends PaginatedCollection {}

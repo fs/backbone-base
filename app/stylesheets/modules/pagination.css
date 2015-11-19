@@ -1,0 +1,25 @@
+.pagination-container {
+  text-align: center;
+}
+
+.pagination {
+  margin: 0 0 50px;
+
+  li {
+    cursor: pointer;
+
+    a,
+    a:hover {
+      color: $additionalSeaColor;
+    }
+
+    &.active {
+      a,
+      a:hover {
+        color: #fff;
+        background-color: $additionalSeaColor;
+        border-color: $additionalSeaColor;
+      }
+    }
+  }
+}

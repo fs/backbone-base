@@ -1,5 +1,5 @@
-import AppCollection from 'scripts/collections/app';
 import Comment from 'scripts/models/comment';
+import AppCollection from 'scripts/collections/app';
 import { props } from 'scripts/decorators';
 
 @props({
