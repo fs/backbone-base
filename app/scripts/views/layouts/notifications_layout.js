@@ -1,5 +1,6 @@
 import App from 'scripts/application';
 import NotificationsItemView from 'scripts/views/notifications/notification';
+import AnimatedRegion from 'scripts/regions/animated';
 import template from 'templates/layouts/notifications_layout';
 import { props } from 'scripts/decorators';
 
@@ -9,7 +10,24 @@ const DELAY_SPEED = 3000;
   template: template,
 
   regions: {
-    notificationsListRegion: '#notifications_list_region'
+    notificationsListRegion: {
+      selector: '#notifications_list_region',
+      regionClass: AnimatedRegion,
+      animation: {
+        showAnimation: [
+          {
+            p: 'transition.slideDownBigIn',
+            o: { stagger: 300 }
+          }
+        ],
+        hideAnimation: [
+          {
+            p: 'transition.slideUpBigOut',
+            o: { stagger: 300 }
+          }
+        ]
+      }
+    }
   }
 })
 export default class NotificationsLayout extends Marionette.LayoutView {
