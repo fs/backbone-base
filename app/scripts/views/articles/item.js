@@ -20,7 +20,7 @@ import { props } from 'scripts/decorators';
 })
 export default class ArticlesItemView extends Marionette.ItemView {
   articleRemove() {
-    this.model.destroy();
+    this.model.destroy({ wait: true });
   }
 
   serializeData() {

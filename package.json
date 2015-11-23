@@ -75,6 +75,7 @@
     "serve-static": "^1.10.0",
     "sinon": "^1.17.2",
     "underscore": "^1.8.3",
+    "velocity-animate": "^1.2.3",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.5.0"
   },
@@ -87,7 +88,9 @@
     "backbone-stickit": "./node_modules/backbone.stickit/backbone.stickit.js",
     "backbone-validation": "./node_modules/backbone-validation/dist/backbone-validation.js",
     "marionette": "./node_modules/backbone.marionette/lib/backbone.marionette.js",
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
+    "velocity": "./node_modules/velocity-animate/velocity.js",
+    "velocity-ui": "./node_modules/velocity-animate/velocity.ui.js"
   },
   "browserify-shim": {
     "jquery": "$",
@@ -131,6 +134,18 @@
     "bootstrap-paginator": {
       "depends": [
         "bootstrap"
+      ]
+    },
+    "velocity": {
+      "exports": "$",
+      "depends": [
+        "jquery"
+      ]
+    },
+    "velocity-ui": {
+      "exports": "$",
+      "depends": [
+        "velocity"
       ]
     }
   },
