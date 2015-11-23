@@ -16,14 +16,14 @@ const DELAY_SPEED = 3000;
       animation: {
         showAnimation: [
           {
-            p: 'transition.slideDownBigIn',
-            o: { stagger: 300 }
+            properties: 'transition.slideDownBigIn',
+            options: { stagger: 300 }
           }
         ],
         hideAnimation: [
           {
-            p: 'transition.slideUpBigOut',
-            o: { stagger: 300 }
+            properties: 'transition.slideUpBigOut',
+            options: { stagger: 300 }
           }
         ]
       }

@@ -2,7 +2,11 @@ function iterateOverAnimations(animations, callback) {
   for (let i = 0, length = animations.length - 1; i <= length; i++) {
     const animation = animations[i];
 
-    $.Velocity.animate(this.$el, animation.p, animation.o).then(() => {
+    $.Velocity.animate(
+      this.$el,
+      animation.properties,
+      animation.options
+    ).then(() => {
       if (i === length) callback();
     });
   }

@@ -22,8 +22,8 @@ App.addRegions({
     animation: {
       showAnimation: [
         {
-          p: 'transition.slideLeftBigIn',
-          o: { stagger: 300 }
+          properties: 'transition.slideLeftBigIn',
+          options: { stagger: 300 }
         }
       ]
     }
