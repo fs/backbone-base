@@ -11,4 +11,4 @@ export default (stack, req, res, next) => {
   };
 
   walkStack(0);
-}
+};

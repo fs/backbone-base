@@ -5,4 +5,4 @@ export default () => {
   if (config.mode === 'api') {
     return historyApiFallback();
   }
-}
+};

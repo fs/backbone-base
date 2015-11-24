@@ -33,7 +33,7 @@ gulp.task('browserify', () => {
       .on('error', notify.onError())
       .pipe(source(entryPoint))
       .pipe(rename('application.js'))
-      .pipe(gulp.dest(config.publicDir))
+      .pipe(gulp.dest(config.publicDir));
   };
 
   if (config.isDevelopment) {

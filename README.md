@@ -7,6 +7,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 ## NPM Dependencies:
     "autoprefixer"
     "babel-core"
+    "babel-eslint"
     "babelify"
     "backbone"
     "backbone-route-filter"
@@ -27,8 +28,8 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "dotenv"
     "grunt"
     "gulp"
+    "gulp-eslint"
     "gulp-jade"
-    "gulp-jshint"
     "gulp-jsonlint"
     "gulp-notify"
     "gulp-plumber"
@@ -59,6 +60,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "serve-static"
     "sinon"
     "underscore"
+    "velocity-animate"
     "vinyl-source-stream"
     "watchify"
 

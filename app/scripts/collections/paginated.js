@@ -3,7 +3,7 @@ import AppCollection from 'scripts/collections/app';
 export default class PaginatedCollection extends AppCollection {
   parse(response) {
     const pagination = response.meta.pagination;
-    const pagesTotal = Math.ceil(pagination.total/pagination.per_page);
+    const pagesTotal = Math.ceil(pagination.total / pagination.per_page);
 
     this.pagination = {
       pagesTotal,

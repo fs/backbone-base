@@ -4,7 +4,7 @@ import runSequence from 'run-sequence';
 gulp.task('test', (callback) => {
   runSequence(
     [
-      'jshint',
+      'eslint',
       'jsonlint',
       'karma',
       'e2e',

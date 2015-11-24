@@ -23,6 +23,7 @@
   "dependencies": {
     "autoprefixer": "^6.0.3",
     "babel-core": "^5.8.29",
+    "babel-eslint": "^4.1.6",
     "babelify": "^6.4.0",
     "backbone": "^1.2.3",
     "backbone-route-filter": "git://github.com/fantactuka/backbone-route-filter.git",
@@ -43,8 +44,8 @@
     "dotenv": "^1.2.0",
     "grunt": "^0.4.5",
     "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.0",
     "gulp-jade": "~1.1.0",
-    "gulp-jshint": "^1.11.2",
     "gulp-jsonlint": "~1.1.1",
     "gulp-notify": "~2.2.0",
     "gulp-plumber": "~1.0.1",

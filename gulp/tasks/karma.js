@@ -57,7 +57,7 @@ gulp.task('karma', () => {
             stage: 1,
             sourceMapRelative: `./${config.appDir}`
           }));
-        })
+        });
       }
     },
     client: {

@@ -22,7 +22,7 @@ export default class NavigationView extends Marionette.ItemView {
   }
 
   serializeData() {
-    return { defaultPage: 1 }
+    return { defaultPage: 1 };
   }
 
   onHighlightNavigation(nav) {
