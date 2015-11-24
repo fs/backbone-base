@@ -7,7 +7,7 @@ gulp.task('eslint', () => {
     `${config.appDir}/scripts/**/*.js`,
     `${config.gulpDir}/**/*.js`
   ])
-    .pipe(eslint())
+    .pipe(eslint(`${config.configDir}/eslint.js`))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
