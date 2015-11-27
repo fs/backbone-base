@@ -59,6 +59,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "serve-static"
     "sinon"
     "underscore"
+    "velocity-animate"
     "vinyl-source-stream"
     "watchify"
 
@@ -67,8 +68,16 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 
 Install Node.js
 
+Via brew:
 ```bash
 brew install node
+```
+
+Via nvm:
+```bash
+brew install nvm
+nvm install 5.1.0
+nvm alias default 5.1.0
 ```
 
 ### Ubuntu 12.04
@@ -158,6 +167,10 @@ Run all tests
 ```bash
 gulp test
 ```
+
+## Integrate with Rails API
+
+Application easy integrates with [Rails base API](https://github.com/fs/rails-base-api). But note that you should switch off the Active Model Serializer adapter to avoid problems with root element.
 
 ## Credits
 
