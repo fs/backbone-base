@@ -1,8 +1,8 @@
 # Skeleton for Backbone.Marionette based application
 
-[![Build Status](https://travis-ci.org/fs/backbone-base.svg)](https://travis-ci.org/fs/backbone-base)
+[![Build Status](https://travis-ci.org/fs/backbone-base.svg?branch=master)](https://travis-ci.org/fs/backbone-base)
 
-This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
+This simple application includes Backbone.js/Marionette.js frameworks and node/gulp/browserify technologies.
 
 ## NPM Dependencies:
     "autoprefixer"
@@ -59,6 +59,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "serve-static"
     "sinon"
     "underscore"
+    "velocity-animate"
     "vinyl-source-stream"
     "watchify"
 
@@ -67,8 +68,16 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 
 Install Node.js
 
+Via brew:
 ```bash
 brew install node
+```
+
+Via nvm:
+```bash
+brew install nvm
+nvm install 5.1.0
+nvm alias default 5.1.0
 ```
 
 ### Ubuntu 12.04
@@ -124,6 +133,7 @@ Run app with options
 ```bash
 [<options>] gulp
 ```
+
 ```bash
 NODE_ENV=development # build app with development environment
 NODE_ENV=production # build app with production environment
@@ -159,9 +169,15 @@ Run all tests
 gulp test
 ```
 
+## Integrate with Rails API
+
+Application easy integrates with [Rails base API](https://github.com/fs/rails-base-api).
+
+**Note: you should switch off the Active Model Serializer adapter in your Rails application to avoid problems with root element**
+
 ## Credits
 
-Backbone Base is maintained by [Anton Gudkov](http://github.com/antongudkov).
+Backbone Base is maintained by [Marat Fakhreev](http://github.com/maratfakhreev).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/backbone-base/contributors).
 
