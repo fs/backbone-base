@@ -16,7 +16,7 @@ gulp.task('karma', () => {
     singleRun: true,
     browsers: ['PhantomJS'],
     files: [
-      'node_modules/babel-core/polyfill.js',
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'node_modules/jquery/dist/jquery.js',
       'node_modules/underscore/underscore.js',
       'node_modules/backbone/backbone.js',
@@ -25,6 +25,8 @@ gulp.task('karma', () => {
       'node_modules/backbone-validation/dist/backbone-validation.js',
       'node_modules/backbone.marionette/lib/backbone.marionette.js',
       'node_modules/bootstrap/dist/js/bootstrap.js',
+      'node_modules/velocity-animate/velocity.js',
+      'node_modules/velocity-animate/velocity.ui.js',
       'vendor/**/*.js',
       'specs/**/*_spec.js'
     ],
@@ -54,8 +56,7 @@ gulp.task('karma', () => {
       configure: (bundle) => {
         bundle.on('prebundle', () => {
           bundle.transform(babelify.configure({
-            presets: ['es2015', 'stage-1'],
-            sourceMapRelative: `./${config.appDir}`
+            presets: ['es2015', 'stage-1']
           }));
         })
       }
