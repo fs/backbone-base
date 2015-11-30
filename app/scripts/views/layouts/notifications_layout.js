@@ -1,15 +1,33 @@
 import App from 'scripts/application';
 import NotificationsItemView from 'scripts/views/notifications/notification';
+import AnimatedRegion from 'scripts/regions/animated';
 import template from 'templates/layouts/notifications_layout';
 import { props } from 'scripts/decorators';
 
-const delaySpeed = 3000;
+const DELAY_SPEED = 3000;
 
 @props({
   template: template,
 
   regions: {
-    notificationsListRegion: '#notifications_list_region'
+    notificationsListRegion: {
+      selector: '#notifications_list_region',
+      regionClass: AnimatedRegion,
+      animation: {
+        showAnimation: [
+          {
+            properties: 'transition.slideDownBigIn',
+            options: { stagger: 300 }
+          }
+        ],
+        hideAnimation: [
+          {
+            properties: 'transition.slideUpBigOut',
+            options: { stagger: 300 }
+          }
+        ]
+      }
+    }
   }
 })
 export default class NotificationsLayout extends Marionette.LayoutView {
@@ -29,7 +47,7 @@ export default class NotificationsLayout extends Marionette.LayoutView {
       message: data.message,
       type: typeClass
     }));
-    this.clearNotificationsInterval = setTimeout(() => { this.clearRegion(); }, delaySpeed);
+    this.clearNotificationsInterval = setTimeout(() => { this.clearRegion(); }, DELAY_SPEED);
   }
 
   destroyNotification() {

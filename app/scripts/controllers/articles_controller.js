@@ -5,15 +5,18 @@ import Article from 'scripts/models/article';
 import Articles from 'scripts/collections/articles';
 
 export default class ArticlesController extends Marionette.Controller {
-  index() {
+  index(page) {
     let articles = new Articles();
 
-    articles.fetch().then(() => {
-      App.mainRegion.show(new ArticlesLayout({ collection: articles }));
+    articles.fetchByPage(page).then(() => {
+      App.mainRegion.show(new ArticlesLayout({
+        page,
+        collection: articles
+      }));
     });
   }
 
-  show(id) {
+  show(page, id) {
     let article = new Article({ id });
 
     article.fetch().then(() => {

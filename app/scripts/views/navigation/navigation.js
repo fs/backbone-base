@@ -21,6 +21,10 @@ export default class NavigationView extends Marionette.ItemView {
     this.listenTo(App.vent, 'navigation:change', this.onHighlightNavigation);
   }
 
+  serializeData() {
+    return { defaultPage: 1 }
+  }
+
   onHighlightNavigation(nav) {
     this.ui.menuItem.removeClass('active');
 

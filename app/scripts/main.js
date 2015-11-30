@@ -4,6 +4,8 @@ import 'backbone-stickit';
 import 'backbone-validation';
 import 'marionette';
 import 'bootstrap';
+import 'bootstrap-paginator';
+import 'velocity-ui';
 import 'scripts/modules/sign_up';
 import 'scripts/modules/landing';
 import 'scripts/modules/dashboard';

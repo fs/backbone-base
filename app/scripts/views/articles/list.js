@@ -5,4 +5,8 @@ import { props } from 'scripts/decorators';
   className: 'articles',
   childView: ArticleItemView
 })
-export default class ArticlesListView extends Marionette.CollectionView {}
+export default class ArticlesListView extends Marionette.CollectionView {
+  childViewOptions() {
+    return { page: this.options.page }
+  }
+}

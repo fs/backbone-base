@@ -43,7 +43,7 @@ export default class FormBehavior extends Marionette.Behavior {
     this.view.stickit();
   }
 
-  onClose() {
+  onDestroy() {
     this.unbindValidation();
   }
 
