@@ -2,9 +2,12 @@ import gulp from 'gulp';
 import karma from 'karma';
 import babelify from 'babelify';
 import config from '../config';
+import pkg from '../../package';
 
 gulp.task('karma', () => {
-  let karmaServer = new karma.Server({
+  const browserFiles = Object.values(pkg.browser);
+  const files = browserFiles.concat(['vendor/**/*.js', 'specs/**/*_spec.js']);
+  const karmaServer = new karma.Server({
     basePath: process.cwd(),
     frameworks: [
       'mocha',
@@ -12,28 +15,16 @@ gulp.task('karma', () => {
       'chai',
       'sinon'
     ],
+    client: {
+      mocha: { ui: 'bdd' }
+    },
     runnerPort: config.test.port,
     singleRun: true,
     browsers: ['PhantomJS'],
-    files: [
-      'node_modules/babel-polyfill/dist/polyfill.js',
-      'node_modules/jquery/dist/jquery.js',
-      'node_modules/underscore/underscore.js',
-      'node_modules/backbone/backbone.js',
-      'node_modules/backbone-route-filter/backbone-route-filter.js',
-      'node_modules/backbone.stickit/backbone.stickit.js',
-      'node_modules/backbone-validation/dist/backbone-validation.js',
-      'node_modules/backbone.marionette/lib/backbone.marionette.js',
-      'node_modules/bootstrap/dist/js/bootstrap.js',
-      'node_modules/velocity-animate/velocity.js',
-      'node_modules/velocity-animate/velocity.ui.js',
-      'vendor/**/*.js',
-      'specs/**/*_spec.js'
-    ],
+    files: files,
     reporters: ['dots'],
     colors: true,
     preprocessors: {
-      'node_modules/babel-core/polyfill.js': ['browserify'],
       'specs/**/*.js': ['browserify']
     },
     plugins: [
@@ -49,20 +40,17 @@ gulp.task('karma', () => {
       packageCache: {},
       fullPaths: true,
       debug: config.isDevelopment,
-      paths: [`./${config.appDir}`],
+      paths: [config.appDir],
       transform: [
-        'browserify-shim'
-      ],
-      configure: (bundle) => {
-        bundle.on('prebundle', () => {
-          bundle.transform(babelify.configure({
-            presets: ['es2015', 'stage-1']
-          }));
-        })
-      }
-    },
-    client: {
-      mocha: { ui: 'bdd' }
+        'browserify-shim',
+        [
+          'babelify',
+          {
+            presets: ['es2015'],
+            plugins: ['babel-plugin-transform-decorators-legacy']
+          }
+        ]
+      ]
     }
   });
 

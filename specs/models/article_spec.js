@@ -1,4 +1,4 @@
-var Article = require('scripts/models/article');
+import Article from 'scripts/models/article';
 
 describe('Article', function() {
   beforeEach(function() {

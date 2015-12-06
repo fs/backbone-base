@@ -1,4 +1,4 @@
-var Comment = require('scripts/models/comment');
+import Comment from 'scripts/models/comment';
 
 describe('Comment', function() {
   beforeEach(function() {
