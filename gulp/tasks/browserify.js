@@ -18,12 +18,13 @@ gulp.task('browserify', () => {
     debug: config.isDevelopment,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
-    paths: [`./${config.appDir}`]
+    paths: [config.appDir]
   })
   .transform(jadeify)
   .transform(babelify.configure({
-    stage: 1,
-    sourceMapRelative: `./${config.appDir}`
+    presets: ['es2015'],
+    plugins: ['transform-decorators-legacy'],
+    sourceMapRelative: config.appDir
   }));
 
   let bundle = () => {

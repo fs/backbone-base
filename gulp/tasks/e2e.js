@@ -10,7 +10,7 @@ const casperCommand = 'mocha-casperjs \
   <%= file.path %> \
 ';
 
-gulp.task('e2e', ['clean-screenshots'], () => {
-  return gulp.src(`${config.testDir}/compiled_features/**/*_feature.js`)
+gulp.task('e2e', ['clean-screenshots', 'build', 'server'], () => {
+  return gulp.src(`${config.testDir}/**/*_feature.js`)
     .pipe(shell(casperCommand));
 });

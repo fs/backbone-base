@@ -1,13 +1,16 @@
 # Skeleton for Backbone.Marionette based application
 
-[![Build Status](https://travis-ci.org/fs/backbone-base.svg)](https://travis-ci.org/fs/backbone-base)
+[![Build Status](https://travis-ci.org/fs/backbone-base.svg?branch=master)](https://travis-ci.org/fs/backbone-base)
 
-This simple application includes Backbone.js/Marionette.js frameworks and node/gulp technologies.
+This simple application includes Backbone.js/Marionette.js frameworks and node/gulp/browserify technologies.
 
 ## NPM Dependencies:
     "autoprefixer"
     "babel-core"
     "babel-eslint"
+    "babel-plugin-transform-decorators-legacy"
+    "babel-polyfill"
+    "babel-preset-es2015"
     "babelify"
     "backbone"
     "backbone-route-filter"
@@ -39,6 +42,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "gulp-shell"
     "jadeify"
     "jquery"
+    "jshint"
     "karma"
     "karma-browserify"
     "karma-chai"
@@ -69,24 +73,16 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 
 Install Node.js
 
+Via brew:
 ```bash
 brew install node
 ```
 
-### Ubuntu 12.04
-
-Install Node.js and Npm
-
+Via nvm:
 ```bash
-sudo add-apt-repository ppa:richarvey/nodejs
-sudo apt-get update && sudo apt-get install nodejs npm
-```
-
-Configure Npm path (for avoid _sudo_ usage for installing modules)
-
-```bash
-npm config set prefix ~/npm
-echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc # for zsh shell
+brew install nvm
+nvm install 5.1.1
+nvm alias default 5.1.1
 ```
 
 ## Quick start
@@ -126,6 +122,7 @@ Run app with options
 ```bash
 [<options>] gulp
 ```
+
 ```bash
 NODE_ENV=development # build app with development environment
 NODE_ENV=production # build app with production environment
@@ -161,9 +158,15 @@ Run all tests
 gulp test
 ```
 
+## Integrate with Rails API
+
+Application easy integrates with [Rails base API](https://github.com/fs/rails-base-api).
+
+**Note: you should switch off the Active Model Serializer adapter in your Rails application to avoid problems with root element**
+
 ## Credits
 
-Backbone Base is maintained by [Anton Gudkov](http://github.com/antongudkov).
+Backbone Base is maintained by [Marat Fakhreev](http://github.com/maratfakhreev).
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/backbone-base/contributors).
 
