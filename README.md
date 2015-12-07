@@ -7,6 +7,9 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 ## NPM Dependencies:
     "autoprefixer"
     "babel-core"
+    "babel-plugin-transform-decorators-legacy"
+    "babel-polyfill"
+    "babel-preset-es2015"
     "babelify"
     "backbone"
     "backbone-route-filter"
@@ -38,6 +41,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "gulp-shell"
     "jadeify"
     "jquery"
+    "jshint"
     "karma"
     "karma-browserify"
     "karma-chai"
