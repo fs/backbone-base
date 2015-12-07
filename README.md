@@ -80,24 +80,8 @@ brew install node
 Via nvm:
 ```bash
 brew install nvm
-nvm install 5.1.0
-nvm alias default 5.1.0
-```
-
-### Ubuntu 12.04
-
-Install Node.js and Npm
-
-```bash
-sudo add-apt-repository ppa:richarvey/nodejs
-sudo apt-get update && sudo apt-get install nodejs npm
-```
-
-Configure Npm path (for avoid _sudo_ usage for installing modules)
-
-```bash
-npm config set prefix ~/npm
-echo "PATH=\$PATH:\$HOME/npm/bin" | tee -a ~/.zshrc # for zsh shell
+nvm install 5.1.1
+nvm alias default 5.1.1
 ```
 
 ## Quick start

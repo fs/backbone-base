@@ -1,6 +1,8 @@
 # Change Log
 
 ## Unreleased
+- Upgrade Node to 5.1.1
+([#105](https://github.com/fs/backbone-base/pull/105))
 - Use package.json browser dependencies in karma config
 - Use babel-plugin-transform-decorators-legacy to resolve decorators issue
 - Add jshint as dependency for gulp-jshint
