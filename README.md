@@ -42,7 +42,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "gulp-shell"
     "jadeify"
     "jquery"
-    "jshint"
     "karma"
     "karma-browserify"
     "karma-chai"
