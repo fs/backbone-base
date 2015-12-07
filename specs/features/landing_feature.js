@@ -25,7 +25,7 @@ describe('Landing page', function() {
       });
 
       this.waitForUrl(/dashboard/, function() {
-        expect('h2').to.contain.text('Greeting M@rik');
+        expect('h2').to.contain.text('Greeting Gavin Jayson, you have next articles');
       });
     });
   });
