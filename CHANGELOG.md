@@ -1,6 +1,8 @@
 # Change Log
 
 ## Unreleased
+
+## 1.1.0 - 2015-12-07
 - Upgrade Node to 5.1.1
 ([#105](https://github.com/fs/backbone-base/pull/105))
 - Use package.json browser dependencies in karma config
