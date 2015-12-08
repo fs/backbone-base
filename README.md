@@ -181,5 +181,4 @@ Backbone Base is maintained by [Marat Fakhreev](http://github.com/maratfakhreev)
 It was written by [Flatstack](http://www.flatstack.com) with the help of our
 [contributors](http://github.com/fs/backbone-base/contributors).
 
-
 [<img src="http://www.flatstack.com/logo.svg" width="100"/>](http://www.flatstack.com)
