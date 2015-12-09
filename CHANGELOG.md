@@ -1,6 +1,8 @@
 # Change Log
 
 ## Unreleased
+- Automaticly use array from response for paginated collection instead of use root.key for it
+([#106](https://github.com/fs/backbone-base/pull/106))
 
 ## 1.1.0 - 2015-12-07
 - Upgrade Node to 5.1.1
