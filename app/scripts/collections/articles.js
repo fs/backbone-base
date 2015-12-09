@@ -4,7 +4,6 @@ import { props } from 'scripts/decorators';
 
 @props({
   url: 'articles',
-  rootKey: 'articles',
   model: Article
 })
 export default class Articles extends PaginatedCollection {}
