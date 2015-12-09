@@ -4,7 +4,7 @@ export default class PaginatedCollection extends AppCollection {
   parse(response) {
     const pagination = response.meta.pagination;
     const pagesTotal = Math.ceil(pagination.total / pagination.per_page);
-    const collectionKey = _.findKey(response, (value) => Array.isArray(value));
+    const collectionKey = this.rootKey || _.findKey(response, (value) => Array.isArray(value));
 
     this.pagination = {
       pagesTotal,
