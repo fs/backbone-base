@@ -49,6 +49,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "karma-mocha"
     "karma-phantomjs-launcher"
     "karma-sinon"
+    "marionette-animated-region"
     "mocha"
     "mocha-casperjs"
     "phantomjs"
