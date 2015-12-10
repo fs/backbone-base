@@ -3,6 +3,7 @@ import 'backbone-routefilter';
 import 'backbone-stickit';
 import 'backbone-validation';
 import 'marionette';
+import 'marionette-animated-region';
 import 'bootstrap';
 import 'bootstrap-paginator';
 import 'velocity-ui';

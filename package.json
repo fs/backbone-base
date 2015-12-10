@@ -65,6 +65,7 @@
     "karma-mocha": "^0.2.1",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sinon": "^1.0.4",
+    "marionette-animated-region": "^1.0.1",
     "mocha": "^2.3.4",
     "mocha-casperjs": "^0.5.4",
     "phantomjs": "^1.9.19",
@@ -92,6 +93,7 @@
     "backbone-stickit": "./node_modules/backbone.stickit/backbone.stickit.js",
     "backbone-validation": "./node_modules/backbone-validation/dist/backbone-validation.js",
     "marionette": "./node_modules/backbone.marionette/lib/backbone.marionette.js",
+    "marionette-animated-region": "./node_modules/marionette-animated-region/lib/marionette-animated-region.js",
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
     "velocity": "./node_modules/velocity-animate/velocity.js",
     "velocity-ui": "./node_modules/velocity-animate/velocity.ui.js"
@@ -99,6 +101,18 @@
   "browserify-shim": {
     "jquery": "$",
     "underscore": "_",
+    "velocity": {
+      "exports": "$",
+      "depends": [
+        "jquery"
+      ]
+    },
+    "velocity-ui": {
+      "exports": "$",
+      "depends": [
+        "velocity"
+      ]
+    },
     "backbone": {
       "exports": "Backbone",
       "depends": [
@@ -130,6 +144,13 @@
         "backbone"
       ]
     },
+    "marionette-animated-region": {
+      "exports": "AnimatedRegion",
+      "depends": [
+        "marionette",
+        "velocity-ui"
+      ]
+    },
     "bootstrap": {
       "depends": [
         "jquery"
@@ -138,18 +159,6 @@
     "bootstrap-paginator": {
       "depends": [
         "bootstrap"
-      ]
-    },
-    "velocity": {
-      "exports": "$",
-      "depends": [
-        "jquery"
-      ]
-    },
-    "velocity-ui": {
-      "exports": "$",
-      "depends": [
-        "velocity"
       ]
     }
   },

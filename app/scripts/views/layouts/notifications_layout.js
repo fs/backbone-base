@@ -1,6 +1,5 @@
 import App from 'scripts/application';
 import NotificationsItemView from 'scripts/views/notifications/notification';
-import AnimatedRegion from 'scripts/regions/animated';
 import template from 'templates/layouts/notifications_layout';
 import { props } from 'scripts/decorators';
 

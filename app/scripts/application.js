@@ -1,6 +1,5 @@
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
-import AnimatedRegion from 'scripts/regions/animated';
 
 let App = new Marionette.Application();
 
