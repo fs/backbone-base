@@ -1,6 +1,9 @@
 # Change Log
 
 ## Unreleased
+- Upgrade dependencies
+- Upgrade Node to 5.3.0
+([#108](https://github.com/fs/backbone-base/pull/108))
 - Use marionette-animated-region package installed via npm
 ([#107](https://github.com/fs/backbone-base/pull/107))
 - Add ability to determine array from response for paginated collection
