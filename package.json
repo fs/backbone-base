@@ -65,7 +65,7 @@
     "karma-mocha": "^0.2.1",
     "karma-phantomjs-launcher": "^0.2.2",
     "karma-sinon": "^1.0.4",
-    "marionette-animated-region": "^1.0.1",
+    "marionette-animated-region": "^1.1.0",
     "mocha": "^2.3.4",
     "mocha-casperjs": "^0.5.5",
     "phantomjs": "^1.9.19",
@@ -85,72 +85,11 @@
     "watchify": "^3.6.1"
   },
   "browser": {
-    "babel-polyfill": "./node_modules/babel-polyfill/dist/polyfill.js",
     "jquery": "./node_modules/jquery/dist/jquery.js",
-    "underscore": "./node_modules/underscore/underscore.js",
-    "backbone": "./node_modules/backbone/backbone.js",
-    "backbone-routefilter": "./node_modules/backbone-route-filter/backbone-route-filter.js",
-    "backbone-stickit": "./node_modules/backbone.stickit/backbone.stickit.js",
-    "backbone-validation": "./node_modules/backbone-validation/dist/backbone-validation.js",
-    "marionette": "./node_modules/backbone.marionette/lib/backbone.marionette.js",
-    "marionette-animated-region": "./node_modules/marionette-animated-region/lib/marionette-animated-region.js",
     "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-    "velocity": "./node_modules/velocity-animate/velocity.js",
-    "velocity-ui": "./node_modules/velocity-animate/velocity.ui.js"
+    "bootstrap-paginator": "./node_modules/bootstrap-paginator/bootstrap-paginator.js"
   },
   "browserify-shim": {
-    "jquery": "$",
-    "underscore": "_",
-    "velocity": {
-      "exports": "$",
-      "depends": [
-        "jquery"
-      ]
-    },
-    "velocity-ui": {
-      "exports": "$",
-      "depends": [
-        "velocity"
-      ]
-    },
-    "backbone": {
-      "exports": "Backbone",
-      "depends": [
-        "jquery",
-        "underscore"
-      ]
-    },
-    "backbone-routefilter": {
-      "exports": "Backbone",
-      "depends": [
-        "backbone"
-      ]
-    },
-    "backbone-stickit": {
-      "exports": "Backbone",
-      "depends": [
-        "backbone"
-      ]
-    },
-    "backbone-validation": {
-      "exports": "Backbone",
-      "depends": [
-        "backbone"
-      ]
-    },
-    "marionette": {
-      "exports": "Marionette",
-      "depends": [
-        "backbone"
-      ]
-    },
-    "marionette-animated-region": {
-      "exports": "AnimatedRegion",
-      "depends": [
-        "marionette",
-        "velocity-ui"
-      ]
-    },
     "bootstrap": {
       "depends": [
         "jquery"

@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import NotificationsLayout from 'scripts/views/layouts/notifications_layout';
 import { props } from 'scripts/decorators';

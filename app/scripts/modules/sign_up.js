@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Router from 'scripts/routers/sign_up';
 import Controller from 'scripts/controllers/sign_up_controller';

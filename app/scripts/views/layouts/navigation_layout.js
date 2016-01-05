@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import NavigationNavigationView from 'scripts/views/navigation/navigation';
 import NavigationLoginView from 'scripts/views/navigation/login';
 import NavigationLogoutView from 'scripts/views/navigation/logout';

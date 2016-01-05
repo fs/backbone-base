@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import template from 'templates/dashboard/item';
 import { props } from 'scripts/decorators';
 

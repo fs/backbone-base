@@ -1,3 +1,7 @@
+import 'backbone-validation';
+import 'backbone.stickit';
+import Backbone from 'backbone';
+import Marionette from 'backbone.marionette';
 import { props } from 'scripts/decorators';
 
 @props({

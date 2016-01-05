@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Session from 'scripts/facades/session';
 import routes from 'scripts/helpers/routes';

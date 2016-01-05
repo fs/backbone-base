@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import AppModel from 'scripts/models/app';
 import Session from 'scripts/facades/session';
 

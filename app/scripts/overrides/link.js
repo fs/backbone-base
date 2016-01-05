@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import Backbone from 'backbone';
+
 export default class LinkOverride {
   static init() {
     this.followLink();
