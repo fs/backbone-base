@@ -1,6 +1,8 @@
 # Change Log
 
 ## Unreleased
+
+## 1.2.0 - 2016-01-05
 - Move global dependencies as local imports in each file and remove browserify-shim
 ([#109](https://github.com/fs/backbone-base/pull/109))
 - Upgrade dependencies
