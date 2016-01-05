@@ -1,3 +1,4 @@
+import 'bootstrap';
 import 'backbone-validation';
 import 'backbone.stickit';
 import Backbone from 'backbone';

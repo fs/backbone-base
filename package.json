@@ -35,7 +35,6 @@
     "bootstrap": "^3.3.6",
     "bootstrap-paginator": "^1.0.2",
     "browserify": "^12.0.1",
-    "browserify-shim": "^3.8.11",
     "casper-chai": "^0.2.1",
     "casperjs": "^1.1.0-beta3",
     "chai": "^3.4.1",
@@ -83,27 +82,5 @@
     "velocity-animate": "^1.2.3",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1"
-  },
-  "browser": {
-    "jquery": "./node_modules/jquery/dist/jquery.js",
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
-    "bootstrap-paginator": "./node_modules/bootstrap-paginator/bootstrap-paginator.js"
-  },
-  "browserify-shim": {
-    "bootstrap": {
-      "depends": [
-        "jquery"
-      ]
-    },
-    "bootstrap-paginator": {
-      "depends": [
-        "bootstrap"
-      ]
-    }
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
   }
 }

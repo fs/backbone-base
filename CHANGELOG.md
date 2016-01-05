@@ -1,7 +1,7 @@
 # Change Log
 
 ## Unreleased
-- Remove global dependencies
+- Move global dependencies as local imports in each file and remove browserify-shim
 ([#109](https://github.com/fs/backbone-base/pull/109))
 - Upgrade dependencies
 - Upgrade Node to 5.3.0
