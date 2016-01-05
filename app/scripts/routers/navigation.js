@@ -1,3 +1,4 @@
+import Backbone from 'backbone';
 import App from 'scripts/application';
 import BaseRouter from 'scripts/routers/base';
 import Session from 'scripts/facades/session';

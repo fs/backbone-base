@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Router from 'scripts/routers/articles';
 import Controller from 'scripts/controllers/articles_controller';

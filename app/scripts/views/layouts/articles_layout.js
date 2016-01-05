@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import PaginationBehavior from 'scripts/views/behaviors/pagination';
 import ArticlesListView from 'scripts/views/articles/list';
 import ArticlesFormView from 'scripts/views/articles/form';

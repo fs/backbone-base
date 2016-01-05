@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import DashboardView from 'scripts/views/dashboard/dashboard';
 import DashboardArticles from 'scripts/collections/dashboard_articles';

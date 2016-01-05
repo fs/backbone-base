@@ -2,11 +2,8 @@ import gulp from 'gulp';
 import karma from 'karma';
 import babelify from 'babelify';
 import config from '../config';
-import pkg from '../../package';
 
 gulp.task('karma', () => {
-  const browserFiles = Object.values(pkg.browser);
-  const files = browserFiles.concat(['vendor/**/*.js', 'specs/**/*_spec.js']);
   const karmaServer = new karma.Server({
     basePath: process.cwd(),
     frameworks: [
@@ -21,7 +18,10 @@ gulp.task('karma', () => {
     runnerPort: config.test.port,
     singleRun: true,
     browsers: ['PhantomJS'],
-    files: files,
+    files: [
+      'vendor/**/*.js',
+      'specs/**/*_spec.js'
+    ],
     reporters: ['dots'],
     colors: true,
     preprocessors: {
@@ -42,7 +42,6 @@ gulp.task('karma', () => {
       debug: config.isDevelopment,
       paths: [config.appDir],
       transform: [
-        'browserify-shim',
         [
           'babelify',
           {

@@ -19,7 +19,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "bootstrap"
     "bootstrap-paginator"
     "browserify"
-    "browserify-shim"
     "casper-chai"
     "casperjs"
     "chai"

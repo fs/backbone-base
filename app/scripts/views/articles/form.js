@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import Article from 'scripts/models/article';
 import FormBehavior from 'scripts/views/behaviors/form';
 import Session from 'scripts/facades/session';

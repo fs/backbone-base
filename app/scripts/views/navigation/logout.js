@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import Session from 'scripts/facades/session';
 import user from 'scripts/helpers/user';
 import template from 'templates/navigation/logout';

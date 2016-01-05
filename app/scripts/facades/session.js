@@ -1,3 +1,6 @@
+import 'babel-polyfill';
+import $ from 'jquery';
+import Backbone from 'backbone';
 import AppConfig from 'scripts/config';
 import User from 'scripts/models/user';
 import Storage from 'scripts/facades/storage';

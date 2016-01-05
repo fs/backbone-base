@@ -1,3 +1,5 @@
+import _ from 'underscore';
+import Backbone from 'backbone';
 import App from 'scripts/application';
 import AppConfig from 'scripts/config';
 

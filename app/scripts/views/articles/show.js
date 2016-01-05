@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import CommentsItemView from 'scripts/views/comments/item';
 import user from 'scripts/helpers/user';
 import template from 'templates/articles/show';
