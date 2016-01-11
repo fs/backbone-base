@@ -8,7 +8,7 @@ import template from 'templates/sign_up/sign_up';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   ui: {
     form: 'form'

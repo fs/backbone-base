@@ -5,14 +5,12 @@ import template from 'templates/articles/show';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   className: 'media',
-  template: template,
   childView: CommentsItemView,
   childViewContainer: '.comments',
 
-  templateHelpers: {
-    user: user
-  }
+  templateHelpers: { user }
 })
 export default class ArticlesShowView extends Marionette.CompositeView {
   initialize() {

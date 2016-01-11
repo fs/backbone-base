@@ -8,16 +8,16 @@ import template from 'templates/articles/item';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   className: 'media',
-  template: template,
 
   events: {
     'click .close': 'articleRemove'
   },
 
   templateHelpers: {
-    routes: routes,
-    user: user
+    routes,
+    user
   }
 })
 export default class ArticlesItemView extends Marionette.ItemView {

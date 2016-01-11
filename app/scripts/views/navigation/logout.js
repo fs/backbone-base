@@ -5,17 +5,15 @@ import template from 'templates/navigation/logout';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   className: 'nav navbar-nav navbar-right',
-  template: template,
   model: Session.currentUser(),
 
   events: {
     'click #logout_btn': 'onLogout'
   },
 
-  templateHelpers: {
-    user: user
-  }
+  templateHelpers: { user }
 })
 export default class NavigationLogoutView extends Marionette.ItemView {
   onLogout() {

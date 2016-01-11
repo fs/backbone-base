@@ -6,7 +6,7 @@ import template from 'templates/layouts/articles_layout';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   collectionEvents: {
     'add': 'onAddNewArticle'

@@ -1,22 +1,20 @@
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
-import Routes from 'scripts/helpers/routes';
+import routes from 'scripts/helpers/routes';
 import template from 'templates/navigation/navigation';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   tagName: 'ul',
   className: 'nav navbar-nav',
-  template: template,
 
   ui: {
     menuItem: 'li'
   },
 
-  templateHelpers: {
-    routes: Routes
-  }
+  templateHelpers: { routes }
 })
 export default class NavigationView extends Marionette.ItemView {
   initialize() {

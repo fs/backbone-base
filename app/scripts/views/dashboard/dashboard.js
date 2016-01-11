@@ -5,8 +5,8 @@ import template from 'templates/dashboard/dashboard';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   className: 'jumbotron',
-  template: template,
   childView: DashboardItemView,
   childViewContainer: '.articles-list',
   model: Session.currentUser()

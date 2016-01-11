@@ -3,8 +3,8 @@ import template from 'templates/dashboard/item';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   tagName: 'li',
-  className: 'item',
-  template: template
+  className: 'item'
 })
 export default class DashboardItemView extends Marionette.ItemView {}

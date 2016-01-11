@@ -6,8 +6,8 @@ import template from 'templates/navigation/login';
 import { props } from 'scripts/decorators';
 
 @props({
+  template,
   className: 'nav navbar-nav navbar-right',
-  template: template,
   model: Session.currentUser(),
 
   ui: {
@@ -15,7 +15,7 @@ import { props } from 'scripts/decorators';
   },
 
   events: {
-    'submit @ui.form': 'onFormSubmit',
+    'submit @ui.form': 'onFormSubmit'
   },
 
   bindings: {
@@ -41,9 +41,7 @@ import { props } from 'scripts/decorators';
     }
   },
 
-  templateHelpers: {
-    routes: routes
-  }
+  templateHelpers: { routes }
 })
 export default class NavigationLoginView extends Marionette.ItemView {
   onFormSubmit(event) {

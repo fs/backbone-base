@@ -8,7 +8,7 @@ import { props } from 'scripts/decorators';
 const DELAY_SPEED = 3000;
 
 @props({
-  template: template,
+  template,
 
   regions: {
     notificationsListRegion: {

@@ -4,7 +4,7 @@ import template from 'templates/notifications/notification';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   ui: {
     closeButton: '.close'

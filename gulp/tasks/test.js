@@ -4,9 +4,8 @@ import config from '../config';
 
 gulp.task('test', (callback) => {
   const tests = config.isTest ? ['karma'] : ['e2e', 'karma'];
-  const params = [
-    [ 'jsonlint' ]
-  ];
+  const params = ['jsonlint'];
+  const testParams = params.concat(tests);
 
-  runSequence(...params.concat(tests), callback);
+  runSequence(testParams, callback);
 });

@@ -7,7 +7,7 @@ import template from 'templates/comments/form';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   events: {
     'submit form': 'onFormSubmit'
@@ -29,9 +29,7 @@ import { props } from 'scripts/decorators';
     }
   },
 
-  templateHelpers: {
-    user: user
-  }
+  templateHelpers: { user }
 })
 export default class CommentFormView extends Marionette.ItemView {
   initialize() {
