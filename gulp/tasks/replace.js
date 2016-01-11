@@ -4,10 +4,10 @@ import config from '../config';
 import configParser from '../modules/config_parser';
 
 gulp.task('replace', () => {
-  let patterns = [];
-  let settings = configParser(config.env);
+  const patterns = [];
+  const settings = configParser(config.env);
 
-  for (let settingName in settings.app) {
+  for (const settingName in settings.app) {
     patterns.push({
       match: settingName,
       replacement: settings.app[settingName]

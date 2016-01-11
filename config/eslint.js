@@ -23,8 +23,8 @@ module.exports = {
     'indent': [2, 2],
     'key-spacing': [2, { 'beforeColon': false, 'afterColon': true }],
     'max-depth': [2, 4],
-    'max-len': [2, 80, 4],
-    'max-params': [2, 3],
+    'max-len': [2, 120, 4],
+    'max-params': [2, 4],
     'max-statements': [2, 10],
     'no-arrow-condition': 2,
     'no-bitwise': 2,
@@ -38,6 +38,7 @@ module.exports = {
     'no-this-before-super': 2,
     'no-trailing-spaces': 2,
     'object-shorthand': [2, 'always'],
+    'prefer-const': 2,
     'semi': [2, 'always']
   }
 }

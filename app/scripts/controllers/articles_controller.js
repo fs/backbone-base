@@ -7,7 +7,7 @@ import Articles from 'scripts/collections/articles';
 
 export default class ArticlesController extends Marionette.Controller {
   index(page) {
-    let articles = new Articles();
+    const articles = new Articles();
 
     articles.fetchByPage(page).then(() => {
       App.mainRegion.show(new ArticlesLayout({
@@ -18,7 +18,7 @@ export default class ArticlesController extends Marionette.Controller {
   }
 
   show(page, id) {
-    let article = new Article({ id });
+    const article = new Article({ id });
 
     article.fetch().then(() => {
       App.mainRegion.show(new ArticleLayout({ model: article }));

@@ -13,7 +13,7 @@ export default class AppModel extends Backbone.Model {
     let message = 'Server error has occured';
 
     if (response.responseJSON) {
-      let { validations, error } = response.responseJSON;
+      const { validations, error } = response.responseJSON;
 
       if (validations) {
         return this.trigger('validation:invalid', validations);

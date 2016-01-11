@@ -17,7 +17,7 @@ export default class NavigationRouter extends BaseRouter {
   }
 
   onSessionChange() {
-    let path = (Session.isLoggedIn()) ? routes.dashboardIndexPath() : routes.rootPath();
+    const path = (Session.isLoggedIn()) ? routes.dashboardIndexPath() : routes.rootPath();
     this.navigate(path, { trigger: true });
   }
 

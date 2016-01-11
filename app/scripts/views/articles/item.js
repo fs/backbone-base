@@ -26,7 +26,7 @@ export default class ArticlesItemView extends Marionette.ItemView {
   }
 
   serializeData() {
-    let props = { page: this.options.page };
+    const props = { page: this.options.page };
     Object.assign(props, this.model.toJSON());
 
     return props;

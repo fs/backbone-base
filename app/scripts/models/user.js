@@ -36,7 +36,7 @@ export default class User extends AppModel {
   }
 
   send(url) {
-    let deferred = $.Deferred();
+    const deferred = $.Deferred();
 
     if (this.isValid(true)) {
       this.save(null, {

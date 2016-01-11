@@ -11,7 +11,7 @@ import config from '../config';
 const entryPoint = `./${config.appDir}/scripts/main.js`;
 
 gulp.task('browserify', () => {
-  let bundler = browserify({
+  const bundler = browserify({
     cache: {},
     packageCache: {},
     fullPaths: true,
@@ -27,8 +27,8 @@ gulp.task('browserify', () => {
     sourceMapRelative: config.appDir
   }));
 
-  let bundle = () => {
-    let bundleStream = bundler.bundle();
+  const bundle = () => {
+    const bundleStream = bundler.bundle();
 
     return bundleStream
       .on('error', notify.onError())

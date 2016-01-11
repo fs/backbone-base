@@ -21,7 +21,7 @@ export default class NotificationView extends Marionette.ItemView {
   }
 
   serializeData() {
-    let { message, type } = this.options;
+    const { message, type } = this.options;
 
     return { message, type };
   }

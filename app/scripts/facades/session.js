@@ -16,7 +16,7 @@ class Session {
   }
 
   static create() {
-    let deferred = $.Deferred();
+    const deferred = $.Deferred();
 
     if (!this.isLoggedIn()) {
       this.currentUser().signIn().done(() => {
