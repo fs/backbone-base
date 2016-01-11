@@ -1,3 +1,5 @@
+import 'bootstrap-paginator';
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import { props } from 'scripts/decorators';
 

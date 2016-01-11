@@ -1,6 +1,8 @@
+import Backbone from 'backbone';
+import Marionette from 'backbone.marionette';
+import AnimatedRegion from 'marionette-animated-region';
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
-import AnimatedRegion from 'scripts/regions/animated';
 
 let App = new Marionette.Application();
 

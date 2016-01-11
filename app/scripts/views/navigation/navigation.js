@@ -1,3 +1,5 @@
+import _ from 'underscore';
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Routes from 'scripts/helpers/routes';
 import template from 'templates/navigation/navigation';

@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import template from 'templates/notifications/notification';
 import { props } from 'scripts/decorators';

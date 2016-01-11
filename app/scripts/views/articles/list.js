@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import ArticleItemView from 'scripts/views/articles/item';
 import { props } from 'scripts/decorators';
 

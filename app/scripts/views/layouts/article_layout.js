@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import ArticlesShowView from 'scripts/views/articles/show';
 import CommentFormView from 'scripts/views/comments/form';
 import template from 'templates/layouts/article_layout';

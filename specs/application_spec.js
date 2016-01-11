@@ -1,4 +1,4 @@
-import Marionette from 'marionette';
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 
 describe('Application', function() {

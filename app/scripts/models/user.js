@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import AppModel from 'scripts/models/app';
 import AppConfig from 'scripts/config';
 import { props } from 'scripts/decorators';

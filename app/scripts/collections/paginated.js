@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import AppCollection from 'scripts/collections/app';
 
 export default class PaginatedCollection extends AppCollection {

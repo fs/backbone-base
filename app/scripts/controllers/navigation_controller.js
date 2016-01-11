@@ -1,3 +1,4 @@
+import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Session from 'scripts/facades/session';
 import NavigationLayout from 'scripts/views/layouts/navigation_layout';
