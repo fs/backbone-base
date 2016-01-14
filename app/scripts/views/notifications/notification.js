@@ -4,7 +4,7 @@ import template from 'templates/notifications/notification';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   ui: {
     closeButton: '.close'
@@ -21,7 +21,7 @@ export default class NotificationView extends Marionette.ItemView {
   }
 
   serializeData() {
-    let { message, type } = this.options;
+    const { message, type } = this.options;
 
     return { message, type };
   }

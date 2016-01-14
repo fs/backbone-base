@@ -27,7 +27,7 @@ export default class FormBehavior extends Marionette.Behavior {
 
   bindValidationEvents() {
     this.listenTo(this.view.model, 'validation:invalid', (errors) => {
-      let errorsKeys = _.keys(errors);
+      const errorsKeys = _.keys(errors);
 
       _.each(errors, (error, attr) => {
         this.onInvalid(this.view, attr, error.join(','));
@@ -53,15 +53,15 @@ export default class FormBehavior extends Marionette.Behavior {
   }
 
   onValid(view, attr) {
-    let $el = view.$(`[name=${attr}]`);
-    let $group = $el.closest('.form-group');
+    const $el = view.$(`[name=${attr}]`);
+    const $group = $el.closest('.form-group');
 
     $group.removeClass('has-error').tooltip('destroy');
   }
 
   onInvalid(view, attr, error) {
-    let $el = view.$(`[name=${attr}]`);
-    let $group = $el.closest('.form-group');
+    const $el = view.$(`[name=${attr}]`);
+    const $group = $el.closest('.form-group');
 
     $group.addClass('has-error').tooltip({
       title: error,

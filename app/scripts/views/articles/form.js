@@ -7,7 +7,7 @@ import template from 'templates/articles/form';
 import { props } from 'scripts/decorators';
 
 @props({
-  template: template,
+  template,
 
   events: {
     'submit form': 'onFormSubmit'
@@ -36,9 +36,7 @@ import { props } from 'scripts/decorators';
     }
   },
 
-  templateHelpers: {
-    user: user
-  }
+  templateHelpers: { user }
 })
 export default class ArticlesFormView extends Marionette.ItemView {
   initialize() {

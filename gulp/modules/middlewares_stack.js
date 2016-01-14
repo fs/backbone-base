@@ -3,7 +3,7 @@ export default (stack, req, res, next) => {
     stack = [stack];
   }
 
-  let walkStack = (i, err) => {
+  const walkStack = (i, err) => {
     if (err) return next(err);
     if (i >= stack.length) return next();
 
@@ -11,4 +11,4 @@ export default (stack, req, res, next) => {
   };
 
   walkStack(0);
-}
+};

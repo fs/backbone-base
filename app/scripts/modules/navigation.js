@@ -10,7 +10,7 @@ import { props } from 'scripts/decorators';
 })
 class Navigation extends Marionette.Module {
   onBeforeStart() {
-    let controller = new Controller();
+    const controller = new Controller();
     this.router = new Router({ controller });
     Routes.initModule(this);
   }

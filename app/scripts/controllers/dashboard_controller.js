@@ -5,7 +5,7 @@ import DashboardArticles from 'scripts/collections/dashboard_articles';
 
 export default class DashboardController extends Marionette.Controller {
   index() {
-    let articles = new DashboardArticles();
+    const articles = new DashboardArticles();
 
     articles.fetch().then(() => {
       App.mainRegion.show(new DashboardView({ collection: articles }));

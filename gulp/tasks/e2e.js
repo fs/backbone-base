@@ -12,5 +12,5 @@ const casperCommand = 'mocha-casperjs \
 
 gulp.task('e2e', ['clean-screenshots', 'build', 'server'], () => {
   return gulp.src(`${config.testDir}/**/*_feature.js`)
-    .pipe(shell(casperCommand))
+    .pipe(shell(casperCommand));
 });

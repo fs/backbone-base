@@ -8,6 +8,6 @@ import { props } from 'scripts/decorators';
 })
 export default class ArticlesListView extends Marionette.CollectionView {
   childViewOptions() {
-    return { page: this.options.page }
+    return { page: this.options.page };
   }
 }

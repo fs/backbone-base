@@ -2,11 +2,11 @@ import AppConfig from 'scripts/config';
 
 export default class RoutesHelper {
   static initModule(module) {
-    let appRoutes = module.router.appRoutes;
+    const appRoutes = module.router.appRoutes;
 
-    for (let pattern in appRoutes) {
+    for (const pattern in appRoutes) {
       if (appRoutes.hasOwnProperty(pattern)) {
-        let routeName = appRoutes[pattern];
+        const routeName = appRoutes[pattern];
         this.addRoute(module.moduleName, routeName, pattern);
       }
     }
@@ -17,13 +17,15 @@ export default class RoutesHelper {
   }
 
   static prependRoot(path) {
-    let rootPath = this.rootPath();
+    const rootPath = this.rootPath();
     return (path.indexOf(rootPath)) ? `${rootPath}${path}` : path;
   }
 
   static addRoute(moduleName, routeName, pattern) {
-    let keys = pattern.match(/\:\w+/g);
-    let methodName = `${moduleName.toLowerCase()}${routeName.charAt(0).toUpperCase()}${routeName.substr(1).toLowerCase()}Path`;
+    const keys = pattern.match(/\:\w+/g);
+    const modulePart = moduleName.toLowerCase();
+    const routePart = routeName.charAt(0).toUpperCase() + routeName.substr(1).toLowerCase();
+    const methodName = `${modulePart}${routePart}Path`;
 
     this[methodName] = (...params) => {
       let path = pattern;

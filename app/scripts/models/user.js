@@ -9,14 +9,14 @@ import { props } from 'scripts/decorators';
 
   validation: {
     name: {
-      required: function() { return this.isSignup; }
+      required() { return this.isSignup; }
     },
     password: {
       required: true
     },
     password_confirmation: {
       equalTo: 'password',
-      required: function() { return this.isSignup; }
+      required() { return this.isSignup; }
     },
     email: {
       pattern: 'email',
@@ -36,7 +36,7 @@ export default class User extends AppModel {
   }
 
   send(url) {
-    let deferred = $.Deferred();
+    const deferred = $.Deferred();
 
     if (this.isValid(true)) {
       this.save(null, {

@@ -10,7 +10,7 @@ gulp.task('build', (callback) => {
         'copy',
         'templates',
         'stylesheets',
-        'replace',
+        'replace'
       ],
       'browserify',
       'watch',

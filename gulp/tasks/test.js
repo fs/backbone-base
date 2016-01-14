@@ -4,9 +4,8 @@ import config from '../config';
 
 gulp.task('test', (callback) => {
   const tests = config.isTest ? ['karma'] : ['e2e', 'karma'];
-  const params = [
-    [ 'jshint', 'jsonlint' ]
-  ];
+  const linters = ['jsonlint', 'eslint'];
+  const params = linters.concat(tests);
 
-  runSequence(...params.concat(tests), callback);
+  runSequence(params, callback);
 });

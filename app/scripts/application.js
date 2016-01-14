@@ -4,7 +4,7 @@ import AnimatedRegion from 'marionette-animated-region';
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
 
-let App = new Marionette.Application();
+const App = new Marionette.Application();
 
 App.history = () => {
   Backbone.history.start({

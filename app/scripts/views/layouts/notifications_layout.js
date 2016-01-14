@@ -8,7 +8,7 @@ import { props } from 'scripts/decorators';
 const DELAY_SPEED = 3000;
 
 @props({
-  template: template,
+  template,
 
   regions: {
     notificationsListRegion: {
@@ -38,7 +38,7 @@ export default class NotificationsLayout extends Marionette.LayoutView {
   }
 
   renderNotification(data) {
-    let typeClass = `alert-${data.type}`;
+    const typeClass = `alert-${data.type}`;
 
     if (this.clearNotificationsInterval) {
       clearInterval(this.clearNotificationsInterval);
