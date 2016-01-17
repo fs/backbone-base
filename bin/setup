@@ -8,7 +8,7 @@ fi
 # Install all dependencies
 npm install --ignore-scripts
 
-# Set up configurable environment variables
+# Setup configurable environment variables
 if [ ! -f .env ]; then
   cp .env.example .env
 fi
