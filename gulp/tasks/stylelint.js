@@ -10,5 +10,5 @@ gulp.task('stylelint', () => {
     .pipe(postcss([
       stylelint({ configFile: `${config.configDir}/stylelint.js` }),
       postcssReporter({ clearMessages: true })
-    ]))
+    ]));
 });
