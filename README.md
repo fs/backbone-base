@@ -54,14 +54,18 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "phantomjs"
     "postcss-color-function"
     "postcss-import"
+    "postcss-inline-comment"
     "postcss-mixins"
     "postcss-nested"
     "postcss-pxtorem"
+    "postcss-reporter"
     "postcss-simple-vars"
     "require-dir"
     "run-sequence"
     "serve-static"
     "sinon"
+    "stylelint"
+    "stylelint-statement-max-nesting-depth"
     "underscore"
     "velocity-animate"
     "vinyl-source-stream"
@@ -137,8 +141,24 @@ Start to use application on browser:
 localhost:8000
 ```
 
-## Tasks
+## Code linting tasks
 
+Run javascript linter
+```bash
+gulp eslint
+```
+
+Run json linter
+```bash
+gulp jsonlint
+```
+
+Run stylesheets linter
+```bash
+gulp stylelint
+```
+
+## Test tasks
 Run unit tests
 
 ```bash
@@ -151,7 +171,7 @@ Run e2e tests
 gulp e2e
 ```
 
-Run all tests
+Run all tests and linting tools
 
 ```bash
 gulp test

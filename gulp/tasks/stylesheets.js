@@ -4,6 +4,7 @@ import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import config from '../config';
 
+import postcssInlineComment from 'postcss-inline-comment';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
 import postcssNested from 'postcss-nested';
@@ -14,6 +15,7 @@ import autoprefixer from 'autoprefixer';
 
 gulp.task('stylesheets', () => {
   const processors = [
+    postcssInlineComment,
     postcssImport,
     postcssMixins,
     postcssNested,
