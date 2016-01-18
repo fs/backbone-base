@@ -1,11 +1,14 @@
 module.exports = {
+  plugins: [
+    'stylelint-statement-max-nesting-depth'
+  ],
   "rules": {
     "block-no-empty": true,
-    "color-no-invalid-hex": true,
     "color-hex-case": "lower",
-    "declaration-no-important": true,
+    "color-no-invalid-hex": true,
     "declaration-colon-space-after": "always",
     "declaration-colon-space-before": "never",
+    "declaration-no-important": true,
     "function-comma-space-after": "always",
     "function-url-quotes": "double",
     "media-feature-colon-space-after": "always",
@@ -18,6 +21,7 @@ module.exports = {
     "rule-trailing-semicolon": "always",
     "selector-list-comma-newline-after": "always-multi-line",
     "selector-no-id": true,
+    "statement-max-nesting-depth": [3, { countAtRules: false }],
     "string-quotes": "double",
     "value-no-vendor-prefix": true
   }

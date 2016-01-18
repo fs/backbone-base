@@ -65,6 +65,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "serve-static"
     "sinon"
     "stylelint"
+    "stylelint-statement-max-nesting-depth"
     "underscore"
     "velocity-animate"
     "vinyl-source-stream"
