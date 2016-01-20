@@ -86,7 +86,7 @@
     "mocha-casperjs": "^0.5.5",
     "phantomjs": "^1.9.19",
     "sinon": "^1.17.2",
-    "stylelint": "^3.2.3",
+    "stylelint": "^4.0.0",
     "stylelint-statement-max-nesting-depth": "^2.0.0"
   }
 }
