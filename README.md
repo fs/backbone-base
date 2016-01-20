@@ -1,6 +1,8 @@
 # Skeleton for Backbone.Marionette based application
 
 [![Build Status](https://travis-ci.org/fs/backbone-base.svg?branch=master)](https://travis-ci.org/fs/backbone-base)
+[![Dependency Status](https://david-dm.org/fs/backbone-base.svg?branch=master)](https://david-dm.org/fs/backbone-base)
+[![devDependency Status](https://david-dm.org/fs/backbone-base/dev-status.svg?branch=master)](https://david-dm.org/fs/backbone-base#info=devDependencies)
 
 This simple application includes Backbone.js/Marionette.js frameworks and node/gulp/browserify technologies.
 
