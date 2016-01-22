@@ -12,6 +12,9 @@ const gulpConfig = {
   mocksDir: 'mocks',
   configDir: 'config',
   gulpDir: 'gulp',
+  get isProduction() {
+    return this.env === 'production';
+  },
   get isDevelopment() {
     return this.env === 'development';
   },

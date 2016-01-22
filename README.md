@@ -1,13 +1,14 @@
 # Skeleton for Backbone.Marionette based application
 
 [![Build Status](https://travis-ci.org/fs/backbone-base.svg?branch=master)](https://travis-ci.org/fs/backbone-base)
+[![Dependency Status](https://david-dm.org/fs/backbone-base.svg?branch=master)](https://david-dm.org/fs/backbone-base)
+[![devDependency Status](https://david-dm.org/fs/backbone-base/dev-status.svg?branch=master)](https://david-dm.org/fs/backbone-base#info=devDependencies)
 
 This simple application includes Backbone.js/Marionette.js frameworks and node/gulp/browserify technologies.
 
-## NPM Dependencies:
+## Dependencies:
     "autoprefixer"
     "babel-core"
-    "babel-eslint"
     "babel-plugin-transform-decorators-legacy"
     "babel-polyfill"
     "babel-preset-es2015"
@@ -20,9 +21,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "bootstrap"
     "bootstrap-paginator"
     "browserify"
-    "casper-chai"
-    "casperjs"
-    "chai"
     "connect"
     "connect-history-api-fallback"
     "connect-prism"
@@ -30,28 +28,15 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "dotenv"
     "grunt"
     "gulp"
-    "gulp-eslint"
     "gulp-jade"
-    "gulp-jsonlint"
     "gulp-notify"
     "gulp-plumber"
     "gulp-postcss"
     "gulp-rename"
     "gulp-replace-task"
-    "gulp-shell"
     "jadeify"
     "jquery"
-    "karma"
-    "karma-browserify"
-    "karma-chai"
-    "karma-chrome-launcher"
-    "karma-mocha"
-    "karma-phantomjs-launcher"
-    "karma-sinon"
     "marionette-animated-region"
-    "mocha"
-    "mocha-casperjs"
-    "phantomjs"
     "postcss-color-function"
     "postcss-import"
     "postcss-inline-comment"
@@ -63,13 +48,32 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "require-dir"
     "run-sequence"
     "serve-static"
-    "sinon"
-    "stylelint"
-    "stylelint-statement-max-nesting-depth"
     "underscore"
     "velocity-animate"
     "vinyl-source-stream"
     "watchify"
+
+## Dev Dependencies:
+    "babel-eslint"
+    "casper-chai"
+    "casperjs"
+    "chai"
+    "gulp-eslint"
+    "gulp-jsonlint"
+    "gulp-shell"
+    "karma"
+    "karma-browserify"
+    "karma-chai"
+    "karma-chrome-launcher"
+    "karma-mocha"
+    "karma-phantomjs-launcher"
+    "karma-sinon"
+    "mocha"
+    "mocha-casperjs"
+    "phantomjs"
+    "sinon"
+    "stylelint"
+    "stylelint-statement-max-nesting-depth"
 
 ## Install
 ### OSX
@@ -84,8 +88,8 @@ brew install node
 Via nvm:
 ```bash
 brew install nvm
-nvm install 5.1.1
-nvm alias default 5.1.1
+nvm install 5.5.0
+nvm alias default 5.5.0
 ```
 
 ## Quick start

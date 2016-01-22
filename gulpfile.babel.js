@@ -1,3 +1,8 @@
 import requireDir from 'require-dir';
+import config from './gulp/config';
 
-requireDir('./gulp/tasks', { recurse: true });
+requireDir('./gulp/build');
+
+if (!config.isProduction) {
+  requireDir('./gulp/test');
+}
