@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "5.4.1"
+    "node": "5.5.0"
   },
   "dependencies": {
     "autoprefixer": "^6.3.1",
@@ -39,7 +39,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "connect-prism": "^1.0.4",
     "del": "^2.2.0",
-    "dotenv": "^1.2.0",
+    "dotenv": "^2.0.0",
     "grunt": "^0.4.5",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",

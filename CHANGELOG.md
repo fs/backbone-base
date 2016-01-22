@@ -1,8 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 5.5.0
 - Separate test and build tasks and load them in appropirate environment
-- Upgrade Node to 5.4.1
 - Upgrade dependencies and extract devDependencies
 ([#111](https://github.com/fs/backbone-base/pull/111))
 - Update stylesheets environment. Introduce stylelint
