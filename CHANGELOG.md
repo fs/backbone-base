@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.3.0 - 2016-01-22
 - Upgrade Node to 5.5.0
 - Separate test and build tasks and load them in appropirate environment
 - Upgrade dependencies and extract devDependencies
