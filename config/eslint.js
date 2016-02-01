@@ -19,7 +19,6 @@ module.exports = {
     'comma-style': [2, 'last'],
     'constructor-super': 2,
     'eol-last': 2,
-    'func-names': 2,
     'indent': [2, 2],
     'key-spacing': [2, { 'beforeColon': false, 'afterColon': true }],
     'max-depth': [2, 4],

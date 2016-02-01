@@ -4,6 +4,7 @@
 node_modules
 access_logs.db
 npm-debug.log
+phantomjsdriver.log
 
 public
 production
