@@ -1,31 +1,44 @@
-var Setup = require('../features/helpers/setup');
+import selenium from 'selenium-webdriver';
+import chai from 'chai';
+import setup from '../features/helpers/setup';
 
-describe('Landing page', function() {
-  before(function() {
-    this.userCredentials = {
-      email: 'test@example.com',
-      password: '123456'
-    };
+const expect = chai.expect;
+const browser = setup.browser();
 
-    Setup();
+describe('Landing page', () => {
+  before(() => {
+    return browser.get(setup.urlRoot);
   });
 
-  it('has title', function() {
-    casper.then(function() {
-      expect('Backbone base').to.matchTitle;
+  after(() => {
+    return browser.quit();
+  });
+
+  it('has tab title', (done) => {
+    browser.getTitle().then((title) => {
+      expect(title).to.contain('Backbone base');
+      done();
     });
   });
 
-  it('logs user in', function() {
-    var userCredentials = this.userCredentials;
+  it('has site title', (done) => {
+    const el = browser.findElement(selenium.By.css('.navbar-brand'));
 
-    casper.then(function() {
-      this.waitForSelector('form.login-form', function() {
-        this.fill('form.login-form', userCredentials, true);
-      });
+    el.getText().then((text) => {
+      expect(text).to.contain('Backbone-base');
+      done();
+    });
+  });
 
-      this.waitForUrl(/dashboard/, function() {
-        expect('h2').to.contain.text('Greeting Gavin Jayson, you have next articles');
+  it('logs user in', (done) => {
+    browser.findElement(selenium.By.name('email')).sendKeys('test@example.com');
+    browser.findElement(selenium.By.name('password')).sendKeys('123456');
+    browser.findElement(selenium.By.css('#login_form_region button')).click();
+
+    browser.findElement(selenium.By.tagName('h2')).then((el) => {
+      el.getText().then((text) => {
+        expect(text).to.contain('Greeting Gavin Jayson, you have next articles');
+        done();
       });
     });
   });

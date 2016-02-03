@@ -3,4 +3,8 @@ import del from 'del';
 import config from '../config';
 
 gulp.task('clean', (callback) => del([config.publicDir], callback));
-gulp.task('clean-screenshots', (callback) => del([`${config.testDir}/features/screenshots`], callback));
+
+gulp.task('clean-logs', (callback) => del([
+  'npm-debug.log',
+  'phantomjsdriver.log'
+], callback));

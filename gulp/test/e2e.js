@@ -1,16 +1,12 @@
 import gulp from 'gulp';
-import shell from 'gulp-shell';
+import mocha from 'gulp-mocha';
 import config from '../config';
 
-const casperCommand = 'mocha-casperjs \
-  --chai-path=node_modules/chai \
-  --casper-chai-path=node_modules/casper-chai \
-  --viewport-width=1280 \
-  --viewport-height=800 \
-  <%= file.path %> \
-';
-
-gulp.task('e2e', ['clean-screenshots', 'build', 'server'], () => {
+gulp.task('e2e', ['clean-logs', 'build', 'server'], () => {
   return gulp.src(`${config.testDir}/**/*_feature.js`)
-    .pipe(shell(casperCommand));
+    .pipe(mocha({
+      reporter: 'dot',
+      timeout: 5000
+    }))
+    .once('error', () => { process.exit(1); });
 });

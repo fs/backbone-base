@@ -15,7 +15,7 @@ gulp.task('karma', () => {
     client: {
       mocha: { ui: 'bdd' }
     },
-    runnerPort: config.test.port,
+    port: config.test.port,
     singleRun: true,
     browsers: ['PhantomJS'],
     files: [
@@ -32,7 +32,6 @@ gulp.task('karma', () => {
       'karma-chai',
       'karma-sinon',
       'karma-browserify',
-      'karma-chrome-launcher',
       'karma-phantomjs-launcher'
     ],
     browserify: {
