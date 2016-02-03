@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Rewrite all tests using ES6 syntax
+- Use selenium as main tool for e2e tests
+([#112](https://github.com/fs/backbone-base/pull/112))
 
 ## 1.3.0 - 2016-01-22
 - Upgrade Node to 5.5.0
