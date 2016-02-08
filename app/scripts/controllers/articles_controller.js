@@ -10,7 +10,7 @@ export default class ArticlesController extends Marionette.Object {
     const articles = new Articles();
 
     articles.fetchByPage(page).then(() => {
-      App.mainRegion.show(new ArticlesLayout({
+      App.layout.mainRegion.show(new ArticlesLayout({
         page,
         collection: articles
       }));
@@ -21,7 +21,7 @@ export default class ArticlesController extends Marionette.Object {
     const article = new Article({ id });
 
     article.fetch().then(() => {
-      App.mainRegion.show(new ArticleLayout({ model: article }));
+      App.layout.mainRegion.show(new ArticleLayout({ model: article }));
     });
   }
 }

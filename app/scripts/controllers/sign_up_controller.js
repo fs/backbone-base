@@ -4,6 +4,6 @@ import SignUpView from 'scripts/views/sign_up/sign_up';
 
 export default class SignUpController extends Marionette.Object {
   index() {
-    App.mainRegion.show(new SignUpView());
+    App.layout.mainRegion.show(new SignUpView());
   }
 }
