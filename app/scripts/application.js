@@ -7,11 +7,11 @@ import routes from 'scripts/helpers/routes';
 
 class App extends Marionette.Application {
   initialize() {
-    this.layout = new RootLayout();
     this.origin = Backbone.history.location.origin;
   }
 
   onBeforeStart() {
+    this.layout = new RootLayout();
     routes.setRootPath(AppConfig.rootPath);
   }
 
