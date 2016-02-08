@@ -5,7 +5,7 @@ import ArticlesLayout from 'scripts/views/layouts/articles_layout';
 import Article from 'scripts/models/article';
 import Articles from 'scripts/collections/articles';
 
-export default class ArticlesController extends Marionette.Controller {
+export default class ArticlesController extends Marionette.Object {
   index(page) {
     const articles = new Articles();
 

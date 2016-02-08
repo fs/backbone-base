@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use Marionette.Object as controller instead of depricated Marionette.Controller
+([#113](https://github.com/fs/backbone-base/pull/113))
 - Rewrite all tests using ES6 syntax
 - Use selenium as main tool for e2e tests
 ([#112](https://github.com/fs/backbone-base/pull/112))

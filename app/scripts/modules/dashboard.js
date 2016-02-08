@@ -1,7 +1,6 @@
 import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import Router from 'scripts/routers/dashboard';
-import Controller from 'scripts/controllers/dashboard_controller';
 import Routes from 'scripts/helpers/routes';
 import { props } from 'scripts/decorators';
 
@@ -10,8 +9,7 @@ import { props } from 'scripts/decorators';
 })
 class Dashboard extends Marionette.Module {
   onBeforeStart() {
-    const controller = new Controller();
-    this.router = new Router({ controller });
+    this.router = new Router();
     Routes.initModule(this);
   }
 
