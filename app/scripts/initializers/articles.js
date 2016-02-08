@@ -1,10 +1,9 @@
 import App from 'scripts/application';
 import Router from 'scripts/routers/articles';
-import Routes from 'scripts/helpers/routes';
+import routes from 'scripts/helpers/routes';
 
 App.on('before:start', function() {
-  this.moduleName = 'articles';
-  this.router = new Router();
-  Routes.initModule(this);
+  const router = new Router();
+  routes.init(router);
   console.log('module articles started');
 });

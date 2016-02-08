@@ -1,31 +1,44 @@
-import AppConfig from 'scripts/config';
-
 export default class RoutesHelper {
-  static initModule(module) {
-    const appRoutes = module.router.appRoutes;
+  static init(router) {
+    const appRoutes = router.appRoutes;
+    const routerName = this.extractRouterName(router);
 
     for (const pattern in appRoutes) {
       if (appRoutes.hasOwnProperty(pattern)) {
         const routeName = appRoutes[pattern];
-        this.addRoute(module.moduleName, routeName, pattern);
+        this.addRoute(routerName, routeName, pattern);
       }
     }
   }
 
+  static extractRouterName(router) {
+    if (router.name) return router.name;
+
+    const name = router.constructor.name;
+    const routerName = name.toLowerCase().replace('router', '');
+
+    return routerName;
+  }
+
   static rootPath() {
-    return AppConfig.rootPath;
+    return this.path;
+  }
+
+  static setRootPath(path) {
+    this.path = path;
   }
 
   static prependRoot(path) {
     const rootPath = this.rootPath();
+
     return (path.indexOf(rootPath)) ? `${rootPath}${path}` : path;
   }
 
-  static addRoute(moduleName, routeName, pattern) {
+  static addRoute(routerName, routeName, pattern) {
     const keys = pattern.match(/\:\w+/g);
-    const modulePart = moduleName.toLowerCase();
+    const routerPart = routerName;
     const routePart = routeName.charAt(0).toUpperCase() + routeName.substr(1).toLowerCase();
-    const methodName = `${modulePart}${routePart}Path`;
+    const methodName = `${routerPart}${routePart}Path`;
 
     this[methodName] = (...params) => {
       let path = pattern;

@@ -2,7 +2,6 @@ import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import User from 'scripts/models/user';
 import Session from 'scripts/facades/session';
-import Routes from 'scripts/helpers/routes';
 import FormBehavior from 'scripts/views/behaviors/form';
 import template from 'templates/sign_up/sign_up';
 import { props } from 'scripts/decorators';

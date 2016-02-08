@@ -3,12 +3,16 @@ import Marionette from 'backbone.marionette';
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
 import RootLayout from 'scripts/views/layouts/root_layout';
-import { props } from 'scripts/decorators';
+import routes from 'scripts/helpers/routes';
 
 class App extends Marionette.Application {
   initialize() {
     this.layout = new RootLayout();
     this.origin = Backbone.history.location.origin;
+  }
+
+  onBeforeStart() {
+    routes.setRootPath(AppConfig.rootPath);
   }
 
   onStart() {

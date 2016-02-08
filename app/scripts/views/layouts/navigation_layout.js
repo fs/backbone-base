@@ -3,7 +3,7 @@ import NavigationNavigationView from 'scripts/views/navigation/navigation';
 import NavigationLoginView from 'scripts/views/navigation/login';
 import NavigationLogoutView from 'scripts/views/navigation/logout';
 import Session from 'scripts/facades/session';
-import Routes from 'scripts/helpers/routes';
+import routes from 'scripts/helpers/routes';
 import template from 'templates/layouts/navigation_layout';
 import { props } from 'scripts/decorators';
 
@@ -16,9 +16,7 @@ import { props } from 'scripts/decorators';
     formRegion: '#login_form_region'
   },
 
-  templateHelpers: {
-    routes: Routes
-  }
+  templateHelpers: { routes }
 })
 export default class NavigationLayout extends Marionette.LayoutView {
   initialize() {
