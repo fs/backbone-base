@@ -5,7 +5,7 @@ import NavigationLayout from 'scripts/views/layouts/navigation_layout';
 
 export default class NavigationController extends Marionette.Object {
   initialize() {
-    App.navigationRegion.show(new NavigationLayout());
+    App.layout.navigationRegion.show(new NavigationLayout());
   }
 
   signOut() {

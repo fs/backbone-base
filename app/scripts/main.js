@@ -1,10 +1,9 @@
-import $ from 'jquery';
-import 'scripts/modules/sign_up';
-import 'scripts/modules/landing';
-import 'scripts/modules/dashboard';
-import 'scripts/modules/articles';
-import 'scripts/modules/navigation';
-import 'scripts/modules/notifications';
+import 'scripts/initializers/sign_up';
+import 'scripts/initializers/landing';
+import 'scripts/initializers/dashboard';
+import 'scripts/initializers/articles';
+import 'scripts/initializers/navigation';
+import 'scripts/initializers/notifications';
 import App from 'scripts/application';
 
-$(() => App.start());
+document.addEventListener('DOMContentLoaded', () => App.start());

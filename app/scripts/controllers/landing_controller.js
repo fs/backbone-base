@@ -4,6 +4,6 @@ import ContentLandingView from 'scripts/views/content/landing';
 
 export default class LandingController extends Marionette.Object {
   index() {
-    App.mainRegion.show(new ContentLandingView());
+    App.layout.mainRegion.show(new ContentLandingView());
   }
 }

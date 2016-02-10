@@ -1,7 +1,11 @@
 # Changelog
 
 ## Unreleased
-- Use Marionette.Object as controller instead of depricated Marionette.Controller
+- Use application "before:start" callbacks as initializers instead of deprecated Marionette.Module
+- Rewrite application start point to Marionette.Application class
+- Rewrite routes helper to work without Marionette.Module
+([#114](https://github.com/fs/backbone-base/pull/114))
+- Use Marionette.Object as controller instead of deprecated Marionette.Controller
 ([#113](https://github.com/fs/backbone-base/pull/113))
 - Rewrite all tests using ES6 syntax
 - Use selenium as main tool for e2e tests

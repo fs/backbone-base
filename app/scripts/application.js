@@ -1,41 +1,32 @@
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
-import AnimatedRegion from 'marionette-animated-region';
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
+import RootLayout from 'scripts/views/layouts/root_layout';
+import routes from 'scripts/helpers/routes';
 
-const App = new Marionette.Application();
-
-App.history = () => {
-  Backbone.history.start({
-    pushState: true,
-    root: AppConfig.rootPath
-  });
-};
-
-App.origin = Backbone.history.location.origin;
-
-App.addRegions({
-  notificationsRegion: '#notifications_region',
-  navigationRegion: '#navigation_region',
-  mainRegion: {
-    selector: '#main_region',
-    regionClass: AnimatedRegion,
-    animation: {
-      showAnimation: [
-        {
-          properties: 'transition.slideLeftBigIn',
-          options: { stagger: 300 }
-        }
-      ]
-    }
+class App extends Marionette.Application {
+  initialize() {
+    this.origin = Backbone.history.location.origin;
   }
-});
 
-App.on('start', () => {
-  App.history();
-  LinkOverride.init();
-  console.log('app started');
-});
+  onBeforeStart() {
+    this.layout = new RootLayout();
+    routes.setRootPath(AppConfig.rootPath);
+  }
 
-export default App;
+  onStart() {
+    this.history();
+    LinkOverride.init();
+    console.log('app started');
+  }
+
+  history() {
+    Backbone.history.start({
+      pushState: true,
+      root: AppConfig.rootPath
+    });
+  }
+}
+
+export default new App();
