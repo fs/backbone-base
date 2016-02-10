@@ -16,20 +16,22 @@ describe('Article', function() {
     this.saveStub.restore();
   });
 
-  it('article text should eq to "text"', () => {
+  it('article text is equal to "text"', () => {
     expect(this.article.get('text')).to.equal('text');
   });
 
-  it('article name should eq to "Article"', () => {
+  it('article name is equal to "Article"', () => {
     expect(this.article.get('name')).to.equal('Article');
   });
 
-  it('article comments should be empty', () => {
+  it('article comments are empty', () => {
     expect(this.article.get('comments')).to.be.empty;
   });
 
-  it('should update article when name is changed', () => {
-    this.article.set('name', 'Name');
-    this.saveStub.should.have.been.calledOnce;
+  context('when name is changed', () => {
+    it('updates article', () => {
+      this.article.set('name', 'Name');
+      this.saveStub.should.have.been.calledOnce;
+    });
   });
 });
