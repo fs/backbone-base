@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Make specs more human readable
+([#115](https://github.com/fs/backbone-base/pull/115))
 - Use application "before:start" callbacks as initializers instead of deprecated Marionette.Module
 - Rewrite application start point to Marionette.Application class
 - Rewrite routes helper to work without Marionette.Module
