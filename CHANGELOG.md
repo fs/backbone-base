@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
 - Upgrade Node to 5.6.0
 ([#116](https://github.com/fs/backbone-base/pull/116))
 - Make specs more human readable

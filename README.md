@@ -85,8 +85,8 @@ brew install node
 Via nvm:
 ```bash
 brew install nvm
-nvm install 5.5.0
-nvm alias default 5.5.0
+nvm install node
+nvm alias default node
 ```
 
 ## Quick start
