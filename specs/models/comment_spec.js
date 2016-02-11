@@ -14,16 +14,18 @@ describe('Comment', function() {
     this.saveStub.restore();
   });
 
-  it('comment user should eq to "User"', () => {
+  it('comment user is equal to "User"', () => {
     expect(this.comment.get('user')).to.equal('User');
   });
 
-  it('comment comment should eq to "Comment"', () => {
+  it('comment comment is equal to "Comment"', () => {
     expect(this.comment.get('comment')).to.equal('Comment');
   });
 
-  it('should update comment when comment is changed', () => {
-    this.comment.set('comment', 'Test');
-    this.saveStub.should.have.been.calledOnce;
+  context('when comment is changed', () => {
+    it('updates comment text', () => {
+      this.comment.set('comment', 'Test');
+      this.saveStub.should.have.been.calledOnce;
+    });
   });
 });
