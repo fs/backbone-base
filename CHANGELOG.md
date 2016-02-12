@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+- Upgrade Node to 5.6.0
+([#116](https://github.com/fs/backbone-base/pull/116))
 - Make specs more human readable
 ([#115](https://github.com/fs/backbone-base/pull/115))
 - Use application "before:start" callbacks as initializers instead of deprecated Marionette.Module
