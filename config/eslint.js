@@ -25,7 +25,7 @@ module.exports = {
     'max-len': [2, 120, 4],
     'max-params': [2, 4],
     'max-statements': [2, 10],
-    'no-arrow-condition': 2,
+    'no-confusing-arrow': 2,
     'no-bitwise': 2,
     'no-class-assign': 2,
     'no-const-assign': 2,
