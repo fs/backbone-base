@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use Browser-sync as dev server
+([#117](https://github.com/fs/backbone-base/pull/117))
 
 ## 1.4.0 - 2016-02-15
 - Upgrade dependencies
