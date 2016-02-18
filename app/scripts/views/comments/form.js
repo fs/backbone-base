@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import Comment from 'scripts/models/comment';
-import FormBehavior from 'scripts/views/behaviors/form';
+import FormBehavior from 'scripts/behaviors/form';
 import Session from 'scripts/facades/session';
 import user from 'scripts/helpers/user';
 import template from 'templates/comments/form';
