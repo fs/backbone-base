@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Move behaviors directory out from views
+- Remove layouts directory and use components structure
+([#118](https://github.com/fs/backbone-base/pull/118))
 - Use Browser-sync as dev server
 ([#117](https://github.com/fs/backbone-base/pull/117))
 
