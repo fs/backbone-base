@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
 import routes from 'scripts/helpers/routes';
-import template from 'templates/navigation/navigation';
+import template from 'templates/navigation/links';
 import { props } from 'scripts/decorators';
 
 @props({
@@ -16,7 +16,7 @@ import { props } from 'scripts/decorators';
 
   templateHelpers: { routes }
 })
-export default class NavigationView extends Marionette.ItemView {
+export default class NavigationLinksView extends Marionette.ItemView {
   initialize() {
     this.listenTo(App.vent, 'navigation:change', this.onHighlightNavigation);
   }

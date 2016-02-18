@@ -1,5 +1,5 @@
 import App from 'scripts/application';
-import NotificationsLayout from 'scripts/views/layouts/notifications_layout';
+import NotificationsLayout from 'scripts/views/notifications/layout';
 
 App.on('before:start', function() {
   App.layout.notificationsRegion.show(new NotificationsLayout());

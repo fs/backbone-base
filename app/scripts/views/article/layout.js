@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
-import ArticlesShowView from 'scripts/views/articles/show';
+import ArticleShowView from 'scripts/views/article/show';
 import CommentFormView from 'scripts/views/comments/form';
-import template from 'templates/layouts/article_layout';
+import template from 'templates/article/layout';
 import { props } from 'scripts/decorators';
 
 @props({
@@ -18,7 +18,7 @@ export default class ArticleLayout extends Marionette.LayoutView {
   }
 
   onRender() {
-    this.articleRegion.show(new ArticlesShowView({ model: this.model }));
+    this.articleRegion.show(new ArticleShowView({ model: this.model }));
     this.writeCommentRegion.show(new CommentFormView({ currentArticle: this.model }));
   }
 
