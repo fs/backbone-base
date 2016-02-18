@@ -8,6 +8,7 @@ import { props } from 'scripts/decorators';
 
 @props({
   template,
+  model: new User(),
 
   ui: {
     form: 'form'
@@ -62,10 +63,6 @@ import { props } from 'scripts/decorators';
   }
 })
 export default class SignUpView extends Marionette.ItemView {
-  initialize() {
-    this.model = new User();
-  }
-
   signUpNewUser(event) {
     event.preventDefault();
     this.model.signUp().done(() => { this.signInNewUser(); });
