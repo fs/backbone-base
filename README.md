@@ -20,6 +20,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "backbone.stickit"
     "bootstrap"
     "bootstrap-paginator"
+    "browser-sync"
     "browserify"
     "connect"
     "connect-history-api-fallback"
