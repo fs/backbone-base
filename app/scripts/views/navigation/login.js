@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import Session from 'scripts/facades/session';
-import FormBehavior from 'scripts/views/behaviors/form';
+import FormBehavior from 'scripts/behaviors/form';
 import routes from 'scripts/helpers/routes';
 import template from 'templates/navigation/login';
 import { props } from 'scripts/decorators';

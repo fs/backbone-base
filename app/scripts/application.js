@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 import AppConfig from 'scripts/config';
 import LinkOverride from 'scripts/overrides/link';
-import RootLayout from 'scripts/views/layouts/root_layout';
+import RootLayout from 'scripts/views/root/layout';
 import routes from 'scripts/helpers/routes';
 
 class App extends Marionette.Application {

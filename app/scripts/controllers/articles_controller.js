@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
 import App from 'scripts/application';
-import ArticleLayout from 'scripts/views/layouts/article_layout';
-import ArticlesLayout from 'scripts/views/layouts/articles_layout';
+import ArticleLayout from 'scripts/views/article/layout';
+import ArticlesLayout from 'scripts/views/articles/layout';
 import Article from 'scripts/models/article';
 import Articles from 'scripts/collections/articles';
 

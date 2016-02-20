@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import Comment from 'scripts/models/comment';
-import FormBehavior from 'scripts/views/behaviors/form';
+import FormBehavior from 'scripts/behaviors/form';
 import Session from 'scripts/facades/session';
 import user from 'scripts/helpers/user';
 import template from 'templates/comments/form';
@@ -8,6 +8,7 @@ import { props } from 'scripts/decorators';
 
 @props({
   template,
+  model: new Comment(Session.currentUser().pick('avatar', 'name')),
 
   events: {
     'submit form': 'onFormSubmit'
@@ -34,7 +35,6 @@ import { props } from 'scripts/decorators';
 export default class CommentFormView extends Marionette.ItemView {
   initialize() {
     this.currentArticle = this.options.currentArticle;
-    this.model = new Comment(Session.currentUser().pick('avatar', 'name'));
     this.model.set('article_id', this.currentArticle.get('id'));
   }
 
