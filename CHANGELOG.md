@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Watching images folder on updates
+([#119](https://github.com/fs/backbone-base/pull/119))
 - Move behaviors directory out from views
 - Remove layouts directory and use components structure
 ([#118](https://github.com/fs/backbone-base/pull/118))
