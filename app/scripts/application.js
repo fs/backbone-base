@@ -7,25 +7,25 @@ import routes from 'scripts/helpers/routes';
 
 class App extends Marionette.Application {
   initialize() {
-    this.origin = Backbone.history.location.origin;
+    this.history = Backbone.history;
   }
 
   onBeforeStart() {
     this.layout = new RootLayout();
-    routes.setRootPath(AppConfig.rootPath);
+    routes.init({ root: AppConfig.rootPath });
   }
 
   onStart() {
-    this.history();
+    this.history.start({
+      pushState: true,
+      root: AppConfig.rootPath
+    });
     LinkOverride.init();
     console.log('app started');
   }
 
-  history() {
-    Backbone.history.start({
-      pushState: true,
-      root: AppConfig.rootPath
-    });
+  navigate(route, options = {}) {
+    return this.history.navigate(route, options);
   }
 }
 
