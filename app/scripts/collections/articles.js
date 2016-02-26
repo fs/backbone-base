@@ -1,6 +1,6 @@
-import Article from 'scripts/models/article';
-import PaginatedCollection from 'scripts/collections/paginated';
-import { props } from 'scripts/decorators';
+import Article from 'models/article';
+import PaginatedCollection from 'collections/paginated';
+import { props } from 'decorators';
 
 @props({
   url: 'articles',

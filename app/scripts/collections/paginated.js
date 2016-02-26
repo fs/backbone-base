@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import AppCollection from 'scripts/collections/app';
+import AppCollection from 'collections/app';
 
 export default class PaginatedCollection extends AppCollection {
   parse(response) {

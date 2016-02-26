@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
-import CommentsItemView from 'scripts/views/comments/item';
-import user from 'scripts/helpers/user';
+import CommentsItemView from 'views/comments/item';
+import user from 'helpers/user';
 import template from 'templates/article/show';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

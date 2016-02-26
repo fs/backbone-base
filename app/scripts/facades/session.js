@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import $ from 'jquery';
 import Backbone from 'backbone';
-import AppConfig from 'scripts/config';
-import User from 'scripts/models/user';
-import Storage from 'scripts/facades/storage';
+import AppConfig from 'config';
+import User from 'models/user';
+import Storage from 'facades/storage';
 
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;

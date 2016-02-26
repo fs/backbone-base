@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
-import ArticleShowView from 'scripts/views/article/show';
-import CommentFormView from 'scripts/views/comments/form';
+import ArticleShowView from 'views/article/show';
+import CommentFormView from 'views/comments/form';
 import template from 'templates/article/layout';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

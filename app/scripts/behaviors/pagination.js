@@ -1,7 +1,7 @@
 import 'bootstrap-paginator';
 import Marionette from 'backbone.marionette';
-import App from 'scripts/application';
-import { props } from 'scripts/decorators';
+import App from 'application';
+import { props } from 'decorators';
 
 @props({
   ui: {

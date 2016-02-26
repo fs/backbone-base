@@ -18,7 +18,7 @@ gulp.task('browserify', () => {
     debug: config.isDevelopment,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
-    paths: [config.appDir]
+    paths: [`${config.appDir}/scripts`]
   })
   .transform(jadeify)
   .transform(babelify.configure({

@@ -1,6 +1,6 @@
-import App from 'scripts/application';
-import Router from 'scripts/routers/dashboard';
-import routes from 'scripts/helpers/routes';
+import App from 'application';
+import Router from 'routers/dashboard';
+import routes from 'helpers/routes';
 
 App.on('before:start', function() {
   const router = new Router();

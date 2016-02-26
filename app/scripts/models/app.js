@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
-import App from 'scripts/application';
-import AppConfig from 'scripts/config';
+import App from 'application';
+import AppConfig from 'config';
 
 export default class AppModel extends Backbone.Model {
   initialize() {

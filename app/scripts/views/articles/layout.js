@@ -1,9 +1,9 @@
 import Marionette from 'backbone.marionette';
-import PaginationBehavior from 'scripts/behaviors/pagination';
-import ArticlesListView from 'scripts/views/articles/list';
-import ArticlesFormView from 'scripts/views/articles/form';
+import PaginationBehavior from 'behaviors/pagination';
+import ArticlesListView from 'views/articles/list';
+import ArticlesFormView from 'views/articles/form';
 import template from 'templates/articles/layout';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

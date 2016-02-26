@@ -1,10 +1,10 @@
 import Backbone from 'backbone';
-import App from 'scripts/application';
-import BaseRouter from 'scripts/routers/base';
-import Session from 'scripts/facades/session';
-import Controller from 'scripts/controllers/navigation_controller';
-import routes from 'scripts/helpers/routes';
-import { props } from 'scripts/decorators';
+import App from 'application';
+import BaseRouter from 'routers/base';
+import Session from 'facades/session';
+import Controller from 'controllers/navigation_controller';
+import routes from 'helpers/routes';
+import { props } from 'decorators';
 
 @props({
   appRoutes: {

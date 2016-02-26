@@ -1,9 +1,9 @@
-import 'scripts/initializers/sign_up';
-import 'scripts/initializers/landing';
-import 'scripts/initializers/dashboard';
-import 'scripts/initializers/articles';
-import 'scripts/initializers/navigation';
-import 'scripts/initializers/notifications';
-import App from 'scripts/application';
+import 'initializers/sign_up';
+import 'initializers/landing';
+import 'initializers/dashboard';
+import 'initializers/articles';
+import 'initializers/navigation';
+import 'initializers/notifications';
+import App from 'application';
 
 document.addEventListener('DOMContentLoaded', () => App.start());

@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import AppModel from 'scripts/models/app';
-import AppConfig from 'scripts/config';
-import { props } from 'scripts/decorators';
+import AppModel from 'models/app';
+import AppConfig from 'config';
+import { props } from 'decorators';
 
 @props({
   urlRoot: 'users',

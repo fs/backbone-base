@@ -1,9 +1,9 @@
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
-import App from 'scripts/application';
-import routes from 'scripts/helpers/routes';
+import App from 'application';
+import routes from 'helpers/routes';
 import template from 'templates/navigation/links';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
-import App from 'scripts/application';
-import Session from 'scripts/facades/session';
-import NavigationLayout from 'scripts/views/navigation/layout';
+import App from 'application';
+import Session from 'facades/session';
+import NavigationLayout from 'views/navigation/layout';
 
 export default class NavigationController extends Marionette.Object {
   initialize() {

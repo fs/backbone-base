@@ -1,10 +1,10 @@
 import Marionette from 'backbone.marionette';
-import Article from 'scripts/models/article';
-import FormBehavior from 'scripts/behaviors/form';
-import Session from 'scripts/facades/session';
-import user from 'scripts/helpers/user';
+import Article from 'models/article';
+import FormBehavior from 'behaviors/form';
+import Session from 'facades/session';
+import user from 'helpers/user';
 import template from 'templates/articles/form';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

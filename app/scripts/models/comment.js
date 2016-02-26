@@ -1,5 +1,5 @@
-import SessionModel from 'scripts/models/session';
-import { props } from 'scripts/decorators';
+import SessionModel from 'models/session';
+import { props } from 'decorators';
 
 @props({
   urlRoot: 'comments',

@@ -1,7 +1,7 @@
-import App from 'scripts/application';
-import BaseRouter from 'scripts/routers/base';
-import Controller from 'scripts/controllers/sign_up_controller';
-import { props } from 'scripts/decorators';
+import App from 'application';
+import BaseRouter from 'routers/base';
+import Controller from 'controllers/sign_up_controller';
+import { props } from 'decorators';
 
 @props({
   appRoutes: {

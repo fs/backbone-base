@@ -1,6 +1,6 @@
-import BaseRouter from 'scripts/routers/base';
-import Controller from 'scripts/controllers/landing_controller';
-import { props } from 'scripts/decorators';
+import BaseRouter from 'routers/base';
+import Controller from 'controllers/landing_controller';
+import { props } from 'decorators';
 
 @props({
   appRoutes: {

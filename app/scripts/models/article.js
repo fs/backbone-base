@@ -1,6 +1,6 @@
-import SessionModel from 'scripts/models/session';
-import Comments from 'scripts/collections/comments';
-import { props } from 'scripts/decorators';
+import SessionModel from 'models/session';
+import Comments from 'collections/comments';
+import { props } from 'decorators';
 
 @props({
   urlRoot: 'articles',

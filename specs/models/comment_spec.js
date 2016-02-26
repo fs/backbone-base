@@ -1,4 +1,4 @@
-import Comment from 'scripts/models/comment';
+import Comment from 'models/comment';
 
 describe('Comment', function() {
   beforeEach(() => {

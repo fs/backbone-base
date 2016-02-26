@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
-import Session from 'scripts/facades/session';
-import user from 'scripts/helpers/user';
+import Session from 'facades/session';
+import user from 'helpers/user';
 import template from 'templates/navigation/logout';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

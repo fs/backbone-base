@@ -3,7 +3,7 @@ import 'backbone-validation';
 import 'backbone.stickit';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   defaults: {

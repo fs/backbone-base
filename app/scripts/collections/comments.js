@@ -1,6 +1,6 @@
-import Comment from 'scripts/models/comment';
-import AppCollection from 'scripts/collections/app';
-import { props } from 'scripts/decorators';
+import Comment from 'models/comment';
+import AppCollection from 'collections/app';
+import { props } from 'decorators';
 
 @props({
   model: Comment

@@ -1,8 +1,8 @@
-import App from 'scripts/application';
-import BaseRouter from 'scripts/routers/base';
-import Controller from 'scripts/controllers/articles_controller';
-import routes from 'scripts/helpers/routes';
-import { props } from 'scripts/decorators';
+import App from 'application';
+import BaseRouter from 'routers/base';
+import Controller from 'controllers/articles_controller';
+import routes from 'helpers/routes';
+import { props } from 'decorators';
 
 @props({
   navigation: 'articles',

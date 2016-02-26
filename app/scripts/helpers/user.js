@@ -1,4 +1,4 @@
-import AppConfig from 'scripts/config';
+import AppConfig from 'config';
 
 export default class UserHelper {
   static avatar(avatar) {

@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
-import user from 'scripts/helpers/user';
+import user from 'helpers/user';
 import template from 'templates/comments/item';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   template,

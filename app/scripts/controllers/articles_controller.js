@@ -1,9 +1,9 @@
 import Marionette from 'backbone.marionette';
-import App from 'scripts/application';
-import ArticleLayout from 'scripts/views/article/layout';
-import ArticlesLayout from 'scripts/views/articles/layout';
-import Article from 'scripts/models/article';
-import Articles from 'scripts/collections/articles';
+import App from 'application';
+import ArticleLayout from 'views/article/layout';
+import ArticlesLayout from 'views/articles/layout';
+import Article from 'models/article';
+import Articles from 'collections/articles';
 
 export default class ArticlesController extends Marionette.Object {
   index(page) {

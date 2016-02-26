@@ -1,6 +1,6 @@
-import Article from 'scripts/models/article';
-import AppCollection from 'scripts/collections/app';
-import { props } from 'scripts/decorators';
+import Article from 'models/article';
+import AppCollection from 'collections/app';
+import { props } from 'decorators';
 
 @props({
   url: 'dashboard',

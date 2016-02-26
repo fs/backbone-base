@@ -1,5 +1,5 @@
 import Marionette from 'backbone.marionette';
-import App from 'scripts/application';
+import App from 'application';
 
 describe('Application', () => {
   it('starts successfully', () => {

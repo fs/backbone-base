@@ -1,9 +1,9 @@
 import Marionette from 'backbone.marionette';
 import AnimatedRegion from 'marionette-animated-region';
-import App from 'scripts/application';
-import NotificationsItemView from 'scripts/views/notifications/notification';
+import App from 'application';
+import NotificationsItemView from 'views/notifications/notification';
 import template from 'templates/notifications/layout';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 const DELAY_SPEED = 3000;
 

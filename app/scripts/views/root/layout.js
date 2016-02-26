@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import AnimatedRegion from 'marionette-animated-region';
-import { props } from 'scripts/decorators';
+import { props } from 'decorators';
 
 @props({
   el: 'body',
