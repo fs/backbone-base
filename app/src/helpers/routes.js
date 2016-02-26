@@ -3,9 +3,8 @@ export default class RoutesHelper {
     this.root = options.root;
   }
 
-  static bind(router) {
+  static bind(routerName, router) {
     const appRoutes = router.appRoutes;
-    const routerName = this.extractRouterName(router);
 
     for (const pattern in appRoutes) {
       if (appRoutes.hasOwnProperty(pattern)) {
@@ -13,15 +12,6 @@ export default class RoutesHelper {
         this.addRoute(routerName, routeName, pattern);
       }
     }
-  }
-
-  static extractRouterName(router) {
-    if (router.name) return router.name;
-
-    const name = router.constructor.name;
-    const routerName = name.toLowerCase().replace('router', '');
-
-    return routerName;
   }
 
   static rootPath() {

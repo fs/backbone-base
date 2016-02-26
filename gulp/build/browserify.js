@@ -5,6 +5,7 @@ import source from 'vinyl-source-stream';
 import jadeify from 'jadeify';
 import babelify from 'babelify';
 import watchify from 'watchify';
+import minifyify from 'minifyify';
 import notify from 'gulp-notify';
 import config from '../config';
 
@@ -39,6 +40,9 @@ gulp.task('browserify', () => {
 
   if (config.isDevelopment) {
     watchify(bundler).on('update', bundle);
+  }
+  else {
+    bundler.plugin(minifyify, { map: false });
   }
 
   return bundle();

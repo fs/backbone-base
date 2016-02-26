@@ -4,6 +4,6 @@ import routes from 'helpers/routes';
 
 App.on('before:start', function() {
   const router = new Router();
-  routes.bind(router);
+  routes.bind('articles', router);
   console.log('module articles started');
 });

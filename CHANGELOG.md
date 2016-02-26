@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use minifyify to minify javascript code on production
+([#122](https://github.com/fs/backbone-base/pull/122))
 - Rename javascript and destination folders and configure application with them
 - Use relative to the "scripts" folder paths for script files
 ([#121](https://github.com/fs/backbone-base/pull/121))
