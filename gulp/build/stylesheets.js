@@ -32,5 +32,5 @@ gulp.task('stylesheets', () => {
     .pipe(plumber())
     .pipe(postcss(processors))
     .on('error', notify.onError())
-    .pipe(gulp.dest(config.publicDir));
+    .pipe(gulp.dest(config.distDir));
 });

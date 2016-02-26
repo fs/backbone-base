@@ -1,4 +1,4 @@
-import Article from 'scripts/models/article';
+import Article from 'models/article';
 
 describe('Article', function() {
   beforeEach(() => {

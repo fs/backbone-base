@@ -4,7 +4,7 @@ import config from '../config';
 
 gulp.task('eslint', () => {
   return gulp.src([
-    `${config.appDir}/scripts/**/*.js`,
+    `${config.appDir}/src/**/*.js`,
     `${config.gulpDir}/**/*.js`,
     `${config.testDir}/**/*.js`
   ])

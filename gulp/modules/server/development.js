@@ -14,11 +14,11 @@ export default () => {
     open: false,
     notify: false,
     server: {
-      baseDir: config.publicDir,
+      baseDir: config.distDir,
       middleware(req, res, next) {
         middlewaresStack(middlewares, req, res, next);
       }
     },
-    files: [`${config.publicDir}/**/*`]
+    files: [`${config.distDir}/**/*`]
   });
 };

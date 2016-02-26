@@ -7,7 +7,7 @@ const gulpConfig = {
   env: process.env.NODE_ENV,
   mode: process.env.MODE,
   appDir: 'app',
-  publicDir: 'public',
+  distDir: 'dist',
   testDir: 'specs',
   mocksDir: 'mocks',
   configDir: 'config',

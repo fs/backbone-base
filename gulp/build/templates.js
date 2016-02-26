@@ -11,5 +11,5 @@ gulp.task('templates', () => {
       pretty: true,
       data: {}
     }).on('error', notify.onError()))
-    .pipe(gulp.dest(config.publicDir));
+    .pipe(gulp.dest(config.distDir));
 });

@@ -21,5 +21,5 @@ gulp.task('replace', () => {
 
   return gulp.src('config/config.js')
     .pipe(replace({ patterns }))
-    .pipe(gulp.dest(`${config.appDir}/scripts`));
+    .pipe(gulp.dest(`${config.appDir}/src`));
 });

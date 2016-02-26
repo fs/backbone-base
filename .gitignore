@@ -6,9 +6,9 @@ access_logs.db
 npm-debug.log
 phantomjsdriver.log
 
-public
+dist
 production
 coverage
 coverage.html
-app/scripts/config.js
+app/src/config.js
 specs/features/screenshots

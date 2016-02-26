@@ -11,7 +11,7 @@ export default () => {
   const server = connect();
 
   server.use((req, res, next) => middlewaresStack(middlewares, req, res, next));
-  server.use(serveStatic(config.publicDir));
+  server.use(serveStatic(config.distDir));
   server.listen(port);
   console.log(`Listening on 0.0.0.0:${port}`);
 };

@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Rename javascript and destination folders and configure application with them
+- Use relative to the "scripts" folder paths for script files
+([#121](https://github.com/fs/backbone-base/pull/121))
 - Make minor changes in navigate logic
 ([#120](https://github.com/fs/backbone-base/pull/120))
 - Watching images folder on updates

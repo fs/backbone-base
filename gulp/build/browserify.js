@@ -8,7 +8,7 @@ import watchify from 'watchify';
 import notify from 'gulp-notify';
 import config from '../config';
 
-const entryPoint = `./${config.appDir}/scripts/main.js`;
+const entryPoint = `./${config.appDir}/src/main.js`;
 
 gulp.task('browserify', () => {
   const bundler = browserify({
@@ -18,7 +18,7 @@ gulp.task('browserify', () => {
     debug: config.isDevelopment,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
-    paths: [config.appDir]
+    paths: [`${config.appDir}/src`]
   })
   .transform(jadeify)
   .transform(babelify.configure({
@@ -34,7 +34,7 @@ gulp.task('browserify', () => {
       .on('error', notify.onError())
       .pipe(source(entryPoint))
       .pipe(rename('application.js'))
-      .pipe(gulp.dest(config.publicDir));
+      .pipe(gulp.dest(config.distDir));
   };
 
   if (config.isDevelopment) {
