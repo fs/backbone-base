@@ -1,4 +1,5 @@
 export default {
+  target: '@@target',
   apiPath: '@@apiPath',
   rootPath: '@@rootPath',
   sessionKey: '@@sessionKey',

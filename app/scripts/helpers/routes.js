@@ -1,5 +1,9 @@
 export default class RoutesHelper {
-  static init(router) {
+  static init(options = { root: '/' }) {
+    this.root = options.root;
+  }
+
+  static bind(router) {
     const appRoutes = router.appRoutes;
     const routerName = this.extractRouterName(router);
 
@@ -21,11 +25,7 @@ export default class RoutesHelper {
   }
 
   static rootPath() {
-    return this.path;
-  }
-
-  static setRootPath(path) {
-    this.path = path;
+    return this.root;
   }
 
   static prependRoot(path) {
