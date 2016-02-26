@@ -7,5 +7,5 @@ gulp.task('copy', () => {
     `${config.appDir}/images/**/*`
   ], { base: config.appDir })
     .pipe(plumber())
-    .pipe(gulp.dest(config.publicDir));
+    .pipe(gulp.dest(config.distDir));
 });

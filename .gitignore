@@ -10,5 +10,5 @@ public
 production
 coverage
 coverage.html
-app/scripts/config.js
+app/src/config.js
 specs/features/screenshots

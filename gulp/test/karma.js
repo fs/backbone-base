@@ -39,7 +39,7 @@ gulp.task('karma', () => {
       packageCache: {},
       fullPaths: true,
       debug: config.isDevelopment,
-      paths: [`${config.appDir}/scripts`],
+      paths: [`${config.appDir}/src`],
       transform: [
         [
           'babelify',
