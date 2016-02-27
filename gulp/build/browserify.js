@@ -16,7 +16,7 @@ gulp.task('browserify', () => {
     cache: {},
     packageCache: {},
     fullPaths: true,
-    debug: config.isDevelopment,
+    debug: config.development,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
     paths: [`${config.appDir}/src`]
@@ -38,7 +38,7 @@ gulp.task('browserify', () => {
       .pipe(gulp.dest(config.distDir));
   };
 
-  if (config.isDevelopment) {
+  if (config.development) {
     watchify(bundler).on('update', bundle);
   }
   else {

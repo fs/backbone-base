@@ -38,7 +38,7 @@ gulp.task('karma', () => {
       cache: {},
       packageCache: {},
       fullPaths: true,
-      debug: config.isDevelopment,
+      debug: config.development,
       paths: [`${config.appDir}/src`],
       transform: [
         [

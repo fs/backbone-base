@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add config dynamic method to define current environment
 - Use minifyify to minify javascript code on production
 ([#122](https://github.com/fs/backbone-base/pull/122))
 - Rename javascript and destination folders and configure application with them

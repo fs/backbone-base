@@ -3,6 +3,6 @@ import config from './gulp/config';
 
 requireDir('./gulp/build');
 
-if (config.isDevelopment || config.isTest) {
+if (config.development || config.test) {
   requireDir('./gulp/test');
 }
