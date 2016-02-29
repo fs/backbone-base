@@ -52,6 +52,7 @@
     "jadeify": "^4.6.0",
     "jquery": "^2.2.0",
     "marionette-animated-region": "^1.1.0",
+    "marionette-routes-helper": "^1.0.1",
     "minifyify": "^7.3.2",
     "postcss-color-function": "^2.0.0",
     "postcss-import": "^8.0.2",

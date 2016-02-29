@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use routes helper via marionette-routes-helper npm package
+([#123](https://github.com/fs/backbone-base/pull/123))
 - Add config dynamic method to define current environment
 - Use minifyify to minify javascript code on production
 ([#122](https://github.com/fs/backbone-base/pull/122))
