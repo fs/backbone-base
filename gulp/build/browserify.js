@@ -5,6 +5,7 @@ import source from 'vinyl-source-stream';
 import jadeify from 'jadeify';
 import babelify from 'babelify';
 import watchify from 'watchify';
+import minifyify from 'minifyify';
 import notify from 'gulp-notify';
 import config from '../config';
 
@@ -15,7 +16,7 @@ gulp.task('browserify', () => {
     cache: {},
     packageCache: {},
     fullPaths: true,
-    debug: config.isDevelopment,
+    debug: config.development,
     extensions: ['.jade', '.js'],
     entries: entryPoint,
     paths: [`${config.appDir}/src`]
@@ -37,8 +38,11 @@ gulp.task('browserify', () => {
       .pipe(gulp.dest(config.distDir));
   };
 
-  if (config.isDevelopment) {
+  if (config.development) {
     watchify(bundler).on('update', bundle);
+  }
+  else {
+    bundler.plugin(minifyify, { map: false });
   }
 
   return bundle();

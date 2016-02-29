@@ -38,6 +38,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "jadeify"
     "jquery"
     "marionette-animated-region"
+    "minifyify"
     "postcss-color-function"
     "postcss-import"
     "postcss-inline-comment"

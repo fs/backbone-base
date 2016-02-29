@@ -4,6 +4,6 @@ import routes from 'helpers/routes';
 
 App.on('before:start', function() {
   const router = new Router();
-  routes.bind(router);
+  routes.bind('signup', router);
   console.log('module sign up started');
 });

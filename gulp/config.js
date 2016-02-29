@@ -12,9 +12,7 @@ const gulpConfig = {
   mocksDir: 'mocks',
   configDir: 'config',
   gulpDir: 'gulp',
-  get isDevelopment() {
-    return this.env === 'development';
-  }
+  [process.env.NODE_ENV]: true
 };
 const config = configParser(gulpConfig.env);
 

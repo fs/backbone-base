@@ -4,6 +4,6 @@ import routes from 'helpers/routes';
 
 App.on('before:start', function() {
   const router = new Router();
-  routes.bind(router);
+  routes.bind('dashboard', router);
   console.log('module dashboard started');
 });

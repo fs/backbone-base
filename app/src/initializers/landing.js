@@ -4,6 +4,6 @@ import routes from 'helpers/routes';
 
 App.on('before:start', function() {
   const router = new Router();
-  routes.bind(router);
+  routes.bind('landing', router);
   console.log('module landing started');
 });
