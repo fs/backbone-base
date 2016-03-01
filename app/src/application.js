@@ -12,7 +12,6 @@ class App extends Marionette.Application {
 
   onBeforeStart() {
     this.layout = new RootLayout();
-    routes.init({ root: AppConfig.rootPath });
   }
 
   onStart() {
