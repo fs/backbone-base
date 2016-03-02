@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.5.0 - 2016-03-02
 - Upgrade Node to 5.7.0
 - Upgrade dependencies
 ([#124](https://github.com/fs/backbone-base/pull/124))
