@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 5.7.0
+- Upgrade dependencies
+([#124](https://github.com/fs/backbone-base/pull/124))
 - Use routes helper via marionette-routes-helper npm package
 ([#123](https://github.com/fs/backbone-base/pull/123))
 - Add config dynamic method to define current environment
