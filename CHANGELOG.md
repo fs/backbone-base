@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Use relative paths in inline assets
+- Move browser history logic to history service
+([#129](https://github.com/fs/backbone-base/pull/129))
 - Upgrade Node to 5.8.0
 ([#128](https://github.com/fs/backbone-base/pull/128))
 - Rename facades to services

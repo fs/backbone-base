@@ -1,6 +1,5 @@
 {
   "app": {
-    "target": "http://backbone-base.herokuapp.com",
     "rootPath": "/",
     "storageKey": "user_session",
     "sessionKey": "authentication_token"
