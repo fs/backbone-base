@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import AppModel from 'models/app';
-import Session from 'facades/session';
+import Session from 'services/session';
 
 export default class SessionModel extends AppModel {
   sync(method, model, options) {

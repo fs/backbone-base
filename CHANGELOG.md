@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Rename facades to services
+([#127](https://github.com/fs/backbone-base/pull/127))
 - Remove private fields from session before saving
 ([#126](https://github.com/fs/backbone-base/pull/126))
 - Add all linters gulp task

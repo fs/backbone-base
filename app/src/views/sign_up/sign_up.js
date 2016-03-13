@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
 import App from 'application';
 import User from 'models/user';
-import Session from 'facades/session';
+import Session from 'services/session';
 import FormBehavior from 'behaviors/form';
 import template from 'templates/sign_up/sign_up';
 import { props } from 'decorators';

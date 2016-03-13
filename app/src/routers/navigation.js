@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import App from 'application';
 import BaseRouter from 'routers/base';
-import Session from 'facades/session';
+import Session from 'services/session';
 import Controller from 'controllers/navigation_controller';
 import routes from 'helpers/routes';
 import { props } from 'decorators';

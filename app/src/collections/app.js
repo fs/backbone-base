@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import AppConfig from 'config';
-import Session from 'facades/session';
+import Session from 'services/session';
 
 export default class AppCollection extends Backbone.Collection {
   initialize() {
