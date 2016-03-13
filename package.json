@@ -71,8 +71,9 @@
     "watchify": "~3.7.0"
   },
   "devDependencies": {
-    "babel-eslint": "~5.0.0",
+    "babel-eslint": "~6.0.0-beta.5",
     "chai": "~3.5.0",
+    "eslint": "~2.2.0",
     "gulp-eslint": "~2.0.0",
     "gulp-jsonlint": "~1.1.2",
     "gulp-mocha": "~2.2.0",

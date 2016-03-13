@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add all linters gulp task
+- Fix broken eslint and stylelint after upgrade dependencies
 - Use tilde in package.json to avoid control versioning issues
 ([#125](https://github.com/fs/backbone-base/pull/125))
 

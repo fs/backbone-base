@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('test', (callback) => {
+gulp.task('lint', (callback) => {
   runSequence(
-    'e2e',
-    'karma',
-    'lint',
+    'jsonlint',
+    'eslint',
+    'stylelint',
     callback
   );
 });

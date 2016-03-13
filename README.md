@@ -175,7 +175,13 @@ Run e2e tests
 gulp e2e
 ```
 
-Run all tests and linting tools
+Run linters
+
+```bash
+gulp lint
+```
+
+Run all tests and linters
 
 ```bash
 gulp test
