@@ -39,20 +39,18 @@ export default class User extends AppModel {
     const deferred = $.Deferred();
 
     if (this.isValid(true)) {
-      this.save(null, {
-        url,
-        success(data) {
-          deferred.resolve(data);
-        },
-        error(data) {
-          deferred.reject(data);
-        }
-      });
+      this.save(null, { url })
+        .done(deferred.resolve)
+        .fail(deferred.reject);
     }
     else {
       deferred.reject();
     }
 
     return deferred.promise();
+  }
+
+  unsetPrivateFields() {
+    this.unset('password');
   }
 }
