@@ -1,6 +1,5 @@
 {
   "app": {
-    "target": "http://localhost:8000",
     "rootPath": "/",
     "storageKey": "user_session",
     "sessionKey": "authentication_token"
