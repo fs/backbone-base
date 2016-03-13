@@ -1,5 +1,5 @@
 import Marionette from 'backbone.marionette';
-import Session from 'facades/session';
+import Session from 'services/session';
 import DashboardItemView from 'views/dashboard/item';
 import template from 'templates/dashboard/dashboard';
 import { props } from 'decorators';

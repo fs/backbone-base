@@ -2,7 +2,7 @@ import Marionette from 'backbone.marionette';
 import NavigationLinksView from 'views/navigation/links';
 import NavigationLoginView from 'views/navigation/login';
 import NavigationLogoutView from 'views/navigation/logout';
-import Session from 'facades/session';
+import Session from 'services/session';
 import routes from 'helpers/routes';
 import template from 'templates/navigation/layout';
 import { props } from 'decorators';

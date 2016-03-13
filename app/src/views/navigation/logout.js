@@ -1,5 +1,5 @@
 import Marionette from 'backbone.marionette';
-import Session from 'facades/session';
+import Session from 'services/session';
 import user from 'helpers/user';
 import template from 'templates/navigation/logout';
 import { props } from 'decorators';

@@ -1,5 +1,5 @@
 import Marionette from 'backbone.marionette';
-import Session from 'facades/session';
+import Session from 'services/session';
 import FormBehavior from 'behaviors/form';
 import routes from 'helpers/routes';
 import template from 'templates/navigation/login';

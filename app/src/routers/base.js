@@ -1,6 +1,6 @@
 import 'backbone-route-filter/backbone-route-filter';
 import Marionette from 'backbone.marionette';
-import Session from 'facades/session';
+import Session from 'services/session';
 import routes from 'helpers/routes';
 import { props } from 'decorators';
 

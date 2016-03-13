@@ -3,7 +3,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import AppConfig from 'config';
 import User from 'models/user';
-import Storage from 'facades/storage';
+import Storage from 'services/storage';
 
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;

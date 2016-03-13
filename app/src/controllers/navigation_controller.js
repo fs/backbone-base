@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import App from 'application';
-import Session from 'facades/session';
+import Session from 'services/session';
 import NavigationLayout from 'views/navigation/layout';
 
 export default class NavigationController extends Marionette.Object {

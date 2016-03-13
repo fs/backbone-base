@@ -1,7 +1,7 @@
 import Marionette from 'backbone.marionette';
 import Comment from 'models/comment';
 import FormBehavior from 'behaviors/form';
-import Session from 'facades/session';
+import Session from 'services/session';
 import user from 'helpers/user';
 import template from 'templates/comments/form';
 import { props } from 'decorators';

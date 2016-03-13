@@ -59,6 +59,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
 ## Dev Dependencies:
     "babel-eslint"
     "chai"
+    "eslint"
     "gulp-eslint"
     "gulp-jsonlint"
     "gulp-mocha"
