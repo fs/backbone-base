@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 5.8.0
+([#128](https://github.com/fs/backbone-base/pull/128))
 - Rename facades to services
 ([#127](https://github.com/fs/backbone-base/pull/127))
 - Remove private fields from session before saving
