@@ -8,11 +8,11 @@ import Storage from 'facades/storage';
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;
 const EMAIL_KEY = 'email';
-let currentUser = null;
+const currentUser = new User(Storage.get(STORAGE_KEY));
 
 class Session {
   static currentUser() {
-    return currentUser || (currentUser = new User(Storage.get(STORAGE_KEY)));
+    return currentUser;
   }
 
   static create() {
@@ -20,12 +20,11 @@ class Session {
 
     if (!this.isLoggedIn()) {
       this.currentUser().signIn().done(() => {
+        this.currentUser().unsetPrivateFields();
         this.save();
         this.trigger('create');
         deferred.resolve();
-      }).fail(() => {
-        deferred.reject();
-      });
+      }).fail(deferred.reject);
     }
 
     return deferred.promise();

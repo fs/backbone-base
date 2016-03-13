@@ -65,7 +65,7 @@ import { props } from 'decorators';
 export default class SignUpView extends Marionette.ItemView {
   signUpNewUser(event) {
     event.preventDefault();
-    this.model.signUp().done(() => { this.signInNewUser(); });
+    this.model.signUp().done(this.signInNewUser.bind(this));
   }
 
   signInNewUser() {

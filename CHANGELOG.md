@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Remove private fields from session before saving
+([#126](https://github.com/fs/backbone-base/pull/126))
 - Add all linters gulp task
 - Fix broken eslint and stylelint after upgrade dependencies
 - Use tilde in package.json to avoid control versioning issues
