@@ -3,7 +3,9 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import config from '../config';
+import postcssSortingConfig from '../../config/postcss-sorting';
 
+import postcssSorting from 'postcss-sorting';
 import postcssInlineComment from 'postcss-inline-comment';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
@@ -33,4 +35,12 @@ gulp.task('stylesheets', () => {
     .pipe(postcss(processors))
     .on('error', notify.onError())
     .pipe(gulp.dest(config.distDir));
+});
+
+gulp.task('stylesheets-sort', () => {
+  return gulp.src(`${config.appDir}/stylesheets/**/*.css`)
+    .pipe(plumber())
+    .pipe(postcss([postcssSorting(postcssSortingConfig)]))
+    .on('error', notify.onError())
+    .pipe(gulp.dest(`${config.appDir}/stylesheets`));
 });

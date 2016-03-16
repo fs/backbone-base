@@ -1,11 +1,11 @@
 .footer {
   position: relative;
-  margin-top: -60px;
-  height: 60px;
   clear: both;
-  border-top: 1px solid #e7e7e7;
   box-sizing: border-box;
+  height: 60px;
+  margin-top: -60px;
   padding: 15px;
+  border-top: 1px solid #e7e7e7;
   line-height: 30px;
 
   p {

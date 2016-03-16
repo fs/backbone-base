@@ -1,11 +1,11 @@
 .articles {
   .media {
+    position: relative;
     margin: 0 0 30px 0;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid $lightGreyColor;
     text-align: justify;
+    border-bottom: 1px solid $lightGreyColor;
     font-size: 15px;
-    position: relative;
 
     .close {
       position: absolute;
@@ -24,16 +24,16 @@
     }
 
     .media {
-      font-size: 12px;
       padding: 8px;
       border: 1px dashed $lightGreyColor;
       border-radius: 4px;
+      font-size: 12px;
 
       .media-object {
-        background-size: cover;
-        border-radius: 4px;
         width: 44px;
         height: 44px;
+        border-radius: 4px;
+        background-size: cover;
       }
     }
   }
@@ -49,11 +49,11 @@
     }
 
     span {
+      display: block;
       float: left;
       margin: 10px 0 10px 10px;
-      display: block;
-      font-style: italic;
       color: $additionalSeaColor;
+      font-style: italic;
     }
   }
 }
@@ -71,20 +71,20 @@
 
   .avatar-container {
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
 
     .avatar {
-      background-size: cover;
       width: 80px;
       height: 80px;
+      background-size: cover;
     }
   }
 
   .text-container {
-    padding-left: 100px;
-    width: 100%;
     display: inline-block;
+    width: 100%;
+    padding-left: 100px;
 
     textarea {
       display: block;

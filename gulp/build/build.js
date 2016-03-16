@@ -5,6 +5,7 @@ import config from '../config';
 gulp.task('build', (callback) => {
   runSequence(
     'clean',
+    'stylesheets-sort',
     [
       'copy',
       'templates',

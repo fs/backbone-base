@@ -17,8 +17,8 @@
       a,
       a:hover {
         color: #fff;
-        background-color: $additionalSeaColor;
         border-color: $additionalSeaColor;
+        background-color: $additionalSeaColor;
       }
     }
   }
