@@ -3,15 +3,16 @@
   padding-bottom: 60px;
 
   .container {
-    padding-bottom: 50px;
     @mixin clearfix;
+
+    padding-bottom: 50px;
   }
 }
 
 .notifications-center {
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
 }
