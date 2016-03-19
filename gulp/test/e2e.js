@@ -1,8 +1,18 @@
 import gulp from 'gulp';
+import runSequence from 'run-sequence';
 import mocha from 'gulp-mocha';
 import config from '../config';
 
-gulp.task('e2e', ['clean-logs', 'build', 'server'], () => {
+gulp.task('prepare-e2e', (callback) => {
+  runSequence(
+    'clean-logs',
+    'build',
+    'server',
+    callback
+  );
+});
+
+gulp.task('e2e', ['prepare-e2e'], () => {
   return gulp.src(`${config.testDir}/**/*_feature.js`)
     .pipe(mocha({
       reporter: 'dot',

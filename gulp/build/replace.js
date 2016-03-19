@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import rename from 'gulp-rename';
 import replace from 'gulp-replace-task';
 import config from '../config';
 import configParser from '../modules/config_parser';
@@ -19,7 +20,8 @@ gulp.task('replace', () => {
     replacement: `${config[config.mode].target}${config[config.mode].path}`
   });
 
-  return gulp.src('config/config.js')
+  return gulp.src('config/application.js')
     .pipe(replace({ patterns }))
+    .pipe(rename('config.js'))
     .pipe(gulp.dest(`${config.appDir}/src`));
 });
