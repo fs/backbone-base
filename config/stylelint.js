@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   plugins: [
     'stylelint-statement-max-nesting-depth'
   ],

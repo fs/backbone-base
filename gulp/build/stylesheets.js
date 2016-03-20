@@ -3,8 +3,9 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import config from '../config';
-import postcssSortingConfig from '../../config/postcss-sorting';
-import postcssGlobalVariables from '../../config/postcss-variables';
+
+import postcssSortingConfig from '../../config/postcss_sorting';
+import postcssGlobalVariables from '../../config/postcss_variables';
 
 import postcssSorting from 'postcss-sorting';
 import postcssInlineComment from 'postcss-inline-comment';

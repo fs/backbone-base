@@ -8,11 +8,11 @@ import Storage from 'services/storage';
 const SESSION_KEY = AppConfig.sessionKey;
 const STORAGE_KEY = AppConfig.storageKey;
 const EMAIL_KEY = 'email';
-const currentUser = new User(Storage.get(STORAGE_KEY));
+let currentUser = null;
 
 class Session {
   static currentUser() {
-    return currentUser;
+    return currentUser || (currentUser = new User(Storage.get(STORAGE_KEY)));
   }
 
   static create() {

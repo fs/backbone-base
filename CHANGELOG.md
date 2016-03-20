@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use ES6 syntax for all configuration files
+([#131](https://github.com/fs/backbone-base/pull/131))
 - Add postcss sorting
 ([#130](https://github.com/fs/backbone-base/pull/130))
 - Use relative paths in inline assets
