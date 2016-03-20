@@ -1,75 +1,30 @@
 .articles {
-  .media {
+  &-item {
     position: relative;
+    display: flex;
     margin: 0 0 30px 0;
     padding: 0 0 20px 0;
     text-align: justify;
     border-bottom: 1px solid $lightGreyColor;
     font-size: 15px;
-
-    .close {
-      position: absolute;
-      top: -5px;
-      right: 0;
-    }
-
-    .comments-count {
-      float: right;
-      height: 34px;
-      line-height: 34px;
-    }
-
-    .comments {
-      padding: 20px 0;
-    }
-
-    .media {
-      padding: 8px;
-      border: 1px dashed $lightGreyColor;
-      border-radius: 4px;
-      font-size: 12px;
-
-      .media-object {
-        width: 44px;
-        height: 44px;
-        border-radius: 4px;
-        background-size: cover;
-      }
-    }
   }
-}
 
-.articles-list {
-  li {
-    display: block;
-    clear: both;
-
-    h4 {
-      float: left;
-    }
-
-    span {
-      display: block;
-      float: left;
-      margin: 10px 0 10px 10px;
-      color: $additionalSeaColor;
-      font-style: italic;
-    }
+  &-avatar {
+    padding-right: 10px;
   }
-}
 
-.article {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid $lightGreyColor;
-}
+  &-close {
+    position: absolute;
+    top: -5px;
+    right: 0;
+  }
 
-.write-article,
-.write-comment {
-  position: relative;
-  min-height: 100px;
+  &-new {
+    position: relative;
+    min-height: 100px;
+  }
 
-  .avatar-container {
+  &-new-avatar {
     position: absolute;
     top: 0;
     left: 0;
@@ -77,24 +32,44 @@
     .avatar {
       width: 80px;
       height: 80px;
-      background-size: cover;
     }
   }
 
-  .text-container {
+  &-new-container {
     display: inline-block;
     width: 100%;
     padding-left: 100px;
+  }
 
-    textarea {
-      display: block;
-      width: 100%;
-      height: 140px;
-      margin: 10px 0px;
-    }
+  textarea&-new-text {
+    display: block;
+    width: 100%;
+    height: 140px;
+    margin: 10px 0px;
+  }
 
-    input[type="submit"] {
-      float: right;
-    }
+  &-new-submit {
+    float: right;
+  }
+
+  &-item--inline {
+    @mixin clearfix;
+
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &-title--inline {
+    float: left;
+  }
+
+  &-comment--inline {
+    display: block;
+    float: left;
+    margin: 10px;
+    color: $additionalSeaColor;
+    font-style: italic;
   }
 }

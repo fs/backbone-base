@@ -46,4 +46,14 @@
       background-size: cover;
     }
   }
+
+  @media (max-width: $screen-md) {
+    .login-form input {
+      margin: 0 0 10px;
+    }
+
+    .logout-form .avatar {
+        margin-left: 0;
+    }
+  }
 }

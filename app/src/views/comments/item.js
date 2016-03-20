@@ -5,7 +5,7 @@ import { props } from 'decorators';
 
 @props({
   template,
-  className: 'media',
+  className: 'comments-item',
   templateHelpers: { user }
 })
 export default class CommentsItemView extends Marionette.ItemView {}

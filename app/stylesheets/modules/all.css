@@ -1,4 +1,6 @@
 @import "articles";
+@import "article";
+@import "comment";
 @import "footer";
 @import "navigation";
 @import "pagination";
