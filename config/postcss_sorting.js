@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "empty-lines-between-children-rules": 1,
   "sort-order": [
     ["$variable"],
