@@ -5,7 +5,7 @@
     margin: 0 0 30px 0;
     padding: 0 0 20px 0;
     text-align: justify;
-    border-bottom: 1px solid $lightGreyColor;
+    border-bottom: 1px solid $grey;
     font-size: 15px;
   }
 
@@ -55,7 +55,6 @@
   &-item--inline {
     @mixin clearfix;
 
-    display: block;
     margin: 0;
     padding: 0;
     border: 0;
@@ -69,7 +68,7 @@
     display: block;
     float: left;
     margin: 10px;
-    color: $additionalSeaColor;
+    color: $primary-color;
     font-style: italic;
   }
 }

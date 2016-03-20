@@ -4,6 +4,7 @@ import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
 import config from '../config';
 import postcssSortingConfig from '../../config/postcss-sorting';
+import postcssGlobalVariables from '../../config/postcss-variables';
 
 import postcssSorting from 'postcss-sorting';
 import postcssInlineComment from 'postcss-inline-comment';
@@ -21,7 +22,9 @@ gulp.task('stylesheets', () => {
     postcssImport,
     postcssMixins,
     postcssNested,
-    postcssSimpleVars,
+    postcssSimpleVars({
+      variables: postcssGlobalVariables
+    }),
     postcssColorFunction,
     postcssPxtorem({
       root_value: 13,
