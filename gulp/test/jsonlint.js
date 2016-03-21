@@ -4,8 +4,8 @@ import config from '../config';
 
 gulp.task('jsonlint', () => {
   return gulp.src([
-    `${config.mocksDir}/**/*.json`,
-    `${config.appDir}/config/environments/*.json`
+    `${config.configDir}/*.json`,
+    `${config.mocksDir}/**/*.json`
   ])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter());
