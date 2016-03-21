@@ -1,4 +1,11 @@
 .navbar-header
   a(class='navbar-brand js-link' href=routes.rootPath()) Backbone-base
-#navigations_region
-#login_form_region
+  .visible-xs-block
+  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+.collapse.navbar-collapse#navbar-collapse
+  #navigations_region
+  #login_form_region

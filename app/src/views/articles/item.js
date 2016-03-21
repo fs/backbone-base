@@ -9,7 +9,8 @@ import { props } from 'decorators';
 
 @props({
   template,
-  className: 'media',
+  tagName: 'article',
+  className: 'articles-item',
 
   events: {
     'click .close': 'articleRemove'
