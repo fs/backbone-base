@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   'screen-xs': '480px',
   'screen-sm': '768px',
   'screen-md': '992px',
