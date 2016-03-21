@@ -10,15 +10,15 @@
 
     a,
     a:hover {
-      color: $additionalSeaColor;
+      color: $primary-color;
     }
 
     &.active {
       a,
       a:hover {
         color: #fff;
-        border-color: $additionalSeaColor;
-        background-color: $additionalSeaColor;
+        border-color: $primary-color;
+        background-color: $primary-color;
       }
     }
   }

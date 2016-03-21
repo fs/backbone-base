@@ -3,7 +3,7 @@ import ArticleItemView from 'views/articles/item';
 import { props } from 'decorators';
 
 @props({
-  className: 'articles',
+  className: 'articles-list',
   childView: ArticleItemView
 })
 export default class ArticlesListView extends Marionette.CollectionView {

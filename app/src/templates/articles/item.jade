@@ -1,13 +1,13 @@
-.pull-left
-  .media-object.avatar(style='background-image: url(#{user.avatar(avatar)})')
-.media-body
-  h4.media-heading #{title}
-  i
+.articles-avatar.pull-left
+  .avatar(style='background-image: url(#{user.avatar(avatar)})')
+.articles-body
+  h4.articles-heading.media-heading #{title}
+  i.articles-author
     | Author: #{name}
-  button.close(type='button' aria-hidden='true')
+  button.articles-close.close(type='button' aria-hidden='true')
     | &times;
   p
     | #{text}
-  .article-navigation
+  .articles-navigation
     a(href=routes.articlesShowPath(page, id)) More &raquo;
     span.comments-count Comments: #{comments_count}

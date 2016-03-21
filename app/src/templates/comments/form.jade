@@ -1,8 +1,8 @@
-.avatar-container
+.comments-new-avatar
   .avatar(style='background-image: url(#{user.avatar(avatar)})')
-.text-container
+.comments-new-container
   h4.media-heading #{name}, here you can write comment for the following article
   form(role='form')
     .form-group
-      textarea.form-control(name='text', placeholder='Your text here')
-    input(type='submit' value='Post comment' class='btn btn-primary btn-lg')
+      textarea.comments-new-text.form-control(name='text', placeholder='Your text here')
+    input.comments-new-submit.btn.btn-primary.btn-lg(type='submit' value='Post comment')

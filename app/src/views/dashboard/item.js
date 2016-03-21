@@ -5,6 +5,6 @@ import { props } from 'decorators';
 @props({
   template,
   tagName: 'li',
-  className: 'item'
+  className: 'articles-item articles-item--inline'
 })
 export default class DashboardItemView extends Marionette.ItemView {}

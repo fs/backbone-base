@@ -1,0 +1,7 @@
+.article {
+  display: flex;
+
+  &-avatar {
+    padding-right: 10px;
+  }
+}
