@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Refactor css code & make responsive nav
+([#132](https://github.com/fs/backbone-base/pull/132))
 - Use ES6 syntax for all configuration files
 ([#131](https://github.com/fs/backbone-base/pull/131))
 - Add postcss sorting

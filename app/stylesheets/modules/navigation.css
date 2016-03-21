@@ -48,12 +48,43 @@
   }
 
   @media (max-width: $screen-md) {
-    .login-form input {
-      margin: 0 0 10px;
+    .navbar-nav {
+      margin: 0 -15px;
     }
 
-    .logout-form .avatar {
-        margin-left: 0;
+    .login-form {
+      .btn {
+        display: block;
+        width: 100%;
+      }
+
+      input {
+        margin: 0 0 10px;
+      }
+
+      span {
+        display: block;
+        margin: 2px 0 4px;
+        text-align: center;
+      }
+    }
+
+    .logout-form {
+      padding-top: 0;
+
+      .avatar {
+          margin-left: 0;
+      }
+    }
+
+    .user-name {
+      font-size: 15px;
+    }
+
+    .btn-logout {
+      float: none;
+      clear: both;
+      margin: 40px 0 5px;
     }
   }
 }
