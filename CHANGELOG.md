@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Update jsonlint task to detect environment json file errors
+([#134](https://github.com/fs/backbone-base/pull/134))
 - Refactor css code & make responsive nav
 ([#132](https://github.com/fs/backbone-base/pull/132))
 - Use ES6 syntax for all configuration files
