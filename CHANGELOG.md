@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#136](https://github.com/fs/backbone-base/pull/136))
 - Update jsonlint task to detect environment json file errors
 ([#132](https://github.com/fs/backbone-base/pull/132))
 - Use ES6 syntax for all configuration files
