@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-import $ from 'jquery';
 import Backbone from 'backbone';
 import AppConfig from 'config';
 import User from 'models/user';
@@ -16,18 +14,14 @@ class Session {
   }
 
   static create() {
-    const deferred = $.Deferred();
-
-    if (!this.isLoggedIn()) {
-      this.currentUser().signIn().done(() => {
+    return new Promise((resolve, reject) => {
+      this.currentUser().signIn().then(() => {
         this.currentUser().unsetPrivateFields();
         this.save();
         this.trigger('create');
-        deferred.resolve();
-      }).fail(deferred.reject);
-    }
-
-    return deferred.promise();
+        resolve();
+      }).catch(reject);
+    });
   }
 
   static destroy() {

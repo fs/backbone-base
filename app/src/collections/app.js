@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import AppConfig from 'config';

@@ -19,6 +19,7 @@ gulp.task('karma', () => {
     singleRun: true,
     browsers: ['PhantomJS'],
     files: [
+      'node_modules/promise-polyfill/promise.js',
       'vendor/**/*.js',
       'specs/**/*_spec.js'
     ],
