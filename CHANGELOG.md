@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 5.9.1
+([#137](https://github.com/fs/backbone-base/pull/137))
 - Refactor css code & make responsive nav
 ([#135](https://github.com/fs/backbone-base/pull/135))
 - Use ES6 Promises for Backbone sync, models, collections
