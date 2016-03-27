@@ -1,0 +1,46 @@
+.comments {
+  margin-top: 20px;
+
+  &-item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &-avatar {
+    padding-right: 10px;
+  }
+
+  &-new {
+    position: relative;
+    min-height: 100px;
+  }
+
+  &-new-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      background-size: cover;
+    }
+  }
+
+  &-new-container {
+    display: inline-block;
+    width: 100%;
+    padding-left: 100px;
+  }
+
+  textarea&-new-text {
+    height: 140px;
+    margin: 10px 0px;
+  }
+
+  &-count {
+    float: right;
+    height: 34px;
+    line-height: 34px;
+  }
+}

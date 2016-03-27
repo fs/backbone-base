@@ -1,21 +1,26 @@
 import Marionette from 'backbone.marionette';
+import NavigationUserView from 'views/navigation/user';
 import Session from 'services/session';
-import user from 'helpers/user';
 import template from 'templates/navigation/logout';
 import { props } from 'decorators';
 
 @props({
   template,
   className: 'nav navbar-nav navbar-right',
-  model: Session.currentUser(),
+
+  regions: {
+    userRegion: '#user_logout_region'
+  },
 
   events: {
     'click #logout_btn': 'onLogout'
-  },
-
-  templateHelpers: { user }
+  }
 })
-export default class NavigationLogoutView extends Marionette.ItemView {
+export default class NavigationLogoutView extends Marionette.LayoutView {
+  onRender() {
+    this.userRegion.show(new NavigationUserView());
+  }
+
   onLogout() {
     Session.destroy();
   }

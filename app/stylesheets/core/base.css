@@ -10,9 +10,9 @@ fieldset {
 }
 
 a {
-  color: $additionalSeaColor;
+  color: $primary-color;
 
   &:hover {
-    color: $additionalSeaColor;
+    color: $primary-color;
   }
 }

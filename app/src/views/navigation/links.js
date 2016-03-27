@@ -11,7 +11,7 @@ import { props } from 'decorators';
   className: 'nav navbar-nav',
 
   ui: {
-    menuItem: 'li'
+    menuItem: '.navbar-item'
   },
 
   templateHelpers: { routes }

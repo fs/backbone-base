@@ -6,7 +6,7 @@ import { props } from 'decorators';
 
 @props({
   template,
-  className: 'media',
+  className: 'article',
   childView: CommentsItemView,
   childViewContainer: '.comments',
 

@@ -4,8 +4,12 @@ export default {
   timeout: 5000,
   urlRoot: 'http://localhost:8000',
   browser() {
-    return new selenium.Builder()
+    const driver = new selenium.Builder()
       .withCapabilities({ browserName: 'phantomjs' })
       .build();
+
+    driver.manage().window().maximize();
+
+    return driver;
   }
 };
