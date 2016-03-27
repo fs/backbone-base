@@ -14,6 +14,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "babel-preset-es2015"
     "babelify"
     "backbone"
+    "backbone-es6-promise"
     "backbone-route-filter"
     "backbone-validation"
     "backbone.marionette"
@@ -48,6 +49,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "postcss-pxtorem"
     "postcss-reporter"
     "postcss-simple-vars"
+    "postcss-sorting"
     "require-dir"
     "run-sequence"
     "serve-static"
@@ -97,10 +99,8 @@ nvm alias default node
 Clone application as new project with original repository named "backbone-base"
 
 ```bash
-git clone --depth 1 git@github.com:fs/backbone-base.git
+git clone git@github.com:fs/backbone-base.git --origin backbone-base [MY-NEW-PROJECT]
 ```
-
-**Note: we use depth parameter here in order not to copy the history of changes in base project**
 
 Create your new repo on GitHub and push master into it.
 Make sure master branch is tracking origin repo.
