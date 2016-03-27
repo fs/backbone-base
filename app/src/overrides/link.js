@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Backbone from 'backbone';
+import History from 'services/history';
 
 export default class LinkOverride {
   static init() {
@@ -10,7 +10,7 @@ export default class LinkOverride {
     $(document).on('click', "a[href^='/']", (event) => {
       event.preventDefault();
       const href = $(event.currentTarget).attr('href');
-      Backbone.history.navigate(href, { trigger: true });
+      History.navigate(href, { trigger: true });
     });
   }
 }

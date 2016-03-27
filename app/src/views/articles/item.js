@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import Marionette from 'backbone.marionette';
 import App from 'application';
 import Session from 'services/session';

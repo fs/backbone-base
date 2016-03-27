@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import AppModel from 'models/app';
 import Session from 'services/session';
 

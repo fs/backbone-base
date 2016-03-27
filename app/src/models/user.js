@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import AppModel from 'models/app';
 import AppConfig from 'config';
 import { props } from 'decorators';
@@ -36,18 +35,16 @@ export default class User extends AppModel {
   }
 
   send(url) {
-    const deferred = $.Deferred();
-
-    if (this.isValid(true)) {
-      this.save(null, { url })
-        .done(deferred.resolve)
-        .fail(deferred.reject);
-    }
-    else {
-      deferred.reject();
-    }
-
-    return deferred.promise();
+    return new Promise((resolve, reject) => {
+      if (this.isValid(true)) {
+        this.save(null, { url })
+          .then(resolve)
+          .catch(reject);
+      }
+      else {
+        reject();
+      }
+    });
   }
 
   unsetPrivateFields() {

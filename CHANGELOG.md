@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use ES6 Promises for Backbone sync, models, collections
+([#133](https://github.com/fs/backbone-base/pull/133))
 - Upgrade dependencies
 ([#136](https://github.com/fs/backbone-base/pull/136))
 - Update jsonlint task to detect environment json file errors

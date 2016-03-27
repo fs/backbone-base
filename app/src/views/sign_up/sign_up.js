@@ -65,7 +65,7 @@ import { props } from 'decorators';
 export default class SignUpView extends Marionette.ItemView {
   signUpNewUser(event) {
     event.preventDefault();
-    this.model.signUp().done(this.signInNewUser.bind(this));
+    this.model.signUp().then(this.signInNewUser.bind(this));
   }
 
   signInNewUser() {
@@ -73,7 +73,7 @@ export default class SignUpView extends Marionette.ItemView {
       email: this.model.get('email'),
       password: this.model.get('password')
     });
-    Session.create().done(() => {
+    Session.create().then(() => {
       App.vent.trigger('notification:show', {
         type: 'success',
         message: 'Your account successfully created!'
