@@ -3,6 +3,8 @@
 ## Unreleased
 
 ## 1.6.0 - 2016-03-27
+- Add sourcemaps
+([#138](https://github.com/fs/backbone-base/pull/138))
 - Upgrade Node to 5.9.1
 ([#137](https://github.com/fs/backbone-base/pull/137))
 - Refactor css code & make responsive nav

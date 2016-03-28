@@ -78,6 +78,7 @@
     "gulp-eslint": "~2.0.0",
     "gulp-jsonlint": "~1.1.2",
     "gulp-mocha": "~2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
     "karma": "~0.13.22",
     "karma-browserify": "~5.0.3",
     "karma-chai": "~0.1.0",
