@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add sourcemaps
+([#138](https://github.com/fs/backbone-base/pull/138))
 
 ## 1.6.0 - 2016-03-27
 - Upgrade Node to 5.9.1

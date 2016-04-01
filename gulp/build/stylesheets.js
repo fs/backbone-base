@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import notify from 'gulp-notify';
+import sourcemaps from 'gulp-sourcemaps';
 import config from '../config';
 
 import postcssSortingConfig from '../../config/postcss_sorting';
@@ -34,11 +35,22 @@ gulp.task('stylesheets', () => {
     autoprefixer({ browsers: ['last 2 versions'] })
   ];
 
-  return gulp.src(`${config.appDir}/stylesheets/application.css`)
-    .pipe(plumber())
-    .pipe(postcss(processors))
-    .on('error', notify.onError())
-    .pipe(gulp.dest(config.distDir));
+  if (config.development) {
+    return gulp.src(`${config.appDir}/stylesheets/application.css`)
+      .pipe(plumber())
+      .pipe(sourcemaps.init())
+      .pipe(postcss(processors))
+      .on('error', notify.onError())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest(config.distDir));
+  }
+  else {
+    return gulp.src(`${config.appDir}/stylesheets/application.css`)
+      .pipe(plumber())
+      .pipe(postcss(processors))
+      .on('error', notify.onError())
+      .pipe(gulp.dest(config.distDir));
+  }
 });
 
 gulp.task('stylesheets-sort', () => {
