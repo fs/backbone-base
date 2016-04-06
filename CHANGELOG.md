@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Lock Backbone version to avoid dependencies errors
+- Upgrade dependencies
+- Fix css hot synchronization in browser
+([#139](https://github.com/fs/backbone-base/pull/139))
 - Add sourcemaps
 ([#138](https://github.com/fs/backbone-base/pull/138))
 
