@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Ignore sourcemaps in browsersync
+([#140](https://github.com/fs/backbone-base/pull/140))
 - Lock Backbone version to avoid dependencies errors
 - Upgrade dependencies
 - Fix css hot synchronization in browser
