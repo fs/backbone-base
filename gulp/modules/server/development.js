@@ -19,6 +19,9 @@ export default () => {
         middlewaresStack(middlewares, req, res, next);
       }
     },
-    files: [`${config.distDir}/**/*`]
+    files: [
+      `${config.distDir}/**/*`,
+      `!${config.distDir}/**/*.map`
+    ]
   });
 };

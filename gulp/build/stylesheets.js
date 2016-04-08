@@ -1,4 +1,3 @@
-import browserSync from 'browser-sync';
 import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
@@ -43,8 +42,7 @@ gulp.task('stylesheets', () => {
       .pipe(postcss(processors))
       .on('error', notify.onError())
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(config.distDir))
-      .pipe(browserSync.reload({ stream: true }));
+      .pipe(gulp.dest(config.distDir));
   }
   else {
     return gulp.src(`${config.appDir}/stylesheets/application.css`)
