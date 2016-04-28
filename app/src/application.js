@@ -3,6 +3,7 @@ import 'backbone-es6-promise';
 import Marionette from 'backbone.marionette';
 import History from 'services/history';
 import LinkOverride from 'overrides/link';
+import SyncOverride from 'overrides/sync';
 import RootLayout from 'views/root/layout';
 
 class App extends Marionette.Application {
@@ -12,6 +13,7 @@ class App extends Marionette.Application {
 
   onBeforeStart() {
     LinkOverride.init();
+    SyncOverride.init();
     this.layout = new RootLayout();
   }
 
