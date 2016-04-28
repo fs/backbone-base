@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add refresh behavior to update views data in separate modules
+([#145](https://github.com/fs/backbone-base/pull/145))
 - Change Jade template on Pug
 ([#146](https://github.com/fs/backbone-base/pull/146))
 - Show spinner while the app is sending request to server
