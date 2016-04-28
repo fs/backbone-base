@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 6.0.0
+- Check global gulp and update it if necessary
+([#142](https://github.com/fs/backbone-base/pull/142))
 - Upgrade dependencies
 ([#141](https://github.com/fs/backbone-base/pull/141))
 - Ignore sourcemaps in browsersync
