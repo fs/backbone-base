@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#141](https://github.com/fs/backbone-base/pull/141))
 - Ignore sourcemaps in browsersync
 ([#140](https://github.com/fs/backbone-base/pull/140))
 - Lock Backbone version to avoid dependencies errors
