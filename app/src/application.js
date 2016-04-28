@@ -6,13 +6,17 @@ import LinkOverride from 'overrides/link';
 import RootLayout from 'views/root/layout';
 
 class App extends Marionette.Application {
+  initialize() {
+    this.history = History;
+  }
+
   onBeforeStart() {
     LinkOverride.init();
     this.layout = new RootLayout();
   }
 
   onStart() {
-    History.init();
+    this.history.init();
     console.log('app started');
   }
 }
