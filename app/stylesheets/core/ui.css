@@ -16,3 +16,16 @@
     background-color: color($primary-color saturation(50%));
   }
 }
+
+.spinner {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  .bar {
+    height: 3px;
+    background-color: $primary-color;
+  }
+}
