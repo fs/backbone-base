@@ -18,4 +18,8 @@ export default class History {
   static navigate(route, options = {}) {
     history.navigate(route, options);
   }
+
+  static fragment() {
+    return history.getFragment();
+  }
 }

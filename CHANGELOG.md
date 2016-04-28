@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Update history service
+([#143](https://github.com/fs/backbone-base/pull/143))
 - Upgrade dependencies
 ([#141](https://github.com/fs/backbone-base/pull/141))
 - Ignore sourcemaps in browsersync
