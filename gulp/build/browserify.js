@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import rename from 'gulp-rename';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
-import jadeify from 'jadeify';
+import pugify from 'pugify';
 import babelify from 'babelify';
 import watchify from 'watchify';
 import minifyify from 'minifyify';
@@ -17,11 +17,11 @@ gulp.task('browserify', () => {
     packageCache: {},
     fullPaths: true,
     debug: config.development,
-    extensions: ['.jade', '.js'],
+    extensions: ['.pug', '.js'],
     entries: entryPoint,
     paths: [`${config.appDir}/src`]
   })
-  .transform(jadeify)
+  .transform(pugify)
   .transform(babelify.configure({
     presets: ['es2015'],
     plugins: ['transform-decorators-legacy'],
