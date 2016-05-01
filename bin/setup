@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Make sure we have gulp installed
-if ! which gulp; then
-  npm install -g gulp
-fi
+# Install or upgrade gulp
+npm install -g gulp
 
 # Install all dependencies
 npm install --ignore-scripts
