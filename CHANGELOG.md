@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.7.0 - 2016-05-01
 - Upgrade Node to 5.11.0
 ([#147](https://github.com/fs/backbone-base/pull/147))
 - Add refresh behavior to update views data in separate modules

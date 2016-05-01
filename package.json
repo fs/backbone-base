@@ -1,6 +1,6 @@
 {
   "name": "backbone-base",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "repository": {
     "type": "git",
     "url": "git://github.com:fs/backbone-base.git"
