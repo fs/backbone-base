@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Change Jade template on Pug
+([#146](https://github.com/fs/backbone-base/pull/146))
 - Show spinner while the app is sending request to server
 ([#144](https://github.com/fs/backbone-base/pull/144))
 - Update history service
