@@ -1,6 +1,6 @@
 import gulp from 'gulp';
+import shell from 'gulp-shell';
 import runSequence from 'run-sequence';
-import mocha from 'gulp-mocha';
 import config from '../config';
 
 gulp.task('prepare-e2e', (callback) => {
@@ -13,10 +13,7 @@ gulp.task('prepare-e2e', (callback) => {
 });
 
 gulp.task('e2e', ['prepare-e2e'], () => {
-  return gulp.src(`${config.testDir}/**/*_feature.js`)
-    .pipe(mocha({
-      reporter: 'dot',
-      timeout: 5000
-    }))
-    .once('error', () => { process.exit(1); });
+  gulp.src(`${config.testDir}/**/*_feature.js`, { read: false })
+    .pipe(shell('mocha --compilers=js:babel-core/register --reporter=dot --timeout=5000 --colors <%= file.path %>'))
+    .on('end', process.exit);
 });
