@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Refactor test tasks to further migration on Node.js 6.x.x
+([#148](https://github.com/fs/backbone-base/pull/148))
 
 ## 1.7.0 - 2016-05-01
 - Upgrade Node to 5.11.0

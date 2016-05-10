@@ -3,9 +3,9 @@ import runSequence from 'run-sequence';
 
 gulp.task('test', (callback) => {
   runSequence(
-    'e2e',
-    'karma',
     'lint',
+    'karma',
+    'e2e',
     callback
   );
 });
