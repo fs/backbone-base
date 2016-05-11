@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "5.11.0"
+    "node": "6.1.0"
   },
   "dependencies": {
     "autoprefixer": "~6.3.6",
