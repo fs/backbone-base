@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#149](https://github.com/fs/backbone-base/pull/149))
 - Refactor test tasks to further migration on Node.js 6.x.x
 ([#148](https://github.com/fs/backbone-base/pull/148))
 
