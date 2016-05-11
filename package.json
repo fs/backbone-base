@@ -91,7 +91,6 @@
     "phantomjs-prebuilt": "~2.1.7",
     "selenium-webdriver": "~2.53.2",
     "sinon": "~1.17.4",
-    "stylelint": "~6.3.3",
-    "stylelint-statement-max-nesting-depth": "~2.0.1"
+    "stylelint": "~6.3.3"
   }
 }

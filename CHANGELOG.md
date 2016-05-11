@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Remove stylelint-statement-max-nesting-depth since stylelint contains this option
 - Upgrade dependencies
 ([#149](https://github.com/fs/backbone-base/pull/149))
 - Refactor test tasks to further migration on Node.js 6.x.x

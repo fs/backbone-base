@@ -1,8 +1,5 @@
 export default {
-  plugins: [
-    'stylelint-statement-max-nesting-depth'
-  ],
-  "rules": {
+  rules: {
     "block-no-empty": true,
     "color-hex-case": "lower",
     "color-no-invalid-hex": true,
@@ -13,6 +10,7 @@ export default {
     "declaration-no-important": true,
     "function-comma-space-after": "always",
     "function-url-quotes": "double",
+    "max-nesting-depth": [3, { ignore: ["at-rules-without-declaration-blocks"] }],
     "media-feature-colon-space-after": "always",
     "media-feature-colon-space-before": "never",
     "media-feature-name-no-vendor-prefix": true,
@@ -21,7 +19,6 @@ export default {
     "property-no-vendor-prefix": true,
     "selector-list-comma-newline-after": "always-multi-line",
     "selector-no-id": true,
-    "statement-max-nesting-depth": [3, { countAtRules: false }],
     "string-quotes": "double",
     "value-no-vendor-prefix": true
   }
