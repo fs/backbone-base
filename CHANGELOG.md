@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 6.1.0
+([#150](https://github.com/fs/backbone-base/pull/150))
 - Remove stylelint-statement-max-nesting-depth since stylelint contains this option
 - Upgrade dependencies
 ([#149](https://github.com/fs/backbone-base/pull/149))
