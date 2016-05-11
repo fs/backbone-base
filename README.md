@@ -78,7 +78,6 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "selenium-webdriver"
     "sinon"
     "stylelint"
-    "stylelint-statement-max-nesting-depth"
 
 ## Install
 ### OSX
