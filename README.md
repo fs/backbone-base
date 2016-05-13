@@ -23,6 +23,7 @@ This simple application includes Backbone.js/Marionette.js frameworks and node/g
     "bootstrap-paginator"
     "browser-sync"
     "browserify"
+    "browserify-shim"
     "connect"
     "connect-history-api-fallback"
     "connect-prism"

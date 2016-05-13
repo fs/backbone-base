@@ -16,7 +16,7 @@ export default {
   browsers: ['PhantomJS'],
   files: [
     'node_modules/promise-polyfill/promise.js',
-    'vendor/**/*.js',
+    'app/lib/**/*.js',
     'specs/**/*_spec.js'
   ],
   reporters: ['dots'],
