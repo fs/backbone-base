@@ -1,7 +1,8 @@
 import gulp from 'gulp';
 import rename from 'gulp-rename';
-import browserify from 'browserify';
 import source from 'vinyl-source-stream';
+import browserify from 'browserify';
+import browserifyShim from 'browserify-shim';
 import pugify from 'pugify';
 import babelify from 'babelify';
 import watchify from 'watchify';
@@ -19,9 +20,13 @@ gulp.task('browserify', () => {
     debug: config.development,
     extensions: ['.pug', '.js'],
     entries: entryPoint,
-    paths: [`${config.appDir}/src`]
+    paths: [
+      `${config.appDir}/src`,
+      `${config.appDir}/lib`
+    ]
   })
   .transform(pugify)
+  .transform(browserifyShim)
   .transform(babelify.configure({
     presets: ['es2015'],
     plugins: ['transform-decorators-legacy'],

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Add lib directory and browserify-shim for third-party, without modules support libraries
+([#151](https://github.com/fs/backbone-base/pull/151))
+
 ## 1.8.0 - 2016-05-11
 - Upgrade Node to 6.1.0
 ([#150](https://github.com/fs/backbone-base/pull/150))

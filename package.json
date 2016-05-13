@@ -37,6 +37,7 @@
     "bootstrap-paginator": "~1.0.2",
     "browser-sync": "~2.12.7",
     "browserify": "~13.0.1",
+    "browserify-shim": "~3.8.12",
     "connect": "~3.4.1",
     "connect-history-api-fallback": "~1.2.0",
     "connect-prism": "~1.0.5",
@@ -92,5 +93,7 @@
     "selenium-webdriver": "~2.53.2",
     "sinon": "~1.17.4",
     "stylelint": "~6.3.3"
-  }
+  },
+  "browser": {},
+  "browserify-shim": {}
 }
