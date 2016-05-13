@@ -1,4 +1,5 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import NavigationLinksView from 'views/navigation/links';
 import NavigationLoginView from 'views/navigation/login';
 import NavigationLogoutView from 'views/navigation/logout';
@@ -6,9 +7,8 @@ import NavigationUserView from 'views/navigation/user';
 import Session from 'services/session';
 import routes from 'helpers/routes';
 import template from 'templates/navigation/layout';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   className: 'container-fluid',
 

@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import AnimatedRegion from 'marionette-animated-region';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   el: 'body',
 
   regions: {

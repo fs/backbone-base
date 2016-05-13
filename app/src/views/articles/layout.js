@@ -1,11 +1,11 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import PaginationBehavior from 'behaviors/pagination';
 import ArticlesListView from 'views/articles/list';
 import ArticlesFormView from 'views/articles/form';
 import template from 'templates/articles/layout';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
 
   collectionEvents: {

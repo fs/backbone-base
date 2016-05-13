@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import template from 'templates/dashboard/item';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   tagName: 'li',
   className: 'articles-item articles-item--inline'

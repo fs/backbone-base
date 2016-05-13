@@ -1,8 +1,8 @@
+import { mixin } from 'core-decorators';
 import Article from 'models/article';
 import PaginatedCollection from 'collections/paginated';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   url: 'articles',
   model: Article
 })

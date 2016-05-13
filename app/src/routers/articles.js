@@ -1,10 +1,10 @@
+import { mixin } from 'core-decorators';
 import App from 'application';
 import BaseRouter from 'routers/base';
 import Controller from 'controllers/articles_controller';
 import routes from 'helpers/routes';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   navigation: 'articles',
 
   appRoutes: {

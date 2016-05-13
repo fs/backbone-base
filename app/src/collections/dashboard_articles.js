@@ -1,8 +1,8 @@
+import { mixin } from 'core-decorators';
 import Article from 'models/article';
 import AppCollection from 'collections/app';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   url: 'dashboard',
   model: Article
 })

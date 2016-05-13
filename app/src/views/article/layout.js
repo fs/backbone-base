@@ -1,10 +1,10 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import ArticleShowView from 'views/article/show';
 import CommentFormView from 'views/comments/form';
 import template from 'templates/article/layout';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
 
   regions: {

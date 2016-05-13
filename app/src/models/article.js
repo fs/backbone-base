@@ -1,8 +1,8 @@
+import { mixin } from 'core-decorators';
 import SessionModel from 'models/session';
 import Comments from 'collections/comments';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   urlRoot: 'articles',
 
   defaults: {

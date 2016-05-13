@@ -1,9 +1,9 @@
 import 'bootstrap-paginator';
 import Marionette from 'backbone.marionette';
 import App from 'application';
-import { props } from 'decorators';
+import { mixin } from 'core-decorators';
 
-@props({
+@mixin({
   ui: {
     paginationContainer: '.pagination'
   },

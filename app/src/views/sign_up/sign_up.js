@@ -1,12 +1,12 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import App from 'application';
 import User from 'models/user';
 import Session from 'services/session';
 import FormBehavior from 'behaviors/form';
 import template from 'templates/sign_up/sign_up';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   model: new User(),
 

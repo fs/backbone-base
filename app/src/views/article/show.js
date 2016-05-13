@@ -1,10 +1,10 @@
 import Marionette from 'backbone.marionette';
-import CommentsItemView from 'views/comments/item';
+import { mixin } from 'core-decorators';
 import user from 'helpers/user';
+import CommentsItemView from 'views/comments/item';
 import template from 'templates/article/show';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   className: 'article',
   childView: CommentsItemView,

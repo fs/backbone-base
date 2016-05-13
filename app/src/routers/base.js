@@ -1,10 +1,10 @@
 import 'backbone-route-filter/backbone-route-filter';
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import Session from 'services/session';
 import routes from 'helpers/routes';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   before: {
     'dashboard(/*path)': 'redirectIfNotLoggedIn'
   }
