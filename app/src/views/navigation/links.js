@@ -1,11 +1,11 @@
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import App from 'application';
 import routes from 'helpers/routes';
 import template from 'templates/navigation/links';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   tagName: 'ul',
   className: 'nav navbar-nav',

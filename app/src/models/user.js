@@ -1,8 +1,8 @@
+import { mixin } from 'core-decorators';
 import AppModel from 'models/app';
 import AppConfig from 'config';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   urlRoot: 'users',
   isSignup: false,
 

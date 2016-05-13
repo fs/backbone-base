@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import template from 'templates/content/landing';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   className: 'page-header'
 })

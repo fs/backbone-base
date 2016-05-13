@@ -1,12 +1,12 @@
 import Backbone from 'backbone';
+import { mixin } from 'core-decorators';
 import App from 'application';
 import BaseRouter from 'routers/base';
 import Session from 'services/session';
 import Controller from 'controllers/navigation_controller';
 import routes from 'helpers/routes';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   appRoutes: {
     'sign_out': 'signOut'
   }

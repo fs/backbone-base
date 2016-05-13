@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import ArticleItemView from 'views/articles/item';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   className: 'articles-list',
   childView: ArticleItemView
 })

@@ -1,10 +1,10 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import NavigationUserView from 'views/navigation/user';
 import Session from 'services/session';
 import template from 'templates/navigation/logout';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   className: 'nav navbar-nav navbar-right',
 

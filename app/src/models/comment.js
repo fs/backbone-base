@@ -1,7 +1,7 @@
+import { mixin } from 'core-decorators';
 import SessionModel from 'models/session';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   urlRoot: 'comments',
 
   validation: {

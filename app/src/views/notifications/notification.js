@@ -1,9 +1,9 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import App from 'application';
 import template from 'templates/notifications/notification';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
 
   ui: {

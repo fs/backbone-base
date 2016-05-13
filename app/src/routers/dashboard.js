@@ -1,8 +1,8 @@
+import { mixin } from 'core-decorators';
 import BaseRouter from 'routers/base';
 import Controller from 'controllers/dashboard_controller';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   navigation: 'dashboard',
 
   appRoutes: {

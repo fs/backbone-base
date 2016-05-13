@@ -41,6 +41,7 @@
     "connect": "~3.4.1",
     "connect-history-api-fallback": "~1.2.0",
     "connect-prism": "~1.0.5",
+    "core-decorators": "~0.12.2",
     "del": "~2.2.0",
     "dotenv": "~2.0.0",
     "grunt": "~1.0.1",

@@ -1,9 +1,9 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import App from 'application';
 import Session from 'services/session';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   modelEvents: {
     'change': 'render'
   }

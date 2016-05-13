@@ -1,11 +1,11 @@
 import Marionette from 'backbone.marionette';
+import { mixin } from 'core-decorators';
 import Session from 'services/session';
 import FormBehavior from 'behaviors/form';
 import routes from 'helpers/routes';
 import template from 'templates/navigation/login';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   template,
   className: 'nav navbar-nav navbar-right',
   model: Session.currentUser(),

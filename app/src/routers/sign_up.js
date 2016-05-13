@@ -1,9 +1,9 @@
 import App from 'application';
+import { mixin } from 'core-decorators';
 import BaseRouter from 'routers/base';
 import Controller from 'controllers/sign_up_controller';
-import { props } from 'decorators';
 
-@props({
+@mixin({
   appRoutes: {
     'sign_up': 'index'
   },
