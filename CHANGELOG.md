@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#153](https://github.com/fs/backbone-base/pull/153))
 - Rewrite class props via core-decorators "mixin" decorator
 ([#152](https://github.com/fs/backbone-base/pull/152))
 - Add lib directory and browserify-shim for third-party, without modules support libraries
