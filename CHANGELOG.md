@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add .gitattributes to avoid merge conflicts
+([#154](https://github.com/fs/backbone-base/pull/154))
 - Upgrade dependencies
 ([#153](https://github.com/fs/backbone-base/pull/153))
 - Rewrite class props via core-decorators "mixin" decorator
