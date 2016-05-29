@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Marionette.js to 2.4.6
+([#155](https://github.com/fs/backbone-base/pull/155))
 - Add .gitattributes to avoid merge conflicts
 ([#154](https://github.com/fs/backbone-base/pull/154))
 - Upgrade dependencies
