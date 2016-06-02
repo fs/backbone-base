@@ -1,9 +1,10 @@
+import 'backbone-nested';
 import _ from 'underscore';
 import Backbone from 'backbone';
 import App from 'application';
 import AppConfig from 'config';
 
-export default class AppModel extends Backbone.Model {
+export default class AppModel extends Backbone.NestedModel {
   initialize() {
     this.urlRoot = `${AppConfig.apiPath}/${_.result(this, 'urlRoot')}`;
     this.listenTo(this, 'error', this.handleErrors);

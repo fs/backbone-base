@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use Backbone.NestedModel instead of Backbone.Model
+([#156](https://github.com/fs/backbone-base/pull/156))
 - Upgrade Marionette.js to 2.4.6
 ([#155](https://github.com/fs/backbone-base/pull/155))
 - Add .gitattributes to avoid merge conflicts
