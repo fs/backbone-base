@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.9.0 - 2016-06-06
 - Upgrade Node to 6.2.x
 - Upgrade dependencies
 ([#157](https://github.com/fs/backbone-base/pull/157))
