@@ -29,6 +29,7 @@
     "babelify": "~7.3.0",
     "backbone": "~1.3.3",
     "backbone-es6-promise": "~0.1.0",
+    "backbone-nested": "~2.0.4",
     "backbone-route-filter": "git://github.com/fantactuka/backbone-route-filter.git",
     "backbone-validation": "~0.11.5",
     "backbone.marionette": "~2.4.6",
