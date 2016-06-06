@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 6.2.x
+- Upgrade dependencies
+([#157](https://github.com/fs/backbone-base/pull/157))
 - Use Backbone.NestedModel instead of Backbone.Model
 ([#156](https://github.com/fs/backbone-base/pull/156))
 - Upgrade Marionette.js to 2.4.6
