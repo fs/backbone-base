@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 6.2.x
 - Upgrade dependencies
 ([#157](https://github.com/fs/backbone-base/pull/157))
 - Use Backbone.NestedModel instead of Backbone.Model
