@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Improve errors handling in the case of server errors. Introduce tooltip helper
+([#158](https://github.com/fs/backbone-base/pull/158))
 
 ## 1.9.0 - 2016-06-06
 - Upgrade Node to 6.2.x

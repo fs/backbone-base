@@ -14,13 +14,21 @@ export default class AppModel extends Backbone.NestedModel {
     let message = 'Server error has occured';
 
     if (response.responseJSON) {
-      const { validations, error } = response.responseJSON;
-
-      if (validations) {
-        return this.trigger('validation:invalid', validations);
-      }
+      const { error, validations } = response.responseJSON;
 
       if (error) message = error;
+      if (validations) {
+        message = '';
+
+        Object.keys(validations).forEach((key) => {
+          const obj = key.charAt(0).toUpperCase() + key.slice(1);
+          const error = validations[key];
+
+          message += `${obj} ${error}\n`;
+        });
+
+        this.trigger('validation:invalid', validations);
+      }
     }
 
     App.vent.trigger('notification:show', {
