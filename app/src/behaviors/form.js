@@ -1,8 +1,10 @@
 import 'bootstrap';
 import 'backbone-validation';
 import 'backbone.stickit';
+import _ from 'underscore';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
+import Tooltip from 'helpers/tooltip';
 import { mixin } from 'core-decorators';
 
 @mixin({
@@ -53,17 +55,15 @@ export default class FormBehavior extends Marionette.Behavior {
   }
 
   onValid(view, attr) {
-    const $el = view.$(`[name=${attr}]`);
-    const $group = $el.closest('.form-group');
+    const $el = view.$(`[name='${attr}']`);
 
-    $group.removeClass('has-error').tooltip('destroy');
+    Tooltip.destroy($el);
   }
 
   onInvalid(view, attr, error) {
-    const $el = view.$(`[name=${attr}]`);
-    const $group = $el.closest('.form-group');
+    const $el = view.$(`[name='${attr}']`);
 
-    $group.addClass('has-error').tooltip({
+    Tooltip.add($el, {
       title: error,
       placement: this.options.tooltip.placement,
       trigger: this.options.tooltip.trigger
