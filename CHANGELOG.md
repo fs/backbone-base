@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#159](https://github.com/fs/backbone-base/pull/159))
 - Improve errors handling in the case of server errors. Introduce tooltip helper
 ([#158](https://github.com/fs/backbone-base/pull/158))
 
