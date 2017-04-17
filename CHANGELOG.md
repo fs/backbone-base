@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node to 7.9.x
+([#160](https://github.com/fs/backbone-base/pull/160))
 - Upgrade dependencies
 ([#159](https://github.com/fs/backbone-base/pull/159))
 - Improve errors handling in the case of server errors. Introduce tooltip helper
